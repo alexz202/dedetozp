@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>文档管理</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<script language="javascript" src="../include/js/dedeajax2.js"></script>
+<script language="javascript" src="js/ieemu.js"></script>
+<script language="javascript" src="js/context_menu.js"></script>
+<script language="javascript" src="js/main.js"></script>
+
+</head>
+<body leftmargin="8" topmargin="8" background='images/allbg.gif' onLoad="ContextMenu.intializeContextMenu()">
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr bgcolor="#FFFFFF"><td height="4"></td></tr>
+</table>
+<table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#cfcfcf">
+<tr bgcolor="#E7E7E7">
+<td height="24" colspan="9" background="images/tbg.gif" style="padding-left:10px;">
+</td>
+</tr>
+<form name="form2">
+<tr align="center" bgcolor="#FBFCE2" height="25">
+<td width="26%">出席名单</td>
+<td width="26%">未出席名单</td>
+ <td width="11%">出席人数</td>
+ <td width="11%">未出席人数</td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF"  onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+<td><?php echo join(',',$takelist);?></td>
+<td><?php echo join(',',$notakelist)?></td>
+<td><?php echo count($takelist)?>
+</td>
+<td><?php echo $countnotake?></td>
+<!--<td>{dede:field.typename/}</td>-->
+<!--<td>{dede:field.arcrank function="GetRankName(@me)"/}</td>-->
+<!--<td>{dede:field.click/}</td>-->
+</tr>
+</form>
+<tr align="right" bgcolor="#F9FCEF">
+<td height="20" colspan="9" align="center">
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="4"></td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td height="26">
+
+</td>
+</tr>
+<tr>
+<td colspan="2" height="4"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
