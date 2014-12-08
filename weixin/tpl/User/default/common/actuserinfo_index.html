@@ -1,0 +1,44 @@
+<include file="Public:head_store" />
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+    <div class="cLineB">
+        <h4>活动信息</h4>
+
+    </div>
+
+<table width="100%" class="ListProduct">
+
+    <tr> <th height="37" width="10%">选择</th>
+        <th height="37" width="15%">活动名</th>
+        <th height="37" width="10%">昵称</th>
+        <th height="37" width="10%">性别</th>
+        <th height="37" width="10%">手机号</th>
+        <th height="37" width="10%">人数</th>
+        <th height="37" width="10%">地址</th>
+        <th height="37" width="10%">留言</th>
+        <th height="37" width="10%">操作</th>
+        <!--<th height="37" width="10%">全选</th>-->
+    </tr>
+    <volist name='list' id='vo'>
+        <tr>
+            <td height="37"  align="center" valign="middle"><input type="checkbox" name="checkboxa" value="{weixin:$vo.id}" class='checkboxa' id='ck{weixin:$vo.id}' /></td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.txtTitle}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.txt_RealName}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.sex}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.txt_Phone}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.txt_Number}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.txt_Address}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.txt_Content}</td>
+            <td height="37" align="center" valign="middle" class="lan">&nbsp;&nbsp;<a href=" {weixin::U('actuserinfo/del',array('token'=>$token,'id'=>$vo['id']))}">删除</a></td>
+        </tr>
+    </volist>
+    </table>
+
+    <div class="cLine">
+        <div class="pageNavigator right">
+            <div class="pages">{weixin:$page}</div>
+        </div>
+        <div class="clr"></div>
+    </div>
+     </div>
+
+<include file="Public:footer" />

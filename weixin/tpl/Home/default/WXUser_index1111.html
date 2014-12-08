@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="textml; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <script type="text/javascript" src="__ROOT__/{weixin::RES}/js/jQuery.js"></script>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/{weixin::RES}/bootstrap/css/bootstrap.min.css" media="all" />
+    <style type="text/css">
+        input{
+           border:1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        }
+       input:focus{
+           border: 1px solid #20c920;
+           border-radius: 4px;
+           box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+       }
+
+        </style>
+        <script type="text/javascript" src="__ROOT__/{weixin::RES}/js/jQuery.js"></script>
+    <script type="text/javascript" src="__ROOT__/{weixin::RES}/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var PUBLIC_='__PUBLIC__';
+        var APP_='__APP__';
+        var ROOT_='__ROOT__';
+        $(function(){
+
+        })
+
+
+    </script>
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+        </div>
+    </nav>
+    <form role="form" method="post" action="__ROOT__/index.php?g=Home&m=WXUser&a=index" id="form1">
+    <div style="width: 100%;margin: 0 auto;">
+        <ul class="list-unstyled" style="width:90%;">
+            <input type="hidden" name="sOpenid" value="{weixin:$info.sOpenid}" />
+            <li style="width:100%;clear: both;"><div style="float:left;text-align:right;margin-right:5px;width: 30%"><h4>会员名：</h4></div>
+                <div style="float:left;">
+                 <input type="text" name="username" value="{weixin:$info.username}"/>
+               </div></li>
+            <li style="width:100%;clear: both;"><div style="float:left;text-align:right;margin-right:5px;width: 30%"><h4>手&nbsp;&nbsp;&nbsp;&nbsp;机：</h4></div>
+                <div style="float:left;"><input  type="tel" name="phone" value="{weixin:$info.phone}"/></div></li>
+            <li style="width:100%;clear: both;"><div style="float:left;text-align:right;margin-right:5px;width: 30%"><h4>生&nbsp;&nbsp;&nbsp;&nbsp;日：</h4></div>
+                <div style="float:left;">
+                <input type="number" name="year" value="{weixin:$year}" style="width: 55px"/>年
+                <input type="number" name="month" value="{weixin:$month}" style="width:35px"/>月
+                <input  type="number" name="day" value="{weixin:$day}" style="width: 35px"/>日
+
+            </div></li>
+
+            <li style="width:100%;clear: both;"><div style="float:left;text-align:right;margin-right:5px;width: 30%"><h4>地&nbsp;&nbsp;&nbsp;&nbsp;区：</h4></div><div style="float:left;"><input   type="text" name="address" value="{weixin:$info.address}"/></div></li>
+            <li style="width:100%;clear: both;"><div style="float:left;text-align:right;margin-right:5px;width: 30%">&nbsp;&nbsp;&nbsp;&nbsp;</div><div style="float:left;"><input type="submit" name="submit" value="更新" class="btn btn-primary"/></div></li>
+        </ul>
+    </div>
+</form>
+</div>
+</body>
+</html>

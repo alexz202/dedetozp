@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="textml; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+<link href="{weixin::RES}/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{weixin::RES}/js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript">
+        var PUBLIC_='__PUBLIC__';
+        var APP_='__APP__';
+        var ROOT_='__ROOT__';
+
+//        function addactivity(iAid){
+//
+//            $.ajax({
+//                type:'POST',
+//                url:ROOT_+'/index.php?m=member&a=takeactivity',
+//                data:'iAid='+iAid,
+//                success:function(msg){
+//                    console.log(msg);
+//                    if(msg==false){
+//                        alert('已参加活动');
+//                    }
+//                    // alert(msg);
+//                    // alert(msg);
+//                }
+//            })
+//
+//        }
+    </script>
+</head>
+
+<style>
+#half {
+	text-align:center;
+}
+</style>
+
+<body>
+
+<div>
+
+  <div class="tittle">
+    <div class="tittle_pic"> <img src="{weixin::RES}/images/name.png" width="28" height="22" /> </div>
+    <div class="tittle_txt">门店信息</div>
+  </div>
+
+  <div class="line_blue"></div>
+
+  <div style="height:100px; width:100%;">
+    <!--<div class="pic"><img src="__ROOT__/upload/{$list.iTexture}" width="75" height="75" /></div>-->
+    <div class="txt">
+      <ul>
+        <li>门店名：<span>{$list.sTitle}</span></li>
+        <li>地址：{$list.tStart}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="line_gray"></div>
+
+  <div style="height:100px; width:100%;">
+    <div class="show" >
+      <ul>
+          <!--<volist name="screenshot" id="vo">-->
+        <!--<li id="half"><img src="__ROOT__/upload/{$vo.texture}" width="150" height="90" /></li>-->
+        <!--<li id="half">图片{$key+1}</li>-->
+<!--</volist>-->
+          {$list.sContent}
+        <!--<li id="half"><a href="javascript:addactivity('{$list.id}');"><img src="{weixin::RES}/images/pass.png" width="20" height="16" /> 报名参加</a></li>-->
+        <li >1</li>
+      </ul>
+    </div>
+  </div>
+
+<div class="tool">
+  <div class="line_gray"></div>
+  <div class="tool_left"> 
+    <span style="padding:5px; width:30px; float:left;"><img src="{weixin::RES}/images/back.png" width="20" height="20" /></span>
+    <span style="float:left;"><a href="javascript:history.back();">返回</a></span>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<include file="Public:head_store"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;">
+    <div class="cLineB">
+        <h4>活动信息</h4>
+    </div>
+    <div class="msgWrap bgfc">
+        <form method="post" action="{weixin::U('Activity/insert',array('token'=>$token))}" enctype="multipart/form-data"
+              name="upload" id="upload">
+        <table width="100%" class="userinfoArea">
+            <tr>
+                <td>活动名:</td>
+                <td><input type='text' name='name' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>标题:</td>
+                <td><input type='text' name='title' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>活动描述:</td>
+                <td><textarea name='describe' cols='60' rows='5'
+                              style='width:75%;' class="px"></textarea></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>关键字:</td>
+                <td><input type='text' name='keyword' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right">索引图片:</td>
+                <td>
+                    <input type='file' name="indexpic"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">pic:</td>
+                <td>
+                    <input type='file' name="texture"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">pic1:</td>
+                <td>
+                    <input type='file' name="texture1"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">pic2</td>
+                <td>
+                    <input type='file' name="texture2"/>
+                </td>
+            </tr>
+            <tr>
+                <td>奖励代号:</td>
+                <td><input type='text' name='rewardkey' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>描述信息:</td>
+                <td width="85%"><textarea name='content' cols='60' rows='5'
+                              style='width:75%;' class="px"></textarea></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" align='center' height='50'><input type='submit'
+                                                                  name='提交' /></td>
+            </tr>
+        </table>
+            </form>
+    </div>
+</div>
+<include file="Public:footer"/>

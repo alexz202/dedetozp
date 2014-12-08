@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="textml; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/{weixin::RES}/bootstrap/css/bootstrap.min.css" media="all" />
+    <script type="text/javascript" src="__ROOT__/{weixin::RES}/js/jQuery.js"></script>
+    <script type="text/javascript" src="__ROOT__/{weixin::RES}/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var PUBLIC_='__PUBLIC__';
+        var APP_='__APP__';
+        var ROOT_='__ROOT__';
+        $(function(){
+                 $('#_submit').bind('click',function(){
+                     var username= $('#username').val();
+                    var phone= $('#phone').val();
+                     var openid=$('#openid').val();
+//                     var email=$('#email').val();
+                     var brithday=$('#brithday').val();
+                     var patrn1= /^([0-9]{3,4}-?[0-9]{11}|[0-9]{11})$/;//phone
+                     var patrn2=/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;//moble
+                     var patrn3=/^([0-9]{8})$/;
+                    if(username.length==0){
+                        alert('error username');
+                        return false;
+                    }
+                   else if(!patrn1.test(phone)){
+                        alert('error phone');
+                        return false;
+                    }
+                    else if(!patrn3.test(brithday)){
+                        alert('err brithday');
+                        return false;
+                    }
+//                    else if(!patrn2.test(email)){
+//                        alert('error email');
+//                        return false;
+//                    }
+                    else{
+                       return true;
+                    }
+                 });
+        })
+
+
+    </script>
+</head>
+<body>
+<form role="form" method="post" action="__ROOT__/index.php?g=Home&m=WXUser&a=reg" id="form1">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+        </div>
+    </nav>
+    <div style="width:65%;margin: 0 auto;">
+
+        <div class="form-group" style="width: 100%;">
+            <label for="exampleInputPhone"><h5>名字</h5></label>
+            <input type="hidden" name="openid" value="{weixin:$openid}" id="openid"/> <input type="hidden" name="sName" value="{weixin:$sName}" id="sName"/>
+            <input type="text" class="form-control" id="username" name="username" />
+            <!--<div class="input-group input-group-lg">-->
+                <!--<span class="input-group-addon">@</span>-->
+                <!--<input type="text" class="form-control" placeholder="姓名" id="name" name="name" >-->
+            <!--</div>-->
+
+        </div>
+        <div class="form-group" style="width: 100%;">
+            <label for="exampleInputPhone"><h5>手机(短信验证)</h5></label>
+            <input type="tel" class="form-control" id="phone" name="phone" >
+            <!--<div class="input-group input-group-lg">-->
+                <!--<span class="input-group-addon">手机</span>-->
+                <!--<input type="text" class="form-control" id="phone" name="phone" placeholder="手机"/>-->
+            <!--</div>-->
+        </div>
+        <div class="form-group" style="width: 100%;">
+            <label for="exampleInputEmail1"><h5>生日</h5></label>
+            <div style="clear:both;">
+       <div style="width: 40%;float: left; height: 30px;">
+           <div style="float: left;width: 97%;"><input type="number" class="form-control" id="brithday" placeholder="年" name="brithday" ></div>  <div style="float: left;">/</div>
+       </div>
+                <div style="width: 20%;float: left; height: 30px;">
+                    <div style="float: left;width: 97%;"><input type="number" class="form-control" id="brithday" placeholder="月" name="brithday" ></div>  <div style="float: left;">/</div>
+                </div>
+                <div style="width: 20%;float: left; height: 30px;">
+                    <div style="float: left;width: 97%;"><input type="number" class="form-control" id="brithday" placeholder="日" name="brithday" ></div>  <div style="float: left;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="width: 100%;clear:both;">
+            <label for="exampleInputEmail1"><h5>地区</h5></label>
+            <input type="text" class="form-control" id="address" placeholder="xxx" name="address">
+        </div>
+        <div class="form-group" style="width: 100%;">
+        <button type="submit" class="btn btn-primary" id="_submit">下一步</button>
+        </div>
+    </div>
+
+</form>
+</body>
+</html>
+

@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4cdcc9a3-243f-47e9-b94c-269fb2231da1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tpl/User/default/News_insert.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tpl/User/default/news_insert.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Lib/Action/User/newsAction.class.php" afterPath="$PROJECT_DIR$/app/Lib/Action/User/NewsAction.class.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/tpl/User/default/news_index.html" afterPath="$PROJECT_DIR$/tpl/User/default/News_index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/tpl/User/default/news_update.html" afterPath="$PROJECT_DIR$/tpl/User/default/News_update.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/User/default/Public_head.html" afterPath="$PROJECT_DIR$/tpl/User/default/Public_head.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/User/default/Public_head_store.html" afterPath="$PROJECT_DIR$/tpl/User/default/Public_head_store.html" />
+    </list>
+    <ignored path="weixin.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="weixin" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/lp.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/sl.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/wx.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/yl.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/ypht.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/join.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/nav_join.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/nav_act.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/jointel.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/joinprocess.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/joinfaq.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/joinapply.html" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/User/actuserinfoAction.class.php" />
+        <option value="$PROJECT_DIR$/tpl/User/default/actuserinfo_index.html" />
+        <option value="$PROJECT_DIR$/tpl/Store/newshow_ajax.html" />
+        <option value="$PROJECT_DIR$/tpl/Store/newshow.html" />
+        <option value="$PROJECT_DIR$/tpl/Store/newshow_txt.html" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/Store/storeAction.class.php" />
+        <option value="$PROJECT_DIR$/soap_cls.php" />
+        <option value="$PROJECT_DIR$/testsoap.php" />
+        <option value="$PROJECT_DIR$/tpl/User/default/Activity_index.html" />
+        <option value="$PROJECT_DIR$/conf/Home/config.php" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/Home/MapAction.class.php" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/Home/WXUserAction.class.php" />
+        <option value="$PROJECT_DIR$/conf/info.php" />
+        <option value="$PROJECT_DIR$/tpl/Home/52jscn/WXUser_getCode.html" />
+        <option value="$PROJECT_DIR$/tpl/Home/52jscn/WXUser_index.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/jianyi.html" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/common/css/style.css" />
+        <option value="$PROJECT_DIR$/tpl/User/default/Wxuser_index.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/Diymen_class_add.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/Diymen_class_edit.html" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/User/ActivityAction.class.php" />
+        <option value="$PROJECT_DIR$/tpl/User/default/Activity_update.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/Activity_insert.html" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/jixiang/IndexAction.class.php" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/User/DiymenAction.class.php" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/activity.html" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/Home/WeixinAction.class.php" />
+        <option value="$PROJECT_DIR$/app/Lib/ORG/Wechat.class.php" />
+        <option value="$PROJECT_DIR$/tpl/jixiang/Index/activity1.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/news_update.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/news_index.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/news_insert.html" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/User/newsAction.class.php" />
+        <option value="$PROJECT_DIR$/app/Lib/Action/User/NewsAction.class.php" />
+        <option value="$PROJECT_DIR$/tpl/User/default/News_update.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/News_insert.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/News_index.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/Public_head.html" />
+        <option value="$PROJECT_DIR$/tpl/User/default/Public_head_store.html" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="y" value="27" />
+    <option name="width" value="1368" />
+    <option name="height" value="742" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weixin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="web-ide.project.structure" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="SearchEverywhereHistory" value="" />
+    <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tpl/User/default" />
+      <recent name="$PROJECT_DIR$/app/Lib/Action/User" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/tpl/Store/common" />
+      <recent name="$PROJECT_DIR$/conf" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tpl/store" />
+      <recent name="$PROJECT_DIR$/tpl/jixiang" />
+      <recent name="$PROJECT_DIR$/tpl/jixiang/Index/common" />
+      <recent name="$PROJECT_DIR$/tpl/jixiang/Index" />
+      <recent name="$PROJECT_DIR$/tpl/store/default/Common/css" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4cdcc9a3-243f-47e9-b94c-269fb2231da1" name="Default" comment="" />
+      <created>1413605820672</created>
+      <updated>1413605820672</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="27" width="1368" height="742" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27045456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/common/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="47" selection-start="4936" selection-end="4936" vertical-scroll-proportion="0.33274648" vertical-offset="1116" max-vertical-offset="7695" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/_Core/Lib/Core/App.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="15" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.34742647" vertical-offset="246" max-vertical-offset="3240" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Member_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.33088234" vertical-offset="180" max-vertical-offset="2220" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Wxuser_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="43" selection-start="345" selection-end="389" vertical-scroll-proportion="0.13786764" vertical-offset="90" max-vertical-offset="705" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/_Core/Common/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="239" column="9" selection-start="6798" selection-end="6798" vertical-scroll-proportion="-0.17115384" vertical-offset="3554" max-vertical-offset="9390" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Model/WxuserModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8855535" vertical-offset="472" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Model/ClassifyModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="557" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/BaseAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="24" selection-start="505" selection-end="505" vertical-scroll-proportion="0.4502814" vertical-offset="0" max-vertical-offset="1845" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/_Core/Lib/Core/Model.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="608" column="23" selection-start="19255" selection-end="19255" vertical-scroll-proportion="0.3177738" vertical-offset="8823" max-vertical-offset="22815" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Diymen_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="55" selection-start="364" selection-end="372" vertical-scroll-proportion="-1.351103" vertical-offset="855" max-vertical-offset="1845" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Model/AccessModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Model/ArticleModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Model/Selfform_inputModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="581" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Model/SelfformModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="581" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/User/SelfformAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-8.044118" vertical-offset="4376" max-vertical-offset="4920" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Selfform_inputs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.49632353" vertical-offset="270" max-vertical-offset="855" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Selfform_inputSet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1507353" vertical-offset="626" max-vertical-offset="1710" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Selfform_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.81985295" vertical-offset="446" max-vertical-offset="990" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Selfform_infos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Diyform_set.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.4466913" vertical-offset="1331" max-vertical-offset="1875" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/UserAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/static/kindeditor/plugins/image/image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.9507042" vertical-offset="540" max-vertical-offset="5010" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/static/kindeditor/kindeditor-all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153390" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/static/kindeditor/kindeditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.9507042" vertical-offset="540" max-vertical-offset="89490" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="749" column="9" selection-start="25198" selection-end="25198" vertical-scroll-proportion="0.34709194" vertical-offset="11050" max-vertical-offset="16320" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/User/UpyunAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="387" column="34" selection-start="11402" selection-end="11402" vertical-scroll-proportion="0.36419752" vertical-offset="5628" max-vertical-offset="14580" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Selfform_set.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="68" selection-start="867" selection-end="1385" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1605" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/Index/jianyi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="100" selection-start="8105" selection-end="8105" vertical-scroll-proportion="12.208333" vertical-offset="2633" max-vertical-offset="3495" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/Index/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Diymen_class_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="163" selection-end="163" vertical-scroll-proportion="0.16157989" vertical-offset="45" max-vertical-offset="1305" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Diymen_class_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="72" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.3033088" vertical-offset="405" max-vertical-offset="1320" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Activity_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="50" selection-start="849" selection-end="849" vertical-scroll-proportion="0.44117647" vertical-offset="0" max-vertical-offset="1185" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/jixiang/IndexAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="52" selection-start="1994" selection-end="1994" vertical-scroll-proportion="-16.25" vertical-offset="495" max-vertical-offset="2055" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/Index/nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="43.041668" vertical-offset="1033" max-vertical-offset="1590" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/Index/nav_join.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="44.041668" vertical-offset="1057" max-vertical-offset="1590" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/Index/nav_pdsys.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="44.041668" vertical-offset="1057" max-vertical-offset="1590" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/Index/nav_act.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="12" selection-start="213" selection-end="213" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="1590" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/User/ActivityAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="34" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.20036764" vertical-offset="1391" max-vertical-offset="5205" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/User/DiymenAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="56" selection-start="4692" selection-end="4692" vertical-scroll-proportion="0.4236984" vertical-offset="1759" max-vertical-offset="4185" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/Index/activity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="30" selection-start="405" selection-end="405" vertical-scroll-proportion="0.24816176" vertical-offset="0" max-vertical-offset="2805" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/Home/WeixinAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="63" selection-start="7325" selection-end="7325" vertical-scroll-proportion="0.3290441" vertical-offset="2461" max-vertical-offset="4215" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/ORG/Wechat.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="46" selection-start="377" selection-end="377" vertical-scroll-proportion="-1.7095588" vertical-offset="1125" max-vertical-offset="1725" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/jixiang/Index/activity1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="0" selection-start="3430" selection-end="3430" vertical-scroll-proportion="-1.1041293" vertical-offset="1800" max-vertical-offset="2370" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/User/NewsAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="52" selection-start="3875" selection-end="3875" vertical-scroll-proportion="1.1580882" vertical-offset="1215" max-vertical-offset="4455">
+          <folding>
+            <marker date="1418019118178" expanded="true" signature="-1:-1" placeholder="select count..." />
+            <marker date="1418019118178" expanded="true" signature="-1:-1" placeholder="select * fro..$dbname where..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Activity_insert.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="50" selection-start="705" selection-end="705" vertical-scroll-proportion="-0.6965889" vertical-offset="628" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/News_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="126" selection-start="2505" selection-end="2505" vertical-scroll-proportion="0.58639705" vertical-offset="371" max-vertical-offset="1050">
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/News_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="59" selection-start="1101" selection-end="1101" vertical-scroll-proportion="0.49632353" vertical-offset="45" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/News_insert.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="41" selection-start="2222" selection-end="2224" vertical-scroll-proportion="0.38786766" vertical-offset="479" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/Action/User/StoreAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5355">
+          <folding>
+            <marker date="1413552068433" expanded="true" signature="-1:-1" placeholder="select count..." />
+            <marker date="1413552068433" expanded="true" signature="-1:-1" placeholder="select * fro..$dbname where..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Public_head_store.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="0" selection-start="14262" selection-end="14262" vertical-scroll-proportion="0.6691176" vertical-offset="2786" max-vertical-offset="5970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/User/default/Public_head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="213" column="0" selection-start="14442" selection-end="14803" vertical-scroll-proportion="0.58639705" vertical-offset="2876" max-vertical-offset="6030">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

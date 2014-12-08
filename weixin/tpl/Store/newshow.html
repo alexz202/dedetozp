@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="textml; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+<link href="{weixin::RES}/css/style.css" rel="stylesheet" type="text/css" />
+    <script  type="text/javascript" src="{weixin::RES}/js/jquery-1.6.1.min.js"> </script>
+    <script  type="text/javascript" src="{weixin::RES}/js/jquery.infinitescroll.min.js"> </script>
+    <script type="text/javascript">
+        $(document).ready(function (){               //别忘了加这句，除非你没学Jquery
+            $("#container").infinitescroll({
+                navSelector: "#navigation",     //页面分页元素--成功后自动隐藏
+                nextSelector: "#navigation a",
+                itemSelector: ".scroll " ,
+                animate: true,
+                debug        : true,                                         //用于调试，如果需要用到，只需在网页头引入官网demo里的debug.js文件
+                extraScrollPx: 1,
+                donetext     : "没有数据"
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+
+<div>
+
+  <div class="tittle">
+    <div class="tittle_pic"> <img src="{weixin::RES}/images/newshow.png" width="24" height="24" /> </div>
+    <div class="tittle_txt">附近门店</div>
+  </div>
+  <div class="line_blue"></div>
+ <div id="container">            <!-- 容器 -->
+        <div class="scroll">         <!-- 每次要加载数据的数据块-->
+            <volist name='list' id='vo'>
+                <div style="height:100px; width:100%;">
+                    <!--<div class="pic"><img src="__ROOT__/upload/{$vo.iTexture}" width="75" height="75" /></div>-->
+                    <div class="txt">
+                        <ul>
+                            <li>店名：<span>{weixin:$vo.name}</span></li>
+                            <li>地址：{weixin:$vo.address}</li>
+                            <li>电话：{weixin:$vo.tel}&nbsp;&nbsp;&nbsp;&nbsp;<a href="__ROOT__/index.php?g=Store&m=store&a=one&id={weixin:$vo.id}"><img src="{weixin::RES}/images/pass.png" width="20" height="16" /> 点击详细</a></li>
+                            <!--<li><a href="__ROOT__/index.php?m=activity&a=one&id={weixin::$vo.id}"><img src="{weixin::RES}/images/pass.png" width="20" height="16" /> 点击详细</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="line_gray"></div>
+            </volist>
+
+
+
+
+
+
+</div>
+</div>
+
+
+    <div id="navigation" align="center">         <!-- 页面导航-->
+        <a href='__ROOT__/index.php?g=Store&m=store&a=AjaxGetAllstore&page=2'></a>        <!-- 此处可以是url，可以是action，要注意不是每种html都可以加，是跟当前网页有相同布局的才可以。另外一个重要的地方是page参数，这个一定要加在这里，它的作用是指出当前页面页码，没加载一次数据，page自动+1,我们可以从服务器用request拿到他然后进行后面的分页处理。-->
+    </div>
+
+
+
+    <div style="height:30px;"></div>
+
+  <div class="tool">
+    <div class="line_gray"></div>
+    <div class="tool_left">
+      <span style="padding:5px; width:30px; float:left;"><img src="{weixin::RES}/images/back.png" width="20" height="20" /></span>
+      <span style="float:left;"><a href="javascript:history.back();">返回</a> </span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

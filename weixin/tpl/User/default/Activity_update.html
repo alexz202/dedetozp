@@ -1,0 +1,74 @@
+<include file="Public:head_store"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;">
+    <div class="cLineB">
+        <h4>活动信息</h4>
+    </div>
+    <div class="msgWrap bgfc">
+        <form method="post" action="{weixin::U('Activity/update',array('token'=>$token))}" enctype="multipart/form-data"
+              name="upload" id="upload">
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"  class="userinfoArea">
+            <tr>
+                <td>活动名:<input type='hidden' name='id' value="{weixin:$list.id}"  class="px"/></td>
+                <td><input type='text' name='name' value="{weixin:$list.name}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>标题:</td>
+                <td><input type='text' name='title' value="{weixin:$list.title}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>活动描述:</td>
+                <td><textarea name='describe' cols='60' rows='5'
+                              style='width:75%;' class="px">{weixin:$list.describe}</textarea></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>关键字:</td>
+                <td><input type='text' name='keyword'  value="{weixin:$list.keyword}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>奖励代号:</td>
+                <td><input type='text' name='rewardkey'  value="{weixin:$list.rewardkey}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td align="right">索引图片:</td>
+                <td>
+                    <input type='file' name="indexpic"/><notempty name="list['indexpic']"><a href="uploads/{weixin:$list.indexpic}" target="_blank">浏览</a></notempty>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">pic:</td>
+                <td>
+                    <input type='file' name="texture"/><notempty name="list['logo']"><a href="uploads/{weixin:$list.logo}" target="_blank">浏览</a></notempty>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">pic1:</td>
+                <td>
+                    <input type='file' name="texture1"/><notempty name="list['pic']"><a href="uploads/{weixin:$list.pic}" target="_blank">浏览</a>
+              </notempty>  </td>
+            </tr>
+            <tr>
+                <td align="right">pic2:</td>
+                <td>
+                    <input type='file' name="texture2"/><notempty name="list['pic2']"><a href="uploads/{weixin:$list.pic2}" target="_blank">浏览</a>
+               </notempty> </td>
+            </tr>
+            <tr>
+                <td>描述信息:</td>
+                <td width="85%"><textarea name='content' cols='60' rows='5'
+                              style='width:75%;'  class="px">{weixin:$list.content}</textarea></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" align='center' height='50'><input type='submit'
+                                                                  name='提交'/></td>
+            </tr>
+        </table>
+            </form>
+    </div>
+</div>
+<include file="Public:footer"/>

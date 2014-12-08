@@ -1,0 +1,69 @@
+<include file="Public:head_store"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;">
+    <div class="cLineB">
+        <h4>门店信息</h4>
+    </div>
+    <div class="msgWrap bgfc">
+        <form method="post" action="{weixin::U('Store/update',array('token'=>$token))}" enctype="multipart/form-data"
+              name="upload" id="upload">
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0"  class="userinfoArea">
+            <tr>
+                <td>门店名:<input type='hidden' name='id' value="{weixin:$list.id}"  class="px"/></td>
+                <td><input type='text' name='storename' value="{weixin:$list.name}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>城市:</td>
+                <td><select name='city'  class="px">
+                    <volist name='citylist' id='vo'>
+                        <eq name="list['city']" value='$vo.cname'><option value='{weixin:$vo.cname}'  selected="selected">{weixin:$vo.cname}</option><else/><option value='{weixin:$vo.cname}'>{weixin:$vo.cname}</option></eq>
+                    </volist>
+                </select></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>经度:</td>
+                <td><input type='text' name='lon'  value="{weixin:$list.lon}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>纬度:</td>
+                <td><input type='text' name='lat'  value="{weixin:$list.lat}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <!--<tr>-->
+                <!--<td align="right">LOGO:</td>-->
+                <!--<td>-->
+                    <!--<input type='file' name="texture"/>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <tr>
+                <td>地址:</td>
+                <td><input type='text' name='address' value="{weixin:$list.address}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>电话:</td>
+                <td><input type='text' name='tel' value="{weixin:$list.tel}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>EMAIL:</td>
+                <td><input type='text' name='email' value="{weixin:$list.email}"  class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>门店基本信息:</td>
+                <td width="85%"><textarea name='content' cols='60' rows='5'
+                              style='width:75%;'  class="px">{weixin:$list.content}</textarea></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" align='center' height='50'><input type='submit'
+                                                                  name='提交'/></td>
+            </tr>
+        </table>
+            </form>
+    </div>
+</div>
+<include file="Public:footer"/>

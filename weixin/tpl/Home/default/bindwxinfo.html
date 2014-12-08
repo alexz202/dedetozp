@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="textml; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <script type="text/javascript" src="{weixin::RES}/js/jQuery.js"></script>
+    <script type="text/javascript">
+        var PUBLIC_='__PUBLIC__';
+        var APP_='__APP__';
+        var ROOT_='__ROOT__';
+        $(function(){
+                 $('#_submit').bind('click',function(){
+                    var phone= $('#phone').val();
+                     var openid=$('#openid').val();
+                     var email=$('#email').val();
+                     var patrn1= /^([0-9]{3,4}-?[0-9]{11}|[0-9]{11})$/;//phone
+                     var patrn2=/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;//moble
+
+                    if(!patrn1.test(phone)){
+                        alert('error phone');
+                        return false;
+                    }else if(!patrn2.test(email)){
+                        alert('error email');
+                        return false;
+                    }
+                    else{
+                       return true;
+                    }
+                 });
+        })
+
+
+    </script>
+</head>
+<body>
+<div>
+    <form method="post" action="__URL__/reg" id="form1">
+        <table width="100%">
+            <tr>
+                <td width="25%">手机<input type="hidden" name="openid" value="{$openid}" id="openid"></td>
+                <td width="75%"><input type="text" name="phone" id="phone"></td>
+            </tr>
+            <tr>
+                <td>邮箱</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <!--<tr>-->
+                <!--<td>生日</td>-->
+                <!--<td><input type="text" name="birthday"></td>-->
+            <!--</tr>-->
+            <tr>
+                <td></td>
+                <td><input type="submit" value="提交" id="_submit"/> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

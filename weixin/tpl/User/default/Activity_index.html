@@ -1,0 +1,40 @@
+<include file="Public:head_store" />
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+    <div class="cLineB">
+        <h4>活动信息</h4>
+        <a href="{weixin::U('Activity/insert',array('token'=>$token))}" class="right  btnGreen" style="margin-top:-27px;">添加活动</a>
+    </div>
+
+<table width="100%" class="ListProduct">
+
+    <tr> <th height="37" width="10%">选择1</th>
+        <th height="37" width="10%">编码</th>
+        <th height="37" width="15%">活动名</th>
+        <th height="37" width="10%">关键字</th>
+        <th height="37" width="10%">奖励代号</th>
+        <th height="37" width="10%">备注</th>
+        <th height="37" width="10%">操作</th>
+        <!--<th height="37" width="10%">全选</th>-->
+    </tr>
+    <volist name='list' id='vo'>
+        <tr>
+            <td height="37"  align="center" valign="middle"><input type="checkbox" name="checkboxa" value="{weixin:$vo.id}" class='checkboxa' id='ck{weixin:$vo.id}' /></td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.id}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.name}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.keyword}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.rewardkey}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.content}</td>
+            <td height="37" align="center" valign="middle" class="lan"><a href=" {weixin::U('Activity/update',array('token'=>$token,'id'=>$vo['id']))}">修改</a>&nbsp;&nbsp;<a href=" {weixin::U('User/Activity/del',array('token'=>$token,'id'=>$vo['id']))}">删除</a></td>
+        </tr>
+    </volist>
+    </table>
+
+    <div class="cLine">
+        <div class="pageNavigator right">
+            <div class="pages">{weixin:$page}</div>
+        </div>
+        <div class="clr"></div>
+    </div>
+     </div>
+
+<include file="Public:footer" />

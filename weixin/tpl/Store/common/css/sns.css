@@ -1,0 +1,48 @@
+@charset "utf-8";
+/*===2013-11-24===*/
+/*=====feihu======*/
+/*=====21:42======*/
+
+/*pay*/
+
+.pay {
+	text-align:center;
+	padding-top:20px;
+	float:left;
+	height:30%;
+	width:35%;
+	line-height:30px;
+}
+.pay_txt {
+	height:25%;
+	float:left;
+	line-height:20px;
+	width:65%;
+}
+.pay_logo{
+	text-align:center; 
+	padding-top:10px;
+}
+
+/*sns*/
+.star{padding:5px; width:30px; float:left;}
+.time{padding-top:10px; height:20px;}
+.vchat {
+	text-align:center;
+	padding-top:40px;
+	float:left;
+	height:50%;
+	width:35%;
+	line-height:50px;
+}
+.bt {
+	height:50%;
+	float:left;
+	line-height:50px;
+	width:65%;
+}
+
+/*Ãÿ ‚—’…´*/
+.green{color:#090;}
+.blue{color: #09f;}
+.orange{color:#FF6600;}

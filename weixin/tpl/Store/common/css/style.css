@@ -1,0 +1,122 @@
+@charset "utf-8";
+/*===2013-11-24===*/
+/*=====feihu======*/
+/*=====21:42======*/
+
+/* CSS �������õ���ʽ */
+
+html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	font-size: 12px;
+	background: #fff;
+	margin:0;
+	height:100%
+}
+
+li {
+	list-style-type: none;
+	color:#333;
+
+}
+li span{
+	color:#FF6600;
+	
+}
+li img{
+	vertical-align:middle;
+	
+}
+a {text-decoration:none;}  /*默认超链接样式，如果后边有另外定义其他的超链接样式，适用另外定义的样式*/
+a:link {color: #666666; text-decoration:none;}     /* 未被访问的链接     颜色 */
+a:visited {color: #666666; text-decoration:none;}  /* 已被访问过的链接   颜色 */
+a:hover {color: #666666; text-decoration:none;}    /* 鼠标悬浮在上的链接 颜色 */
+a:active {color: #666666; text-decoration:none;}   /* 鼠标点中激活链接   颜色 *
+/*������ɫ*/
+.line_blue {
+	height:1px;
+	width:100%;
+	background:#0099FF;
+}
+.line_gray {
+	height:1px;
+	width:100%;
+	background:#999999;
+}
+.blue{color:#0099FF}
+.blue a:link {color: #0099FF;text-decoration:none;}     /* 未被访问的链接     颜色 */
+.blue a:visited {color: #0099FF;text-decoration:none;}  /* 已被访问过的链接   颜色 */
+.blue a:hover {color: #0099FF;text-decoration:none;}    /* 鼠标悬浮在上的链接 颜色 */
+.blue a:active {color: #0099FF;text-decoration:none;}   /* 鼠标点中激活链接   颜色 */
+
+.green{color:#009900}
+.green a:link {color: #009900;text-decoration:none;}     /* 未被访问的链接     颜色 */
+.green a:visited {color: #009900;text-decoration:none;}  /* 已被访问过的链接   颜色 */
+.green a:hover {color: #009900;text-decoration:none;}    /* 鼠标悬浮在上的链接 颜色 */
+.green a:active {color: #009900;text-decoration:none;}   /* 鼠标点中激活链接   颜色 */
+
+.orange{color:#FF6600}
+.orange a:link {color: #FF6600;text-decoration:none;}     /* 未被访问的链接     颜色 */
+.orange a:visited {color: #FF6600;text-decoration:none;}  /* 已被访问过的链接   颜色 */
+.orange a:hover {color: #FF6600;text-decoration:none;}    /* 鼠标悬浮在上的链接 颜色 */
+.orange a:active {color: #FF6600;text-decoration:none;}   /* 鼠标点中激活链接   颜色 */
+
+/*����*/
+.tittle {
+height:30px; background:#D2EDFF; line-height:10px;}
+.tittle_pic{
+width:40px; padding-left:20px; padding-top:3px; line-height:10px; float:left;}
+.tittle_txt{
+line-height:30px; color:#0099FF; }
+
+/*����ͼ*/
+.pic {
+	float:left;
+	width:20%;
+	line-height:50px;
+	padding:10px 15px;
+}
+.txt {
+	float:left;
+	line-height:23px;
+	width:70%;
+}
+
+/*�ײ�*/
+.tool {
+	width:100%;
+	height: 30px;
+	position: fixed;
+	line-height:30px;
+	background-color: #D2EDFF;
+	bottom:0px;
+	z-index:9999;
+}
+.tool_left {
+	float:left;
+	width:30%;
+	text-align:center;
+}
+.tool_right {
+	float:left;
+	width:70%;
+	text-align:center;
+}
+.tool_bt{
+	padding:5px; 
+	width:30px; 
+	float:left;
+}
+.left{
+	float:left;
+}
+
+
+.show {
+	
+	float:left;
+	line-height:20px;
+	width:90%;
+}

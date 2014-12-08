@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="textml; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/{weixin::RES}/bootstrap/css/bootstrap.min.css" media="all" />
+    <script type="text/javascript" src="__ROOT__/{weixin::RES}/js/jQuery.js"></script>
+    <script type="text/javascript" src="__ROOT__/{weixin::RES}/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var PUBLIC_='__PUBLIC__';
+        var APP_='__APP__';
+        var ROOT_='__ROOT__';
+        $(function(){
+            var lasttime=0;
+            var InterValObj;
+            var waits=60;
+            var curCount=waits;
+                 $('#resetm').bind('click',function(){
+                var phone= $('#phone').val();
+                     $.ajax({
+                         type:'get',
+                         dataType:'jsonp',
+                         data:'',
+                         jsonp:'callback',
+                         url:'http://180.168.179.50:8081/IFC/SMS/SmsSend.ashx?hl_mobile='+phone,
+                         success:function(msg){
+                             // console.log(msg);
+                             lasttime=nowtimer;
+                         },
+                         timeout:3000
+                     });
+                     $('#resetm').attr("disabled", "true");
+                     InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                 });
+            //timer处理函数
+            function SetRemainTime() {
+                if (curCount == 0) {
+                    window.clearInterval(InterValObj);//停止计时器
+                    $("#resetm").removeAttr("disabled");//启用按钮
+                    $("#resetm").val("重新发送验证码");
+                    curCount=waits;
+                    lasttime=1;
+//                    code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
+                }
+                else {
+                    curCount--;
+                    $("#resetm").val( curCount + "秒后重新发送");
+                }
+            }
+        })(window)
+    </script>
+</head>
+<body>
+<form role="form" method="post" action="__URL__/regadd" id="form1">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:history.back();"><h5>返回</h5></a>
+
+            </div>
+        </div>
+    </nav>
+    <div style="width:90%;margin: 0 auto;">
+        <div class="form-group">
+            <input type="hidden" name="openid" value="{weixin:$openid}" id="openid"/>
+            <input type="hidden" name="sName" value="{weixin:$sName}" id="sName"/>
+            <input type="hidden" class="form-control"  name="birthday" value="{weixin:$birthday}"/>
+            <input type="hidden" class="form-control"  name="username" value="{weixin:$username}"/>
+            <input type="hidden" class="form-control"  name="phone" value="{weixin:$phone}" id="phone"/>
+            <input type="hidden" class="form-control" name="address" value="{weixin:$address}" >
+            <label for="exampleInputEmail1">
+              <div style="float: left;"> <h5>短信验证&nbsp;&nbsp;</h5></div> <div style="float: left;"><input type="button" name="获取验证码" value="获取验证码" id="resetm"/></div>
+            </label>&nbsp;&nbsp;<span id="msg"></span>
+            <input type="number" class="form-control" id="sInvCode" placeholder="请输入验证码" name="sInvCode" style="height: 30px;">
+        </div>
+
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="_submit">提交</button>
+        </div>
+    </div>
+
+</form>
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+<include file="Public:head_store"/>
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;">
+    <div class="cLineB">
+        <h4>门店信息</h4>
+    </div>
+    <div class="msgWrap bgfc">
+        <form method="post" action="{weixin::U('Store/insert',array('token'=>$token))}" enctype="multipart/form-data"
+              name="upload" id="upload">
+        <table width="100%" class="userinfoArea">
+            <tr>
+                <td>门店名:</td>
+                <td><input type='text' name='storename' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>城市:</td>
+                <td><select name='city' class="px">
+                    <volist name='citylist' id='vo'>
+                        <option value='{weixin:$vo.cname}'>{weixin:$vo.cname}</option>
+                    </volist>
+                </select></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>经度:</td>
+                <td><input type='text' name='lon' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>纬度:</td>
+                <td><input type='text' name='lat' class="px"/></td>
+                <td></td>
+            </tr>
+            <!--<tr>-->
+                <!--<td align="right">LOGO:</td>-->
+                <!--<td>-->
+                    <!--<input type='file' name="texture"/>-->
+                    <!--&lt;!&;<input type="text" id="input1" class='pic_text'>-->
+        <!--<input name="button" type="button" id="btn1" onclick="texture.click();" value="选择图片" class="btn1"/>-->
+        <!--<input type="file" id="texture" onchange="input1.value=this.value" style="display:none" name='texture' class='filebtn'>&ndash;&gt;-->
+                <!--</td>-->
+            <!--</tr>-->
+            <tr>
+                <td>地址:</td>
+                <td><input type='text' name='address' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>电话:</td>
+                <td><input type='text' name='tel' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>EMAIL:</td>
+                <td><input type='text' name='email' class="px"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>门店基本信息:</td>
+                <td width="85%"><textarea name='content' cols='60' rows='5'
+                              style='width:75%;' class="px"></textarea></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" align='center' height='50'><input type='submit'
+                                                                  name='提交' /></td>
+            </tr>
+        </table>
+            </form>
+    </div>
+</div>
+<include file="Public:footer"/>

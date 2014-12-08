@@ -1,0 +1,18 @@
+
+<div class="scroll">         <!-- 每次要加载数据的数据块-->
+    <volist name='list' id='vo'>
+        <div style="height:100px; width:100%;">
+            <!--<div class="pic"><img src="__ROOT__/upload/{$vo.iTexture}" width="75" height="75" /></div>-->
+            <div class="txt">
+                <ul>
+                    <li>店名：<span>{weixin:$vo.name}</span></li>
+                    <li>地址：{weixin:$vo.address}</li>
+                    <li>电话：{weixin:$vo.tel}&nbsp;&nbsp;&nbsp;&nbsp;<a href="__ROOT__/index.php?g=Store&m=store&a=one&id={weixin:$vo.id}"><img src="{weixin::RES}/images/pass.png" width="20" height="16" /> 点击详细</a></li>
+                    <!--<li><a href="__ROOT__/index.php?m=activity&a=one&id={weixin::$vo.id}"><img src="{weixin::RES}/images/pass.png" width="20" height="16" /> 点击详细</a></li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="line_gray"></div>
+    </volist>
+    </div>
+

@@ -1,0 +1,42 @@
+<include file="Public:head_store" />
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >
+    <div class="cLineB">
+        <h4>微信用户</h4>
+
+    </div>
+
+<table width="100%" class="ListProduct">
+
+    <tr> <th height="37" width="10%">选择</th>
+        <th height="37" width="15%">OPENID</th>
+        <th height="37" width="10%">昵称</th>
+        <th height="37" width="10%">手机号</th>
+        <th height="37" width="10%">生日</th>
+        <th height="37" width="10%">地区</th>
+        <th height="37" width="10%">注册时间</th>
+        <th height="37" width="10%">操作</th>
+        <!--<th height="37" width="10%">全选</th>-->
+    </tr>
+    <volist name='list' id='vo'>
+        <tr>
+            <td height="37"  align="center" valign="middle"><input type="checkbox" name="checkboxa" value="{weixin:$vo.id}" class='checkboxa' id='ck{weixin:$vo.id}' /></td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.sOpenid}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.sName}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.phone}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.birthday}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.address}</td>
+            <td height="37" align="center" valign="middle">{weixin:$vo.tCreate}</td>
+            <td height="37" align="center" valign="middle" class="lan">&nbsp;&nbsp;<a href=" {weixin::U('Wxuser/del',array('token'=>$token,'id'=>$vo['id']))}">删除</a></td>
+        </tr>
+    </volist>
+    </table>
+
+    <div class="cLine">
+        <div class="pageNavigator right">
+            <div class="pages">{weixin:$page}</div>
+        </div>
+        <div class="clr"></div>
+    </div>
+     </div>
+
+<include file="Public:footer" />
