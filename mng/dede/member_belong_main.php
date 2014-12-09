@@ -17,7 +17,7 @@ require_once(DEDEINC."/datalistcp.class.php");
 
 if(!isset($keyword)) $keyword = '';
 else $keyword = trim(FilterSearch($keyword));
-$sortkey=' type ';
+$sortkey=' type asc,id asc';
 if(!empty($keyword))
 $wheres[] = " (name LIKE '%$keyword%') ";
 
@@ -26,7 +26,7 @@ if($whereSql!='')
 {
     $whereSql = ' WHERE '.$whereSql;
 }
-$sql  = "SELECT * FROM `#@__member_belong` $whereSql ORDER BY $sortkey DESC ";
+$sql  = "SELECT * FROM `#@__member_belong` $whereSql ORDER BY $sortkey  ";
 $dlist = new DataListCP();
 //$dlist->SetParameter('keyword',$keyword);
 $dlist->SetTemplet(DEDEADMIN."/templets/member_belong_main.htm");

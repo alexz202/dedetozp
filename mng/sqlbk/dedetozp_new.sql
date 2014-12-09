@@ -3,15 +3,13 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2014-12-07 17:06:08
+-- Generation Time: 2014-12-09 21:41:19
 -- 服务器版本： 5.5.37-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-create database if not exists dedetozp;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,13 +35,6 @@ CREATE TABLE IF NOT EXISTS `tp_addonarticle` (
   `userip` char(15) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `tp_addonarticle`
---
-
-INSERT INTO `tp_addonarticle` (`aid`, `typeid`, `body`, `redirecturl`, `templet`, `userip`) VALUES
-(109, 2, '范德萨发送 &nbsp;&nbsp;<img alt="sad" height="20" src="http://localhost/DedeCMS/uploads/include/ckeditor/plugins/smiley/images/sad_smile.gif" title="sad" width="20" />111', '', '', '127.0.0.1');
-
 -- --------------------------------------------------------
 
 --
@@ -66,20 +57,6 @@ CREATE TABLE IF NOT EXISTS `tp_addonimages` (
   `redirecturl` varchar(255) NOT NULL DEFAULT '',
   `body` mediumtext
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `tp_addonimages`
---
-
-INSERT INTO `tp_addonimages` (`aid`, `typeid`, `pagestyle`, `maxwidth`, `imgurls`, `row`, `col`, `isrm`, `ddmaxwidth`, `pagepicnum`, `templet`, `userip`, `redirecturl`, `body`) VALUES
-(88, 6, 2, 800, '{dede:pagestyle maxwidth=''800'' pagepicnum=''12'' ddmaxwidth=''200'' row=''3'' col=''4'' value=''2''/}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40556.jpg'' text=''古镇建筑'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40556.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40557.jpg'' text=''好大的花啊'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40557.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40558.jpg'' text=''美丽的风景尽收眼底'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40558.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40559.jpg'' text=''美丽的风景尽收眼底'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40559.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40600.jpg'' text=''美丽的风景尽收眼底'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G40600.jpg {/dede:img}\r\n', 3, 4, 1, 200, 12, '', '127.0.0.1', '', ''),
-(89, 6, 2, 800, '{dede:pagestyle maxwidth=''800'' pagepicnum=''12'' ddmaxwidth=''200'' row=''3'' col=''4'' value=''2''/}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42130.jpg'' text=''流连忘返的香樟大道'' width=''640'' height=''480''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42130.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42131.jpg'' text=''流连忘返的香樟大道'' width=''640'' height=''480''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42131.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42132.jpg'' text=''流连忘返的香樟大道'' width=''640'' height=''480''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42132.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42133.jpg'' text=''流连忘返的香樟大道'' width=''640'' height=''480''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42133.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42134.jpg'' text=''流连忘返的香樟大道'' width=''640'' height=''480''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42134.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42135.jpg'' text=''流连忘返的香樟大道'' width=''640'' height=''480''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G42135.jpg {/dede:img}\r\n', 3, 4, 1, 200, 12, '', '127.0.0.1', '', '<p>流连忘返的香樟大道</p>'),
-(90, 6, 2, 800, '{dede:pagestyle maxwidth=''800'' pagepicnum=''12'' ddmaxwidth=''200'' row=''3'' col=''4'' value=''2''/}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43432.jpg'' text=''农家小院丝瓜架下'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43432.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43433.jpg'' text=''农家小院丝瓜架下'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43433.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43434.jpg'' text=''农家小院丝瓜架下'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43434.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43435.jpg'' text=''农家小院丝瓜架下'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43435.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43436.jpg'' text=''农家小院丝瓜架下'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G43436.jpg {/dede:img}\r\n', 3, 4, 1, 200, 12, '', '127.0.0.1', '', '<p>农家小院丝瓜架下</p>'),
-(91, 6, 2, 800, '{dede:pagestyle maxwidth=''800'' pagepicnum=''12'' ddmaxwidth=''200'' row=''3'' col=''4'' value=''2''/}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G44302.jpg'' text=''DedeCMS产品相关截图'' width=''800'' height=''506''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G44302.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G44303.jpg'' text=''DedeCMS产品相关截图'' width=''800'' height=''519''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G44303.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G44304.jpg'' text=''DedeCMS产品相关截图'' width=''800'' height=''463''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G44304.jpg {/dede:img}\r\n', 3, 4, 1, 200, 12, '', '127.0.0.1', '', '<p>DedeCMS产品相关截图</p>'),
-(93, 6, 2, 800, '{dede:pagestyle maxwidth=''800'' pagepicnum=''12'' ddmaxwidth=''200'' row=''3'' col=''4'' value=''2''/}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50111.jpg'' text=''海岛风光'' width=''670'' height=''502''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50111.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50112.jpg'' text=''海岛风光'' width=''670'' height=''502''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50112.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50113.jpg'' text=''海岛风光'' width=''670'' height=''502''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50113.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50114.jpg'' text=''海岛风光'' width=''670'' height=''502''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50114.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50115.jpg'' text=''海岛风光'' width=''670'' height=''448''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G50115.jpg {/dede:img}\r\n', 3, 4, 1, 200, 12, '', '127.0.0.1', '', '<p>海岛风光</p>'),
-(94, 6, 2, 800, '{dede:pagestyle maxwidth=''800'' pagepicnum=''12'' ddmaxwidth=''200'' row=''3'' col=''4'' value=''2''/}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51624.jpg'' text=''武夷山的美景真是不错'' width=''800'' height=''513''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51624.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51625.jpg'' text=''武夷山的美景真是不错'' width=''800'' height=''500''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51625.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51626.jpg'' text=''武夷山的美景真是不错'' width=''800'' height=''513''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51626.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51627.jpg'' text=''武夷山的美景真是不错'' width=''798'' height=''499''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51627.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51628.jpg'' text=''武夷山的美景真是不错'' width=''800'' height=''501''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51628.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51629.jpg'' text=''武夷山的美景真是不错'' width=''800'' height=''511''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G51629.jpg {/dede:img}\r\n', 3, 4, 1, 200, 12, '', '127.0.0.1', '', '<p>武夷山的美景真是不错</p>'),
-(95, 6, 2, 800, '{dede:pagestyle maxwidth=''800'' pagepicnum=''12'' ddmaxwidth=''200'' row=''3'' col=''4'' value=''2''/}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G52636.jpg'' text=''原创风景图片'' width=''640'' height=''480''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G52636.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G52637.jpg'' text=''原创风景图片'' width=''640'' height=''480''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G52637.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G52638.jpg'' text=''原创风景图片'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G52638.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G52639.jpg'' text=''原创风景图片'' width=''800'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G52639.jpg {/dede:img}\r\n', 3, 4, 1, 200, 12, '', '127.0.0.1', '', '<p>原创风景图片</p>'),
-(96, 6, 2, 800, '{dede:pagestyle maxwidth=''800'' pagepicnum=''12'' ddmaxwidth=''200'' row=''3'' col=''4'' value=''2''/}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53038.jpg'' text=''花的照片'' width=''670'' height=''502''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53038.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53039.jpg'' text=''花的照片'' width=''449'' height=''600''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53039.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53040.jpg'' text=''花的照片'' width=''670'' height=''502''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53040.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53041.jpg'' text=''花的照片'' width=''670'' height=''502''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53041.jpg {/dede:img}\r\n{dede:img ddimg=''http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53041-50.jpg'' text=''花的照片'' width=''670'' height=''502''} http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53041-50.jpg {/dede:img}\r\n', 3, 4, 1, 200, 12, '', '127.0.0.1', '', '<p>我的眼界-一些关于花的照片</p>');
 
 -- --------------------------------------------------------
 
@@ -110,7 +87,8 @@ CREATE TABLE IF NOT EXISTS `tp_addoninfos` (
   `tel` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL DEFAULT '',
   `address` varchar(100) NOT NULL DEFAULT '',
-  `linkman` varchar(50) NOT NULL DEFAULT ''
+  `linkman` varchar(50) NOT NULL DEFAULT '',
+  `attendlist` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -134,20 +112,6 @@ CREATE TABLE IF NOT EXISTS `tp_addonshop` (
   `infotype` char(20) NOT NULL DEFAULT '0',
   `uptime` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `tp_addonshop`
---
-
-INSERT INTO `tp_addonshop` (`aid`, `typeid`, `body`, `price`, `trueprice`, `brand`, `units`, `templet`, `userip`, `redirecturl`, `vocation`, `infotype`, `uptime`) VALUES
-(82, 8, '<table class="table" border="0" cellspacing="1" cellpadding="0" width="650" bgcolor="#cccccc" align="center">\r\n    <thead>\r\n        <tr>\r\n            <th bgcolor="#ffffff" width="85%"><strong>服务说明</strong></th>\r\n            <th bgcolor="#ffffff" width="15%"><strong>基础型服务</strong></th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="通过发E-mail到技术支持信箱获得技术支持，工作日8:30-16:00时2小时内响应" jquery1270609304141="2">E-mail 支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="23">通过发E-mail到技术支持信箱获得技术支持，工作日8:30-16:00时2小时内响应</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="19">通过发E-mail到技术支持信箱获得技术支持，工作日8:30-16:00时2小时内响应</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="12">通过发E-mail到技术支持信箱获得技术支持，工作日8:30-16:00时2小时内响应</div>\r\n            </td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="登陆官方论坛(bbs.DedeCMS.com)商业用户支持区以发帖的形式获得技术支持，工作日9:00-16:30时1小时内响应，周末10:00-15:30时2小时内响应" jquery1270609304141="3">网站客服中心支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="26">登陆官方论坛(bbs.DedeCMS.com)商业用户支持区以发帖的形式获得技术支持，工作日9:00-16:30时1小时内响应，周末10:00-15:30时2小时内响应</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="20">登陆官方论坛(bbs.DedeCMS.com)商业用户支持区以发帖的形式获得技术支持，工作日9:00-16:30时1小时内响应，周末10:00-15:30时2小时内响应</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="18">登陆官方论坛(bbs.DedeCMS.com)商业用户支持区以发帖的形式获得技术支持，工作日9:00-16:30时1小时内响应，周末10:00-15:30时2小时内响应</div>\r\n            </td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="每周5个工作日(9:00-17:00)" jquery1270609304141="4">QQ/MSN 支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="25">每周5个工作日(9:00-17:00)</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="22">每周5个工作日(9:00-17:00)</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="17">每周5个工作日(9:00-17:00)</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="16">每周5个工作日(9:00-17:00)</div>\r\n            </td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="每周5个工作日(9:00-17:00)" jquery1270609304141="5">电话支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="24">每周5个工作日(9:00-17:00)</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="21">每周5个工作日(9:00-17:00)</div>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="15">每周5个工作日(9:00-17:00)</div>\r\n            </td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序BUG反馈</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">软件安装指导</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序升级指导</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">代升级服务</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网站会员整合</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="转换数据库限定在300M以内，超出大小按600元/100M计算。" jquery1270609304141="6">程序数据转换 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="14">转换数据库限定在300M以内，超出大小按600元/100M计算。</div>\r\n            </td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在300M以内，超出大小按800元/100M计算。" jquery1270609304141="7">数据库修复 [?]</label></td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">站点目录权限配置</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在1024M以内，超出大小按600元/100M计算。" jquery1270609304141="8">数据库校验、优化 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="13">数据库限定在1024M以内，超出大小按600元/100M计算。</div>\r\n            </td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">FTP配置安装</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">软件所需环境安装</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网站迁移服务</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库安全备份</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">运行环境优化</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">服务器代维护</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">模板制作技术咨询</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在1024M以内，超出大小按1200元/100M计算。" jquery1270609304141="9">数据库灾难修复 [?]</label></td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库迁移</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库字符集转换</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网络及系统安全防护策略</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">系统负载优化</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">二次开发技术咨询</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">WEB 负载均衡</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序代码优化</td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="只提供到我司的人员培训（16小时），培训时间从上门开始计算" jquery1270609304141="10">企业培训 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270609304141="27">只提供到我司的人员培训（16小时），培训时间从上门开始计算</div>\r\n            </td>\r\n            <td class="td7" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6"><strong><font color="#999999">其他说明</font></strong></th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">服务网站数量</td>\r\n            <td class="td7" bgcolor="#ffffff">1个</td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">技术支持年限</td>\r\n            <td class="td7" bgcolor="#ffffff">1年</td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6"><strong><font color="#999999">套餐价格 (注：所有服务不含硬件相关费用，不含第三方软件授权费用，不含差旅费用。)</font></strong></th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="可批量团购授权，享受批量授权价，请联系QQ839801978" jquery1270609304141="11">套餐价格 [?]</label></td>\r\n            <td class="td7" bgcolor="#ffffff">3200 RMB</td>\r\n        </tr>\r\n    </tbody>\r\n</table>', 3200, 3200, '织梦', '套', '', '127.0.0.1', '', '0', '0', 0),
-(83, 8, '<table class="table" border="0" cellspacing="1" cellpadding="0" width="650" bgcolor="#cccccc" align="center">\r\n    <thead>\r\n        <tr>\r\n            <th bgcolor="#ffffff" width="60%"><strong>服务说明</strong></th>\r\n            <th bgcolor="#ffffff" width="40%"><strong>高级型服务</strong></th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="通过发E-mail到技术支持信箱获得技术支持，工作日8:30-16:00时2小时内响应" jquery1270610817859="2">E-mail 支持 [?]</label></td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="登陆官方论坛(bbs.DedeCMS.com)商业用户支持区以发帖的形式获得技术支持，工作日9:00-16:30时1小时内响应，周末10:00-15:30时2小时内响应" jquery1270610817859="3">网站客服中心支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="16">登陆官方论坛(bbs.DedeCMS.com)商业用户支持区以发帖的形式获得技术支持，工作日9:00-16:30时1小时内响应，周末10:00-15:30时2小时内响应</div>\r\n            </td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="每周5个工作日(9:00-17:00)" jquery1270610817859="4">QQ/MSN 支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="15">每周5个工作日(9:00-17:00)</div>\r\n            </td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="每周5个工作日(9:00-17:00)" jquery1270610817859="5">电话支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="14">每周5个工作日(9:00-17:00)</div>\r\n            </td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序BUG反馈</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">软件安装指导</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">不限</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序升级指导</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">不限</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">代升级服务</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网站会员整合</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="转换数据库限定在300M以内，超出大小按600元/100M计算。" jquery1270610817859="6">程序数据转换 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="12">转换数据库限定在300M以内，超出大小按600元/100M计算。</div>\r\n            </td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在300M以内，超出大小按800元/100M计算。" jquery1270610817859="7">数据库修复 [?]</label></td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">站点目录权限配置</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在1024M以内，超出大小按600元/100M计算。" jquery1270610817859="8">数据库校验、优化 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="13">数据库限定在1024M以内，超出大小按600元/100M计算。</div>\r\n            </td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">FTP配置安装</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">软件所需环境安装</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网站迁移服务</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库安全备份</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">运行环境优化</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">服务器代维护</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">模板制作技术咨询</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">≤2次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在1024M以内，超出大小按1200元/100M计算。" jquery1270610817859="9">数据库灾难修复 [?]</label></td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库迁移</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库字符集转换</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网络及系统安全防护策略</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">系统负载优化</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">二次开发技术咨询</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">WEB 负载均衡</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序代码优化</td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="只提供到我司的人员培训（16小时），培训时间从上门开始计算" jquery1270610817859="10">企业培训 [?]</label></td>\r\n            <td class="td9" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6"><strong><font color="#999999">其他说明</font></strong></th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">服务网站数量</td>\r\n            <td class="td9" bgcolor="#ffffff">1个</td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">技术支持年限</td>\r\n            <td class="td9" bgcolor="#ffffff">1年</td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6"><strong><font color="#999999">套餐价格 (注：所有服务不含硬件相关费用，不含第三方软件授权费用，不含差旅费用。)</font></strong></th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="可批量团购授权，享受批量授权价，请联系QQ839801978" jquery1270610817859="11">套餐价格 [?]</label></td>\r\n            <td class="td9" bgcolor="#ffffff">98000 RMB</td>\r\n        </tr>\r\n    </tbody>\r\n</table>', 98000, 98000, '织梦', '套', '', '127.0.0.1', '', '0', '0', 0),
-(84, 8, '<table class="table" border="0" cellspacing="1" cellpadding="0" width="650" bgcolor="#cccccc" align="center">\r\n    <thead>\r\n        <tr>\r\n            <th bgcolor="#ffffff" width="60%"><strong>服务说明</strong></th>\r\n            <th bgcolor="#ffffff" width="40%"><strong>标准型服务</strong></th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="通过发E-mail到技术支持信箱获得技术支持，工作日8:30-16:00时2小时内响应" jquery1270610817859="2">E-mail 支持 [?]</label></td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="登陆官方论坛(bbs.DedeCMS.com)商业用户支持区以发帖的形式获得技术支持，工作日9:00-16:30时1小时内响应，周末10:00-15:30时2小时内响应" jquery1270610817859="3">网站客服中心支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="16">登陆官方论坛(bbs.DedeCMS.com)商业用户支持区以发帖的形式获得技术支持，工作日9:00-16:30时1小时内响应，周末10:00-15:30时2小时内响应</div>\r\n            </td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="每周5个工作日(9:00-17:00)" jquery1270610817859="4">QQ/MSN 支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="15">每周5个工作日(9:00-17:00)</div>\r\n            </td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="每周5个工作日(9:00-17:00)" jquery1270610817859="5">电话支持 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="14">每周5个工作日(9:00-17:00)</div>\r\n            </td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序BUG反馈</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">软件安装指导</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序升级指导</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">代升级服务</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网站会员整合</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="转换数据库限定在300M以内，超出大小按600元/100M计算。" jquery1270610817859="6">程序数据转换 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="12">转换数据库限定在300M以内，超出大小按600元/100M计算。</div>\r\n            </td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在300M以内，超出大小按800元/100M计算。" jquery1270610817859="7">数据库修复 [?]</label></td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">站点目录权限配置</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在1024M以内，超出大小按600元/100M计算。" jquery1270610817859="8">数据库校验、优化 [?]</label>\r\n            <div style="display: none" class="altspan" oldblock="block" jquery1270610817859="13">数据库限定在1024M以内，超出大小按600元/100M计算。</div>\r\n            </td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">FTP配置安装</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">软件所需环境安装</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网站迁移服务</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库安全备份</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">运行环境优化</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">服务器代维护</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">模板制作技术咨询</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">1次</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="数据库限定在1024M以内，超出大小按1200元/100M计算。" jquery1270610817859="9">数据库灾难修复 [?]</label></td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库迁移</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">数据库字符集转换</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">网络及系统安全防护策略</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">系统负载优化</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">二次开发技术咨询</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">WEB 负载均衡</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">程序代码优化</td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="只提供到我司的人员培训（16小时），培训时间从上门开始计算" jquery1270610817859="10">企业培训 [?]</label></td>\r\n            <td class="td8" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6"><strong><font color="#999999">其他说明</font></strong></th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">服务网站数量</td>\r\n            <td class="td8" bgcolor="#ffffff">1个</td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">技术支持年限</td>\r\n            <td class="td8" bgcolor="#ffffff">1年</td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="6"><strong><font color="#999999">套餐价格 (注：所有服务不含硬件相关费用，不含第三方软件授权费用，不含差旅费用。)</font></strong></th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="可批量团购授权，享受批量授权价，请联系QQ839801978" jquery1270610817859="11">套餐价格 [?]</label></td>\r\n            <td class="td8" bgcolor="#ffffff">35000 RMB</td>\r\n        </tr>\r\n    </tbody>\r\n</table>', 35000, 35000, '织梦', '套', '', '127.0.0.1', '', '0', '0', 0),
-(85, 8, '<dl><dt><strong>·模板定制：</strong><br />\r\n鉴于每个站点需要不同的个性化界面，DedeCMS 提供在本系统的模板定制服务，有定制需求的客户，欢迎联系定制。<br />\r\n定制流程<br />\r\n<strong>1、客户提出需求</strong><br />\r\n客户通过电子邮件、电话、即时通讯工具等方式向公司提出网站建设的基本需求，包括：网站风格、项目说明、网站基本功能需求、设计基本要求等，并提供详细的模板定制需求书。 <br />\r\n<strong>2、提供方案及报价</strong><br />\r\n公司根据提供用户提供的模板定制需求书，报价供客户参考。经双方交流与磋商，确定具体网站建设方案及费用。 <br />\r\n<strong>3、签订模板定制协议，客户支付款项</strong><br />\r\n双方签订《模板定制协议》（可选），客户支付款项。客户通过电子邮件、电话、论坛、QQ聊天等方式提供网站建设相关的内容资料，包括文字及图片等（文字：文本文档或Word文档；图片：jpg格式）。 <br />\r\n<strong>4、模板的审核与确认</strong><br />\r\n根据网站建设方案提供网站设计初稿，包括首页、栏目页等页面模板的设计。设计初稿经客户修订、审核后，确认整体网站风格及色调，转换成客户认可的设计正式稿。每一个设计正式稿均由客户确认无误后，再进行输出设计正式稿的模板输出工作。 <br />\r\n<strong>5、网站测试，客户上网验收</strong><br />\r\n所有网站模板文件上传至公司测试服务器，客户上网浏览并验收。验收项目包括：页面效果是否真实还原设定稿、各链接是否准确有效、文字内容是否正确（以客户提供的电子文档为准）、功能模块运行是否正常。验收合格后，客户签发《模板验收合格书》。 <br />\r\n<strong>6、网站建设过程结束</strong><br />\r\n客户签发《模板验收合格书》后，将所有网站文件递交客户；或应客户要求，将网站直接上传至客户服务器上。至此，网站建设过程全部结束。客户如需公司为其进行网站建设后的日常更新和维护工作，需另外与公司签订《网站更新维护协议》。 <br />\r\n模板定制价格</dt></dl>\r\n<div class="proadd_text4"><!--增值服务内容开始--><dl><dd><img alt="" src="http://www.dedecms.com/demoimg/uploads/allimg/100407/11414L462-0.jpg" /></dd></dl><dl></dl></div>\r\n<p><strong>·联系方式</strong><br />\r\nTel：021-37788569<br />\r\nQQ：18387919</p>', 2000, 2000, '织梦', '套', '', '127.0.0.1', '', '0', '0', 0),
-(86, 8, '<p>鉴于不同站点有不同的实际具体功能需求，为了让更多的用户体验DedeCMS的强大易用功能，DedeCMS提供在本系统基础上进行的功能定制服务，对于有定制需求的客户，欢迎联系定制。<br />\r\n<strong>定制流程</strong><br />\r\n公司拥有着国内最为优秀的互联网应用软件开发团队，经验丰富、高学历、年轻化、富于创新，不断创造着新的互联网奇迹。公司本着为用户创造价值的理念，提供互联网解决方案的实施服务。 <br />\r\n<strong>一：客户提要求</strong><br />\r\n定制客户通过E-mail、电话、QQ/MSN等联系方式向公司提出定制开发基本需求，确定好开发的基本功能和详细实现过程(提供详细的定制开发需求书)。 <br />\r\n<strong>二：报价及确定方案</strong><br />\r\nDedeCMS根据用户的定制开发需求书双方进行沟通，确定开发定制具体内容，时间，并确定最终费用。定制项目开发美工成本以人均工作日计算。 <br />\r\n<strong>三：签订协议，支付款项</strong><br />\r\n双方签订《DedeCMS功能定制协议》[可选] ，客户支付款项。相关技术人员与客户通过QQ聊天、MSN、电子邮件、电话、论坛等方式进行交流。 <br />\r\n<strong>四：功能测试验收</strong><br />\r\n双方共同对二次开发项目进行测试并验收。验收要求：二次开发项目中的功能模块运行正常。验收合格后，客户签发《定制项目开发验收合格书》。 <br />\r\n<strong>五：客户支付余款，定制服务结束</strong><br />\r\n客户根据《DedeCMS功能定制协议》签发《定制项目开发验收合格书》后，将功能文件发给用户。至此，DedeCMS定制开发项目全部完成。 <br />\r\n<strong>六：技术支持</strong><br />\r\nDedeCMS定制开发项目全部完成后进入产品技术支持期，可为客户提供专业的VIP技术服务[可选，单独收费]。</p>', 0, 0, '织梦', '套', '', '127.0.0.1', '', '0', '0', 0),
-(87, 8, '<table class="table" border="0" cellspacing="1" cellpadding="0" bgcolor="#cccccc" align="center">\r\n    <thead>\r\n        <tr>\r\n            <th bgcolor="#ffffff"><strong>授权说明</strong></th>\r\n            <th bgcolor="#ffffff"><strong>免费</strong></th>\r\n            <th bgcolor="#ffffff"><strong>商业授权</strong></th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">用户定义</td>\r\n            <td class="td2" bgcolor="#ffffff">个人非盈利</td>\r\n            <td class="td4" bgcolor="#ffffff">企、事业</td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">去除前台版权信息</td>\r\n            <td class="td2" bgcolor="#ffffff"><strong class="ico_wor"><font color="#ff9933">×</font></strong></td>\r\n            <td class="td4" bgcolor="#ffffff"><strong class="ico_rig"><font color="#339900" size="3">√</font></strong></td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="9">&nbsp;</th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">软件使用年限</td>\r\n            <td class="td2" bgcolor="#ffffff">无限制</td>\r\n            <td class="td4" bgcolor="#ffffff">无限制</td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">软件升级年限</td>\r\n            <td class="td2" bgcolor="#ffffff">无限制</td>\r\n            <td class="td4" bgcolor="#ffffff">无限制</td>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff">服务网站数量</td>\r\n            <td class="td2" bgcolor="#ffffff">无限制</td>\r\n            <td class="td4" bgcolor="#ffffff">1个</td>\r\n        </tr>\r\n        <tr>\r\n            <th bgcolor="#ffffff" colspan="9"><strong><font color="#999999">服务价格 (注：所有服务不含硬件相关费用，不含第三方软件授权费用，不含差旅费用。)</font></strong></th>\r\n        </tr>\r\n        <tr>\r\n            <td class="td1" bgcolor="#ffffff"><label class="poptext" date="可批量团购授权，享受批量授权价，请联系QQ200135" jquery1270611813099="2">授权价格 [?]</label></td>\r\n            <td class="td2" bgcolor="#ffffff">免费</td>\r\n            <td class="td4" bgcolor="#ffffff">3000 RMB</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<table class="table" border="0" cellspacing="0" cellpadding="0" align="center">\r\n    <tbody>\r\n        <tr>\r\n            <td>\r\n            <div class="abctxt"><font color="#555555"><strong>说明①：授权 </strong><br />\r\n            </font>1、除『个人非盈利网站』外，其他网站需购买 DedeCMS 使用授权，例如：政府单位、教育机构、协会团体、企业、以赢利为目的的站点等……<br />\r\n            2、服务网站数量：一份 DedeCMS 使用授权安装为一个服务网站，同一域名下安装多套 DedeCMS 则视为多个服务网站。<br />\r\n            3、更换域名：凭授权时给予的授权码更换域名。费用：按官方最新该版本报价×10%/次。更换域名后，原域名站点取消授权，保证不再使用DedeCMS，一旦发现，除了取消授权资格之外，DedeCMS保留追究其法律责任的权利。<br />\r\n            4、获得授权的站点，在同一大版本范围内享受免费升级。如需升级到同一大版本范围内的不同级别授权，按最新官方授权报价补足差价即可。如官方发布新的不同大版本系列产品，如需升级的，按官方新产品授权费用另行授权。<br />\r\n            <br />\r\n            <strong><font color="#555555">说明②：以下情况不属于服务范围</font></strong> <br />\r\n            1、自行修改或使用非原始 DedeCMS 程序代码产生的问题；<br />\r\n            2、自行对数据库进行直接操作导致数据库出错或者崩溃；<br />\r\n            3、非官方的模块/插件的安装以及由于安装模块/插件造成的故障； <br />\r\n            4、服务器、虚拟主机原因造成的系统故障；<br />\r\n            5、二次开发或定制及其它可能产生问题的情况。<br />\r\n            <br />\r\n            <font color="#555555"><strong>说明③：表格中符号代表的含义</strong><br />\r\n            </font>"<span class="ico_wor"><strong><font color="#555555">×</font></strong></span> " 表示该版本不具备或不支持此功能或服务 "<span class="ico_rig"><strong><font color="#555555" size="3">√</font></strong></span>" 表示该版本已具备或支持此功能或服务</div>\r\n            </td>\r\n        </tr>\r\n    </tbody>\r\n</table>', 3000, 3000, '织梦', '套', '', '127.0.0.1', '', '0', '0', 0),
-(97, 8, '', 0, 0, '', '', '', '127.0.0.1', 'http://docs.dedecms.com/doku.php?id=license', '0', '0', 0),
-(98, 8, '', 0, 0, '', '', '', '127.0.0.1', 'http://www.desdev.cn/service-dedecms.html', '0', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -175,21 +139,6 @@ CREATE TABLE IF NOT EXISTS `tp_addonsoft` (
   `userip` char(15) NOT NULL DEFAULT '',
   `redirecturl` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `tp_addonsoft`
---
-
-INSERT INTO `tp_addonsoft` (`aid`, `typeid`, `filetype`, `language`, `softtype`, `accredit`, `os`, `softrank`, `officialUrl`, `officialDemo`, `softsize`, `softlinks`, `introduce`, `daccess`, `needmoney`, `templet`, `userip`, `redirecturl`) VALUES
-(73, 7, '.zip', '简体中文', '国产软件', '共享软件', 'Win2003,WinXP,Win2000,Win9X', 5, 'http://www.dedecms.com', 'http://www.dedecms.com', '1830 KB', '{dede:link text=''DedeCms3.1全新安装程序''} http://www.dedecms.com/upimg/soft/dedesoft/dedecmsv3.1.rar {/dede:link}\r\n{dede:link text=''DedeCms3.1Lit->3.1升级包''} http://www.dedecms.com/upimg/soft/dedesoft/3.1litup3.1.rar {/dede:link}\r\n{dede:link text=''DedeCms3.01->3.1升级包''} http://www.dedecms.com/upimg/soft/dedesoft/3.01up3.1.rar {/dede:link}\r\n', '<p>一、使用环境<br />\r\n<br />\r\n1、<strong>使用许可协议：</strong><a href="http://www.dedecms.com/html/zuixindongtai/20070112/65.html"><u><strong>http://www.dedecms.com/html/zuixindongtai/20070112/65.html</strong></u></a></p>\r\n<p>2、<strong>购买DedeCms商业授权或技术支持：</strong><a href="http://bbs.dedecms.com/read.php?tid=8791" target="_blank"><u><strong>http://bbs.dedecms.com/read.php?tid=8791</strong></u></a></p>\r\n<p>3、PHP4.x 5.x版本，支持GD，非安全模式（在安全模式中使用可能会有很多难于预料的错误）<br />\r\n4、MySQL 3.2x、4.0x、4.1、5.x 版本<br />\r\n5、服务器平台，所有支持运行PHP的服务器平台</p>\r\n<p>二、安装步骤</p>\r\n<p>把本目录下的所有文件，上传到你要安装的位置，然后运行网址</p>\r\n<p>http://你的域名/安装目录/setup/index.php</p>\r\n<p>按要求填写好 MySQL和管理员的信息，完成安装后即可使用。</p>\r\n<p>四、主要功能说明：</p>\r\n<p>一、频道模型管理<br />\r\n1、支持开关频道模型；<br />\r\n2、支持完全个性开发的频道模型；<br />\r\n3、支持通过向导自动生成的频道模型；<br />\r\n4、支持所有频道集中式搜索（全站搜索）；<br />\r\n5、支持限定外部用户组对某频道的信息发布功能；<br />\r\n6、支持自定义模型信息投稿。<br />\r\n二、栏目管理<br />\r\n1、支持用拼音生成栏目目录；<br />\r\n2、支持任意栏目使用不同的频道模型；<br />\r\n3、支持终极栏目下设子栏目；<br />\r\n4、支持使用独立页面作为一个栏目；<br />\r\n5、支持域名绑定；<br />\r\n6、支持自定义列表模板、内容模板、封面模板、单独页面模板；<br />\r\n7、支持使用拼音定义文档命名；<br />\r\n8、支持设定栏目浏览权限；<br />\r\n9、栏目载入首次采用Ajax技术；<br />\r\n10、栏目维护同时支持右键菜单和传统式管理。<br />\r\n三、专题管理<br />\r\n1、支持每个专题使用单独模板；<br />\r\n2、支持专题使用多节点；<br />\r\n3、支持专题模板中单独选择节点。<br />\r\n四、档案管理<br />\r\n1、支持自动获取文档内容的关键字；<br />\r\n×2、支持用多随机模板来实现防采集；<br />\r\n3、支持批量管理；<br />\r\n4、支持设定文档浏览权限；<br />\r\n5、支持文档是否生成静态；<br />\r\n6、支持会员投稿；<br />\r\n7、分页文档支持使用小标题；<br />\r\n8、支持上下篇链接；<br />\r\n9、分页文档支持自动和手动分页;<br />\r\n10、软件模型支持站点镜像功能；<br />\r\n11、自动获取内容摘要功能；<br />\r\n五、模板引擎<br />\r\n1、使用xml名字空间风格的引擎，扩展更灵活；<br />\r\n2、允许在最标记终模板中使用PHP语法进行扩展；<br />\r\n3、允许使用自定义标记；<br />\r\n4、允许function功能扩展；<br />\r\n5、允许标记来运行特定的PHP语句；<br />\r\n6、允许开启模板缓存功能。<br />\r\n六、附助功能<br />\r\n1、支持单独页面编译；<br />\r\n2、会员通行证功能；<br />\r\n3、支持会员有单独的个人文集展示页面；<br />\r\n4、支持会员点数和级别功能；<br />\r\n5、图片水印支持；<br />\r\n6、后台参数更改支持；<br />\r\n7、数据分卷备份还原支持；<br />\r\n8、支持对搜索的关键字进行分词处理；<br />\r\n9、支持按顺序的版块内容（autllist）；<br />\r\n10、支持获得用户搜索的相关关键字。<br />\r\n七、内容插件<br />\r\n1、插件权限管理<br />\r\n2、文件管理器 <br />\r\n3、站内新闻发布 <br />\r\n4、友情链接模块 <br />\r\n5、留言簿模块 <br />\r\n6、投票模块 <br />\r\n7、论坛扩展 <br />\r\n8、SQL命令工具 <br />\r\n9、广告管理<br />\r\n八、采集功能<br />\r\n1、支持多模型采集；<br />\r\n2、支持自定程序处理采集的内容；<br />\r\n3、支持过滤相同标题；<br />\r\n4、支持过滤已下载内容；<br />\r\n5、采集采用一键式运行，简化了原来的先采种子后采内容的方式；<br />\r\n6、数据导入支持分段，并允许导入后即时生成HTML。<br />\r\n&nbsp;</p>', 0, 0, '', '127.0.0.1', ''),
-(74, 7, '.rar', '简体中文', '国产软件', '开源软件', 'Win2003,WinXP,Win2000,Win9X', 5, 'http://www.dedecms.com', 'http://www.dedecms.com', '2 MB', '{dede:link text=''DedeCms OX V4.0 Rc1''} http://www.dedecms.com/upimg/soft/dedesoft/dedecms4.0Rc1.rar {/dede:link}\r\n{dede:link text=''DedeCms 3.1到4.0升级程序''} http://www.dedecms.com/upimg/soft/dedesoft/3.1upv40.rar {/dede:link}\r\n{dede:link text=''DedeCms V4 Patch1(适用于4.月20日前下载的本程序的更新包)''} http://www.dedecms.com/upimg/soft/dedesoft/v4Patch1.rar {/dede:link}\r\n', '<p><strong><span class="tpc_title"><font color="#ff0000" size="3">最新版瑞星杀毒软件会误认本站合法文件sys_data_done.php（数据备份还原程序）为病毒，本地测试前请先关闭瑞星，并且在问题解决前服务器上不要安装瑞星杀毒软件，以免导致你的网站的数据备份还原功能失效。</font></span></strong></p>\r\n<p><strong><span class="tpc_title">Dedecms V4.0 版更新内容或新增功能说明<br />\r\n</span><br />\r\n使用许可协议：<a href="http://bbs.dedecms.com/read.php?tid=14893" target="_blank">http://bbs.dedecms.com/read.php?tid=14893</a><br />\r\n<br />\r\n</strong><span id="a_ajax_14797" class="tpc_content"><font size="2">1、修复了3.1版已知的所有Bug；<br />\r\n<br />\r\n2、重点新增功能：<br />\r\n(1)自由列表；<br />\r\n(2)反向通行证；<br />\r\n(3)后台界面更改，以适应项目大型化的应用的便利性；<br />\r\n<br />\r\n3、增加插件或辅助功能：<br />\r\n(1)重复文档检测；<br />\r\n(2)批量提取文章缩略图；<br />\r\n(3)数据库内容替换；<br />\r\n(4)随机模板防采集；<br />\r\n<br />\r\n4、更完善的树形菜单式的文档管理与发布方式，与栏目相关的地方大多用AJAX载入，更实用化；<br />\r\n<br />\r\n5、增加会员点卡与会员时间限制功能，并提供部份网上支付接口；<br />\r\n<br />\r\n6、列出所有栏目时，没指定栏目时，栏目选择框不使用一次性载入全部，而是改用弹窗选择，用Ajax目录树浏览，解决栏目数量非常多时载入慢的问题。<br />\r\n<br />\r\n7、系统配置参数分组，更人性化；<br />\r\n<br />\r\n8、增加会员数据导入与转换功能，允许Dedecms会员系统使用不同的密码形式。<br />\r\n<br />\r\n9、采集增加设置引用网址的功能，允许程序从指定网址读取Cookie，并使用Keep-Alive模式连接去获取图片，彻底克服居于http 1.1协议的防盗链图片防盗链问题。<br />\r\n<br />\r\n10、采集向导增加了即时测试列表和内容，并且界面更人性化。<br />\r\n<br />\r\n11、增强各种操作的简便性，完善了很多地方细节功能。<br />\r\n<br />\r\n12、新版的后台突破了以往一统式菜单的局限性，为Dedecms以后的发展提供了更大的空间。<br />\r\n<br />\r\n13、严格检查了并限制了会员上传附件程序的可能存在的安全问题，提高了安全性。</font></span><br />\r\n&nbsp;</p>', 0, 0, '', '127.0.0.1', ''),
-(75, 7, '.zip', '简体中文', '国产软件', '开源软件', 'Win2003,WinXP,Win2000,Win9X', 4, 'http://www.dedecms.com', 'http://www.dedecms.com', '3 MB', '{dede:link text=''V5.01 GBK正式版全新安装包''} http://www.dedecms.com/upimg/soft/dedecmsv5f-gbk.zip {/dede:link}\r\n{dede:link text=''V5.01 UTF8版安装包''} http://www.dedecms.com/upimg/soft/dedecmsv5f-utf8.zip {/dede:link}\r\n{dede:link text=''V5 2007Rc1版升级安装包''} http://www.dedecms.com/upimg/soft/dedecmsv5f-rcup.zip {/dede:link}\r\n{dede:link text=''DedeCmsV4 版升级安装包''} http://www.dedecms.com/upimg/soft/dedecmsv5f-v4up.zip {/dede:link}\r\n', '<p><a style="color: red; font-size: 16px" href="/download">DedeCms2007 服务体系与价格>></a></p>\r\n<p>DedeCms2007介绍</p>\r\n<p>&nbsp;&nbsp;&nbsp; DedeCms由2004年到现在，已经经历了五个版本，从DedeCms V2 开始，DedeCms开发了自己的模板引擎，使用XML名字空间风格的模板，对美工制作的直观性提供了极大的便利，从V2.1开始，DedeCms人气急却上升，成为国内最流行的CMS软件，在DedeCms V3版本中，开始引入了模型的概念，从而摆脱里传统网站内容管理对模块太分散，管理不集中的缺点，但随着时间的发展，发现纯粹用模型化并不能满足用户的需求，从而DedeCms 2007（DedeCms V5）应声而出，Dedecms 2007具有如下特性：</p>\r\n<p>一、核心模板采用XML名字空间风格，模板全部使用文件形式保存，对用户设计模板、网站升级转移均提供很大的便利，健壮的模板标签为站长DIY自己的网站提供了强有力的支持；</p>\r\n<p>二、标签缓存机制，Dedecms 2007允许对类同的标签进行缓存，在生成HTML的时候，有利于提高系统反应速度，降低系统消耗的资源；</p>\r\n<p>三、模型与模块的概念并存，在模型不能满足用户所有需求的情况下，DedeCms推出一些互动的模块对系统进行补充，尽量满足用户的需求；</p>\r\n<p>四、众多的应用支持，为用户提供了各类网站建设的一体化解决方案，在本版本中，增加了分类、书库、黄页、圈子、问答等模块，补充一些用户的特殊要求；</p>\r\n<p>五、面向未来的过渡，DedeCms 2007是织梦组建团队以后发布的第一个版本，在织梦团队未来的构想中，它以后将会具有更大的灵活性和稳定的性能。</p>\r\n<p><br />\r\n功能列表:</p>\r\n<p>一、固定的功能</p>\r\n<p>1、频道模型管理，支持用户自定义模型，设置模型是否可投稿的开关等；</p>\r\n<p>2、栏目管理，支持无限级分类，允许对任何栏目设置不同的频道模型；</p>\r\n<p>3、权限管理，可控制不同的管理员组不同的权限，并精确到二级栏目；</p>\r\n<p>4、内置模型：默认内置健壮的文章、软件、图集、分类等模型；</p>\r\n<p>5、辅助插件：提供站内新闻、投票、友情链接等个性化的小插件满足站长建站的需求；</p>\r\n<p>6、采集模型：内置强大的采集功能；</p>\r\n<p>7、专题：支持多节点的专题，为站长快速整理某一新闻提供了便利；</p>\r\n<p>V5正式版功能更新说明</p>\r\n<p>1、模型复制，你可以对系统内置的任意模型（专题除外）进行复制产生一个新的模型，在新模型你可以自由增加字段，以达到在原来模型的基础上的扩展；</p>\r\n<p>2、分表存储，DedeCms V5允许你在定义或模型复制时指定不同的主表和附加表，从而实现彻底的分表存储；</p>\r\n<p>3、自定义字段过程的简化，在自定义字段时即时可以指定该字段是否在列表中列出，是否在前台投稿和采集中使用，使自定义模型更加人性化；</p>\r\n<p>4、系统固化模型允许自由增加字段，对于很多用户而言，不一定能理解自定义模型的概念，但新版中不仅仅支持新模型使用自定义，系统内置的文章模型等也可以按需要增加个性化的字段，并自动在发布表单中出现；</p>\r\n<p>5、更优秀的Tag算法，新的Tag算法不再依整文档本身的关键字，而是通过完全的单独Tag表进行索引，实现真正意义的Tag功能和Tag快速索引；</p>\r\n<p>6、优化递归查询算法，通过生成缓存，把前台常用的栏目递归索引改为不居于数据库查访的算法，以提高效率；</p>\r\n<p>7、优化站内搜索程序，由于本版实行了完全的分表存储，因此对全站索引进行了分离的数据存储，并通过第一次搜索生成缓存，限制搜索时间间隔等提升搜索效率，除了支持全站搜索外，也支持对任意模型通过自定义搜索表单进行任意搜索，在保证高效性的同时也提高了搜索的灵活性；</p>\r\n<p>8、模块的自由安装、卸载，系统对新增的模块如：书库、问答、圈子及未来可能新增的模块进行一键打包，一键安装处理，你可以随时按需安装或删除这些不需要的模块，模块以 .Dev(Dede标准的xml格式) 包形式存放在程序管理目录；</p>\r\n<p>9、图集支持使用ZIP，在后台发表图集时，只需选择指定的ZIP包，系统会自动对其进行解压并生成一个图集，使上传图片的过程得到极为有效的简化。</p>\r\n<p>10、一键更新功能，自动检测更新当天你发布的文档，并同时更新相关栏目；</p>\r\n<p>11、更强大的采集，新版的采集程序允许你直接按模型生成，所以理论上能实现任何频道的采集；</p>', 0, 0, '', '127.0.0.1', ''),
-(76, 7, '.zip', '简体中文', '国产软件', '开源软件', 'Win2003,WinXP,Win2000,Win9X', 4, 'http://www.dedecms.com', 'http://www.dedecms.com', '3.8 MB', '{dede:link text=''DedeCms V5.1 GBK 全新安装包''} http://www.dedecms.com/upimg/soft/2008/dedecmsv51-gbk.zip {/dede:link}\r\n{dede:link text=''DedeCms V5.1 UTF-8 全新安装包''} http://www.dedecms.com/upimg/soft/2008/dedecmsv51-utf8.zip {/dede:link}\r\n{dede:link text=''DedeCms V5.1SP1 GBK 全新安装包''} http://pw.dedecms.com/dedecmsv51sp1.zip {/dede:link}\r\n{dede:link text=''DedeCms V5.1SP1 UTF-8 全新安装包''} http://pw.dedecms.com/dedecmsv51sp1utf8.zip {/dede:link}\r\n{dede:link text=''DedeCms V4.0 to 5.1GBK升级程序''} http://www.dedecms.com/upimg/soft/2008/dedecmsv51-v4up.zip {/dede:link}\r\n{dede:link text=''DedeCms V5.01 GBK to 5.1 GBK升级程序''} http://www.dedecms.com/upimg/soft/2008/dedecmsv51-501up.zip {/dede:link}\r\n{dede:link text=''DedeCms V5.01 UTF-8 to 5.1 UTF-8升级程序''} http://www.dedecms.com/upimg/soft/2008/dedecmsv51-501up-utf8.zip {/dede:link}\r\n', '<p>DedeCms V5.1 主要改动如下：</p>\r\n<p>1、修正 5.01版发现的所有已知问题；</p>\r\n<p>2、增加百度地图功能、互动模块JS调用等插件；</p>\r\n<p>3、为了使部份商业用户获得更好的体验，V5.1对商业版单独作了如下改进或新增功能：</p>\r\n<p>(1) 重新修改了会员中心的界面，使其更大气，更符合WEB2.0的审美要求；</p>\r\n<p>(2) 单独开发了与计划任务设置相结合的客户端，方面用户设置一些定时执行的任务；</p>\r\n<p>(3) 修正了二级域名对互动栏目内容调用可能链接不正确的问题，并完善二级域名的一些设置细节；</p>\r\n<p>(4) 单用户商城功能（计划）；<br />\r\n&nbsp;</p>\r\n<p><a style="color: red; font-size: 16px" href="http://www.dedecms.com/download">DedeCms2007 服务体系与价格>></a></p>\r\n<p>DedeCms2007介绍</p>\r\n<p>&nbsp;&nbsp;&nbsp; DedeCms由2004年到现在，已经经历了五个版本，从DedeCms V2 开始，DedeCms开发了自己的模板引擎，使用XML名字空间风格的模板，对美工制作的直观性提供了极大的便利，从V2.1开始，DedeCms人气急却上升，成为国内最流行的CMS软件，在DedeCms V3版本中，开始引入了模型的概念，从而摆脱里传统网站内容管理对模块太分散，管理不集中的缺点，但随着时间的发展，发现纯粹用模型化并不能满足用户的需求，从而DedeCms 2007（DedeCms V5）应声而出，Dedecms 2007具有如下特性：</p>\r\n<p>一、核心模板采用XML名字空间风格，模板全部使用文件形式保存，对用户设计模板、网站升级转移均提供很大的便利，健壮的模板标签为站长DIY自己的网站提供了强有力的支持；</p>\r\n<p>二、标签缓存机制，Dedecms 2007允许对类同的标签进行缓存，在生成HTML的时候，有利于提高系统反应速度，降低系统消耗的资源；</p>\r\n<p>三、模型与模块的概念并存，在模型不能满足用户所有需求的情况下，DedeCms推出一些互动的模块对系统进行补充，尽量满足用户的需求；</p>\r\n<p>四、众多的应用支持，为用户提供了各类网站建设的一体化解决方案，在本版本中，增加了分类、书库、黄页、圈子、问答等模块，补充一些用户的特殊要求；</p>\r\n<p>五、面向未来的过渡，DedeCms 2007是织梦组建团队以后发布的第一个版本，在织梦团队未来的构想中，它以后将会具有更大的灵活性和稳定的性能。</p>\r\n<p><br />\r\n功能列表:</p>\r\n<p>一、固定的功能</p>\r\n<p>1、频道模型管理，支持用户自定义模型，设置模型是否可投稿的开关等；</p>\r\n<p>2、栏目管理，支持无限级分类，允许对任何栏目设置不同的频道模型；</p>\r\n<p>3、权限管理，可控制不同的管理员组不同的权限，并精确到二级栏目；</p>\r\n<p>4、内置模型：默认内置健壮的文章、软件、图集、分类等模型；</p>\r\n<p>5、辅助插件：提供站内新闻、投票、友情链接等个性化的小插件满足站长建站的需求；</p>\r\n<p>6、采集模型：内置强大的采集功能；</p>\r\n<p>7、专题：支持多节点的专题，为站长快速整理某一新闻提供了便利；</p>\r\n<p>V5正式版功能更新说明</p>\r\n<p>1、模型复制，你可以对系统内置的任意模型（专题除外）进行复制产生一个新的模型，在新模型你可以自由增加字段，以达到在原来模型的基础上的扩展；</p>\r\n<p>2、分表存储，DedeCms V5允许你在定义或模型复制时指定不同的主表和附加表，从而实现彻底的分表存储；</p>\r\n<p>3、自定义字段过程的简化，在自定义字段时即时可以指定该字段是否在列表中列出，是否在前台投稿和采集中使用，使自定义模型更加人性化；</p>\r\n<p>4、系统固化模型允许自由增加字段，对于很多用户而言，不一定能理解自定义模型的概念，但新版中不仅仅支持新模型使用自定义，系统内置的文章模型等也可以按需要增加个性化的字段，并自动在发布表单中出现；</p>\r\n<p>5、更优秀的Tag算法，新的Tag算法不再依整文档本身的关键字，而是通过完全的单独Tag表进行索引，实现真正意义的Tag功能和Tag快速索引；</p>\r\n<p>6、优化递归查询算法，通过生成缓存，把前台常用的栏目递归索引改为不居于数据库查访的算法，以提高效率；</p>\r\n<p>7、优化站内搜索程序，由于本版实行了完全的分表存储，因此对全站索引进行了分离的数据存储，并通过第一次搜索生成缓存，限制搜索时间间隔等提升搜索效率，除了支持全站搜索外，也支持对任意模型通过自定义搜索表单进行任意搜索，在保证高效性的同时也提高了搜索的灵活性；</p>\r\n<p>8、模块的自由安装、卸载，系统对新增的模块如：书库、问答、圈子及未来可能新增的模块进行一键打包，一键安装处理，你可以随时按需安装或删除这些不需要的模块，模块以 .Dev(Dede标准的xml格式) 包形式存放在程序管理目录；</p>\r\n<p>9、图集支持使用ZIP，在后台发表图集时，只需选择指定的ZIP包，系统会自动对其进行解压并生成一个图集，使上传图片的过程得到极为有效的简化。</p>\r\n<p>10、一键更新功能，自动检测更新当天你发布的文档，并同时更新相关栏目；</p>\r\n<p>11、更强大的采集，新版的采集程序允许你直接按模型生成，所以理论上能实现任何频道的采集；</p>', 0, 0, '', '127.0.0.1', ''),
-(77, 7, '.rar', '简体中文', '国产软件', '开源软件', 'Win2003,WinXP,Win2000,Win9X', 4, 'http://pw.dedecms.com', 'http://pw.dedecms.com', '3.5 MB', '{dede:link text=''DedeCmsV5.1SP1 GBK独立安装包''} http://pw.dedecms.com/dedecmsv51sp1.zip {/dede:link}\r\n{dede:link text=''DedeCmsV5.1SP1 UTF8独立安装包''} http://pw.dedecms.com/dedecmsv51sp1utf8.zip {/dede:link}\r\n{dede:link text=''DedeCmsV5.1SP1 GBK & PHPWind6.3.2整合安装包''} http://www.dedecms.com/count.php?d=dedecmsv51sp1-PHPWindv632.zip {/dede:link}\r\n', '<p>DedeCms V5.1 免费版 SP1 pw整合版</p>\r\n<p><font color="#ff0000">(如果直接包括论坛的整合版本必须安装在网站根目录！)</font></p>\r\n<!--p>本版发布包含直接捆绑phpwind6.3.2的安装包，发布地址：</p>\r\n<p><a href="http://pw.dedecms.com">http://pw.dedecms.com</a></p-->\r\n<p>修正问题：<br />\r\n<br />\r\n1、修正上一版本已知的错误；<br />\r\n<br />\r\n2、更新模板标记缓存技术；<br />\r\n<br />\r\n3、对局部数据结构进行优化，提升HTML生成性能；<br />\r\n<br />\r\n4、安装时提供直接整合PW论坛的选项，让你整合的操作更加轻松；<br />\r\n<br />\r\n5、加强了部份代码的安全性。<br />\r\n<br />\r\n最近发现的一些具体问题的更新：<br />\r\n<br />\r\n1、 修正 tag.php 引用的网址可能不正确的问题<br />\r\n<br />\r\n2、 下载远程图片不全<br />\r\n<br />\r\n3、 mysql类的默认参数会让部份脑残体字符出错<br />\r\n<br />\r\n4、 上传全局配置检测不严格可能存在安全漏洞<br />\r\n<br />\r\n5、 数据备份和SQL命令行位置的修复表、优化表功能无效，因为表名用了 '''' 引用，而不是 ``<br />\r\n<br />\r\n6、 全局统计程序的修正的问题<br />\r\n<br />\r\n7、 feedback.php 存在能使用HTML的问题<br />\r\n<br />\r\n8、 cn_substr截取函数在前台存在安全风险<br />\r\n<br />\r\n9、 首页模板不是最新修改过的幻灯<br />\r\n<br />\r\n10、更新专题和JS的地方UTF8里面会乱码 2个文件里面发送header头有问题<br />\r\n<br />\r\n11、前台提交友情链接无法正常返回上级菜单修改plus/flink.php 中的ShowMsg函数中的参数<br />\r\n<br />\r\n12、评论程序截取字符串的bug</p>\r\n<p><strong><font color="#ff0000">DedeCms免费版及PHPWind仅应用于非商业用途，如果你要应用于商业用途，请购买商业授权并使用商业版本。</font></strong></p>', 0, 0, '', '127.0.0.1', ''),
-(78, 7, '.gz', '简体中文', '国产软件', '开源软件', 'Win2003,WinXP,Win2000,Win9X', 3, 'http://www.dedecms.com', 'http://www.dedecms.com', '2.6 MB', '{dede:link text=''V53-GBK版安装程序本地下载''} http://www.dedecms.com/upimg/soft/2008/DedecmsV53-GBK-Final.tar.gz {/dede:link}\r\n{dede:link text=''V53-UTF8版安装程序本地下载''} http://www.dedecms.com/upimg/soft/2008/DedecmsV53-UTF8-Final.tar.gz {/dede:link}\r\n{dede:link text=''V53-繁體中文UTF-8版安裝程式本地下载''} http://www.dedecms.com/upimg/soft/2008/DedeCmsV53UTF8-BIG5.tar.gz {/dede:link}\r\n{dede:link text=''V3.1、4.1升级程序''} http://updatenew.dedecms.com/DedeCmsUPV5.3Pack/v3-v4-upToV5.3GBK.zip {/dede:link}\r\n{dede:link text=''V5.0、5.1 GBK版升级程序''} http://updatenew.dedecms.com/DedeCmsUPV5.3Pack/v5.1-gbk-up5.3.1.zip {/dede:link}\r\n{dede:link text=''V5.0、5.1 UTF8版升级程序''} http://updatenew.dedecms.com/DedeCmsUPV5.3Pack/v5.1-utf8-up5.3.1.zip {/dede:link}\r\n{dede:link text=''DedeCmsV5.3GBK + HDwiki 4.04 互动百科整合安装包''} http://www.dedecms.com/upimg/soft/2008/DedecmsV53&HDwiki-GBK-Final.tar.gz {/dede:link}\r\n{dede:link text=''DedeCmsV5.3UTF8 + HDwiki 4.04 互动百科整合安装包''} http://www.dedecms.com/upimg/soft/2008/DedecmsV53&HDwiki-UTF8-Final.tar.gz {/dede:link}\r\n', '<p><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: rgb(255,0,0); font-weight: bold">安装包最后更新时间：</span></font><span style="color: rgb(255,0,0); font-weight: bold">2009-01-14 &nbsp; 主程序更新为：5.3.1 版本</span><br />\r\n<font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DedeCMS V5.3是织梦组建团队后推出的又一力作，本次发布的新版本，延续了以往的简单、易用、高效，并且在这一版本中进一步加强了模块的概念，是站长建站首选利器，通过不同的模型组合，可组建出地方门户、行业门户、政府及企事业站点等各种应用。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次发布的新版对内核进行了重大升级，规范了核心文件并重写了会员相关程序。同时，这次对模板引擎做了很大的调整，在保留原有模板特性的同时，这次新版本中更侧重了规范、易用、可扩展，使模板制作变得更方便。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在增强用户体验的同时，我们更侧重程序的功能健壮及易用，此次新版本中织梦加入了更多新功能，例如：模块安装及打包、文件指纹校验、WAP站点访问、商品及支付接口等，同时对模型、栏目及文档处理各个方面都做了升级。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历时4年不断发展，DedeCMS日益走向成熟，我们的产品，得到了数以万计站长的肯定，这次全新V5.3的发布，犹如雪中送炭，给百万站长在这寒冬带来一丝温暖。<br />\r\n<br />\r\n</font><font size="3"><strong>程序发布专题页：</strong><br />\r\n<a href="../../../v53/" target="_blank">http://www.dedecms.com/v53/</a><br />\r\n<br />\r\n<strong>服务器套件：</strong><br />\r\n<a href="http://bbs.dedecms.com/86501.html" target="_blank">DedeAMPZ-PHP环境整合套件(下载)</a><br />\r\n<br />\r\n<strong>安装手册：</strong><br />\r\n<a href="http://bbs.dedecms.com/107102.html" target="_blank">DedeCMS安装手册</a><br />\r\n<br />\r\n<strong>使用帮助：</strong><br />\r\n<a href="http://help.dedecms.com/" target="_blank">DedeCMS V5.3教程中心</a><br />\r\n<br />\r\n<a href="http://service.dedecms.com/" target="_blank">织梦客户服务中心</a><br />\r\n<br />\r\n<strong>相关文档：</strong><br />\r\n新版本、新内核、新功能 Dede V5.3抢先看<br />\r\n<a href="http://bbs.dedecms.com/104187.html" target="_blank">http://bbs.dedecms.com/104187.html</a><br />\r\n<br />\r\nDedeCMS V5.3正式版功能盘点之：模块-让您拥有更加健壮的系统<br />\r\n<a href="http://bbs.dedecms.com/107109.html" target="_blank">http://bbs.dedecms.com/107109.html</a><br />\r\n<br />\r\nDedeCMS V5.3正式版功能盘点之：自定义模型-让网站变得更丰富<br />\r\n<a href="http://bbs.dedecms.com/107140.html" target="_blank">http://bbs.dedecms.com/107140.html</a><br />\r\n<br />\r\nDedeCMS V5.3正式版功能盘点之：织梦模板-原来做模板如此灵活简单<br />\r\n<a href="http://bbs.dedecms.com/107325.html" target="_blank">http://bbs.dedecms.com/107325.html</a><br />\r\n<br />\r\nDedeCMS V5.3正式版功能盘点之：会员中心-网站和会员都动起来<br />\r\n<a href="http://bbs.dedecms.com/107285.html" target="_blank">http://bbs.dedecms.com/107285.html</a><br />\r\n<br />\r\nDedeCMS V5.3正式版功能盘点之：自由列表-让你想怎么调用就怎么调用<br />\r\n<a href="http://bbs.dedecms.com/107346.html" target="_blank">http://bbs.dedecms.com/107346.html</a><br />\r\n<br />\r\nDedeCMS V5.3正式版功能盘点之：文件指纹校验-升级无忧<br />\r\n<a href="http://bbs.dedecms.com/107408.html" target="_blank">http://bbs.dedecms.com/107408.html</a><br />\r\n<br />\r\nDedeCms V5.3 主要新增及升级功能列表<br />\r\n<a href="http://bbs.dedecms.com/103512.html" target="_blank">http://bbs.dedecms.com/103512.html</a><br />\r\n<br />\r\n[v53使用]DedeCMS补丁后台自动更新，清晰一目了然<br />\r\n<a href="http://bbs.dedecms.com/106994.html" target="_blank">http://bbs.dedecms.com/106994.html</a> <br />\r\n<br />\r\n[v53使用]栏目当单页面使用，企业站元素贴心服务<br />\r\n<a href="http://bbs.dedecms.com/107045.html" target="_blank">http://bbs.dedecms.com/107045.html</a> <br />\r\n<br />\r\n</font></p>\r\n<p><font size="3"><strong><font color="#0000ff">DEDECMS v5.3&nbsp;与 HDWIKI V4.0.4 官方整合专版</font></strong><br />\r\n</font><font size="3"><a href="http://www.dedecms.com/hdwiki/">http://www.dedecms.com/hdwiki/</a></font></p>\r\n<p><br />\r\n<br />\r\n<br />\r\n<strong>产品特性：</strong><br />\r\n<strong>良好的用户口碑，丰富的开源经验</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS是国内知名内容管理系统，经过长达4年之久的广泛应用和复杂化环境的检测，织梦系统在安全性、稳定性、易用性方面具有较高的声誉，倍受广大站长推崇。 <br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS 采用PHP+MySQL技术开发，程序源代码完全开放，在尊重版权的前提下能极大的满足站长对于网站程序进行二次开发。DedeCMS是国内第一家开源的 内容管理系统，自诞生以来，始终坚持开源、免费原则。众所周知，开源程序在代码规范性、程序安全性有着较高的要求，DedeCMS拥有4年的开源经验，其 灵活的产品架构、极强的可扩展性和可伸缩性能最大化满足站长目前及今后的应用需求。 <br />\r\n<br />\r\n<strong>灵活的模块组合，让网站更丰富</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;往 往一个网站通过单一的内容发布系统是远远不能满足用户的需求的，尤其在Web2.0提倡互动、分享的大趋势下，用户非常希望在传统的内容信息网站中加入 问答、圈子等一些互动型的功能。但如果基于原来系统进行开发，整个系统易用性会受到影响，如果使用别的系统，整个网站就不能一体化管理，在这种问题 下，DedeCMS推出了模块的功能，程序用户可以像在Winodws里面安装软件一样，下载相应的模块进行安装，网站就会增加这些特殊的功能。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这样一来，更加方便软件用户对自己的网站进行扩展，达到自己满意的效果。<br />\r\n<br />\r\n<br />\r\n<strong>简单易用的模板引擎，网站界面想换就换</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS的模板引擎简单、易用，采用了XML标记风格，只要懂HTML就可以修改制作模板。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;很 多的用户都为每次网站改版费尽苦心，因为按照老式的网站制作流程，改版需要修改的不单单是一个界面，还要涉及到程序修改。最后成了一次改版，几乎等于网站 重构。DedeCMS就解决了这一烦恼，只需要熟悉一些DedeCMS的模板标记，只要懂HTML，就能随意对模板文件进行修改，而且每次升级只 需要更新模板文件即可，做到了程序和页面很大程度上的分离。 <br />\r\n<br />\r\n<strong>便捷自定义模型</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS为用户提供了方便快捷的用户自定义模型，您可以使用这个功能根据自身需求来创建各式各样的站点，如果您了解部分二次开发知识，即能想到就能做到。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;往 往很多站点，希望能够创建如在线视频播放、在线音乐试听，或者是商品信息发布等类型的内容站点，尽管这些模型系统中没有，但您现在可以使用 DedeCMS来自主创建，您只需要先想好自己内容的字段，如：专辑名称、演唱、发行日期等，然后思考这些字段是用哪种字段类型，如：文本、时间、文件上 传，接下来只需要在后台的模型管理中按照说明添加即可，想到就能做到。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这种模型的功能有一个很大的好处就是您可以自己去扩展网站后续的功能，不要再去花费财力物力去开发，免去了很多烦恼。 <br />\r\n<br />\r\n<strong>高效的动态静态页面部署</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS为用户提供了强大的动态静态部署的功能，用户可以在后台栏目中进行统一的设置，也可以对单独某一篇内容进行静态部署。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这种静态部署最大的优势在于：1.减少数据库负担、降低人力维护成本；2.利于搜索引擎对网站的友好程度，提高搜索引擎对网站收录量；3.很大程度上提高了用户访问的效率。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;这样一来，一些地区门户、行业网站、甚至政府部门信息类网站都免去了因为大量数据访问速率下降的后顾之忧。 <br />\r\n<br />\r\n<strong>灵活的商业运营模式</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS中提供了较为完善的会员产品体系、会员等级体系、虚拟货币管理体系，并且提供了较完整的支付接口方式，可以设置会员浏览不同内容进行金币消费，这样对行业门户、企事业单位制定开展各种基于网站平台的商业运营方案。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会员可以通过购买点卡进行充值，同时也可以购买包月、包年的服务来阅读某一部分的内容，如果某些内容只能给特定会员浏览，会员必须达到某个等级才能够扣点阅读，网站可以通过销售点券、会员等级服务进行盈利。 <br />\r\n<br />\r\n<strong>流畅专业界面设计，良好的用户体验</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS 的界面设计遵循国际最新W3C网页设计标准，在开发时期，我们经过IE6、IE7、火狐、Opera等主流浏览器上进行测试，都能够保证您 网站浏览的流畅、完整，DedeCMS页面设计遵循标准情况下尽量的减少了各个浏览器中存在的差异，系统不会因为不同的浏览器受到限制。我们优秀的页面设 计师能够让网站提高用户体验，及网站亲和力。<br />\r\n<br />\r\n<strong>指纹验证，升级无忧</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在全新的织梦系统中，新增加了文件指 纹校验功能，通过他你可以对比系统原始文件，以确保当前文件是否被修改，同时也可以同官方的原始指纹进行对比，来获取差异文件，这样更方便用户升级自己的 系统。同时，配合我们的病毒扫描程序，让您的网站的安全性得到进一步提升。当然，官方贴心的系统消息，不仅让您了解到当前版本系统最后更新日期，以便确认 是否有更新补丁，并且能及时了解DedeCMS最新信息，让您用的更加放心。<br />\r\n<br />\r\n<strong>低维护成本</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开发一个网站大家都知道需要动用大量的人力物力，不单单开发时需要耗费，后期维护升级也需要。因为必要的硬件投入必不可少，这时候只有有效控制开发、维护成本，才能够让用户的总成本降低。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这 样一来DedeCMS引入了独创模板引擎技术、自定义标签功能，实现网站程序和界面分离的平台搭建效果，改变了传统的“功能开发→页面设计→整合”制作 方式，达到降低人力成本的目的，当然我们内置的可视化编辑器可以让您的信息录入如同操作word软件一样方便快捷，上手也非常容易。<br />\r\n&nbsp;&nbsp;&nbsp; DedeCMS这种网站建设流程，让软件用户在不改变网站高效、轻便等特性的情况下还减少了总成本。<br />\r\n<br />\r\n<strong>国际语言支持</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS从V5.3开始，以UTF-8国际编码为基准进行开发，让您的网站可以扩展任意一种语言。 <br />\r\n<br />\r\n<strong>会员互动，让您的网站火起来</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个网站最重要的就是用户，DedeCMS提供了强大的用户中心，通过会员中心可以让用户进行内容分享、交友、短信、个人空间等一系列的操作，甚至通过模块扩展还可以让会员进行群组交流、问答等互动。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站需要有粘性，才可以留住用户，通过一个强大的会员中心可以留住您的网站用户，也可以寻找到盈利模式。<br />\r\n<br />\r\n<br />\r\n<br />\r\n<strong>产品适合应用于以下领域：</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业网站：无论大型还是中小型企业，利用网络传递信息在一定程度上提高了办事的效率，提高企业的竞争力；<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;政府机关：通过建立政府门户，有利于各种信息和资源的整合，为政府和社会公众之间加强联系和沟通，从而使政府可以更快、更便捷、更有效开展工作；<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教育机构：通过网络信息的引入，使得教育机构之间及教育机构内部和教育者之间进行信息传递，全面提升教育类网站的层面；<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;媒体机构：互联网这种新媒体已经强而有力的冲击了传统媒体，在这个演变过程中，各类媒体机构应对自己核心有一个重新认识和重新发展的过程，建立一个数字技术平台以适应数字化时代的需求；<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行业网站：针对不同行业，强化内部的信息划分，体现行业的特色，网站含有行业的动态信息、产品、市场、技术、人才等信息，树立行业信息权威形象，为行业内产品供应链管理，提供实际的商业机会；<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人站长：兴趣为主导，建立各种题材新颖，内容丰富的网站，通过共同兴趣的信息交流，可以让您形成自己具有特色的用户圈，产生个人需求，并为其服务；<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收费网站：内容收费类型的网站，用户可以在线提供产品销售，或者内容收费，简单清晰的盈利模式，确保您以最小的投资，取得最大的回报；<br />\r\n<br />\r\n<br />\r\n<strong>新增及升级功能列表：</strong><br />\r\n&nbsp;&nbsp;&nbsp; 1.&nbsp;&nbsp;增加批量创建栏目功能<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;栏目管理处增加“内容”项目，代替原来在栏目管理中使用单独页<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;增加内容模型导出、导入功能<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;&nbsp;内容模型增加“联动类型字段”的支持<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;&nbsp;取消内容模型原来的自定义主表功能，增加单表内容模型<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;6.&nbsp;&nbsp;增加内容回收站功能<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;7.&nbsp;&nbsp;增加“商品”模型，并提供相关支付接口<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;8.&nbsp;&nbsp;增加自定义表单功能<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;9.&nbsp;&nbsp;升级“模块管理”功能<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;10. 升级评论系统<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;11. 升级采集系统，主要亮点：<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a、向导式创建规则<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b、支持同一规则中指定多个不同的导出栏目<br />\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c、支持监控采集模式，简单重复采集历史内容是否有更新的过程<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;12. 升级会员中心，在保证安全性的同时使里面的各项操作更简单易用<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;13. 开放默认的文章系统 WAP 浏览模式<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;14. 升级模板管理功能，除了可以方便的在线创建勾子碎片标签外，对主要的模板都进行了注解说明<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;15. 升级了广告管理、友情链接等插件<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;16. 增加在线切缩略图功能<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;17. 增加了“挑错管理”功能，允许用户对错误信息进行反馈<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;18. 优化列表统计引擎和缓存引擎，使系统在保证灵活性的同时也有更好的性能<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;19. 增加初始文件效验功能<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;20. 增加在线直接升级功能，更方便用户获得自己需要的升级包<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;21. 支持栏目列表使用伪静态<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;22. 支持游客投稿、模型投稿增加各种个性化设置<br />\r\n<br />\r\n<strong>升级说明：</strong><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;由于5.3版的改动涉及内核升级，因此有部份功能或模板不一定完全兼容，但我们仍建议用户尽量升级到这个版本，以确保系统的安全和可发展性。<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;DedeCMS 支持整合主流的BBS、商城、博客等系统，具体相关接口请到官方论坛查询。<br />\r\n&nbsp;</p>', 0, 0, '', '127.0.0.1', '');
-INSERT INTO `tp_addonsoft` (`aid`, `typeid`, `filetype`, `language`, `softtype`, `accredit`, `os`, `softrank`, `officialUrl`, `officialDemo`, `softsize`, `softlinks`, `introduce`, `daccess`, `needmoney`, `templet`, `userip`, `redirecturl`) VALUES
-(79, 7, '.gz', '简体中文', '国产软件', '开源软件', 'Win2003,WinXP,Win2000,Win9X', 5, 'http://www.dedecms.com', 'http://www.dedecms.com', '4.2 MB', '{dede:link text=''V55-GBK版安装程序''} http://www.dedecms.com/upimg/soft/2009/DedecmsV55-GBK-Final.tar.gz {/dede:link}\r\n{dede:link text=''V55-UTF8版安装程序''} http://www.dedecms.com/upimg/soft/2009/DedecmsV55-UTF8-Final.tar.gz {/dede:link}\r\n{dede:link text=''V5.3.1到V5.5GBK升级程序''} http://updatenew.dedecms.com/downloads/v53gbk-upv55.zip {/dede:link}\r\n{dede:link text=''V5.3.1到V5.5UTF8升级程序''} http://updatenew.dedecms.com/downloads/v53utf8-upv55.zip {/dede:link}\r\n{dede:link text=''DedeCMS V5.5GBK + HDwiki V4.05 互动百科整合安装包''} http://www.dedecms.com/hdwiki/downloads/Dedecms55&HDwiki4.05_GBK-Final_0916.tar.gz {/dede:link}\r\n{dede:link text=''DedeCMS V5.5UTF8 + HDwiki V4.05 互动百科整合安装包''} http://www.dedecms.com/hdwiki/downloads/Dedecms55&HDwiki4.05_UTF8-Final_0916.tar.gz {/dede:link}\r\n', '<p><strong>DedeCMS V5.5增强或修正功能列表<br />\r\n<br />\r\n</strong>一、已经修正的BUG：<br />\r\n1、添加后台系统管理员账号，无法删除会员列表的账号；<br />\r\n2、这篇文档需要注册会员才能访问，你目前是：注册会员(提示文字不正确)；<br />\r\n3、高级搜索选择发布时间，搜索出错；<br />\r\n4、会员中心发布完内容后点击“继续发布文章”，HTML文本框没有了（表单的action不对）；<br />\r\n5、后台发布文章，如果勾选“跳转”，输入网址后，如果再编辑这个内容，发现没有读取以前保存的；<br />\r\n6、选择裁剪图片的提示和步骤没说明清楚，导致操作混乱；<br />\r\n7、修正文档批量移动将内容移动至回收站可能丢失文档的Bug；<br />\r\n8、自定义表单上传附件无效；<br />\r\n9、如果头衔超过10个的话，好像id为1的头衔和id为10的就重复了！；<br />\r\n10、include/taglib/ask.lib.php文件的第22行 if($tid>0) $tid = " (tid=$tid Or $tid2=''$tid'')的有误；<br />\r\n11、会员注册是邮箱有下划线的话总是通不过验证；<br />\r\n12、系统后台禁用某些模型的投稿功能，前台会员中心还是可以显示投稿相关的选项；（在升级会员中心时处理）<br />\r\n13、DEDE 搜索功能不准确（词库没有的词或被拆开的中文字不会做搜索导致的）;<br />\r\n14、投票系统的VOTE.PHP程序中没有对投票时未选择选项做程序处理！<br />\r\n15、未审核的文章出现的会员空间，导致非法信息的出现。(此功能并非BUG，原本功能就如此设计，不过会考虑增加一个参数由管理员决定是否允许)<br />\r\n16、默认水印背景黑色让透明的gif很难看！<br />\r\n17、新建专题，简略标题填写后，编辑专题时又是空的；<br />\r\n18、注册会员，没有同意协议，也可以注册；<br />\r\n<br />\r\n二、升级功能<br />\r\n<br />\r\n(一)、人性化功能：<br />\r\n1、 允许许用户选择栏目链接为不带默认页的类型，即是 typedir/ 模式；<br />\r\n2、 使文章分页时支持标题带页码符，并且每页摘要不同；<br />\r\n3、 升级搜索程序，如果关键字中含有栏目名称，则搜索这个栏目的内容，如果有多关键字组合时，允许搜索单个字符；<br />\r\n<br />\r\n(二)、会员相关：<br />\r\n1、升级会员系统，修正用户禁言、审核等存在的问题；<br />\r\n2、升级会员系统，对后台设置了关闭图集选项之后不再显示图集菜单；<br />\r\n3、允许会员空间中“所有文档”可以由用户设定具体频道；<br />\r\n4、会员自定义分类支持按模型划分；<br />\r\n5、会员头像、企业形象照增加删除功能；<br />\r\n6、对会员中心的细节进行适当调整；<br />\r\n7、修正会员中心消费信息管理混乱问题；<br />\r\n8、增加积分兑换金币功能；<br />\r\n9、更改后台会员管理功能，使其更人性化；<br />\r\n10、修正会员等级设置（5.3的概念过于混乱，恢复为5.1模式）；<br />\r\n11、允许自由设置用户笔名是否可以同名；<br />\r\n<br />\r\n(三)、后台操作：<br />\r\n1、 升级管理员权限系统，允许指定管理员管理多个栏目；<br />\r\n2、修正删除与移动栏目没更新缓存的错误；<br />\r\n3、修正删除或更新关键字后没返回原页面的错误；<br />\r\n4、优化用户搜索关键字管理功能；<br />\r\n5、发布文章时可以在预设的模板中随机获得一个模板（5.1的随机模板功能增强版）；<br />\r\n6、增加可选的实时生成html功能；<br />\r\n7、文档自定义属性允许自定义排序；<br />\r\n8、优化文章模块图片附件上传功能；<br />\r\n9、增加网站编辑绩效统计功能（管理员发布员发了多少文章，今天发了多少文章，昨天发了多少文章，一个月发了多少文章）；<br />\r\n10、增加全站评论开关选项；<br />\r\n11、发布文章时可以或上传图片时允许单独选择图片是否使用水印；<br />\r\n12、优化来源、作者、颜色选择框及相关管理；<br />\r\n13、专题升级为可以不与栏目关连；<br />\r\n14、管理员审核后保留责任编辑；<br />\r\n15、修正专题节点问题；<br />\r\n16、增加用AJAX载入的栏目辅助选择器，解决栏目过多时，用下拉框操作不便的问题；<br />\r\n17、增加快速属性编辑功能，用AJAX载入窗体编辑文章的基本信息；<br />\r\n18、增加批量删除、增加某属性的功能（AJAX窗体）；<br />\r\n19、增加栏目合并功能；<br />\r\n□20、升级关键字管理功能，保留并升级关键字提取功能，使用新的站内关键字链接管理功能；<br />\r\n<br />\r\n(四)、模块插件<br />\r\n1、升级留言本系统，增加支持回复、支持限定仅允许会员发表等选项；<br />\r\n2、可以指定自由列表最大显示页数，以防止显示网站所有内容；<br />\r\n3、wap功能完善与加强；<br />\r\n<br />\r\n(五)、其它功能<br />\r\n1、重新设置主要数据表的索引，使之针对大多数网站都处于最佳性能。<br />\r\n2、增加计划任务功能（每个任务单独对应该一个程序，可以通过客户端软件或用户浏览动态页面时触发）；<br />\r\n3、field支持用array获取任意字段的值；(支持标记：文章列表模板的 {dede:field name=''array'' /}、arclist、arclistsg、loop、sql 标签)<br />\r\n4、编辑器升级至 FCK2.6(支持：谷歌浏览器)；<br />\r\n5、在数据库类直接控制MySQL超时时间；<br />\r\n6、发布文章时可以或上传图片时允许单独选择图片是否使用水印；7、给分页的文章设置不同的标题和摘要（标题加1、2等数字）；<br />\r\n7、允许使用直接跳转网址（需修改数据结构，为了升级时更稳定，改为不显示任何内容直接跳转形式，但并不是直接使用这个网址）；<br />\r\n8、更改前台默认模板为淡蓝风格；<br />\r\n9、js广告静态化（可以用缓存方式替代）；<br />\r\n12、增加前台导航菜单默认调用二级子类的功能；<br />\r\n<br />\r\n7月20日后更改或增强的功能<br />\r\n<br />\r\n1、图集、软件模型人性化调整；<br />\r\n&nbsp;&nbsp;(1) 图集整合swfupload上传；<br />\r\n&nbsp;&nbsp;(2) 图集、文档相关附件关连更完善，删除文档同时删除附件功能更完善；<br />\r\n&nbsp;&nbsp;(3) 软件频道调整软件权限问题，默认不使用通用模型的权限，而是使用单独权限，因此，不管是否需要权限的软件，都会生成静态，而在下载时扣金币或要求会员等级；<br />\r\n&nbsp;&nbsp;(4) 软件镜像地址，除了保留原功能外，增加了仅把镜像作为可选地址前缀功能，方便有些要的用户自由填写软件地址信息；<br />\r\n2、文档允许选择多个副栏目；<br />\r\n3、增加AJAX评论功能；<br />\r\n4、增加邮件验证注册功能；(需要设置中把“会员设置--会员使用权限开通状态”选项改为 -10)；<br />\r\n5、增加栏目树调用标签(在前台调用所有栏目)；<br />\r\n6、升级缩略图上传和裁剪功能，使之更人性化；<br />\r\n7、升级个人空间（更换模板、细节调整）；<br />\r\n8、调整后台主页和登录界面；<br />\r\n9、修正的BUG：<br />\r\n&nbsp;&nbsp;(1) 修正会员中心阅读消息，好友列表显示错误；<br />\r\n&nbsp;&nbsp;(2) 修正导航菜单在下载频道存在错误；<br />\r\n&nbsp;&nbsp;(3) 修正责任编辑调用不显示问题；<br />\r\n&nbsp;&nbsp;(4) 修正自由列表的死链接；<br />\r\n&nbsp;&nbsp;(5) 修正前台投稿存在的一些问题；<br />\r\n&nbsp;&nbsp;(6) 修正文章推荐不能使用数字域名邮箱问题；<br />\r\n&nbsp;&nbsp;(7) 处理TAG标签默认不按时间排序问题；<br />\r\n&nbsp;&nbsp;(8) 去除FCK编辑器上传图片产生的多余代码，让用户自己选择是否加相应的东西。</p>', 0, 0, '', '127.0.0.1', ''),
-(80, 7, '.exe', '简体中文', '国产软件', '免费软件', 'Win2003,WinXP,Win2000,Win9X', 5, 'http://www.dedecms.com', 'http://www.dedecms.com', '3 MB', '{dede:link text=''服务器环境使用版''} http://www.dedecms.com/upimg/soft/dedesoft/DedeAMPZForServer.zip {/dede:link}\r\n{dede:link text=''本地测试专业完整版''} http://www.dedecms.com/upimg/soft/dedesoft/DedeAMPZForDebug.zip {/dede:link}\r\n', '<p><span style="text-align: left; widows: 2; text-transform: none; text-indent: 0px; border-collapse: separate; font: 14px Arial; white-space: normal; orphans: 2; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0" class="Apple-style-span">DedeAMPZ 是直接整合PHP + Apache + MySql 的服务器环境管理软件，操作十分傻瓜化，适合初中级水平的站长使用。<br />\r\n<br />\r\n主要具有如下特点：<br />\r\n1、支持php4、php5、MySql4、MySql5、Apache2.2、Zend Optimizer-3.3.0；(完整版)<br />\r\n2、安装使用十分简单，并支持在php4与php5中切换；<br />\r\n3、经过专业的处理后，使你配置apache+php的站点更简单；<br />\r\n4、本软件内置DedeCms在线安装程序，让你安装调试DedeCms更加简单；<br />\r\n<br />\r\n管理客户端界面：<br />\r\n<br />\r\n<img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" onclick="if(this.width>=700) window.open(''http://bbs.dedecms.com/attachment/2_1_52cd0181fdd479c.gif'');" border="0" alt="" src="http://bbs.dedecms.com/attachment/2_1_52cd0181fdd479c.gif" onload="if(this.width>''700'')this.width=''700'';" /><span class="Apple-converted-space">&nbsp;</span><br />\r\n<br />\r\n下载地址：<br />\r\n完整专业版：（你有一定基础或在本地调试用，请使用这个版本）<br />\r\n<a style="color: rgb(47,95,161); text-decoration: none" href="http://www.dedecms.com/upimg/soft/dedesoft/DedeAMPZForDebug.zip" target="_blank">http://www.dedecms.com/upimg/soft/dedesoft/DedeAMPZForDebug.zip</a><br />\r\n<br />\r\n服务器上安装版（如果你在服务器是正式使用，请用这个版本[仅支持MySql5\\PHP5\\Apache2.2]）：<br />\r\n<a style="color: rgb(47,95,161); text-decoration: none" href="http://www.dedecms.com/upimg/soft/dedesoft/DedeAMPZForServer.zip" target="_blank">http://www.dedecms.com/upimg/soft/dedesoft/DedeAMPZForServer.zip</a></span></p>', 0, 0, '', '127.0.0.1', '');
 
 -- --------------------------------------------------------
 
@@ -230,7 +179,8 @@ CREATE TABLE IF NOT EXISTS `tp_admin` (
 --
 
 INSERT INTO `tp_admin` (`id`, `usertype`, `userid`, `pwd`, `uname`, `tname`, `email`, `typeid`, `logintime`, `loginip`) VALUES
-(1, 10, 'admin', 'f297a57a5a743894a0e4', 'admin', '', '', '0', 1417922344, '127.0.0.1');
+(1, 10, 'admin', 'f297a57a5a743894a0e4', 'admin', '', '', '0', 1418132065, '127.0.0.1'),
+(8, 1, 'test123', 'c3949ba59abbe56e057f', '123', '', '', '5', 0, '');
 
 -- --------------------------------------------------------
 
@@ -323,7 +273,7 @@ INSERT INTO `tp_arccache` (`md5hash`, `uptime`, `cachedata`) VALUES
 ('ca79f18dc2d53378da3e950d9d8ac8e6', 1417924385, '106,72,71,70,69,68,67,66'),
 ('09c944e90a76be8531d1b173d3901227', 1417924385, '0'),
 ('9bc21fd0247383ec2aa168183a5d7e07', 1417924385, '0'),
-('e09e9c730478cf360b49de093358ba1b', 1417939995, '108,105,104,103,102,101,100,99'),
+('e09e9c730478cf360b49de093358ba1b', 1417961098, '110'),
 ('b7ad9e2189f93461ba3885ddf1d98f17', 1417925320, '0'),
 ('cb679384f5d8d2c505b1f598506667a3', 1417925320, '98,74,73,79,75,95,97,92,96,90'),
 ('1273da1da32615700fe9ebe4fa8f039d', 1417925770, '52,43,35'),
@@ -331,7 +281,9 @@ INSERT INTO `tp_arccache` (`md5hash`, `uptime`, `cachedata`) VALUES
 ('fb8a1c730b4e994691960a0d586623ae', 1417925970, '52,43,35'),
 ('ea8012a41f58b576aa173f865fff738e', 1417925970, '39,107,34,35,36,37,38,40,41,42'),
 ('29ac15847877fd61e245d3963e2178f8', 1417942600, '0'),
-('66891919321a2010adecba6902f57474', 1417942600, '109');
+('66891919321a2010adecba6902f57474', 1417942600, '109'),
+('18498610d564868243cbd7d8418e5964', 1417945140, '0'),
+('f3accee877957830783f6c2123a45438', 1417945140, '109');
 
 -- --------------------------------------------------------
 
@@ -374,13 +326,6 @@ CREATE TABLE IF NOT EXISTS `tp_archives` (
   `weight` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `tp_archives`
---
-
-INSERT INTO `tp_archives` (`id`, `typeid`, `typeid2`, `sortrank`, `flag`, `ismake`, `channel`, `arcrank`, `click`, `money`, `title`, `shorttitle`, `color`, `writer`, `source`, `litpic`, `pubdate`, `senddate`, `mid`, `keywords`, `lastpost`, `scores`, `goodpost`, `badpost`, `voteid`, `notpost`, `description`, `filename`, `dutyadmin`, `tackid`, `mtype`, `weight`) VALUES
-(109, 2, '0', 1417942596, 'p', -1, 1, 0, 98, 0, '特姿态11发萨德服', '13212211', '', '秩名', '啊啊', '/DedeCMS/uploads/uploads/allimg/141207/1_120GA14352X.gif', 1417942596, 1417942136, 1, '的发送；斯蒂芬萨', 0, 0, 0, 0, 0, 0, '财富发送大', '', 1, 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -405,7 +350,7 @@ CREATE TABLE IF NOT EXISTS `tp_arcmulti` (
 --
 
 INSERT INTO `tp_arcmulti` (`id`, `tagid`, `uptime`, `innertext`, `pagesize`, `arcids`, `ordersql`, `addfieldsSql`, `addfieldsSqlJoin`, `attstr`) VALUES
-(1, 'dedecms', 1417938985, '<li class=''dotline''><a href="[field:arcurl/]">[field:title/]</a></li>', 8, '106,89,88,76,74,35,43,52,1,3,6,7,10,18', ' ORDER BY arc.sortrank desc', '', '', 'a:16:{s:3:"row";s:2:"16";s:8:"titlelen";s:2:"42";s:7:"infolen";i:160;s:8:"imgwidth";i:120;s:9:"imgheight";i:120;s:8:"listtype";s:3:"all";s:5:"arcid";i:0;s:9:"channelid";i:0;s:7:"orderby";s:7:"default";s:8:"orderWay";s:4:"desc";s:6:"subday";i:0;s:8:"pagesize";s:1:"8";s:7:"keyword";s:0:"";s:10:"tablewidth";s:4:"100%";s:3:"col";i:1;s:8:"colWidth";s:4:"100%";}');
+(1, 'dedecms', 1418126961, '<li class=''dotline''><a href="[field:arcurl/]">[field:title/]</a></li>', 8, '', ' ORDER BY arc.sortrank desc', '', '', 'a:16:{s:3:"row";s:2:"16";s:8:"titlelen";s:2:"42";s:7:"infolen";i:160;s:8:"imgwidth";i:120;s:9:"imgheight";i:120;s:8:"listtype";s:3:"all";s:5:"arcid";i:0;s:9:"channelid";i:0;s:7:"orderby";s:7:"default";s:8:"orderWay";s:4:"desc";s:6:"subday";i:0;s:8:"pagesize";s:1:"8";s:7:"keyword";s:0:"";s:10:"tablewidth";s:4:"100%";s:3:"col";i:1;s:8:"colWidth";s:4:"100%";}');
 
 -- --------------------------------------------------------
 
@@ -448,122 +393,7 @@ CREATE TABLE IF NOT EXISTS `tp_arctiny` (
   `senddate` int(10) unsigned NOT NULL DEFAULT '0',
   `sortrank` int(10) unsigned NOT NULL DEFAULT '0',
   `mid` mediumint(8) unsigned NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=110 ;
-
---
--- 转存表中的数据 `tp_arctiny`
---
-
-INSERT INTO `tp_arctiny` (`id`, `typeid`, `typeid2`, `arcrank`, `channel`, `senddate`, `sortrank`, `mid`) VALUES
-(1, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(2, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(3, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(4, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(5, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(6, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(7, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(8, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(9, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(10, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(11, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(12, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(13, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(14, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(15, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(16, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(17, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(18, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(19, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(20, 2, '0', 0, 1, 1270603757, 1270603757, 0),
-(21, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(22, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(23, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(24, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(25, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(26, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(27, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(28, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(29, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(30, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(31, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(32, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(33, 3, '0', 0, 1, 1270603973, 1270603973, 0),
-(34, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(35, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(36, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(37, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(38, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(39, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(40, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(41, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(42, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(43, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(44, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(45, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(46, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(47, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(48, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(49, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(50, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(51, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(52, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(53, 4, '0', 0, 1, 1270604213, 1270604213, 0),
-(54, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(55, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(56, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(57, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(58, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(59, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(60, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(61, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(62, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(63, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(64, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(65, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(66, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(67, 5, '0', 0, 1, 1270604366, 1270604366, 0),
-(68, 5, '0', 0, 1, 1270604367, 1270604367, 0),
-(69, 5, '0', 0, 1, 1270604367, 1270604367, 0),
-(70, 5, '0', 0, 1, 1270604367, 1270604367, 0),
-(71, 5, '0', 0, 1, 1270604367, 1270604367, 0),
-(72, 5, '0', 0, 1, 1270604367, 1270604367, 0),
-(73, 7, '0', 0, 3, 1270605947, 1270605737, 1),
-(74, 7, '0', 0, 3, 1270606246, 1270606052, 1),
-(75, 7, '0', 0, 3, 1270606515, 1270606350, 1),
-(76, 7, '0', 0, 3, 1270606845, 1270606550, 1),
-(77, 7, '0', 0, 3, 1270607048, 1270606864, 1),
-(78, 7, '0', 0, 3, 1270607420, 1270607066, 1),
-(79, 7, '0', 0, 3, 1270608419, 1270608245, 1),
-(80, 7, '0', 0, 3, 1270608687, 1270608594, 1),
-(81, 8, '0', 0, 6, 1270609821, 1270609262, 1),
-(82, 8, '0', 0, 6, 1270610660, 1270610596, 1),
-(83, 8, '0', 0, 6, 1270611151, 1270610796, 1),
-(84, 8, '0', 0, 6, 1270611398, 1270611217, 1),
-(85, 8, '0', 0, 6, 1270611640, 1270611555, 1),
-(86, 8, '0', 0, 6, 1270611799, 1270611728, 1),
-(87, 8, '0', 0, 6, 1270611940, 1270611831, 1),
-(88, 6, '0', 0, 2, 1270620391, 1270620081, 1),
-(89, 6, '0', 0, 2, 1270621322, 1270620429, 1),
-(90, 6, '0', 0, 2, 1270622089, 1270621870, 1),
-(91, 6, '0', 0, 2, 1270622601, 1270622561, 1),
-(92, 2, '0', 0, 1, 1270623040, 1270622998, 1),
-(93, 6, '0', 0, 2, 1270623721, 1270623628, 1),
-(94, 6, '0', 0, 2, 1270624615, 1270624527, 1),
-(95, 6, '0', 0, 2, 1270625216, 1270625082, 1),
-(96, 6, '0', 0, 2, 1270625457, 1270625399, 1),
-(97, 8, '0', 0, 6, 1270625617, 1270625579, 1),
-(98, 8, '0', 0, 6, 1270625669, 1270625656, 1),
-(99, 9, '0', 0, -8, 1270627647, 1270627647, 1),
-(100, 9, '0', 0, -8, 1270627713, 1270627713, 1),
-(101, 9, '0', 0, -8, 1270627757, 1270627757, 1),
-(102, 9, '0', 0, -8, 1270627848, 1270627848, 1),
-(103, 9, '0', 0, -8, 1270627909, 1270627909, 1),
-(104, 9, '0', 0, -8, 1270627979, 1270627979, 1),
-(105, 9, '0', 0, -8, 1270628095, 1270628095, 1),
-(106, 5, '0', 0, 1, 1270708089, 1270708015, 1),
-(107, 4, '0', 0, 1, 1270775824, 1417925961, 4),
-(108, 9, '0', 0, -8, 1417939995, 1417939995, 1),
-(109, 2, '0', 0, 1, 1417942136, 1417942596, 1);
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=111 ;
 
 -- --------------------------------------------------------
 
@@ -602,24 +432,23 @@ CREATE TABLE IF NOT EXISTS `tp_arctype` (
   `crossid` text,
   `content` text,
   `smalltypes` text
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- 转存表中的数据 `tp_arctype`
 --
 
 INSERT INTO `tp_arctype` (`id`, `reid`, `topid`, `sortrank`, `typename`, `typedir`, `isdefault`, `defaultname`, `issend`, `channeltype`, `maxpage`, `ispart`, `corank`, `tempindex`, `templist`, `temparticle`, `namerule`, `namerule2`, `modname`, `description`, `keywords`, `seotitle`, `moresite`, `sitepath`, `siteurl`, `ishidden`, `cross`, `crossid`, `content`, `smalltypes`) VALUES
-(1, 0, 0, 0, '网页基础', '{cmspath}/a/webbase', 1, 'index.html', 1, 1, -1, 1, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(2, 1, 1, 0, 'HTML', '{cmspath}/a/webbase/html', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(3, 1, 1, 1, 'DIV&CSS', '{cmspath}/a/webbase/div-css', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(4, 1, 1, 2, 'Javascript/Ajax', '{cmspath}/a/webbase/javascript-ajax', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(5, 1, 1, 3, 'Dreamweaver', '{cmspath}/a/webbase/dreamweaver', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(6, 0, 0, 1, '站长图集', '{cmspath}/a/pics', 1, 'index.html', 1, 2, -1, 0, 0, '{style}/index_image.htm', '{style}/list_image.htm', '{style}/article_image.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(7, 0, 0, 2, '软件下载', '{cmspath}/a/downloads', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_soft.htm', '{style}/list_soft.htm', '{style}/article_soft.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(8, 0, 0, 3, '商品销售', '{cmspath}/a/shops', 1, 'index.html', 1, 6, -1, 0, 0, '{style}/index_shop.htm', '{style}/list_shop.htm', '{style}/article_shop.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(9, 0, 0, 5, '会议信息', '{cmspath}/a/infos', 1, 'index.html', 1, -8, -1, 0, 0, '{style}/index_infos.htm', '{style}/list_infos.htm', '{style}/article_infos.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/infos', '', 0, 0, '', '&nbsp;', ''),
-(10, 0, 0, 50, '织梦CMS', 'http://www.dedecms.com', 1, 'index.html', 1, 1, -1, 2, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
-(11, 0, 0, 50, '帮助文档', 'http://docs.dedecms.com', 1, 'index.html', 1, 1, -1, 2, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', '');
+(20, 17, 17, 50, '意见办理', '{cmspath}/a/daibiaofengcai/yijianbanli', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
+(19, 17, 17, 50, '代表信息', '{cmspath}/a/daibiaofengcai/daibiaoxinxi', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
+(18, 17, 17, 50, '履职报道', '{cmspath}/a/daibiaofengcai/lvzhibaodao', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
+(17, 0, 0, 50, '代表风采', '{cmspath}/a/daibiaofengcai', 1, 'index.html', 1, 1, -1, 1, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
+(16, 12, 12, 50, '人大制度', '{cmspath}/a/rendazhichuang/rendazhidu', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/rendazhichuang', '', 0, 0, '', '', ''),
+(15, 12, 12, 50, '机构设置', '{cmspath}/a/rendazhichuang/jigoushezhi', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/rendazhichuang', '', 0, 0, '', '', ''),
+(14, 12, 12, 50, '他山之石', '{cmspath}/a/rendazhichuang/tashanzhishi', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/rendazhichuang', '', 0, 0, '', '', ''),
+(13, 12, 12, 50, '工作要闻', '{cmspath}/a/rendazhichuang/gongzuoyaowen', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/rendazhichuang', '', 0, 0, '', '', ''),
+(12, 0, 0, 50, '人大之窗', '{cmspath}/a/rendazhichuang', 1, 'index.html', 1, 1, -1, 1, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/rendazhichuang', '', 0, 0, '', '&nbsp;', ''),
+(21, 17, 17, 50, '代表展播', '{cmspath}/a/daibiaofengcai/daibiaozhanbo', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1607,18 +1436,6 @@ CREATE TABLE IF NOT EXISTS `tp_feedback` (
   `msg` text
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
---
--- 转存表中的数据 `tp_feedback`
---
-
-INSERT INTO `tp_feedback` (`id`, `aid`, `typeid`, `username`, `arctitle`, `ip`, `ischeck`, `dtime`, `mid`, `bad`, `good`, `ftype`, `face`, `msg`) VALUES
-(1, 39, 4, '天涯', 'Web2.0十大Ajax安全漏洞以及成因', '127.0.0.1', 1, 1270707263, 2, 0, 0, 'feedback', 1, '不错的教程,收获很多哦'),
-(2, 95, 6, '天涯', '原创风景图片', '127.0.0.1', 1, 1270707556, 2, 0, 0, 'feedback', 10, '嗯,这些图片都很不错!'),
-(3, 100, 9, '匿名', '吉林地区 礼聘 PHP程序员  网页设计师 系统运维工程师  薪酬面议', '127.0.0.1', 1, 1270707971, 2, 0, 0, 'feedback', 1, '哈哈,不错,我合适的了'),
-(4, 87, 8, '天涯', 'DedeCMS产品商业授权', '127.0.0.1', 1, 1270708319, 2, 0, 0, 'feedback', 9, '支持产品授权'),
-(5, 80, 7, '天涯', 'DedeAMPZ-PHP环境整合套件', '127.0.0.1', 1, 1270708361, 2, 0, 0, 'feedback', 1, '不错,下载了!...'),
-(6, 106, 5, 'like', '{dede:招聘启事 标题=''织梦大家庭新年招募第一波''}', '127.0.0.1', 1, 1270775872, 4, 0, 0, 'feedback', 1, '希望能够加入到织梦的大家庭!..');
-
 -- --------------------------------------------------------
 
 --
@@ -1760,6 +1577,7 @@ CREATE TABLE IF NOT EXISTS `tp_log` (
 CREATE TABLE IF NOT EXISTS `tp_member` (
 `mid` mediumint(8) unsigned NOT NULL,
   `mtype` varchar(20) NOT NULL DEFAULT '个人',
+  `sOpenId` varchar(64) NOT NULL,
   `userid` char(20) NOT NULL DEFAULT '',
   `pwd` char(32) NOT NULL DEFAULT '',
   `uname` char(36) NOT NULL DEFAULT '',
@@ -1779,21 +1597,77 @@ CREATE TABLE IF NOT EXISTS `tp_member` (
   `joinip` char(16) NOT NULL DEFAULT '',
   `logintime` int(10) unsigned NOT NULL DEFAULT '0',
   `loginip` char(16) NOT NULL DEFAULT '',
+  `belong` smallint(4) NOT NULL DEFAULT '0',
   `checkmail` smallint(6) NOT NULL DEFAULT '-1'
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- 转存表中的数据 `tp_member`
 --
 
-INSERT INTO `tp_member` (`mid`, `mtype`, `userid`, `pwd`, `uname`, `sex`, `rank`, `uptime`, `exptime`, `money`, `email`, `scores`, `matt`, `spacesta`, `face`, `safequestion`, `safeanswer`, `jointime`, `joinip`, `logintime`, `loginip`, `checkmail`) VALUES
-(1, '个人', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '男', 100, 0, 0, 0, '', 10000, 10, 0, '', 0, '', 1417922272, '', 1417922344, '127.0.0.1', -1),
-(2, '个人', 'tianya', 'fcea920f7412b5da7be0cf42b8c93759', '天涯', '男', 180, 1417922937, 0, 0, 'tianya@dedecms.com', 115, 0, 2, '', 0, '', 1270622445, '127.0.0.1', 1270622445, '127.0.0.1', -1),
-(3, '个人', 'wind', 'e10adc3949ba59abbe56e057f20f883e', '木林森', '男', 0, 1417923336, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270623901, '127.0.0.1', 1270623901, '127.0.0.1', -1),
-(4, '个人', 'like', 'e10adc3949ba59abbe56e057f20f883e', 'like', '男', 180, 1417923348, 0, 0, 'like@dedecms.com', 113, 0, 2, '', 0, '', 1270624079, '127.0.0.1', 1270624079, '127.0.0.1', -1),
-(5, '个人', 'yuejie', 'e10adc3949ba59abbe56e057f20f883e', '越界', '男', 180, 1417923359, 0, 0, 'jsy@dedecms.com', 100, 0, 2, '', 0, '', 1270624369, '127.0.0.1', 1270624369, '127.0.0.1', -1),
-(6, '个人', '沙羡', 'e10adc3949ba59abbe56e057f20f883e', '沙羡', '男', 10, 1417923390, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270624916, '127.0.0.1', 1270624916, '127.0.0.1', -1),
-(7, '个人', '尐湶細蓅', 'e10adc3949ba59abbe56e057f20f883e', '尐湶細蓅', '男', 180, 1417923312, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270624989, '127.0.0.1', 1270624989, '127.0.0.1', -1);
+INSERT INTO `tp_member` (`mid`, `mtype`, `sOpenId`, `userid`, `pwd`, `uname`, `sex`, `rank`, `uptime`, `exptime`, `money`, `email`, `scores`, `matt`, `spacesta`, `face`, `safequestion`, `safeanswer`, `jointime`, `joinip`, `logintime`, `loginip`, `belong`, `checkmail`) VALUES
+(1, '个人', '', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '男', 100, 0, 0, 0, '', 10000, 10, 0, '', 0, '', 1417922272, '', 1418132065, '127.0.0.1', 0, -1),
+(2, '个人', '', 'tianya', 'fcea920f7412b5da7be0cf42b8c93759', '天涯', '男', 180, 1417922937, 0, 0, 'tianya@dedecms.com', 115, 0, 2, '', 0, '', 1270622445, '127.0.0.1', 1270622445, '127.0.0.1', 0, -1),
+(3, '个人', '', 'wind', 'e10adc3949ba59abbe56e057f20f883e', '木林森', '男', 0, 1417923336, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270623901, '127.0.0.1', 1270623901, '127.0.0.1', 0, -1),
+(4, '个人', '', 'like', 'e10adc3949ba59abbe56e057f20f883e', 'like', '男', 180, 1417923348, 0, 0, 'like@dedecms.com', 113, 0, 2, '', 0, '', 1270624079, '127.0.0.1', 1270624079, '127.0.0.1', 0, -1),
+(5, '个人', '', 'yuejie', 'e10adc3949ba59abbe56e057f20f883e', '越界', '男', 180, 1417923359, 0, 0, 'jsy@dedecms.com', 100, 0, 2, '', 0, '', 1270624369, '127.0.0.1', 1270624369, '127.0.0.1', 0, -1),
+(6, '个人', '', '沙羡', 'e10adc3949ba59abbe56e057f20f883e', '沙羡', '男', 10, 1417923390, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270624916, '127.0.0.1', 1270624916, '127.0.0.1', 0, -1),
+(7, '个人', '', '尐湶細蓅', 'e10adc3949ba59abbe56e057f20f883e', '尐湶細蓅', '男', 180, 1417923312, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270624989, '127.0.0.1', 1270624989, '127.0.0.1', 0, -1),
+(8, '个人', 'test123', 'test123', 'e10adc3949ba59abbe56e057f20f883e', '123', '男', 100, 0, 0, 0, '', 1000, 10, 0, '', 0, '', 0, '', 0, '', 0, -1);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tp_member_belong`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_member_belong` (
+`id` int(8) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `type` smallint(1) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+
+--
+-- 转存表中的数据 `tp_member_belong`
+--
+
+INSERT INTO `tp_member_belong` (`id`, `name`, `type`) VALUES
+(1, '北庄村', 1),
+(2, '横桥村', 1),
+(3, '红桥村', 1),
+(4, '界浜村', 1),
+(5, '里仁村', 1),
+(6, '牛桥村', 1),
+(7, '棋杆村', 1),
+(8, '沈西村', 1),
+(9, '塘东村', 1),
+(10, '瓦南村', 1),
+(11, '姚桥村', 1),
+(12, '周东村', 1),
+(13, '周南村', 1),
+(14, '周市社区', 2),
+(15, '周东社区', 2),
+(16, '周源社区', 2),
+(17, '周南社区', 2),
+(18, '桃园社区', 2),
+(19, '瓦屑社区', 2),
+(20, '周欣社区', 2),
+(21, '上海申茂电磁线有限公司', 3),
+(22, '海尼药业', 3),
+(23, '上海周浦城镇建设投资发展有限公司', 3),
+(24, '浦周清运公司', 3),
+(25, '上海三景服装实业有限公司', 3),
+(26, '上海易强机械厂有限公司', 3),
+(27, '上海通用重工集团有限公司', 3),
+(28, '上海涵嘉电气设备有限公司', 3),
+(29, '春潮实业', 3),
+(30, '上海金盾消防安全设备有限公司', 3),
+(31, '上海澳星照明电器制造有限公司', 3),
+(32, '周浦智慧产业投资发展有限公司', 3),
+(33, '周浦镇后勤服务公司', 3),
+(34, '周浦慈善超市', 3),
+(35, '上海万达广场南汇商业管理有限公司', 3),
+(36, '中国银行上海南汇支行', 3);
 
 -- --------------------------------------------------------
 
@@ -1962,15 +1836,6 @@ CREATE TABLE IF NOT EXISTS `tp_member_msg` (
   `msg` text
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
---
--- 转存表中的数据 `tp_member_msg`
---
-
-INSERT INTO `tp_member_msg` (`id`, `mid`, `userid`, `ip`, `ischeck`, `dtime`, `msg`) VALUES
-(1, 1, 'admin', '127.0.0.1', 1, 1270775620, '<img src=''/member/templets/images/smiley/6.gif'' style=''cursor: pointer; position: relative;''>天气和心情都非常不错!'),
-(2, 6, '沙羡', '127.0.0.1', 1, 1270775668, '登录dedecms中!...<img src=''/member/templets/images/smiley/7.gif'' style=''cursor: pointer; position: relative;''>'),
-(3, 4, 'like', '127.0.0.1', 1, 1270775738, 'webdesign<img src=''/member/templets/images/smiley/1.gif'' style=''cursor: pointer; position: relative;''>');
-
 -- --------------------------------------------------------
 
 --
@@ -2032,7 +1897,8 @@ CREATE TABLE IF NOT EXISTS `tp_member_person` (
 --
 
 INSERT INTO `tp_member_person` (`mid`, `onlynet`, `sex`, `uname`, `qq`, `msn`, `tel`, `mobile`, `place`, `oldplace`, `birthday`, `star`, `income`, `education`, `height`, `bodytype`, `blood`, `vocation`, `smoke`, `marital`, `house`, `drink`, `datingtype`, `language`, `nature`, `lovemsg`, `address`, `uptime`) VALUES
-(1, 1, '男', 'admin', '', '', '', '', 0, 0, '1980-01-01', 1, 0, 0, 160, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 0);
+(1, 1, '男', 'admin', '', '', '', '', 0, 0, '1980-01-01', 1, 0, 0, 160, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 0),
+(8, 1, '男', 'test123', '', '', '', '', 0, 0, '1980-01-01', 1, 0, 0, 160, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -2054,6 +1920,26 @@ CREATE TABLE IF NOT EXISTS `tp_member_pms` (
   `isadmin` tinyint(1) NOT NULL DEFAULT '0',
   `message` text
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tp_member_signIn`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_member_signIn` (
+`id` int(11) NOT NULL,
+  `sOpenId` varchar(64) NOT NULL,
+  `infosId` int(11) NOT NULL,
+  `updatetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `tp_member_signIn`
+--
+
+INSERT INTO `tp_member_signIn` (`id`, `sOpenId`, `infosId`, `updatetime`) VALUES
+(1, 'test123', 110, '2014-12-07 11:56:09');
 
 -- --------------------------------------------------------
 
@@ -2091,7 +1977,8 @@ CREATE TABLE IF NOT EXISTS `tp_member_space` (
 --
 
 INSERT INTO `tp_member_space` (`mid`, `pagesize`, `matt`, `spacename`, `spacelogo`, `spacestyle`, `sign`, `spacenews`) VALUES
-(1, 10, 0, 'admin的空间', '', 'person', '', '');
+(1, 10, 0, 'admin的空间', '', 'person', '', ''),
+(8, 10, 0, '123的空间', '', 'person', '', '');
 
 -- --------------------------------------------------------
 
@@ -2155,14 +2042,15 @@ CREATE TABLE IF NOT EXISTS `tp_member_tj` (
   `soft` int(10) NOT NULL DEFAULT '0',
   `info` int(10) NOT NULL DEFAULT '0',
   `shop` int(10) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- 转存表中的数据 `tp_member_tj`
 --
 
 INSERT INTO `tp_member_tj` (`mid`, `article`, `album`, `archives`, `homecount`, `pagecount`, `feedback`, `friend`, `stow`, `soft`, `info`, `shop`) VALUES
-(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0);
+(1, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0),
+(8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2754,12 +2642,12 @@ CREATE TABLE IF NOT EXISTS `tp_sysconfig` (
 
 INSERT INTO `tp_sysconfig` (`aid`, `varname`, `info`, `groupid`, `type`, `value`) VALUES
 (1, 'cfg_basehost', '站点根网址', 1, 'string', 'http://localhost'),
-(2, 'cfg_cmspath', 'DedeCMS安装目录', 2, 'string', '/DedeCMS/uploads'),
+(2, 'cfg_cmspath', 'DedeCMS安装目录', 2, 'string', '/dedetozp/mng'),
 (3, 'cfg_cookie_encode', 'cookie加密码', 2, 'string', '926f7iS8gSSptdQAXsoXEoiE44bnlS'),
-(4, 'cfg_indexurl', '网页主页链接', 1, 'string', '/DedeCMS/uploads'),
+(4, 'cfg_indexurl', '网页主页链接', 1, 'string', '/dedetozp/mng'),
 (5, 'cfg_backup_dir', '数据备份目录（在data目录内）', 2, 'string', 'backupdata'),
 (6, 'cfg_indexname', '主页链接名', 1, 'string', '主页'),
-(7, 'cfg_webname', '网站名称', 1, 'string', '周浦人大'),
+(7, 'cfg_webname', '网站名称', 1, 'string', 'dedecms'),
 (8, 'cfg_adminemail', '网站发信EMAIL', 2, 'string', 'admin@dedecms.com'),
 (9, 'cfg_html_editor', 'Html编辑器（ckeditor,需要fck的用户可以去官网下载）', 2, 'string', 'ckeditor'),
 (10, 'cfg_arcdir', '文档HTML默认保存路径', 1, 'string', '/a'),
@@ -2795,8 +2683,8 @@ INSERT INTO `tp_sysconfig` (`aid`, `varname`, `info`, `groupid`, `type`, `value`
 (38, 'cfg_ftp_mkdir', '是否强制用FTP创建目录', 2, 'bool', 'N'),
 (39, 'cfg_feedback_ck', '评论加验证码重确认', 5, 'bool', 'Y'),
 (40, 'cfg_list_son', '上级列表是否包含子类内容', 6, 'bool', 'Y'),
-(41, 'cfg_mb_open', '是否开启会员功能', 4, 'bool', 'N'),
-(42, 'cfg_mb_album', '是否开启会员图集功能', 4, 'bool', 'Y'),
+(41, 'cfg_mb_open', '是否开启会员功能', 4, 'bool', 'Y'),
+(42, 'cfg_mb_album', '是否开启会员图集功能', 4, 'bool', 'N'),
 (43, 'cfg_mb_upload', '是否允许会员上传非图片附件', 4, 'bool', 'Y'),
 (44, 'cfg_mb_upload_size', '会员上传文件大小(K)', 4, 'number', '1024'),
 (45, 'cfg_mb_sendall', '是否开放会员对自定义模型投稿', 4, 'bool', 'Y'),
@@ -2890,8 +2778,8 @@ INSERT INTO `tp_sysconfig` (`aid`, `varname`, `info`, `groupid`, `type`, `value`
 (744, 'cfg_replace_num', '文档内容同一关键词替换次数(0为全部替换)', 7, 'number', '2'),
 (745, 'cfg_uplitpic_cut', '上传缩略图后是否马上弹出裁剪框', 3, 'bool', 'Y'),
 (746, 'cfg_album_mark', '图集是否使用水印(小图也会受影响)', 3, 'bool', 'N'),
-(747, 'cfg_mb_feedcheck', '会员动态是否需要审核', 4, 'bool', 'N'),
-(748, 'cfg_mb_msgischeck', '会员状态是否需要审核', 4, 'bool', 'N'),
+(747, 'cfg_mb_feedcheck', '会员动态是否需要审核', 4, 'bool', 'Y'),
+(748, 'cfg_mb_msgischeck', '会员状态是否需要审核', 4, 'bool', 'Y'),
 (749, 'cfg_mb_reginfo', '注册是否需要完成详细资料的填写', 4, 'bool', 'Y'),
 (750, 'cfg_remote_site', '是否启用远程站点', 2, 'bool', 'N'),
 (751, 'cfg_title_site', '是否发布和编辑文档时远程发布(启用远程站点的前提下)', 2, 'bool', 'N'),
@@ -6722,6 +6610,12 @@ ALTER TABLE `tp_member`
  ADD PRIMARY KEY (`mid`), ADD KEY `userid` (`userid`,`sex`), ADD KEY `logintime` (`logintime`);
 
 --
+-- Indexes for table `tp_member_belong`
+--
+ALTER TABLE `tp_member_belong`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tp_member_company`
 --
 ALTER TABLE `tp_member_company`
@@ -6786,6 +6680,12 @@ ALTER TABLE `tp_member_person`
 --
 ALTER TABLE `tp_member_pms`
  ADD PRIMARY KEY (`id`), ADD KEY `sendtime` (`sendtime`);
+
+--
+-- Indexes for table `tp_member_signIn`
+--
+ALTER TABLE `tp_member_signIn`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tp_member_snsmsg`
@@ -7069,12 +6969,12 @@ MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `tp_arctiny`
 --
 ALTER TABLE `tp_arctiny`
-MODIFY `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=110;
+MODIFY `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=111;
 --
 -- AUTO_INCREMENT for table `tp_arctype`
 --
 ALTER TABLE `tp_arctype`
-MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `tp_area`
 --
@@ -7149,7 +7049,12 @@ MODIFY `lid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `tp_member`
 --
 ALTER TABLE `tp_member`
-MODIFY `mid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `mid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `tp_member_belong`
+--
+ALTER TABLE `tp_member_belong`
+MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `tp_member_company`
 --
@@ -7201,6 +7106,11 @@ MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `tp_member_pms`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `tp_member_signIn`
+--
+ALTER TABLE `tp_member_signIn`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `tp_member_snsmsg`
 --
 ALTER TABLE `tp_member_snsmsg`
@@ -7214,7 +7124,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `tp_member_tj`
 --
 ALTER TABLE `tp_member_tj`
-MODIFY `mid` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `mid` mediumint(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tp_member_type`
 --
