@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>查看会员所属</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<script language='javascript'src='../data/enums/area.js'></script>
+<script>
+
+</script>
+</head>
+<body background='images/allbg.gif' leftmargin='8' topmargin='8'>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6">
+  <tr>
+    <td height="19" background="images/tbg.gif" style="padding-left:10px;"><a href='<?php echo $ENV_GOBACK_URL; ?>'><b>会员管理</b></a> &gt;&gt; 查看会员所属</td>
+</tr>
+<tr>
+<td height="200" bgcolor="#FFFFFF" align='center'>
+	<?php
+	if($row['matt']==10) echo "<font color='red'>当前用户是网站管理员关连的帐号，请小心操作！</font>";
+	?>
+	<table width="98%" border="0" cellspacing="0" cellpadding="6" >
+        <tr> 
+          <td colspan="2" height="10" ></td>
+        </tr>
+        <form name="form2" action="member_belong_do.php" method="post">
+          <input type="hidden" name="dopost" value="update" />
+          <input type="hidden" name="id" value="<?php echo $id?>" />
+          <tr> 
+            <td align="right" class='bline'>名称：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="name" id="name" value="<?php echo $row['name']?>"/>
+            (不修改留空)
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" class='bline'>类型：</td>
+            <td class='bline'  style="text-align:left;">
+           <select name="type">
+               <?php
+               foreach($staArr as $k=>$v){
+               if($row['type']==$k)
+               echo "<option value='$k' selected>$v</option>";
+               else
+               echo "<option value='$k'>$v</option>";
+               }
+               ?>
+           </select>
+            </td>
+          </tr>
+          <tr> 
+            <td height="67" align="right" >&nbsp;</td>
+            <td height="67" align="left">
+            <input type="submit" name="Submit" value="确定修改" class='coolbg' /> 
+              &nbsp;&nbsp;
+            <input type="reset" name="Submit22" value="重置表单" class='coolbg' />
+            </td>
+          </tr>
+        </form>
+    </table>
+    </td>
+</tr>
+</table>
+</body>
+</html>
