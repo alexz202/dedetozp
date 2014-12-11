@@ -361,6 +361,22 @@ class WXUserAction extends Action
 
     }
 
+    public function bindOpenID()
+    {
+        $this->display('Tpl/default/index/bindOpenID.html');
+    }
+
+
+    public function showqrcode(){
+       $scene_id=$_GET['scene_id'];
+       $qrcodeinfo=$this->getQRCodeinfo($scene_id);
+        if(is_array($qrcodeinfo)){
+         $ticket=$qrcodeinfo['ticket'];
+           header("location:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket);
+        }else
+            die('get qrcode error');
+    }
+
     private function checkSignature()
     {
         $signature = $_GET["signature"];
@@ -393,10 +409,6 @@ class WXUserAction extends Action
             return false;
     }
 
-    public function bindOpenID()
-    {
-        $this->display('Tpl/default/index/bindOpenID.html');
-    }
 
     private function bindOpenIDtoinVcode($sOpenid, $arr)
     {
@@ -417,6 +429,62 @@ class WXUserAction extends Action
         return false;
     }
 
+    /*
+     * get QRCODE
+     */
+    private  function getQRCodeinfo($scene_id){
+        $Token= $this->getToken();
+        $urlQRCode = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=$Token";
+        $scenearr=array(
+            'scene_id'=>$scene_id
+        );
+        $_data=array(
+           'action_name'=>'QR_LIMIT_SCENE',
+            'action_info'=>array(
+                'scene'=>$scenearr
+            ),
+        );
+      $jsonstr=  json_encode($_data);
+       $output= $this->curlpost($urlQRCode,$jsonstr);
+       $returnarr=json_decode($output,true);
+        $ticket=$returnarr['ticket'];
+        $url=$returnarr['url'];
+      // $showqrcodeurl="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket;
+      return array('ticket'=>$ticket,'url'=>$url);
+    }
+
+
+    /**get token
+     * @return mixed
+     */
+    private function getToken(){
+        $url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$this->AppID&secret=$this->Secret";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        $arr= json_decode($output,true);
+        return $arr['access_token'];
+    }
+
+
+    private function curlpost($url,$_data){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+//            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+//            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$_data);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        return $output;
+    }
 
 }
 

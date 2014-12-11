@@ -35,5 +35,4 @@ return array(
 	//'SHOW_PAGE_TRACE'		=>true,
 
 );
-require("shouquan.php");
 ?>

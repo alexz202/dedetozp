@@ -19,8 +19,10 @@
  */
 
 require_once(DEDEINC.'/dedetemplate.class.php');
+
 $codefile = (isset($needCode) ? $needCode : $cfg_soft_lang);
 $codefile = preg_replace("#[^\w-]#", '', $codefile);
+
 if(file_exists(DEDEINC.'/code/datalist.'.$codefile.'.inc'))
 {
     require_once(DEDEINC.'/code/datalist.'.$codefile.'.inc');
@@ -41,6 +43,7 @@ else
  *
  * @package DedeCMS.Libraries
  */
+
 class DataListCP
 {
     var $dsql;
@@ -67,7 +70,7 @@ class DataListCP
         {
             $dsql = $GLOBALS['dsqli'];
         } else {
-            $dsql = $GLOBALS['dsql'];
+           $dsql = $GLOBALS['dsql'];
         }
         $this->sourceSql='';
         $this->pageSize=25;
