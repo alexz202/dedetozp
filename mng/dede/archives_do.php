@@ -1014,6 +1014,35 @@ else if($dopost=='getCatMap')
 //AJAX窗体结束
 }
 /*------------------------
+function getCatMap() {  }
+-------------------------*/
+else if($dopost=='getMemberLst')
+{
+    AjaxHead();
+    //输出AJAX可移动窗体
+    $divname = 'getMemberLst';
+    echo "<div class='title' style='cursor:default;'>\r\n";
+    echo "    <div class='titLeft'>选择会员</div>\r\n";
+    echo "    <div class='titRight'><img src='images/ico-close.gif' style='cursor:pointer;' onclick='HideObj(\"{$divname}\");ChangeFullDiv(\"hide\");' alt='关闭' title='关闭' /></div>\r\n";
+    echo "</div>\r\n";
+    ?>
+    <form name='quicksel' action='javascript:;' method='get'>
+        <div class='quicksel'>
+            <a hre="javacript:;"><input type="checkbox"  name="seltypeid" value="1"/>1<input type="checkbox" name="seltypeid" value="2" />2</a>
+        </div>
+        <div align='center' class='quickselfoot'>
+            <img src="images/button_ok.gif" onclick="getMemberList('<?php echo $targetid; ?>');" width="60" height="22" class="np" border="0" style="cursor:pointer" />
+            &nbsp;&nbsp;
+            <img src="images/button_back.gif" onclick='HideObj("<?php echo $divname; ?>");ChangeFullDiv("hide");' width="60" height="22" border="0"  style="cursor:pointer" />
+        </div>
+    </form>
+<?php
+//AJAX窗体结束
+}
+
+
+
+/*------------------------
 function showsignIn() {  }
 -------------------------*/
 

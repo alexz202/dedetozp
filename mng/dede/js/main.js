@@ -612,6 +612,30 @@ function ShowCatMap(e, obj, cid, targetId, oldvalue)
 	ChangeFullDiv('show');
 }
 
+//显示分类会员
+function ShowMemberList(e, obj, cid, targetId, oldvalue)
+{
+    fixupPos = true;
+    LoadQuickDiv(e, 'archives_do.php?dopost=getMemberLst&targetid='+targetId+'&channelid='+cid+'&oldvalue='+oldvalue+'&rnd='+Math.random(), 'getMemberLst', '700px', '500px');
+    ChangeFullDiv('show');
+ }
+
+function getMemberList(targetId)
+{
+    var selBox = document.quicksel.seltypeid;
+    var targetObj = $Obj(targetId);
+    var selvalue = '';
+    for(var i=0; i< selBox.length; i++)
+    {if(selBox[i].checked) {
+    selvalue += (selvalue=='' ? selBox[i].value : ','+selBox[i].value);
+    }
+    }
+    alert(selvalue);
+}
+
+
+
+
 function getSelCat(targetId)
 {
 	var selBox = document.quicksel.seltypeid;
