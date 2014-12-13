@@ -1022,13 +1022,63 @@ else if($dopost=='getMemberLst')
     //输出AJAX可移动窗体
     $divname = 'getMemberLst';
     echo "<div class='title' style='cursor:default;'>\r\n";
-    echo "    <div class='titLeft'>选择会员</div>\r\n";
+    echo "    <div class='titLeft'>选择人员</div>\r\n";
     echo "    <div class='titRight'><img src='images/ico-close.gif' style='cursor:pointer;' onclick='HideObj(\"{$divname}\");ChangeFullDiv(\"hide\");' alt='关闭' title='关闭' /></div>\r\n";
     echo "</div>\r\n";
+    $sql  = "SELECT * FROM `#@__member` as m left join `#@__member_belong` as bm on m.belong=bm.id where m.rank=180 order by bm.type asc";
+    $dsql->SetQuery($sql);
+    $dsql->Execute();
+    $list=array();
+    $list_=array();
+    $arrbelongtype=array('村','社区','企业','其他');
+    while($trow = $dsql->GetObject()){
+        if(!empty($trow->type))
+        $list[$arrbelongtype[$trow->type]][$trow->name][]=array('mid'=>$trow->mid,'sOpenId'=>$trow->sOpenId,'belongname'=>$trow->name,'username'=>$trow->uname);
+        else
+        $list_[$arrbelongtype[3]]['other'][]=array('mid'=>$trow->mid,'sOpenId'=>$trow->sOpenId,'belongname'=>'','username'=>$trow->uname);
+    }
+    $aid=$channelid;//aid
+      $res= $dsql->GetOne("SELECT attend FROM `#@__addoninfos` where aid=$aid");
+   $attend=$res['attend'];
+    $attendlist=explode(',',$attend);
     ?>
     <form name='quicksel' action='javascript:;' method='get'>
         <div class='quicksel'>
-            <a hre="javacript:;"><input type="checkbox"  name="seltypeid" value="1"/>1<input type="checkbox" name="seltypeid" value="2" />2</a>
+        <?php
+foreach($list as $k=>$v){
+        echo $k;
+        echo '<br>';
+    foreach($v as $vv=>$vk){
+        echo '&nbsp;&nbsp;'. $vv;
+        echo '<br>';
+        foreach($vk as $vkk){
+            $value=$vkk['mid'];
+            $name=$vkk['username'];
+            if(in_array($value,$attendlist))
+            echo "<input type=\"checkbox\"  name=\"seltypeid\" value=\"$value\" checked/> ".$name ."&nbsp;&nbsp;" ;
+            else
+            echo "<input type=\"checkbox\"  name=\"seltypeid\" value=\"$value\"/> ".$name ."&nbsp;&nbsp;" ;
+        }
+        echo '<br>';
+    }
+}
+        echo '<br>';
+        foreach($list_ as $k=>$v){
+            echo $k;
+            echo '<br>';
+            foreach($v as $vv=>$vk){
+                foreach($vk as $vkk){
+                    $value=$vkk['mid'];
+                    $name=$vkk['username'];
+                    if(in_array($value,$attendlist))
+                        echo "<input type=\"checkbox\"  name=\"seltypeid\" value=\"$value\" checked/> ".$name ."&nbsp;&nbsp;" ;
+                    else
+                        echo "<input type=\"checkbox\"  name=\"seltypeid\" value=\"$value\"/> ".$name ."&nbsp;&nbsp;" ;
+                }
+                echo '<br>';
+            }
+        }
+?>
         </div>
         <div align='center' class='quickselfoot'>
             <img src="images/button_ok.gif" onclick="getMemberList('<?php echo $targetid; ?>');" width="60" height="22" class="np" border="0" style="cursor:pointer" />
@@ -1048,16 +1098,16 @@ function showsignIn() {  }
 
 else if($dopost=='showsignIn'){
  $aid=$_GET['aid'];
-  $res=   $dsql->GetOne("SELECT attendlist FROM `#@__addoninfos` where aid=$aid ");
-  $attendlist=parseATTEND($res['attendlist']);
+  $res=   $dsql->GetOne("SELECT attend FROM `#@__addoninfos` where aid=$aid ");
+  $attendlist=parseATTEND($res['attend']);
     $dsql->SetQuery("SELECT * FROM `#@__member_signIn` as ms join `#@__member` as m on m.sOpenId=ms.sOpenId  where ms.infosId=$aid ");
     $dsql->Execute();
     $takelist=array();
     $notakelist=array();
     while($trow = $dsql->GetObject())
     {
-         if(in_array($trow->sOpenId,$attendlist)){
-             $takelist[]=$trow->sOpenId;
+         if(in_array($trow->mid,$attendlist)){
+             $takelist[]=$trow->mid;
          }
         $arr=$trow;
     }
@@ -1095,6 +1145,9 @@ else if($dopost=='showonemembersignIn'){
   //diff
    $notakemt=array_diff($allidlist,$attendidlist);
     include DedeInclude("templets/signIn_membershow.htm");
+}
+else if($dopost=='showbelongsignIn'){
+ //TODO ??
 }
 
 

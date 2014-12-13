@@ -14,7 +14,7 @@ require_once(DEDEINC."/customfields.func.php");
 require_once(DEDEADMIN."/inc/inc_archives_functions.php");
 
 if(empty($dopost)) $dopost = '';
-
+$typeid=MEETINGTYPEID;
 if($dopost!='save')
 {
     require_once(DEDEADMIN."/inc/inc_catalog_options.php");
@@ -130,7 +130,7 @@ else if($dopost=='save')
     $addtable = trim($cts['addtable']);
     if($addtable!='')
     {
-        $iquery = "UPDATE `$addtable` SET typeid='$typeid',arcrank='$arcrank',title='$title',flag='$flag',litpic='$litpic'{$inadd_f} WHERE aid='$id' ";
+        $iquery = "UPDATE `$addtable` SET typeid='$typeid',arcrank='$arcrank',title='$title',flag='$flag',attend='$attend',litpic='$litpic'{$inadd_f} WHERE aid='$id' ";
         if(!$dsql->ExecuteNoneQuery($iquery))
         {
             ShowMsg("更新附加表 `$addtable`  时出错，请检查原因！","javascript:;");
@@ -139,21 +139,21 @@ else if($dopost=='save')
     }
 
     //生成HTML
-    UpIndexKey($id, $arcrank, $typeid, $sortrank, '');
-    if($cfg_remote_site=='Y' && $isremote=="1")
-    {    
-        if($serviterm!="")
-        {
-            list($servurl, $servuser, $servpwd) = explode(',', $serviterm);
-            $config = array( 'hostname' => $servurl, 'username' => $servuser, 
-                                      'password' => $servpwd,'debug' => 'TRUE');
-        } else {
-            $config = array();
-        }
-        if(!$ftp->connect($config)) exit('Error:None FTP Connection!');
-    }
-
-    $artUrl = MakeArt($id, TRUE, TRUE, $isremote);
+//    UpIndexKey($id, $arcrank, $typeid, $sortrank, '');
+//    if($cfg_remote_site=='Y' && $isremote=="1")
+//    {
+//        if($serviterm!="")
+//        {
+//            list($servurl, $servuser, $servpwd) = explode(',', $serviterm);
+//            $config = array( 'hostname' => $servurl, 'username' => $servuser,
+//                                      'password' => $servpwd,'debug' => 'TRUE');
+//        } else {
+//            $config = array();
+//        }
+//        if(!$ftp->connect($config)) exit('Error:None FTP Connection!');
+//    }
+//
+//    $artUrl = MakeArt($id, TRUE, TRUE, $isremote);
     if($artUrl=='') $artUrl = $cfg_phpurl."/view.php?aid=$id";
 
     ClearMyAddon($id, $title);

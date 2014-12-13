@@ -616,7 +616,7 @@ function ShowCatMap(e, obj, cid, targetId, oldvalue)
 function ShowMemberList(e, obj, cid, targetId, oldvalue)
 {
     fixupPos = true;
-    LoadQuickDiv(e, 'archives_do.php?dopost=getMemberLst&targetid='+targetId+'&channelid='+cid+'&oldvalue='+oldvalue+'&rnd='+Math.random(), 'getMemberLst', '700px', '500px');
+    LoadQuickDiv(e, 'archives_do.php?dopost=getMemberLst&targetid='+targetId+'&channelid='+cid+'&oldvalue='+oldvalue+'&rnd='+Math.random(), 'getMemberLst', '700px', 'auto');
     ChangeFullDiv('show');
  }
 
@@ -631,6 +631,9 @@ function getMemberList(targetId)
     }
     }
     alert(selvalue);
+if(targetObj) targetObj.value = selvalue;
+HideObj("getMemberLst");
+ChangeFullDiv("hide");
 }
 
 

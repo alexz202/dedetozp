@@ -9,6 +9,11 @@
  * @link           http://www.dedecms.com
  */
 define('DEDEADMIN', str_replace("\\", '/', dirname(__FILE__) ) );
+//define type
+define('MEETINGTYPEID',22);
+define('SUGGESTTYPEID',23);
+define('TALKTYPEID',24);
+
 require_once(DEDEADMIN.'/../include/common.inc.php');
 require_once(DEDEINC.'/userlogin.class.php');
 header('Cache-Control:private');

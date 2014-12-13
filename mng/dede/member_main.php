@@ -23,7 +23,7 @@ else $keyword = trim(FilterSearch($keyword));
 
 $mtypeform = empty($mtype) ? "<option value=''>类型</option>\r\n" : "<option value='$mtype'>$mtype</option>\r\n";
 $sexform = empty($sex) ? "<option value=''>性别</option>\r\n" : "<option value='$sex'>$sex</option>\r\n";
-$sortkey = empty($sortkey) ? 'mid' : preg_replace("#[^a-z]#i",'',$sortkey);
+$sortkey = empty($sortkey) ? 'm.rank' : preg_replace("#[^a-z]#i",'',$sortkey);
 
 $staArr = array(-2=>'限制用户(禁言)', -1=>'未通过审核', 0=>'审核通过，提示填写完整信息', 1=>'没填写详细资料', 2=>'正常使用状态');
 $staArrmatt = array(1=>'被推荐', 0=>'非普通 ' );
@@ -43,45 +43,39 @@ else if($sortkey=='rank')
 {
     $sortform = "<option value='rank'>会员等级</option>\r\n";
 }
-else if($sortkey=='money')
-{
-    $sortform = "<option value='money'>会员金币</option>\r\n";
-}
-else if($sortkey=='scores')
-{
-    $sortform = "<option value='scores'>会员积分</option>\r\n";
-}
 else
 {
     $sortform = "<option value='logintime'>登录时间</option>\r\n";
 }
+if($keyword!='')
 
-$wheres[] = " (userid LIKE '%$keyword%' OR uname LIKE '%$keyword%' OR email LIKE '%$keyword%') ";
+$wheres[] = " (m.userid LIKE '%$keyword%' OR m.uname LIKE '%$keyword%' OR m.email LIKE '%$keyword%') ";
 
 if($sex   != '')
 {
-    $wheres[] = " sex LIKE '$sex' ";
+    $wheres[] = " m.sex LIKE '$sex' ";
 }
 
 if($mtype != '')
 {
-    $wheres[] = " mtype LIKE '$mtype' ";
+    $wheres[] = " bm.type LIKE '$mtype' ";
 }
 
 if($spacesta != -10)
 {
-    $wheres[] = " spacesta = '$spacesta' ";
+    $wheres[] = " m.spacesta = '$spacesta' ";
 }
 
 if($matt != 10)
 {
-    $wheres[] = " matt= '$matt' ";
+    $wheres[] = " m.matt= '$matt' ";
 }
 
 $whereSql = join(' AND ',$wheres);
 if($whereSql!='')
 {
-    $whereSql = ' WHERE '.$whereSql;
+    $whereSql = ' WHERE  '.$whereSql;
+
 }
 $dsql->SetQuery("SELECT name FROM `#@__member_model`");
 $dsql->Execute();
@@ -89,7 +83,7 @@ while($row = $dsql->GetArray())
 {
     $MemberModels[] = $row;
 }
-$sql  = "SELECT * FROM `#@__member` $whereSql ORDER BY $sortkey DESC ";
+$sql  = "SELECT * FROM `#@__member` as m left join `#@__member_belong` as bm on m.belong=bm.id $whereSql ORDER BY $sortkey DESC ";
 $dlist = new DataListCP();
 $dlist->SetParameter('sex',$sex);
 $dlist->SetParameter('spacesta',$spacesta);

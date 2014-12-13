@@ -16,6 +16,18 @@ $ENV_GOBACK_URL = isset($_COOKIE['ENV_GOBACK_URL']) ? "member_main.php" : '';
 $id = preg_replace("#[^0-9]#", "", $id);
 $row = $dsql->GetOne("select  * from #@__member where mid='$id'");
 
+$belong=$row['belong'];
+$row1 = $dsql->GetOne("select  * from #@__member_belong where id=$belong");
+$arrbelongtype=array('村','社区','企业');
+$pid=$row1['type'];
+$dsql->SetQuery("SELECT * FROM `#@__member_belong` WHERE type=$pid");
+$dsql->Execute();
+$list=array();
+while($trow = $dsql->GetObject())
+{
+    $list[]=array('name'=>$trow->name,'id'=>$trow->id);
+}
+
 $staArr = array(
     -10=>'等待验证邮件',
     -2=>'限制用户(禁言)',

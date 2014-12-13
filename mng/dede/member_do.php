@@ -188,8 +188,8 @@ else if ($dopost=='edituser')
     {
         ShowMsg("对不起，为安全起见，不支持直接把前台会员转为管理的操作！", "-1");
         exit();
-    }    
-    $query = "UPDATE `#@__member` SET
+    }
+     $query = "UPDATE `#@__member` SET
             email = '$email',
             uname = '$uname',
             sex = '$sex',
@@ -199,13 +199,15 @@ else if ($dopost=='edituser')
             rank = '$rank',
             spacesta='$spacesta',
             uptime='$uptime',
-            exptime='$exptime'
+            exptime='$exptime',
+            belong=$belong,
+            phone='$phone'
             $pwdsql
             WHERE mid='$id' AND matt<>10 ";
     $rs = $dsql->ExecuteNoneQuery2($query);
     if($rs==0)
     {
-        $query = "UPDATE `#@__member` SET
+       $query = "UPDATE `#@__member` SET
             email = '$email',
             uname = '$uname',
             sex = '$sex',
@@ -214,12 +216,13 @@ else if ($dopost=='edituser')
             rank = '$rank',
             spacesta='$spacesta',
             uptime='$uptime',
-            exptime='$exptime'
+            exptime='$exptime',
+            belong=$belong,
+            phone='$phone'
             $pwdsql
             WHERE mid='$id' ";
             $rs = $dsql->ExecuteNoneQuery2($query);
     }
-    
     #api{{
     if(defined('UC_API') && @include_once DEDEROOT.'/api/uc.func.php')
     {

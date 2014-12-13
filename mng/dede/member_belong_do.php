@@ -62,5 +62,20 @@ elseif($dopost=='update'){
         exit();
     }
 }
+    /**
+     * get ajax
+     */
+elseif($dopost=='ajaxgetbelong'){
+    //   echo  $type=$_POST['pid'];
+    $dsql->SetQuery("SELECT * FROM `#@__member_belong` WHERE type=$pid");
+    $dsql->Execute();
+    $list=array();
+    while($trow = $dsql->GetObject())
+    {
+        $list[]=array('name'=>$trow->name,'id'=>$trow->id);
+    }
+    echo json_encode($list);
+}
+
 
 

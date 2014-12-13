@@ -113,6 +113,7 @@ if($cid==0)
 {
     if($channelid==0)
     {
+        echo $channelid;
         $positionname = '所有栏目&gt;';
     }
     else
@@ -205,7 +206,7 @@ else
 $orderby = empty($orderby) ? 'id' : preg_replace("#[^a-z0-9]#", "", $orderby);
 $orderbyField = 'arc.'.$orderby;
 
-$query = "SELECT arc.id,arc.typeid,arc.senddate,arc.flag,arc.ismake,
+ $query = "SELECT arc.id,arc.typeid,arc.senddate,arc.flag,arc.ismake,
 arc.channel,arc.arcrank,arc.click,arc.title,arc.color,arc.litpic,arc.pubdate,arc.mid
 FROM `$maintable` arc
 $whereSql

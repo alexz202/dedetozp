@@ -85,7 +85,7 @@ $menusMain = "
 -----------------------------------------------
 
 <m:top item='1_' name='常用操作' display='block'>
-  <m:item name='网站栏目管理' link='catalog_main.php' ischannel='1' addalt='创建栏目' linkadd='catalog_add.php?listtype=all' rank='t_List,t_AccList' target='main' />
+  <m:item name='栏目管理' link='catalog_main.php' ischannel='1' addalt='创建栏目' linkadd='catalog_add.php?listtype=all' rank='t_List,t_AccList' target='main' />
   <m:item name='所有档案列表' link='content_list.php' rank='a_List,a_AccList' target='main' />
   <m:item name='等审核的档案' link='content_list.php?arcrank=-1' rank='a_Check,a_AccCheck' target='main' />
   <m:item name='我发布的文档' link='content_list.php?mid=".$cuserLogin->getUserID()."' rank='a_List,a_AccList,a_MyList' target='main' />
@@ -94,9 +94,9 @@ $menusMain = "
 </m:top>
 
 <m:top item='1_' name='内容管理' display='block'>
-  $addset
-  <m:item name='专题管理' ischannel='1' link='content_s_list.php' linkadd='spec_add.php' channelid='-1' rank='spec_New' target='main' />
-</m:top>".
+  $addset".
+//  <m:item name='专题管理' ischannel='1' link='content_s_list.php' linkadd='spec_add.php' channelid='-1' rank='spec_New' target='main' />
+"</m:top>".
 
 //<m:top item='1_' name='附件管理' display='none' rank='sys_Upload,sys_MyUpload,plus_文件管理器'>
 //  <m:item name='上传新文件' link='media_add.php' rank='' target='main' />
@@ -142,18 +142,18 @@ $menusMain = "
 </m:top>
 
 <m:top item='6_' name='会员管理' display='none' rank='member_List,member_Type'>
-  <m:item name='注册会员列表' link='member_main.php' rank='member_List' target='main' />
-  <m:item name='会员级别设置' link='member_rank.php' rank='member_Type' target='main' />
-  <m:item name='积分头衔设置' link='member_scores.php' rank='member_Type' target='main' />
-  <m:item name='会员模型管理' link='member_model_main.php' rank='member_Type' target='main' />
-  <m:item name='会员短信管理' link='member_pm.php' rank='member_Type' target='main' />
-  <m:item name='会员留言管理' link='member_guestbook.php' rank='member_Type' target='main' />
-  <m:item name='会员动态管理' link='member_info_main.php?type=feed' rank='member_Type' target='main' />
-  <m:item name='会员心情管理' link='member_info_main.php?type=mood' rank='member_Type' target='main' />
+  <m:item name='会员列表' link='member_main.php' rank='member_List' target='main' />
+  <m:item name='代表分类设置' link='member_belong_main.php' rank='member_Type' target='main' />
 </m:top>
 
 $adminMenu2
 ".
+//    <m:item name='积分头衔设置' link='member_scores.php' rank='member_Type' target='main' />
+//  <m:item name='会员模型管理' link='member_model_main.php' rank='member_Type' target='main' />
+//  <m:item name='会员短信管理' link='member_pm.php' rank='member_Type' target='main' />
+//  <m:item name='会员留言管理' link='member_guestbook.php' rank='member_Type' target='main' />
+//  <m:item name='会员动态管理' link='member_info_main.php?type=feed' rank='member_Type' target='main' />
+//  <m:item name='会员心情管理' link='member_info_main.php?type=mood' rank='member_Type' target='main' />
 //<m:top item='1_10_7_' name='系统帮助' display='none'>
 //  <m:item name='参考文档' link='http://help.dedecms.com' rank='' target='_blank' />
 //  <m:item name='意见建议反馈' link='http://site.desdev.cn/suggest/' rank='' target='_blank' />

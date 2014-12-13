@@ -20,10 +20,7 @@ function checkSubmit()
 	   alert("<?php echo $cInfos['titlename']; ?>不能为空！");
 	   return false;
   }
-  if(document.form1.typeid.value==0){
-	   alert("请选择档案的主栏目！");
-	   return false;
-  }
+
 }
 -->
 </script>
@@ -112,30 +109,7 @@ function checkSubmit()
           </tr>
         </table></td>
     </tr>
-    <tr>
-      <td height="24" colspan="4" class="bline">
-      	<table width="800" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="90">&nbsp;浏览权限：</td>
-            <td>
-            	<select name="arcrank" id="arcrank" style="width:150px">
-                <?php
-              $urank = $cuserLogin->getUserRank();
-              $dsql->SetQuery("Select * from `#@__arcrank` where adminrank<='$urank'");
-              $dsql->Execute();
-              while($row = $dsql->GetObject())
-              {
-              	echo "     <option value='".$row->rank."'>".$row->membername."</option>\r\n";
-              }
-              ?>
-              </select>
-             </td>
-            <td width="90"></td>
-            <td></td>
-          </tr>
-        </table>
-       </td>
-    </tr>
+
     <?php if($cInfos['dfcid']>0)
       {
       	echo "<input type='hidden' name='typeid' value='{$cInfos['dfcid']}' />\r\n";
@@ -144,7 +118,8 @@ function checkSubmit()
       {
       ?>
       <tr><td  height="24" colspan="4" class="bline">
-          选择会员 <img src='images/menusearch.gif' style='cursor:pointer;' onClick="ShowMemberList(event, this, <?php echo $channelid; ?>, 'typeid')" alt='选择' title='快捷选择' />
+          选择出席名单： <img src='images/menusearch.gif' style='cursor:pointer;' onClick="ShowMemberList(event, this, '0', 'attend')" alt='选择' title='快捷选择' />
+          <input name="attend" type="text" id="attend"/>
       </td>
           </tr>
 

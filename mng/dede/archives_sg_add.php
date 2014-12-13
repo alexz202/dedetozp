@@ -14,20 +14,18 @@ require_once(DEDEINC."/customfields.func.php");
 require_once(DEDEADMIN."/inc/inc_archives_functions.php");
 
 if(empty($dopost)) $dopost = '';
-
+$typeid=MEETINGTYPEID;
 if($dopost!='save')
 {
     require_once(DEDEINC."/dedetag.class.php");
     require_once(DEDEADMIN."/inc/inc_catalog_options.php");
     ClearMyAddon();
-    $channelid = empty($channelid) ? 0 : intval($channelid);
     $cid = empty($cid) ? 0 : intval($cid);
 
     //获得频道模型ID
     if($cid > 0 && $channelid == 0)
     {
         $row = $dsql->GetOne("SELECT channeltype FROM `#@__arctype` WHERE id='$cid'; ");
-        $channelid = $row['channeltype'];
     }
     else
     {
@@ -51,7 +49,6 @@ else if($dopost=='save')
 {
     require_once(DEDEINC.'/image.func.php');
     require_once(DEDEINC.'/oxwindow.class.php');
-
     if($typeid==0)
     {
         ShowMsg("请指定文档的栏目！","-1");
@@ -64,7 +61,9 @@ else if($dopost=='save')
     }
     if(!CheckChannel($typeid,$channelid) )
     {
-        ShowMsg("你所选择的栏目与当前模型不相符，请选择白色的选项！","-1");
+       echo $channelid;
+        die();
+        ShowMsg("$channelid你所选择的栏目与当前模型不相符，请选择白色的选项！","-1");
         exit();
     }
     if(!TestPurview('a_New'))
@@ -144,8 +143,8 @@ else if($dopost=='save')
     $addtable = trim($cts['addtable']);
     if(!empty($addtable))
     {
-        $query = "INSERT INTO `{$addtable}`(aid,typeid,channel,arcrank,mid,click,title,senddate,flag,litpic,userip{$inadd_f})
-                       VALUES('$arcID','$typeid','$channelid','$arcrank','$adminid','0','$title','$senddate','$flag','$litpic','$userip'{$inadd_v})";
+        $query = "INSERT INTO `{$addtable}`(aid,typeid,channel,arcrank,mid,click,title,senddate,flag,litpic,attend,userip{$inadd_f})
+                       VALUES('$arcID','$typeid','$channelid','$arcrank','$adminid','0','$title','$senddate','$flag','$litpic','$attend','$userip'{$inadd_v})";
         if(!$dsql->ExecuteNoneQuery($query))
         {
             $gerr = $dsql->GetError();
@@ -155,19 +154,19 @@ else if($dopost=='save')
         }
     }
 
-    //生成HTML
-    if($cfg_remote_site=='Y' && $isremote=="1")
-    {    
-        if($serviterm!="")
-        {
-            list($servurl, $servuser, $servpwd) = explode(',', $serviterm);
-            $config=array( 'hostname' => $servurl, 'username' => $servuser, 'password' => $servpwd,'debug' => 'TRUE');
-        } else {
-            $config=array();
-        }
-        if(!$ftp->connect($config)) exit('Error:None FTP Connection!');
-    }
-    $artUrl = MakeArt($arcID, TRUE, TRUE, $isremote);
+//    //生成HTML
+//    if($cfg_remote_site=='Y' && $isremote=="1")
+//    {
+//        if($serviterm!="")
+//        {
+//            list($servurl, $servuser, $servpwd) = explode(',', $serviterm);
+//            $config=array( 'hostname' => $servurl, 'username' => $servuser, 'password' => $servpwd,'debug' => 'TRUE');
+//        } else {
+//            $config=array();
+//        }
+//        if(!$ftp->connect($config)) exit('Error:None FTP Connection!');
+//    }
+//    $artUrl = MakeArt($arcID, TRUE, TRUE, $isremote);
     if($artUrl=='')
     {
         $artUrl = $cfg_phpurl."/view.php?aid=$arcID";
