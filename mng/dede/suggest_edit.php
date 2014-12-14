@@ -17,7 +17,7 @@ if(file_exists(DEDEDATA.'/template.rand.php'))
     require_once(DEDEDATA.'/template.rand.php');
 }
 if(empty($dopost)) $dopost = '';
-$typeid=TALKTYPEID;
+
 
 $aid = isset($aid) && is_numeric($aid) ? $aid : 0;
 if($dopost!='save')
@@ -27,8 +27,8 @@ if($dopost!='save')
     ClearMyAddon();
 
     //读取归档信息
-     $query = "SELECT ch.typename AS channelname,ar.membername AS rankname,arc.*
-    FROM `#@__talk` arc
+    $query = "SELECT ch.typename AS channelname,ar.membername AS rankname,arc.*
+    FROM `#@__suggest` arc
     LEFT JOIN `#@__channeltype` ch ON ch.id=arc.channel
     LEFT JOIN `#@__arcrank` ar ON ar.rank=arc.arcrank WHERE arc.id='$aid' ";
     $arcRow = $dsql->GetOne($query);
@@ -53,7 +53,7 @@ if($dopost!='save')
     }
     $channelid = $arcRow['channel'];
     $tags = GetTags($aid);
-    include DedeInclude("templets/talk_edit.htm");
+    include DedeInclude("templets/suggest_edit.htm");
     exit();
 }
 /*--------------------------------
@@ -177,7 +177,7 @@ else if($dopost=='save')
     //跳转网址的文档强制为动态
     if(preg_match("#j#", $flag)) $ismake = -1;
     //更新数据库的SQL语句
-    $query = "UPDATE #@__talk SET
+    $query = "UPDATE #@__archives SET
     typeid='$typeid',
     typeid2='$typeid2',
     sortrank='$sortrank',
@@ -245,13 +245,13 @@ else if($dopost=='save')
     //返回成功信息
     $msg = "
     　　请选择你的后续操作：
-    <a href='talk_add.php?cid=$typeid'><u>发布新文章</u></a>
+    <a href='suggest_add.php?cid=$typeid'><u>发布新文章</u></a>
     &nbsp;&nbsp;
-    <a href='talk_do.php?aid=".$id."&dopost=editArchives'><u>查看更改</u></a>
+    <a href='archives_do.php?aid=".$id."&dopost=editArchives'><u>查看更改</u></a>
     &nbsp;&nbsp;
     <a href='$artUrl' target='_blank'><u>查看文章</u></a>
     &nbsp;&nbsp;
-    <a href='catalog_do.php?cid=$typeid&dopost=listTalk'><u>管理话题</u></a>
+    <a href='catalog_do.php?cid=$typeid&dopost=listsuggest'><u>管理意见建议</u></a>
     &nbsp;&nbsp;
     $backurl
     ";

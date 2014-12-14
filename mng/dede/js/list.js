@@ -22,6 +22,10 @@ function editArc(aid){
 	if(aid==0) aid = getOneItem();
 	location="archives_do.php?aid="+aid+"&dopost=editArchives";
 }
+function editSuggest(aid){
+	if(aid==0) aid = getOneItem();
+	location="archives_do.php?aid="+aid+"&dopost=editsuggest";
+}
 function updateArc(aid){
 	var qstr=getCheckboxItem();
 	if(aid==0) aid = getOneItem();

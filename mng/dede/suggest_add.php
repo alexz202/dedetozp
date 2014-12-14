@@ -8,7 +8,7 @@ if(file_exists(DEDEDATA.'/template.rand.php'))
     require_once(DEDEDATA.'/template.rand.php');
 }
 if(empty($dopost)) $dopost = '';
-$typeid=TALKTYPEID;
+
 if($dopost!='save')
 {
     require_once(DEDEINC."/dedetag.class.php");
@@ -49,7 +49,7 @@ if($dopost!='save')
     //获取文章最大id以确定当前权重
     $maxWright = $dsql->GetOne("SELECT COUNT(*) AS cc FROM #@__archives");
     
-    include DedeInclude("templets/talk_add.htm");
+    include DedeInclude("templets/suggest_add.htm");
     exit();
 }
 
@@ -69,8 +69,7 @@ else if($dopost=='save')
     if(!isset($dellink)) $dellink = 0;
     if(!isset($autolitpic)) $autolitpic = 0;
     if(empty($click)) $click = ($cfg_arc_click=='-1' ? mt_rand(50, 200) : $cfg_arc_click);
-
-    echo $typeid;
+    
     if(empty($typeid))
     {
         ShowMsg("请指定文档的栏目！","-1");
@@ -83,8 +82,6 @@ else if($dopost=='save')
     }
     if(!CheckChannel($typeid,$channelid))
     {
-        echo $typeid.'|'.$channelid;
-        die();
         ShowMsg("你所选择的栏目与当前模型不相符，请选择白色的选项！","-1");
         exit();
     }
@@ -190,7 +187,7 @@ else if($dopost=='save')
     if(preg_match("#j#", $flag)) $ismake = -1;
 
     //保存到主表
-    $query = "INSERT INTO `#@__talk`(id,typeid,typeid2,sortrank,flag,ismake,channel,arcrank,click,money,title,shorttitle,
+    $query = "INSERT INTO `#@__suggest`(id,typeid,typeid2,sortrank,flag,ismake,channel,arcrank,click,money,title,shorttitle,
     color,writer,source,litpic,pubdate,senddate,mid,voteid,notpost,description,keywords,filename,dutyadmin,weight)
     VALUES ('$arcID','$typeid','$typeid2','$sortrank','$flag','$ismake','$channelid','$arcrank','$click','$money',
     '$title','$shorttitle','$color','$writer','$source','$litpic','$pubdate','$senddate',
@@ -216,11 +213,11 @@ else if($dopost=='save')
     }
     $useip = GetIP();
     $templet = empty($templet) ? '' : $templet;
-    $query = "INSERT INTO `{$addtable}`(aid,typeid,redirecturl,templet,userip,body{$inadd_f}) Values('$arcID','$typeid','$redirecturl','$templet','$useip','$body'{$inadd_v})";
+    $query = "INSERT INTO `{$addtable}`(aid,typeid,redirecturl,templet,userip{$inadd_f}) Values('$arcID','$typeid','$redirecturl','$templet','$useip'{$inadd_v})";
     if(!$dsql->ExecuteNoneQuery($query))
     {
         $gerr = $dsql->GetError();
-        $dsql->ExecuteNoneQuery("Delete From `#@__archives` where id='$arcID'");
+        $dsql->ExecuteNoneQuery("Delete From `#@__suggest` where id='$arcID'");
         $dsql->ExecuteNoneQuery("Delete From `#@__arctiny` where id='$arcID'");
         ShowMsg("把数据保存到数据库附加表 `{$addtable}` 时出错，请把相关信息提交给DedeCms官方。".str_replace('"','',$gerr),"javascript:;");
         exit();
@@ -265,13 +262,13 @@ else if($dopost=='save')
 
     //返回成功信息
     $msg = "    　　请选择你的后续操作：
-    <a href='talk_add.php?cid=$typeid'><u>继续发布文章</u></a>
+    <a href='suggest_add.php?cid=$typeid'><u>继续发布文章</u></a>
     &nbsp;&nbsp;
     <a href='$artUrl' target='_blank'><u>查看文章</u></a>
     &nbsp;&nbsp;
-    <a href='talk_do.php?aid=".$arcID."&dopost=editArchives'><u>更改文章</u></a>
+    <a href='archives_do.php?aid=".$arcID."&dopost=editArchives'><u>更改文章</u></a>
     &nbsp;&nbsp;
-    <a href='catalog_do.php?cid=$typeid&dopost=listTalk'><u>已发布话题管理</u></a>
+    <a href='catalog_do.php?cid=$typeid&dopost=listsuggest'><u>已发布文章管理</u></a>
     &nbsp;&nbsp;
     $backurl
   ";

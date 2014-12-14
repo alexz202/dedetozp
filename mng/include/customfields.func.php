@@ -33,12 +33,14 @@ function GetFormItem($ctag, $admintype='admin')
         $myformItem = '';
         $items = explode(',',$ctag->GetAtt("default"));
         $myformItem = "<select name='$fieldname' style='width:150px'>";
+        $i=0;
         foreach($items as $v)
         {
             $v = trim($v);
             if($v!='') {
                 $myformItem.= "<option value='$v'>$v</option>\r\n";
             }
+            $i++;
         }
         $myformItem .= "</select>\r\n";
         $innertext = $myformItem;

@@ -16,6 +16,7 @@ require_once(DEDEINC.'/datalistcp.class.php');
 require_once(DEDEADMIN.'/inc/inc_list_functions.php');
 
 $cid = isset($cid) ? intval($cid) : 0;
+if($cid==0)$cid=TALKTYPEID;
 $channelid = isset($channelid) ? intval($channelid) : 0;
 $mid = isset($mid) ? intval($mid) : 0;
 
@@ -49,7 +50,7 @@ else if(TestPurview('a_AccList'))
 }
 
 $adminid = $cuserLogin->getUserID();
-$maintable = '#@__archives';
+$maintable = '#@__talk';
 setcookie('ENV_GOBACK_URL', $dedeNowurl, time()+3600, '/');
 $tl = new TypeLink($cid);
 
@@ -205,7 +206,7 @@ else
 $orderby = empty($orderby) ? 'id' : preg_replace("#[^a-z0-9]#", "", $orderby);
 $orderbyField = 'arc.'.$orderby;
 
-$query = "SELECT arc.id,arc.typeid,arc.senddate,arc.flag,arc.ismake,
+ $query = "SELECT arc.id,arc.typeid,arc.senddate,arc.flag,arc.ismake,
 arc.channel,arc.arcrank,arc.click,arc.title,arc.color,arc.litpic,arc.pubdate,arc.mid
 FROM `$maintable` arc
 $whereSql

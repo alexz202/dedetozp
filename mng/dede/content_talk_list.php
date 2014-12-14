@@ -9,4 +9,4 @@
  * @link           http://www.dedecms.com
  */
 $s_tmplets = "templets/content_talk_list.htm";
-include(dirname(__FILE__)."/content_list.php");
+include(dirname(__FILE__)."/content_mtalk_list.php");

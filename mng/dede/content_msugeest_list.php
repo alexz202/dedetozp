@@ -16,6 +16,7 @@ require_once(DEDEINC.'/datalistcp.class.php');
 require_once(DEDEADMIN.'/inc/inc_list_functions.php');
 
 $cid = isset($cid) ? intval($cid) : 0;
+if($cid==0)$cid=SUGGESTTYPEID;
 $channelid = isset($channelid) ? intval($channelid) : 0;
 $mid = isset($mid) ? intval($mid) : 0;
 
@@ -49,7 +50,7 @@ else if(TestPurview('a_AccList'))
 }
 
 $adminid = $cuserLogin->getUserID();
-$maintable = '#@__archives';
+$maintable = '#@__suggest';
 setcookie('ENV_GOBACK_URL', $dedeNowurl, time()+3600, '/');
 $tl = new TypeLink($cid);
 
@@ -125,7 +126,7 @@ if($cid==0)
 }
 else
 {
-    echo $positionname = str_replace($cfg_list_symbol," &gt; ",$tl->GetPositionName())." &gt; ";
+    $positionname = str_replace($cfg_list_symbol," &gt; ",$tl->GetPositionName())." &gt; ";
 }
 
 //当选择的是单表模型栏目时，直接跳转到单表模型管理区
@@ -164,13 +165,13 @@ if ( $typeCount > 800)
 
 $whereSql = empty($channelid) ? " WHERE arc.channel > 0  AND arc.arcrank > -2 " : " WHERE arc.channel = '$channelid' AND arc.arcrank > -2 ";
 
-$flagsArr = '';
-$dsql->Execute('f', 'SELECT * FROM `#@__arcatt` ORDER BY sortid ASC');
-while($frow = $dsql->GetArray('f'))
-{
-    $flagsArr .= ($frow['att']==$flag ? "<option value='{$frow['att']}' selected>{$frow['attname']}</option>\r\n" : "<option value='{$frow['att']}'>{$frow['attname']}</option>\r\n");
-}
-
+//$flagsArr = '';
+//$dsql->Execute('f', 'SELECT * FROM `#@__arcatt` ORDER BY sortid ASC');
+//while($frow = $dsql->GetArray('f'))
+//{
+//    $flagsArr .= ($frow['att']==$flag ? "<option value='{$frow['att']}' selected>{$frow['attname']}</option>\r\n" : "<option value='{$frow['att']}'>{$frow['attname']}</option>\r\n");
+//}
+//
 
 if(!empty($userCatalogSql))
 {

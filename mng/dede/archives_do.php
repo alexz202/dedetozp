@@ -40,6 +40,16 @@ if($dopost=='editArchives')
     exit();
 }
 /*--------------------------
+//编辑文档
+function editArchives(){ }
+---------------------------*/
+if($dopost=='editsuggest')
+{
+   $gurl='suggest_edit.php';
+    header("location:{$gurl}?aid=$aid");
+    exit();
+}
+/*--------------------------
 //浏览文档
 function viewArchives(){ }
 ---------------------------*/
