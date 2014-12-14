@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2014-12-09 21:41:19
+-- Generation Time: 2014-12-14 22:03:12
 -- 服务器版本： 5.5.37-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.4
 
@@ -33,7 +33,15 @@ CREATE TABLE IF NOT EXISTS `tp_addonarticle` (
   `redirecturl` varchar(255) NOT NULL DEFAULT '',
   `templet` varchar(30) NOT NULL DEFAULT '',
   `userip` char(15) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tp_addonarticle`
+--
+
+INSERT INTO `tp_addonarticle` (`aid`, `typeid`, `body`, `redirecturl`, `templet`, `userip`) VALUES
+(137, 20, '发送地方 &nbsp;啊发送的萨', '', '', '127.0.0.1'),
+(138, 16, '速度的发送发f', '', '', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -83,13 +91,23 @@ CREATE TABLE IF NOT EXISTS `tp_addoninfos` (
   `nativeplace` smallint(5) unsigned NOT NULL DEFAULT '0',
   `infotype` char(20) NOT NULL DEFAULT '0',
   `body` mediumtext,
+  `attend` varchar(255) NOT NULL,
   `endtime` int(11) NOT NULL DEFAULT '0',
+  `starttime` int(11) NOT NULL,
   `tel` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL DEFAULT '',
   `address` varchar(100) NOT NULL DEFAULT '',
   `linkman` varchar(50) NOT NULL DEFAULT '',
   `attendlist` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tp_addoninfos`
+--
+
+INSERT INTO `tp_addoninfos` (`aid`, `typeid`, `channel`, `arcrank`, `mid`, `click`, `title`, `litpic`, `userip`, `senddate`, `flag`, `lastpost`, `scores`, `goodpost`, `badpost`, `nativeplace`, `infotype`, `body`, `attend`, `endtime`, `starttime`, `tel`, `email`, `address`, `linkman`, `attendlist`) VALUES
+(111, 22, -8, 0, 1, 1, '石油会议', '/dedetozp/mng/uploads/allimg/141213/1-1412131G9430-L.jpg', '127.0.0.1', 1418462410, 'p', 0, 0, 0, 0, 0, '0', '大三反大三发的发送的萨啊', '8,2,7', 1418807940, 1418548740, '11', '11', '111', '111', ''),
+(120, 22, -8, 0, 1, 0, '飞的风', '', '127.0.0.1', 1418525641, '', 0, 0, 0, 0, 0, '0', '大三反大三反范德萨&nbsp;', '8,2', 1418525616, 1418525616, '11', '11', '111', '11', '');
 
 -- --------------------------------------------------------
 
@@ -158,6 +176,65 @@ CREATE TABLE IF NOT EXISTS `tp_addonspec` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `tp_addonsuggest`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_addonsuggest` (
+  `aid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `typeid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `body` mediumtext,
+  `redirecturl` varchar(255) NOT NULL DEFAULT '',
+  `templet` varchar(30) NOT NULL DEFAULT '',
+  `userip` char(15) NOT NULL DEFAULT '',
+  `result` varchar(16) NOT NULL DEFAULT '未完成' COMMENT '1=complete,0 defalut,2=working'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tp_addonsuggest`
+--
+
+INSERT INTO `tp_addonsuggest` (`aid`, `typeid`, `body`, `redirecturl`, `templet`, `userip`, `result`) VALUES
+(135, 32, 'fdsdsdsfda', '', '', '127.0.0.1', '0'),
+(136, 27, 'd s f d s f d s', '', '', '127.0.0.1', '完成');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tp_addontalk`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_addontalk` (
+  `aid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `typeid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `pagestyle` smallint(6) NOT NULL DEFAULT '1',
+  `maxwidth` smallint(6) NOT NULL DEFAULT '600',
+  `imgurls` text,
+  `row` smallint(6) NOT NULL DEFAULT '0',
+  `col` smallint(6) NOT NULL DEFAULT '0',
+  `isrm` smallint(6) NOT NULL DEFAULT '0',
+  `ddmaxwidth` smallint(6) NOT NULL DEFAULT '200',
+  `pagepicnum` smallint(6) NOT NULL DEFAULT '12',
+  `templet` varchar(30) NOT NULL DEFAULT '',
+  `userip` char(15) NOT NULL DEFAULT '',
+  `redirecturl` varchar(255) NOT NULL DEFAULT '',
+  `body` mediumtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tp_addontalk`
+--
+
+INSERT INTO `tp_addontalk` (`aid`, `typeid`, `pagestyle`, `maxwidth`, `imgurls`, `row`, `col`, `isrm`, `ddmaxwidth`, `pagepicnum`, `templet`, `userip`, `redirecturl`, `body`) VALUES
+(114, 24, 1, 600, NULL, 0, 0, 0, 200, 12, '', '127.0.0.1', '', 'dsfsdsdfsadds'),
+(115, 24, 1, 600, NULL, 0, 0, 0, 200, 12, '', '127.0.0.1', '', 'dfsdsfsdfsdfdsf'),
+(116, 24, 1, 600, NULL, 0, 0, 0, 200, 12, '', '127.0.0.1', '', 'fsdafdadsdsf11'),
+(117, 24, 1, 600, NULL, 0, 0, 0, 200, 12, '', '127.0.0.1', '', 'asdsadsasadsasd'),
+(118, 24, 1, 600, NULL, 0, 0, 0, 200, 12, '', '127.0.0.1', '', '的发送的萨福的范德萨'),
+(119, 24, 1, 600, NULL, 0, 0, 0, 200, 12, '', '127.0.0.1', '', 'fdsfdsdfsfdfddf111');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `tp_admin`
 --
 
@@ -179,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `tp_admin` (
 --
 
 INSERT INTO `tp_admin` (`id`, `usertype`, `userid`, `pwd`, `uname`, `tname`, `email`, `typeid`, `logintime`, `loginip`) VALUES
-(1, 10, 'admin', 'f297a57a5a743894a0e4', 'admin', '', '', '0', 1418132065, '127.0.0.1'),
+(1, 10, 'admin', 'f297a57a5a743894a0e4', 'admin', '', '', '0', 1418394684, '127.0.0.1'),
 (8, 1, 'test123', 'c3949ba59abbe56e057f', '123', '', '', '5', 0, '');
 
 -- --------------------------------------------------------
@@ -280,10 +357,23 @@ INSERT INTO `tp_arccache` (`md5hash`, `uptime`, `cachedata`) VALUES
 ('0682bd3ba08abb5c04de06cd09559976', 1417925770, '39,34,35,36,37,38,40,41,42,43'),
 ('fb8a1c730b4e994691960a0d586623ae', 1417925970, '52,43,35'),
 ('ea8012a41f58b576aa173f865fff738e', 1417925970, '39,107,34,35,36,37,38,40,41,42'),
+('2f1b8179c17b17af9c0f467a1e8a6431', 1418462410, '111'),
 ('29ac15847877fd61e245d3963e2178f8', 1417942600, '0'),
 ('66891919321a2010adecba6902f57474', 1417942600, '109'),
 ('18498610d564868243cbd7d8418e5964', 1417945140, '0'),
-('f3accee877957830783f6c2123a45438', 1417945140, '109');
+('f3accee877957830783f6c2123a45438', 1417945140, '109'),
+('5f2e11b852d8b59fd27f59ebf40bb2a1', 1418525426, '0'),
+('b47b326c2ab7124ab0169bc1f341bb8c', 1418525426, '0'),
+('9a198b77283e17d28a9763387bf1ef70', 1418527772, '0'),
+('6e1df010d6936459cc13bce16e2ba6c2', 1418527772, '121'),
+('a500d9fa4148d9d62a44aa290b5f73b4', 1418529166, '0'),
+('d492cfc216217e7771326bdf95d26608', 1418529166, '0'),
+('141aeed9f4dac55b3603019bff195b7a', 1418542362, '0'),
+('18138f7711b907e76515a8b83b53f115', 1418542362, '0'),
+('3cb04464de0f2c2cd201b24b931468d9', 1418539261, '0'),
+('ed8b61fb1d1502a90d77fc4ab4c081e8', 1418539261, '137'),
+('210afada95501dfb17c8bcb9d07743ee', 1418539397, '0'),
+('4096f932ad176250ca52150e08b59722', 1418539397, '138');
 
 -- --------------------------------------------------------
 
@@ -324,7 +414,16 @@ CREATE TABLE IF NOT EXISTS `tp_archives` (
   `tackid` int(10) NOT NULL DEFAULT '0',
   `mtype` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `weight` int(10) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tp_archives`
+--
+
+INSERT INTO `tp_archives` (`id`, `typeid`, `typeid2`, `sortrank`, `flag`, `ismake`, `channel`, `arcrank`, `click`, `money`, `title`, `shorttitle`, `color`, `writer`, `source`, `litpic`, `pubdate`, `senddate`, `mid`, `keywords`, `lastpost`, `scores`, `goodpost`, `badpost`, `voteid`, `notpost`, `description`, `filename`, `dutyadmin`, `tackid`, `mtype`, `weight`) VALUES
+(121, 25, '0', 1418526474, '', 1, 3, 0, 0, 0, 'dsfdsadf', 'dsfds', '', 'admin', '未知', '', 1418526474, 1418526498, 1, 'dsfdsadf,fdsfdsa,', 0, 0, 0, 0, 0, 0, 'fdsfdsa', '', 1, 0, 0, 0),
+(137, 20, '0', 0, '', -1, 1, 0, 0, 0, '意见办理', '', '', 'admin', '未知', '', 0, 1418539261, 1, '意见,办理,发送,地方,啊,的,萨,', 0, 0, 0, 0, 0, 0, '斯蒂芬的萨', '', 1, 0, 0, 0),
+(138, 16, '0', 1418539392, '', -1, 1, 0, 0, 0, ' 第三方的萨大三', '', '', 'admin', '未知', '', 1418539392, 1418539285, 1, '速度发', 0, 0, 0, 0, 0, 0, '速度范德萨', '', 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -350,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `tp_arcmulti` (
 --
 
 INSERT INTO `tp_arcmulti` (`id`, `tagid`, `uptime`, `innertext`, `pagesize`, `arcids`, `ordersql`, `addfieldsSql`, `addfieldsSqlJoin`, `attstr`) VALUES
-(1, 'dedecms', 1418126961, '<li class=''dotline''><a href="[field:arcurl/]">[field:title/]</a></li>', 8, '', ' ORDER BY arc.sortrank desc', '', '', 'a:16:{s:3:"row";s:2:"16";s:8:"titlelen";s:2:"42";s:7:"infolen";i:160;s:8:"imgwidth";i:120;s:9:"imgheight";i:120;s:8:"listtype";s:3:"all";s:5:"arcid";i:0;s:9:"channelid";i:0;s:7:"orderby";s:7:"default";s:8:"orderWay";s:4:"desc";s:6:"subday";i:0;s:8:"pagesize";s:1:"8";s:7:"keyword";s:0:"";s:10:"tablewidth";s:4:"100%";s:3:"col";i:1;s:8:"colWidth";s:4:"100%";}');
+(1, 'dedecms', 1418394669, '<li class=''dotline''><a href="[field:arcurl/]">[field:title/]</a></li>', 8, '', ' ORDER BY arc.sortrank desc', '', '', 'a:16:{s:3:"row";s:2:"16";s:8:"titlelen";s:2:"42";s:7:"infolen";i:160;s:8:"imgwidth";i:120;s:9:"imgheight";i:120;s:8:"listtype";s:3:"all";s:5:"arcid";i:0;s:9:"channelid";i:0;s:7:"orderby";s:7:"default";s:8:"orderWay";s:4:"desc";s:6:"subday";i:0;s:8:"pagesize";s:1:"8";s:7:"keyword";s:0:"";s:10:"tablewidth";s:4:"100%";s:3:"col";i:1;s:8:"colWidth";s:4:"100%";}');
 
 -- --------------------------------------------------------
 
@@ -375,7 +474,7 @@ CREATE TABLE IF NOT EXISTS `tp_arcrank` (
 INSERT INTO `tp_arcrank` (`id`, `rank`, `membername`, `adminrank`, `money`, `scores`, `purviews`) VALUES
 (1, 0, '开放浏览', 5, 0, 0, ''),
 (2, -1, '待审核稿件', 0, 0, 0, ''),
-(3, 10, '注册会员', 5, 0, 100, ''),
+(3, 10, '一般用户', 5, 0, 100, ''),
 (8, 180, '人大代表', 5, 1100, 500, '');
 
 -- --------------------------------------------------------
@@ -393,7 +492,28 @@ CREATE TABLE IF NOT EXISTS `tp_arctiny` (
   `senddate` int(10) unsigned NOT NULL DEFAULT '0',
   `sortrank` int(10) unsigned NOT NULL DEFAULT '0',
   `mid` mediumint(8) unsigned NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=111 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=139 ;
+
+--
+-- 转存表中的数据 `tp_arctiny`
+--
+
+INSERT INTO `tp_arctiny` (`id`, `typeid`, `typeid2`, `arcrank`, `channel`, `senddate`, `sortrank`, `mid`) VALUES
+(138, 16, '0', 0, 1, 1418539285, 1418539392, 1),
+(137, 20, '0', 0, 1, 1418539261, 1418539261, 1),
+(136, 27, '0', 0, 3, 1418529177, 0, 1),
+(135, 32, '0', 0, 3, 1418528146, 0, 1),
+(134, 25, '0', 0, 3, 1418527772, 1418527646, 1),
+(121, 25, '0', 0, 3, 1418526498, 1418526474, 1),
+(120, 22, '0', 0, -8, 1418525641, 1418525641, 1),
+(119, 24, '0', 0, 2, 1418524836, 1418525406, 1),
+(118, 24, '0', 0, 2, 1418524793, 1418524793, 1),
+(117, 24, '0', 0, 2, 1418477612, 1418477612, 1),
+(116, 24, '0', 0, 2, 1418477546, 1418525420, 1),
+(114, 24, '0', 0, 2, 1418473989, 1418476821, 1),
+(115, 24, '0', 0, 2, 1418477326, 1418477326, 1),
+(112, 22, '0', 0, -8, 1418462706, 1418462706, 1),
+(111, 22, '0', 0, -8, 1418462410, 1418462410, 1);
 
 -- --------------------------------------------------------
 
@@ -432,7 +552,7 @@ CREATE TABLE IF NOT EXISTS `tp_arctype` (
   `crossid` text,
   `content` text,
   `smalltypes` text
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 --
 -- 转存表中的数据 `tp_arctype`
@@ -448,7 +568,18 @@ INSERT INTO `tp_arctype` (`id`, `reid`, `topid`, `sortrank`, `typename`, `typedi
 (14, 12, 12, 50, '他山之石', '{cmspath}/a/rendazhichuang/tashanzhishi', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/rendazhichuang', '', 0, 0, '', '', ''),
 (13, 12, 12, 50, '工作要闻', '{cmspath}/a/rendazhichuang/gongzuoyaowen', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/rendazhichuang', '', 0, 0, '', '', ''),
 (12, 0, 0, 50, '人大之窗', '{cmspath}/a/rendazhichuang', 1, 'index.html', 1, 1, -1, 1, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/rendazhichuang', '', 0, 0, '', '&nbsp;', ''),
-(21, 17, 17, 50, '代表展播', '{cmspath}/a/daibiaofengcai/daibiaozhanbo', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', '');
+(21, 17, 17, 50, '代表展播', '{cmspath}/a/daibiaofengcai/daibiaozhanbo', 1, 'index.html', 1, 1, -1, 0, 0, '{style}/index_article.htm', '{style}/list_article.htm', '{style}/article_article.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
+(22, 0, 0, 50, '会议信息', '{cmspath}/a/huiyixinxi', 1, 'index.html', 0, -8, -1, 0, 0, '{style}/index_infos.htm', '{style}/list_infos.htm', '{style}/article_infos.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
+(23, 0, 0, 50, '意见建议', '{cmspath}/a/yijianjianyi', 1, 'index.html', 1, 3, -1, 1, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '&nbsp;', ''),
+(24, 0, 0, 50, '话题', '{cmspath}/a/huati', 1, 'index.html', 1, 2, -1, 0, 0, '{style}/index_talk.htm', '{style}/list_talk.htm', '{style}/article_talk.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '', '', 0, 0, '', '', ''),
+(25, 23, 23, 50, '经济', '{cmspath}/a/yijianjianyi/jingji', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '', ''),
+(26, 23, 23, 50, '医疗卫生', '{cmspath}/a/yijianjianyi/yiliaoweisheng', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '', ''),
+(27, 23, 23, 50, '计生', '{cmspath}/a/yijianjianyi/jisheng', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '', ''),
+(28, 23, 23, 50, '养老', '{cmspath}/a/yijianjianyi/yanglao', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '', ''),
+(29, 23, 23, 50, '社会管理', '{cmspath}/a/yijianjianyi/shehuiguanli', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '', ''),
+(30, 23, 23, 50, '城镇管理', '{cmspath}/a/yijianjianyi/chengzhenguanli', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '', ''),
+(31, 23, 23, 50, '劳动保障', '{cmspath}/a/yijianjianyi/laodongbaozhang', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '', ''),
+(32, 23, 23, 50, '其他', '{cmspath}/a/yijianjianyi/qita', 1, 'index.html', 1, 3, -1, 0, 0, '{style}/index_suggest.htm', '{style}/list_suggest.htm', '{style}/article_suggest.htm', '{typedir}/{Y}/{M}{D}/{aid}.html', '{typedir}/list_{tid}_{page}.html', 'default', '', '', '', 0, '{cmspath}/a/yijianjianyi', '', 0, 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -992,11 +1123,11 @@ CREATE TABLE IF NOT EXISTS `tp_channeltype` (
 
 INSERT INTO `tp_channeltype` (`id`, `nid`, `typename`, `maintable`, `addtable`, `addcon`, `mancon`, `editcon`, `useraddcon`, `usermancon`, `usereditcon`, `fieldset`, `listfields`, `allfields`, `issystem`, `isshow`, `issend`, `arcsta`, `usertype`, `sendrank`, `isdefault`, `needdes`, `needpic`, `titlename`, `onlyone`, `dfcid`) VALUES
 (1, 'article', '新闻咨询', 'tp_archives', 'tp_addonarticle', 'article_add.php', 'content_list.php', 'article_edit.php', 'article_add.php', 'content_list.php', 'article_edit.php', '<field:body itemname="文章内容" autofield="0" notsend="0" type="htmltext" isnull="true" islist="1" default=""  maxlength="" page="split">	\n</field:body>	\n', '', '', 1, 1, 1, -1, '', 10, 0, 1, 1, '标题', 0, 0),
-(2, 'image', '图片集', 'tp_archives', 'tp_addonimages', 'album_add.php', 'content_i_list.php', 'album_edit.php', 'album_add.php', 'content_list.php', 'album_edit.php', '<field:pagestyle itemname="页面风格" type="number" isnull="true" default="2" rename="" notsend="1" />	\n<field:imgurls itemname="图片集合" type="img" isnull="true" default="" rename="" page="split"/>	\n<field:body itemname="图集内容" autofield="0" notsend="0" type="htmltext" isnull="true" islist="0" default=""  maxlength="250" page=""></field:body>', '', '', 1, 0, 1, -1, '', 10, 0, 1, 1, '标题', 0, 0),
-(3, 'soft', '软件', 'tp_archives', 'tp_addonsoft', 'soft_add.php', 'content_i_list.php', 'soft_edit.php', '', '', '', '<field:filetype islist="1" itemname="文件类型" type="text" isnull="true" default="" rename="" />	\n<field:language islist="1" itemname="语言" type="text" isnull="true" default="" rename="" />	\n<field:softtype islist="1" itemname="软件类型" type="text" isnull="true" default="" rename="" />	\n<field:accredit islist="1" itemname="授权方式" type="text" isnull="true" default="" rename="" />	\n<field:os islist="1" itemname="操作系统" type="text" isnull="true" default="" rename="" />	\n<field:softrank  islist="1" itemname="软件等级" type="int" isnull="true" default="3" rename="" function="GetRankStar(@me)" notsend="1"/>	\n<field:officialUrl  itemname="官方网址" type="text" isnull="true" default="" rename="" />	\n<field:officialDemo itemname="演示网址" type="text" isnull="true" default="" rename="" />	\n<field:softsize  itemname="软件大小" type="text" isnull="true" default="" rename="" />	\n<field:softlinks  itemname="软件地址" type="softlinks" isnull="true" default="" rename="" />	\n<field:introduce  itemname="详细介绍" type="htmltext" isnull="trnue" default="" rename="" />	\n<field:daccess islist="1" itemname="下载级别" type="int" isnull="true" default="0" rename="" function="" notsend="1"/>	\n<field:needmoney islist="1" itemname="需要金币" type="int" isnull="true" default="0" rename="" function="" notsend="1" />', 'filetype,language,softtype,os,accredit,softrank', '', 1, 0, 1, -1, '', 10, 0, 1, 1, '标题', 0, 0),
-(-1, 'spec', '专题', 'tp_archives', 'tp_addonspec', 'spec_add.php', 'content_s_list.php', 'spec_edit.php', '', '', '', '<field:note type="specialtopic" isnull="true" default="" rename=""/>', '', '', 1, 1, 0, -1, '', 10, 0, 1, 1, '标题', 0, 0),
+(2, 'talk', '话题', 'tp_talk', 'tp_addontalk', 'talk_add.php', 'content_talk_list.php', 'talk_edit.php', 'talk_add.php', 'content_list.php', 'album_edit.php', '<field:pagestyle itemname="页面风格" type="number" isnull="true" default="2" rename="" notsend="1" />	\n<field:imgurls itemname="图片集合" type="img" isnull="true" default="" rename="" page="split"/>	\n<field:body itemname="图集内容" autofield="0" notsend="0" type="htmltext" isnull="true" islist="0" default=""  maxlength="250" page=""></field:body>', '', '', 1, 1, 1, -1, '', 10, 0, 1, 1, '标题', 0, 0),
+(3, 'suggest', '意见内容', 'tp_suggest', 'tp_addonsuggest', 'suggest_add.php', 'content_suggest_list.php', 'suggest_edit.php', 'suggest_add.php', 'content_suggest_list.php', 'suggest_edit.php', '<field:body itemname="文章内容" autofield="0" notsend="0" type="htmltext" isnull="true" islist="1" default=""  maxlength="" page="split">	\r\n</field:body>	\r\n<field:result itemname="完成状态" autofield="0" notsend="0" type="select" isnull="true" islist="1"  default="未完成,进行中,完成" maxlength="" page="split">	\r\n</field:result>	', 'body,result', '', 1, 1, 1, -1, '', 10, 0, 1, 1, '标题', 0, 0),
+(-1, 'spec', '专题', 'tp_archives', 'tp_addonspec', 'spec_add.php', 'content_s_list.php', 'spec_edit.php', '', '', '', '<field:note type="specialtopic" isnull="true" default="" rename=""/>', '', '', 0, 0, 0, -1, '', 10, 0, 1, 1, '标题', 0, 0),
 (6, 'shop', '商品', 'tp_archives', 'tp_addonshop', 'archives_add.php', 'content_list.php', 'archives_edit.php', 'archives_add.php', 'content_list.php', 'archives_edit.php', '<field:body itemname="详细介绍" autofield="1" notsend="0" type="htmltext" isnull="true" islist="0" default=""  maxlength="" page="split">	\n</field:body>	\n<field:price itemname="市场价" autofield="1" notsend="0" type="float" isnull="true" islist="1" default=""  maxlength="" page="">	\n</field:price>	\n<field:trueprice itemname="优惠价" autofield="1" notsend="0" type="float" isnull="true" islist="1" default=""  maxlength="" page="">	\n</field:trueprice>	\n<field:brand itemname="品牌" autofield="1" notsend="0" type="text" isnull="true" islist="1" default=""  maxlength="250" page="">	\n</field:brand>	\n<field:units itemname="计量单位" autofield="1" notsend="0" type="text" isnull="true" islist="1" default=""  maxlength="250" page="">	\n</field:units>	\n\n	\n\n<field:vocation itemname="行业" autofield="1" notsend="0"type="stepselect" isnull="true" islist="0" default=""  maxlength="250" page="">	\n</field:vocation>	\n\n<field:infotype itemname="信息类型" autofield="1" notsend="0" type="stepselect" isnull="true" islist="0" default=""  maxlength="250" page="">	\n</field:infotype>	\n\n<field:uptime itemname="上架时间" autofield="1" notsend="0" type="datetime" isnull="true" islist="0" default=""  maxlength="250" page="">	\n</field:uptime>	\n', 'price,trueprice,brand,units', '', 0, 0, 1, -1, '', 10, 0, 1, 1, '商品名称', 0, 0),
-(-8, 'infos', '会议信息', 'tp_archives', 'tp_addoninfos', 'archives_sg_add.php', 'content_sg_list.php', 'archives_sg_edit.php', 'archives_sg_add.php', 'content_sg_list.php', 'archives_sg_edit.php', '<field:channel itemname="频道id" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:channel>	\r\n<field:arcrank itemname="浏览权限" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="5" page=""></field:arcrank>	\r\n<field:mid itemname="会员id" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="8" page=""></field:mid>	\r\n<field:click itemname="点击" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:click>	\r\n<field:title itemname="标题" autofield="0" notsend="0" type="text" isnull="true" islist="1" default="0"  maxlength="60" page=""></field:title>	\r\n<field:senddate itemname="发布时间" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:senddate>	\r\n<field:flag itemname="推荐属性" autofield="0" notsend="0" type="checkbox" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:flag>	\r\n<field:litpic itemname="缩略图" autofield="0" notsend="0" type="text" isnull="true" islist="1" default="0"  maxlength="60" page=""></field:litpic>	\r\n<field:userip itemname="会员IP" autofield="0" notsend="0" type="text" isnull="true" islist="0" default="0"  maxlength="15" page=""></field:userip>	\r\n<field:lastpost itemname="最后评论时间" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:lastpost>	\r\n<field:scores itemname="评论积分" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="8" page=""></field:scores>	\r\n<field:goodpost itemname="好评数" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="8" page=""></field:goodpost>	\r\n<field:badpost itemname="差评数" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="8" page=""></field:badpost>	\r\n\r\n<field:body itemname="信息内容" autofield="1" notsend="0" type="htmltext" isnull="true" islist="0" default=""  maxlength="250" page="">	\r\n</field:body>	\r\n<field:endtime itemname="截止日期" autofield="1" notsend="0" type="datetime" isnull="true" islist="1" default=""  maxlength="250" page="">	\r\n</field:endtime>	\r\n<field:linkman itemname="联系人" autofield="1" notsend="0" type="text" isnull="true" islist="0" default=""  maxlength="50" page="">	\r\n</field:linkman>	\r\n<field:tel itemname="联系电话" autofield="1" notsend="0" type="text" isnull="true" islist="0" default="" maxlength="50" page="">	\r\n</field:tel>	\r\n<field:email itemname="电子邮箱" autofield="1" notsend="0" type="text" isnull="true" islist="0" default=""  maxlength="50" page="">	\r\n</field:email>	\r\n<field:address itemname="地址" autofield="1" notsend="0" type="text" isnull="true" islist="0" default=""  maxlength="100" page="">	\r\n</field:address>	\r\n', 'channel,arcrank,mid,click,title,senddate,flag,litpic,lastpost,scores,goodpost,badpost,nativeplace,infotype,endtime', '', -1, 1, 1, -1, '', 0, 0, 0, 1, '会议标题', 0, 0);
+(-8, 'infos', '会议信息', 'tp_meeting', 'tp_addoninfos', 'archives_sg_add.php', 'content_sg_list.php', 'archives_sg_edit.php', 'archives_sg_add.php', 'content_sg_list.php', 'archives_sg_edit.php', '<field:channel itemname="频道id" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:channel>	\r\n<field:arcrank itemname="浏览权限" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="5" page=""></field:arcrank>	\r\n<field:mid itemname="会员id" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="8" page=""></field:mid>	\r\n<field:click itemname="点击" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:click>	\r\n<field:title itemname="标题" autofield="0" notsend="0" type="text" isnull="true" islist="1" default="0"  maxlength="60" page=""></field:title>	\r\n<field:senddate itemname="发布时间" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:senddate>	\r\n<field:flag itemname="推荐属性" autofield="0" notsend="0" type="checkbox" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:flag>	\r\n<field:litpic itemname="缩略图" autofield="0" notsend="0" type="text" isnull="true" islist="1" default="0"  maxlength="60" page=""></field:litpic>	\r\n<field:userip itemname="会员IP" autofield="0" notsend="0" type="text" isnull="true" islist="0" default="0"  maxlength="15" page=""></field:userip>	\r\n<field:lastpost itemname="最后评论时间" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="10" page=""></field:lastpost>	\r\n<field:scores itemname="评论积分" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="8" page=""></field:scores>	\r\n<field:goodpost itemname="好评数" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="8" page=""></field:goodpost>	\r\n<field:badpost itemname="差评数" autofield="0" notsend="0" type="int" isnull="true" islist="1" default="0"  maxlength="8" page=""></field:badpost>	\r\n<field:body itemname="信息内容" autofield="1" notsend="0" type="htmltext" isnull="true" islist="0" default=""  maxlength="250" page="">	\r\n</field:body>	\r\n<field:starttime itemname="开始日期" autofield="1" notsend="0" type="datetime" isnull="true" islist="1" default=""  maxlength="250" page="">	\r\n</field:starttime>	\r\n<field:endtime itemname="结束日期" autofield="1" notsend="0" type="datetime" isnull="true" islist="1" default=""  maxlength="250" page="">	\r\n</field:endtime>	\r\n<field:linkman itemname="联系人" autofield="1" notsend="0" type="text" isnull="true" islist="0" default=""  maxlength="50" page="">	\r\n</field:linkman>	\r\n<field:tel itemname="联系电话" autofield="1" notsend="0" type="text" isnull="true" islist="0" default="" maxlength="50" page="">	\r\n</field:tel>	\r\n<field:email itemname="电子邮箱" autofield="1" notsend="0" type="text" isnull="true" islist="0" default=""  maxlength="50" page="">	\r\n</field:email>	\r\n<field:address itemname="地址" autofield="1" notsend="0" type="text" isnull="true" islist="0" default=""  maxlength="100" page="">	\r\n</field:address>	\r\n', 'channel,arcrank,mid,click,title,senddate,flag,litpic,lastpost,scores,goodpost,badpost,nativeplace,infotype,starttime,endtime', '', -1, 1, 1, 1, '', 180, 0, 0, 1, '会议标题', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1571,6 +1702,47 @@ CREATE TABLE IF NOT EXISTS `tp_log` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `tp_meeting`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_meeting` (
+  `id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `typeid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `typeid2` varchar(90) NOT NULL DEFAULT '0',
+  `sortrank` int(10) unsigned NOT NULL DEFAULT '0',
+  `flag` set('c','h','p','f','s','j','a','b') DEFAULT NULL,
+  `ismake` smallint(6) NOT NULL DEFAULT '0',
+  `channel` smallint(6) NOT NULL DEFAULT '1',
+  `arcrank` smallint(6) NOT NULL DEFAULT '0',
+  `click` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `money` smallint(6) NOT NULL DEFAULT '0',
+  `title` char(60) NOT NULL DEFAULT '',
+  `shorttitle` char(36) NOT NULL DEFAULT '',
+  `color` char(7) NOT NULL DEFAULT '',
+  `writer` char(20) NOT NULL DEFAULT '',
+  `source` char(30) NOT NULL DEFAULT '',
+  `litpic` char(100) NOT NULL DEFAULT '',
+  `pubdate` int(10) unsigned NOT NULL DEFAULT '0',
+  `senddate` int(10) unsigned NOT NULL DEFAULT '0',
+  `mid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `keywords` char(30) NOT NULL DEFAULT '',
+  `lastpost` int(10) unsigned NOT NULL DEFAULT '0',
+  `scores` mediumint(8) NOT NULL DEFAULT '0',
+  `goodpost` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `badpost` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `voteid` mediumint(8) NOT NULL,
+  `notpost` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `description` varchar(255) NOT NULL DEFAULT '',
+  `filename` varchar(40) NOT NULL DEFAULT '',
+  `dutyadmin` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `tackid` int(10) NOT NULL DEFAULT '0',
+  `mtype` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `weight` int(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `tp_member`
 --
 
@@ -1598,22 +1770,23 @@ CREATE TABLE IF NOT EXISTS `tp_member` (
   `logintime` int(10) unsigned NOT NULL DEFAULT '0',
   `loginip` char(16) NOT NULL DEFAULT '',
   `belong` smallint(4) NOT NULL DEFAULT '0',
-  `checkmail` smallint(6) NOT NULL DEFAULT '-1'
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+  `checkmail` smallint(6) NOT NULL DEFAULT '-1',
+  `phone` varchar(16) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- 转存表中的数据 `tp_member`
 --
 
-INSERT INTO `tp_member` (`mid`, `mtype`, `sOpenId`, `userid`, `pwd`, `uname`, `sex`, `rank`, `uptime`, `exptime`, `money`, `email`, `scores`, `matt`, `spacesta`, `face`, `safequestion`, `safeanswer`, `jointime`, `joinip`, `logintime`, `loginip`, `belong`, `checkmail`) VALUES
-(1, '个人', '', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '男', 100, 0, 0, 0, '', 10000, 10, 0, '', 0, '', 1417922272, '', 1418132065, '127.0.0.1', 0, -1),
-(2, '个人', '', 'tianya', 'fcea920f7412b5da7be0cf42b8c93759', '天涯', '男', 180, 1417922937, 0, 0, 'tianya@dedecms.com', 115, 0, 2, '', 0, '', 1270622445, '127.0.0.1', 1270622445, '127.0.0.1', 0, -1),
-(3, '个人', '', 'wind', 'e10adc3949ba59abbe56e057f20f883e', '木林森', '男', 0, 1417923336, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270623901, '127.0.0.1', 1270623901, '127.0.0.1', 0, -1),
-(4, '个人', '', 'like', 'e10adc3949ba59abbe56e057f20f883e', 'like', '男', 180, 1417923348, 0, 0, 'like@dedecms.com', 113, 0, 2, '', 0, '', 1270624079, '127.0.0.1', 1270624079, '127.0.0.1', 0, -1),
-(5, '个人', '', 'yuejie', 'e10adc3949ba59abbe56e057f20f883e', '越界', '男', 180, 1417923359, 0, 0, 'jsy@dedecms.com', 100, 0, 2, '', 0, '', 1270624369, '127.0.0.1', 1270624369, '127.0.0.1', 0, -1),
-(6, '个人', '', '沙羡', 'e10adc3949ba59abbe56e057f20f883e', '沙羡', '男', 10, 1417923390, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270624916, '127.0.0.1', 1270624916, '127.0.0.1', 0, -1),
-(7, '个人', '', '尐湶細蓅', 'e10adc3949ba59abbe56e057f20f883e', '尐湶細蓅', '男', 180, 1417923312, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270624989, '127.0.0.1', 1270624989, '127.0.0.1', 0, -1),
-(8, '个人', 'test123', 'test123', 'e10adc3949ba59abbe56e057f20f883e', '123', '男', 100, 0, 0, 0, '', 1000, 10, 0, '', 0, '', 0, '', 0, '', 0, -1);
+INSERT INTO `tp_member` (`mid`, `mtype`, `sOpenId`, `userid`, `pwd`, `uname`, `sex`, `rank`, `uptime`, `exptime`, `money`, `email`, `scores`, `matt`, `spacesta`, `face`, `safequestion`, `safeanswer`, `jointime`, `joinip`, `logintime`, `loginip`, `belong`, `checkmail`, `phone`) VALUES
+(1, '个人', '', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '男', 100, 0, 0, 0, '', 10000, 10, 0, '', 0, '', 1417922272, '', 1418394684, '127.0.0.1', 0, -1, ''),
+(2, '个人', '', 'tianya', 'fcea920f7412b5da7be0cf42b8c93759', '天涯', '男', 180, 1417922937, 0, 0, 'tianya@dedecms.com', 115, 0, 2, '', 0, '', 1270622445, '127.0.0.1', 1270622445, '127.0.0.1', 0, -1, ''),
+(3, '个人', '', 'wind', 'e10adc3949ba59abbe56e057f20f883e', '木林森', '男', 0, 1417923336, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270623901, '127.0.0.1', 1270623901, '127.0.0.1', 0, -1, ''),
+(4, '个人', '', 'like', 'e10adc3949ba59abbe56e057f20f883e', 'like', '男', 180, 1417923348, 0, 0, 'like@dedecms.com', 113, 0, 2, '', 0, '', 1270624079, '127.0.0.1', 1270624079, '127.0.0.1', 0, -1, ''),
+(5, '个人', '', 'yuejie', 'e10adc3949ba59abbe56e057f20f883e', '越界', '男', 180, 1417923359, 0, 0, 'jsy@dedecms.com', 100, 0, 2, '', 0, '', 1270624369, '127.0.0.1', 1270624369, '127.0.0.1', 0, -1, ''),
+(6, '个人', '', '沙羡', 'e10adc3949ba59abbe56e057f20f883e', '沙羡', '男', 10, 1417923390, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270624916, '127.0.0.1', 1270624916, '127.0.0.1', 0, -1, ''),
+(7, '个人', '', '尐湶細蓅', 'e10adc3949ba59abbe56e057f20f883e', '尐湶細蓅', '男', 180, 1417923312, 0, 0, 'wind@dedecms.com', 100, 0, 2, '', 0, '', 1270624989, '127.0.0.1', 1270624989, '127.0.0.1', 0, -1, ''),
+(8, '个人', 'test123', 'test123', 'e10adc3949ba59abbe56e057f20f883e', '123', '男', 180, 0, 0, 0, '1111111111', 0, 10, 0, '', 0, '', 0, '', 0, '', 15, -1, '121313');
 
 -- --------------------------------------------------------
 
@@ -2049,7 +2222,7 @@ CREATE TABLE IF NOT EXISTS `tp_member_tj` (
 --
 
 INSERT INTO `tp_member_tj` (`mid`, `article`, `album`, `archives`, `homecount`, `pagecount`, `feedback`, `friend`, `stow`, `soft`, `info`, `shop`) VALUES
-(1, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0),
+(1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0),
 (8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -2624,6 +2797,55 @@ INSERT INTO `tp_stepselect` (`id`, `itemname`, `egroup`, `issign`, `issystem`) V
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `tp_suggest`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_suggest` (
+  `id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `typeid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `typeid2` varchar(90) NOT NULL DEFAULT '0',
+  `sortrank` int(10) unsigned NOT NULL DEFAULT '0',
+  `flag` set('c','h','p','f','s','j','a','b') DEFAULT NULL,
+  `ismake` smallint(6) NOT NULL DEFAULT '0',
+  `channel` smallint(6) NOT NULL DEFAULT '1',
+  `arcrank` smallint(6) NOT NULL DEFAULT '0',
+  `click` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `money` smallint(6) NOT NULL DEFAULT '0',
+  `title` char(60) NOT NULL DEFAULT '',
+  `shorttitle` char(36) NOT NULL DEFAULT '',
+  `color` char(7) NOT NULL DEFAULT '',
+  `writer` char(20) NOT NULL DEFAULT '',
+  `source` char(30) NOT NULL DEFAULT '',
+  `litpic` char(100) NOT NULL DEFAULT '',
+  `pubdate` int(10) unsigned NOT NULL DEFAULT '0',
+  `senddate` int(10) unsigned NOT NULL DEFAULT '0',
+  `mid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `keywords` char(30) NOT NULL DEFAULT '',
+  `lastpost` int(10) unsigned NOT NULL DEFAULT '0',
+  `scores` mediumint(8) NOT NULL DEFAULT '0',
+  `goodpost` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `badpost` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `voteid` mediumint(8) NOT NULL,
+  `notpost` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `description` varchar(255) NOT NULL DEFAULT '',
+  `filename` varchar(40) NOT NULL DEFAULT '',
+  `dutyadmin` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `tackid` int(10) NOT NULL DEFAULT '0',
+  `mtype` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `weight` int(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tp_suggest`
+--
+
+INSERT INTO `tp_suggest` (`id`, `typeid`, `typeid2`, `sortrank`, `flag`, `ismake`, `channel`, `arcrank`, `click`, `money`, `title`, `shorttitle`, `color`, `writer`, `source`, `litpic`, `pubdate`, `senddate`, `mid`, `keywords`, `lastpost`, `scores`, `goodpost`, `badpost`, `voteid`, `notpost`, `description`, `filename`, `dutyadmin`, `tackid`, `mtype`, `weight`) VALUES
+(135, 32, '0', 1418528136, '', 0, 3, 0, 0, 0, 'fdsads', '', '', 'admin', '未知', '', 1418528136, 1418528146, 1, 'fdsads,fdsdsdsfda,', 0, 0, 0, 0, 0, 0, 'fdsdsdsfda', '', 1, 0, 0, 0),
+(136, 27, '0', 1418529169, '', 0, 3, 0, 0, 0, 's d f d s f', '', '', 'admin', '未知', '', 1418529169, 1418529177, 1, '', 0, 0, 0, 0, 0, 0, 'd s f d s f d s', '', 1, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `tp_sysconfig`
 --
 
@@ -2687,7 +2909,7 @@ INSERT INTO `tp_sysconfig` (`aid`, `varname`, `info`, `groupid`, `type`, `value`
 (42, 'cfg_mb_album', '是否开启会员图集功能', 4, 'bool', 'N'),
 (43, 'cfg_mb_upload', '是否允许会员上传非图片附件', 4, 'bool', 'Y'),
 (44, 'cfg_mb_upload_size', '会员上传文件大小(K)', 4, 'number', '1024'),
-(45, 'cfg_mb_sendall', '是否开放会员对自定义模型投稿', 4, 'bool', 'Y'),
+(45, 'cfg_mb_sendall', '是否开放会员对自定义模型投稿', 4, 'bool', 'N'),
 (46, 'cfg_mb_rmdown', '是否把会员指定的远程文档下载到本地', 4, 'bool', 'Y'),
 (47, 'cfg_cli_time', '服务器时区设置', 2, 'number', '8'),
 (48, 'cfg_mb_addontype', '会员附件许可的类型', 4, 'bstring', 'swf|mpg|mp3|rm|rmvb|wmv|wma|wav|mid|mov|zip|rar|doc|xsl|ppt|wps'),
@@ -2697,7 +2919,7 @@ INSERT INTO `tp_sysconfig` (`aid`, `varname`, `info`, `groupid`, `type`, `value`
 (51, 'cfg_keyword_like', '使用关键词关连文章', 6, 'bool', 'N'),
 (52, 'cfg_index_max', '网站主页调用函数最大索引文档数<br>不适用于经常单栏目采集过多内容的网站<br>不启用本项此值设置为0即可', 6, 'number', '10000'),
 (53, 'cfg_index_cache', 'arclist标签调用缓存<br />(0 不启用，大于0值为多少秒)', 6, 'number', '86400'),
-(54, 'cfg_tplcache', '是否启用模板缓存', 6, 'bool', 'Y'),
+(54, 'cfg_tplcache', '是否启用模板缓存', 6, 'bool', 'N'),
 (55, 'cfg_tplcache_dir', '模板缓存目录', 6, 'string', '/data/tplcache'),
 (56, 'cfg_makesign_cache', '发布/修改单个文档是否使用调用缓存', 6, 'bool', 'N'),
 (59, 'cfg_arc_dellink', '删除非站内链接', 7, 'bool', 'N'),
@@ -2717,7 +2939,7 @@ INSERT INTO `tp_sysconfig` (`aid`, `varname`, `info`, `groupid`, `type`, `value`
 (74, 'cfg_mb_rank', '注册会员默认级别<br>[会员权限管理中]查看级别代表的数字', 4, 'number', '10'),
 (76, 'cfg_feedback_time', '两次评论至少间隔时间(秒钟)', 5, 'number', '30'),
 (77, 'cfg_feedback_numip', '每个IP一小时内最大评论数', 5, 'number', '30'),
-(78, 'cfg_md_mailtest', '是否限制Email只能注册一个帐号', 4, 'bool', 'N'),
+(78, 'cfg_md_mailtest', '是否限制Email只能注册一个帐号', 4, 'bool', 'Y'),
 (79, 'cfg_mb_spacesta', '会员使用权限开通状态<br>(-10 邮件验证 -1 手工审核, 0 没限制)', 4, 'number', '-10'),
 (728, 'cfg_mb_allowreg', '是否允许新会员注册', 4, 'bool', 'Y'),
 (729, 'cfg_mb_adminlock', '是否禁止访问管理员帐号的空间', 4, 'bool', 'N'),
@@ -2749,11 +2971,11 @@ INSERT INTO `tp_sysconfig` (`aid`, `varname`, `info`, `groupid`, `type`, `value`
 (710, 'cfg_keywords', '站点默认关键字', 1, 'string', '周浦 周浦 '),
 (711, 'cfg_description', '站点描述', 1, 'bstring', '周浦 周浦 '),
 (712, 'cfg_beian', '网站备案号', 1, 'string', ''),
-(713, 'cfg_need_typeid2', '是否启用副栏目', 6, 'bool', 'Y'),
+(713, 'cfg_need_typeid2', '是否启用副栏目', 6, 'bool', 'N'),
 (72, 'cfg_mb_pwdtype', '前台密码验证类型：默认32 — 32位md5，可选：<br />l16 — 前16位， r16 — 后16位， m16 — 中间16位', 4, 'string', '32'),
 (716, 'cfg_cache_type', 'id 文档ID，content 标签最终内容<br />(修改此变量后必须更新系统缓存)', 6, 'string', 'id'),
 (717, 'cfg_max_face', '会员上传头像大小限制(单位：KB)', 3, 'number', '50'),
-(718, 'cfg_typedir_df', '栏目网址使用目录名（不显示默认页，即是 /a/abc/ 形式）', 2, 'bool', 'Y'),
+(718, 'cfg_typedir_df', '栏目网址使用目录名（不显示默认页，即是 /a/abc/ 形式）', 2, 'bool', 'N'),
 (719, 'cfg_make_andcat', '发表文章后马上更新相关栏目', 6, 'bool', 'N'),
 (720, 'cfg_make_prenext', '发表文章后马上更新上下篇', 6, 'bool', 'Y'),
 (721, 'cfg_feedback_forbid', '是否禁止所有评论(将包括禁止顶踩等)', 5, 'bool', 'N'),
@@ -2768,7 +2990,7 @@ INSERT INTO `tp_sysconfig` (`aid`, `varname`, `info`, `groupid`, `type`, `value`
 (734, 'cfg_mb_wnameone', '是否允许用户笔名/昵称重复', 4, 'bool', 'N'),
 (735, 'cfg_arc_dirname', '是否允许用目录作为文档文件名<br />文档命名规则需改为：{typedir}/{aid}/index.html', 7, 'bool', 'Y'),
 (736, 'cfg_puccache_time', '需缓存内容全局缓存时间(秒)', 6, 'number', '36000'),
-(737, 'cfg_arc_click', '文档默认点击数(-1表示随机50-200)', 7, 'number', '-1'),
+(737, 'cfg_arc_click', '文档默认点击数(-1表示随机50-200)', 7, 'number', '0'),
 (738, 'cfg_addon_savetype', '附件保存形式(按data函数日期参数)', 3, 'string', 'ymd'),
 (739, 'cfg_qk_uploadlit', '异步上传缩略图(空间太不稳定的用户关闭此项)', 3, 'bool', 'Y'),
 (740, 'cfg_login_adds', '登录会员中心获积分', 5, 'number', '2'),
@@ -6286,6 +6508,57 @@ CREATE TABLE IF NOT EXISTS `tp_taglist` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `tp_talk`
+--
+
+CREATE TABLE IF NOT EXISTS `tp_talk` (
+  `id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `typeid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `typeid2` varchar(90) NOT NULL DEFAULT '0',
+  `sortrank` int(10) unsigned NOT NULL DEFAULT '0',
+  `flag` set('c','h','p','f','s','j','a','b') DEFAULT NULL,
+  `ismake` smallint(6) NOT NULL DEFAULT '0',
+  `channel` smallint(6) NOT NULL DEFAULT '1',
+  `arcrank` smallint(6) NOT NULL DEFAULT '0',
+  `click` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `money` smallint(6) NOT NULL DEFAULT '0',
+  `title` char(60) NOT NULL DEFAULT '',
+  `shorttitle` char(36) NOT NULL DEFAULT '',
+  `color` char(7) NOT NULL DEFAULT '',
+  `writer` char(20) NOT NULL DEFAULT '',
+  `source` char(30) NOT NULL DEFAULT '',
+  `litpic` char(100) NOT NULL DEFAULT '',
+  `pubdate` int(10) unsigned NOT NULL DEFAULT '0',
+  `senddate` int(10) unsigned NOT NULL DEFAULT '0',
+  `mid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `keywords` char(30) NOT NULL DEFAULT '',
+  `lastpost` int(10) unsigned NOT NULL DEFAULT '0',
+  `scores` mediumint(8) NOT NULL DEFAULT '0',
+  `goodpost` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `badpost` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `voteid` mediumint(8) NOT NULL,
+  `notpost` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `description` varchar(255) NOT NULL DEFAULT '',
+  `filename` varchar(40) NOT NULL DEFAULT '',
+  `dutyadmin` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `tackid` int(10) NOT NULL DEFAULT '0',
+  `mtype` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `weight` int(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `tp_talk`
+--
+
+INSERT INTO `tp_talk` (`id`, `typeid`, `typeid2`, `sortrank`, `flag`, `ismake`, `channel`, `arcrank`, `click`, `money`, `title`, `shorttitle`, `color`, `writer`, `source`, `litpic`, `pubdate`, `senddate`, `mid`, `keywords`, `lastpost`, `scores`, `goodpost`, `badpost`, `voteid`, `notpost`, `description`, `filename`, `dutyadmin`, `tackid`, `mtype`, `weight`) VALUES
+(116, 24, '0', 1418525420, '', -1, 2, 0, 0, 0, 'dsfsd111', '', '', 'admin', 'dsf', '', 1418525420, 1418477546, 1, 'dsfds', 0, 0, 0, 0, 0, 0, 'fdsds', '', 1, 0, 0, 0),
+(117, 24, '0', 0, '', -1, 2, 0, 0, 0, 'dsaa', '', '', '网络', 'Admin5', '', 0, 1418477612, 1, 'asdsa', 0, 0, 0, 0, 0, 0, 'dsadsa', '', 1, 0, 0, 0),
+(118, 24, '0', 0, '', -1, 2, 0, 0, 0, 'fs da s', '', '', 'admin', 'd s fa d', '', 0, 1418524793, 1, 's d f d s', 0, 0, 0, 0, 0, 0, 'd s f d s', '', 1, 0, 0, 0),
+(119, 24, '0', 1418525406, 'p', -1, 2, 0, 0, 0, 'dsf', '', '', 'admin', 'dfsfds', 'fdsd', 1418525406, 1418524836, 1, 'dsf', 0, 0, 0, 0, 0, 0, 'sfddfs', '', 1, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `tp_uploads`
 --
 
@@ -6301,7 +6574,7 @@ CREATE TABLE IF NOT EXISTS `tp_uploads` (
   `filesize` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `uptime` int(10) unsigned NOT NULL DEFAULT '0',
   `mid` mediumint(8) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
 
 --
 -- 转存表中的数据 `tp_uploads`
@@ -6346,7 +6619,22 @@ INSERT INTO `tp_uploads` (`aid`, `arcid`, `title`, `url`, `mediatype`, `width`, 
 (36, 96, '我的眼界-一些关于花的照片', 'http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53039.jpg', 0, '0', '0', '0', 33517, 1270625439, 1),
 (37, 96, '我的眼界-一些关于花的照片', 'http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53040.jpg', 0, '0', '0', '0', 42222, 1270625440, 1),
 (38, 96, '我的眼界-一些关于花的照片', 'http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53041.jpg', 0, '0', '0', '0', 34080, 1270625441, 1),
-(39, 96, '我的眼界-一些关于花的照片', 'http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53041-50.jpg', 0, '0', '0', '0', 44278, 1270625442, 1);
+(39, 96, '我的眼界-一些关于花的照片', 'http://www.dedecms.com/demoimg/uploads/allimg/100407/1-10040G53041-50.jpg', 0, '0', '0', '0', 44278, 1270625442, 1),
+(40, 0, '1-1412131F3320-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412131F3320-L.jpg', 1, '0', '0', '0', 75672, 1418461412, 1),
+(41, 0, '1-1412131F4390-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412131F4390-L.jpg', 1, '0', '0', '0', 75672, 1418461479, 1),
+(42, 0, '1-1412131F5450-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412131F5450-L.jpg', 1, '0', '0', '0', 75672, 1418461545, 1),
+(43, 0, '1-1412131G0310-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412131G0310-L.jpg', 1, '0', '0', '0', 75672, 1418461831, 1),
+(44, 0, '1-1412131G1530-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412131G1530-L.jpg', 1, '0', '0', '0', 75672, 1418461913, 1),
+(45, 0, '1-1412131G3090-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412131G3090-L.jpg', 1, '0', '0', '0', 75672, 1418461989, 1),
+(46, 0, '1-1412131GU10-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412131GU10-L.jpg', 1, '0', '0', '0', 75672, 1418462331, 1),
+(47, 111, '石油会议', '/dedetozp/mng/uploads/allimg/141213/1-1412131G9430-L.jpg', 1, '0', '0', '0', 75672, 1418462383, 1),
+(48, 0, '1-1412132026380-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412132026380-L.jpg', 1, '0', '0', '0', 75672, 1418473598, 1),
+(49, 0, '1-141213202P50-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-141213202P50-L.jpg', 1, '0', '0', '0', 75672, 1418473685, 1),
+(50, 0, '1-141213202R40-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-141213202R40-L.jpg', 1, '0', '0', '0', 75672, 1418473704, 1),
+(51, 0, '1-1412132029300-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412132029300-L.jpg', 1, '0', '0', '0', 75672, 1418473770, 1),
+(52, 0, '1-1412132029380-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412132029380-L.jpg', 1, '0', '0', '0', 75672, 1418473778, 1),
+(53, 0, '1-1412132032020-L.jpg', '/dedetozp/mng/uploads/allimg/141213/1-1412132032020-L.jpg', 1, '0', '0', '0', 75672, 1418473922, 1),
+(54, 0, '141213/1-14121321194D26.jpg', '/dedetozp/mng/uploads/141213/1-14121321194D26.jpg', 1, '640', '593', '0', 75672, 1418476786, 1);
 
 -- --------------------------------------------------------
 
@@ -6440,6 +6728,18 @@ ALTER TABLE `tp_addonsoft`
 --
 ALTER TABLE `tp_addonspec`
  ADD PRIMARY KEY (`aid`), ADD KEY `typeid` (`typeid`);
+
+--
+-- Indexes for table `tp_addonsuggest`
+--
+ALTER TABLE `tp_addonsuggest`
+ ADD PRIMARY KEY (`aid`), ADD KEY `typeid` (`typeid`);
+
+--
+-- Indexes for table `tp_addontalk`
+--
+ALTER TABLE `tp_addontalk`
+ ADD PRIMARY KEY (`aid`), ADD KEY `imagesMain` (`typeid`);
 
 --
 -- Indexes for table `tp_admin`
@@ -6602,6 +6902,12 @@ ALTER TABLE `tp_keywords`
 --
 ALTER TABLE `tp_log`
  ADD PRIMARY KEY (`lid`);
+
+--
+-- Indexes for table `tp_meeting`
+--
+ALTER TABLE `tp_meeting`
+ ADD PRIMARY KEY (`id`), ADD KEY `sortrank` (`sortrank`), ADD KEY `mainindex` (`arcrank`,`typeid`,`channel`,`flag`,`mid`), ADD KEY `lastpost` (`lastpost`,`scores`,`goodpost`,`badpost`,`notpost`);
 
 --
 -- Indexes for table `tp_member`
@@ -6886,6 +7192,12 @@ ALTER TABLE `tp_stepselect`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tp_suggest`
+--
+ALTER TABLE `tp_suggest`
+ ADD PRIMARY KEY (`id`), ADD KEY `sortrank` (`sortrank`), ADD KEY `mainindex` (`arcrank`,`typeid`,`channel`,`flag`,`mid`), ADD KEY `lastpost` (`lastpost`,`scores`,`goodpost`,`badpost`,`notpost`);
+
+--
 -- Indexes for table `tp_sysconfig`
 --
 ALTER TABLE `tp_sysconfig`
@@ -6926,6 +7238,12 @@ ALTER TABLE `tp_tagindex`
 --
 ALTER TABLE `tp_taglist`
  ADD PRIMARY KEY (`tid`,`aid`);
+
+--
+-- Indexes for table `tp_talk`
+--
+ALTER TABLE `tp_talk`
+ ADD PRIMARY KEY (`id`), ADD KEY `sortrank` (`sortrank`), ADD KEY `mainindex` (`arcrank`,`typeid`,`channel`,`flag`,`mid`), ADD KEY `lastpost` (`lastpost`,`scores`,`goodpost`,`badpost`,`notpost`);
 
 --
 -- Indexes for table `tp_uploads`
@@ -6969,12 +7287,12 @@ MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `tp_arctiny`
 --
 ALTER TABLE `tp_arctiny`
-MODIFY `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=111;
+MODIFY `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=139;
 --
 -- AUTO_INCREMENT for table `tp_arctype`
 --
 ALTER TABLE `tp_arctype`
-MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `tp_area`
 --
@@ -7239,7 +7557,7 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `tp_uploads`
 --
 ALTER TABLE `tp_uploads`
-MODIFY `aid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+MODIFY `aid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `tp_vote`
 --

@@ -146,6 +146,20 @@ $menusMain = "
   <m:item name='代表分类设置' link='member_belong_main.php' rank='member_Type' target='main' />
 </m:top>
 
+<m:top item='21_' name='资讯管理' display='none' rank='member_List,member_Type'>
+  <m:item name='资讯新闻' link='content_list.php?channelid=1' rank='member_List' target='main' />
+</m:top>
+<m:top item='23_' name='意见建议' display='none' rank='member_List,member_Type'>
+  <m:item name='建议管理' link='content_suggest_list.php' rank='member_List' target='main' />
+  <m:item name='话题管理' link='content_talk_list.php' rank='member_Type' target='main' />
+    <m:item name='意见建议统计' link='content_talk_list.php' rank='member_Type' target='main' />
+</m:top>
+
+<m:top item='24_' name='会议管理' display='none' rank='member_List,member_Type'>
+  <m:item name='会议管理' link='content_sg_list.php?channelid=-8' rank='member_List' target='main' />
+  <m:item name='会议统计' link='#' rank='member_Type' target='main' />
+</m:top>
+
 $adminMenu2
 ".
 //    <m:item name='积分头衔设置' link='member_scores.php' rank='member_Type' target='main' />

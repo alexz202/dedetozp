@@ -133,6 +133,18 @@ a.mm:hover div {
         <a id='link6' class='mm'>
       <div onClick="ShowMainMenu(6)">会员</div>
       </a>
+        <a id='link24' class='mm'>
+            <div onClick="ShowMainMenu(24)">会议</div>
+        </a>
+        <!--<a id='link22' class='mm'>-->
+            <!--<div onClick="ShowMainMenu(22)">话题</div>-->
+        <!--</a>-->
+        <a id='link23' class='mm'>
+            <div onClick="ShowMainMenu(23)">意见</div>
+        </a>
+        <a id='link21' class='mm'>
+            <div onClick="ShowMainMenu(21)">资讯</div>
+        </a>
       <?php
   	if($cuserLogin->getUserType() >= 10) {
   	?>
@@ -156,8 +168,10 @@ GetMenus($cuserLogin->getUserRank(), 'main');
       <div id='ct5'></div>
       <div id='ct6'></div>
       <div id='ct7'></div>
-      <div id='ct20'></div>
-      <div id='ct10'></div></td>
+        <div id='ct10'></div>
+      <div id='ct23'></div>
+      <div id='ct24'></div>
+        <div id='ct21'></div></td>
   </tr>
   <tr>
     <td width='26'></td>
