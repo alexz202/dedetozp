@@ -1,0 +1,31 @@
+body{
+    background-color: #dcdcdc;
+}
+.header{
+background-color: #808080;
+}
+.title{
+    color: #ffffff;
+}
+.content{
+    margin-top: 2px;
+}
+.fdivl{
+    float: left;
+}
+#logo{
+    width: 45%;
+}
+#search{
+    width: 54%;
+}
+#content{
+    position: absolute;
+    -webkit-overflow-scrolling: touch;
+    width: 95%;
+ margin: 10px auto;
+    overflow: auto;
+}
+.white{
+    color: #ffffff;
+}
