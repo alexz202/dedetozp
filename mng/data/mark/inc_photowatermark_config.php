@@ -1,5 +1,5 @@
 <?php
-$photo_markup = '1';
+$photo_markup = '0';
 $photo_markdown = '1';
 $photo_marktype = '1';
 $photo_wwidth = '120';

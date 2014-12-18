@@ -100,13 +100,13 @@ class Page {
         $upRow          =   $this->nowPage-1;
         $downRow        =   $this->nowPage+1;
         if ($upRow>0){
-            $upPage     =   "<a href='".str_replace('__PAGE__',$upRow,$url)."'>".$this->config['prev']."</a>";
+            $upPage     =   "<a href='".str_replace('__PAGE__',$upRow,$url)."' data-ignore=\"push\">".$this->config['prev']."</a>";
         }else{
             $upPage     =   '';
         }
 
         if ($downRow <= $this->totalPages){
-            $downPage   =   "<a href='".str_replace('__PAGE__',$downRow,$url)."'>".$this->config['next']."</a>";
+            $downPage   =   "<a href='".str_replace('__PAGE__',$downRow,$url)."' data-ignore=\"push\">".$this->config['next']."</a>";
         }else{
             $downPage   =   '';
         }
@@ -116,8 +116,8 @@ class Page {
             $prePage    =   '';
         }else{
             $preRow     =   $this->nowPage-$this->rollPage;
-            $prePage    =   "<a href='".str_replace('__PAGE__',$preRow,$url)."' >上".$this->rollPage."页</a>";
-            $theFirst   =   "<a href='".str_replace('__PAGE__',1,$url)."' >".$this->config['first']."</a>";
+            $prePage    =   "<a href='".str_replace('__PAGE__',$preRow,$url)."' data-ignore=\"push\">上".$this->rollPage."页</a>";
+            $theFirst   =   "<a href='".str_replace('__PAGE__',1,$url)."' data-ignore=\"push\">".$this->config['first']."</a>";
         }
         if($nowCoolPage == $this->coolPages){
             $nextPage   =   '';
@@ -125,8 +125,8 @@ class Page {
         }else{
             $nextRow    =   $this->nowPage+$this->rollPage;
             $theEndRow  =   $this->totalPages;
-            $nextPage   =   "<a href='".str_replace('__PAGE__',$nextRow,$url)."' >下".$this->rollPage."页</a>";
-            $theEnd     =   "<a href='".str_replace('__PAGE__',$theEndRow,$url)."' >".$this->config['last']."</a>";
+            $nextPage   =   "<a href='".str_replace('__PAGE__',$nextRow,$url)."' data-ignore=\"push\">下".$this->rollPage."页</a>";
+            $theEnd     =   "<a href='".str_replace('__PAGE__',$theEndRow,$url)."' data-ignore=\"push\" >".$this->config['last']."</a>";
         }
         // 1 2 3 4 5
         $linkPage = "";
@@ -134,7 +134,7 @@ class Page {
             $page       =   ($nowCoolPage-1)*$this->rollPage+$i;
             if($page!=$this->nowPage){
                 if($page<=$this->totalPages){
-                    $linkPage .= "<a href='".str_replace('__PAGE__',$page,$url)."'>".$page."</a>";
+                    $linkPage .= "<a href='".str_replace('__PAGE__',$page,$url)."' data-ignore=\"push\">".$page."</a>";
                 }else{
                     break;
                 }

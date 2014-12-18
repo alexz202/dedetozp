@@ -13,19 +13,22 @@ background-color: #808080;
 .fdivl{
     float: left;
 }
-#logo{
-    width: 45%;
-}
-#search{
-    width: 54%;
-}
+
 #content{
     position: absolute;
     -webkit-overflow-scrolling: touch;
-    width: 95%;
  margin: 10px auto;
     overflow: auto;
 }
 .white{
     color: #ffffff;
+}
+
+.pagerbtn{
+ margin: 10px;
+    width:80px;
+    text-align: center;
+    border: 1px solid #dcdcdc;
+    background-color: floralwhite;
+    float: right;
 }

@@ -19,7 +19,7 @@
         <a class="control-item active" href="#item1mobile">
            村
         </a>
-        <a class="control-item" href="#item2mobile">
+        <a class="control-item " href="#item2mobile">
             社区
         </a>
         <a class="control-item" href="#item3mobile">
@@ -29,83 +29,37 @@
     <div id="divcontrol">
         <span id="item1mobile" class="control-content active">
             <ul class="table-view" style="font-size: 14px;">
-
-                <li class="table-view-cell">
-                    <a class="">
-                           北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                            北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                            北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                            北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                        北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                        北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                        北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                        北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                        北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                        北庄
-                    </a>
-                </li>
-                <li class="table-view-cell">
-                    <a class="">
-                        北庄
-                    </a>
-                </li>
-
+           <volist name="list[1]" id="vo">
+               <li class="table-view-cell">
+                   <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}" data-ignore="push">
+                      {weixin:$vo.name}
+                   </a>
+               </li>
+           </volist>
 </ul>
         </span>
-        <span id="item2mobile" class="control-content">Item 2</span>
-        <span id="item3mobile" class="control-content">Item 3</span>
+        <span id="item2mobile" class="control-content">
+  <volist name="list[2]" id="vo">
+      <li class="table-view-cell">
+          <a class=""  href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}" data-ignore="push">
+              {weixin:$vo.name}
+          </a>
+      </li>
+  </volist>
+
+        </span>
+        <span id="item3mobile" class="control-content">
+              <volist name="list[3]" id="vo">
+                  <li class="table-view-cell">
+                      <a class=""  href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}" data-ignore="push">
+                          {weixin:$vo.name}
+                      </a>
+                  </li>
+              </volist>
+        </span>
     </div>
 </div>
 
-<nav class="bar bar-tab">
-    <a class="tab-item active" href="#">
-        Label
-    </a>
-    <a class="tab-item" href="#">
-        Label
-    </a>
-    <a class="tab-item" href="#">
-        Label
-    </a>
-    <a class="tab-item" href="#">
-        Label
-    </a>
-</nav>
+<include file="../nav"/>
 </body>
 </html>

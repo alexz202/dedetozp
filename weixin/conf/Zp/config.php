@@ -12,4 +12,5 @@ return array(
     'KEYWORDS'=>array(
         'index'=>'周浦人大'
     ),
+    'PAGERSIZE'=>1,
 );

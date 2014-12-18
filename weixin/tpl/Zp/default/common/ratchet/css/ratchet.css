@@ -558,12 +558,17 @@ input[type="button"] {
   display: table-cell;
   width: 1%;
   height: 50px;
-  color: #929292;
+  color: #ffffff;
   text-align: center;
   vertical-align: middle;
+   border-left: 1px solid #ffb9b2;
 }
-.bar-tab .tab-item.active, .bar-tab .tab-item:active {
-  color: #428bca;
+.bar-tab .tab-item.active {
+  color: #ffffff;
+    background:-webkit-linear-gradient(top, #ff2f33,#c40000);
+}
+.bar-tab .tab-item:active {
+    color: #ffffff;
 }
 .bar-tab .tab-item .icon {
   top: 3px;
@@ -949,10 +954,10 @@ select {
   border-left-width: 0;
 }
 .segmented-control .control-item:active {
-  background-color: red;
+  background-color: #c40000;
 }
 .segmented-control .control-item.active {
-  background-color: red;
+  background-color: #c40000;
 }
 
 .segmented-control-primary {
@@ -986,10 +991,10 @@ select {
 }
 
 .segmented-control-negative {
-  border-color: #d9534f;
+  border-color: #c40000;
 }
 .segmented-control-negative .control-item {
-  color: #d9534f;
+  color: #c40000;
   border-color: inherit;
 }
 .segmented-control-negative .control-item:active {
@@ -997,7 +1002,7 @@ select {
 }
 .segmented-control-negative .control-item.active {
   color: #fff;
-  background-color: #d9534f;
+  background-color: #c40000;
 }
 
 .control-content {
