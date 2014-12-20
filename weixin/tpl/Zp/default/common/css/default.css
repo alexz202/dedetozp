@@ -14,10 +14,13 @@ background-color: #808080;
     float: left;
 }
 
+.content{
+    margin-bottom: 52px;
+}
 #content{
     position: absolute;
     -webkit-overflow-scrolling: touch;
- margin: 10px auto;
+ /*margin: 10px auto;*/
     overflow: auto;
 }
 .white{

@@ -191,10 +191,10 @@ else if($dopost=='save')
 
     //保存到主表
     $query = "INSERT INTO `#@__talk`(id,typeid,typeid2,sortrank,flag,ismake,channel,arcrank,click,money,title,shorttitle,
-    color,writer,source,litpic,pubdate,senddate,mid,voteid,notpost,description,keywords,filename,dutyadmin,weight)
+    color,writer,source,litpic,pubdate,senddate,mid,voteid,notpost,description,keywords,filename,dutyadmin,weight,result)
     VALUES ('$arcID','$typeid','$typeid2','$sortrank','$flag','$ismake','$channelid','$arcrank','$click','$money',
     '$title','$shorttitle','$color','$writer','$source','$litpic','$pubdate','$senddate',
-    '$adminid','$voteid','$notpost','$description','$keywords','$filename','$adminid','$weight');";
+    '$adminid','$voteid','$notpost','$description','$keywords','$filename','$adminid','$weight','$result');";
 
     if(!$dsql->ExecuteNoneQuery($query))
     {

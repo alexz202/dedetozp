@@ -13,11 +13,18 @@
     <script src="__ROOT__/{weixin::RES}/ratchet/js/ratchet.js"></script>
 </head>
 <body>
-<form method="post" action="__ROOT__/index.php?g=Zp&m=Index&a=suggestadd">
-   <input type="hidden" name="act" value="add"/>
-    <textarea rows="8" name="info"></textarea>
-    <button class="btn btn-positive btn-block">提交</button>
-</form>
+<include file="../head_one"/>
+<div class="content">
+    <div style="width: 96%;margin: 0 auto;">
+        <p>请发表您的宝贵意见:</p>
+    <form method="post" action="__ROOT__/index.php?g=Zp&m=online&a=suggestadd">
+        <input type="hidden" name="act" value="add"/>
+        <textarea rows="8" name="info"></textarea>
+        <button class="btn btn-positive btn-block">提交</button>
+    </form>
+    </div>
+</div>
+<include file="../nav_online"/>
 
 </body>
 </html>

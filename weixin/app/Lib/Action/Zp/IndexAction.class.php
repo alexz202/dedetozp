@@ -34,6 +34,7 @@ class IndexAction extends BaseAction
 
     public function getcomment($id){
         $news = M('archives');
+        $this->hotadd($news,$id);
         $list = $news->join("__ADDONCOMMENT__ ON __ARCHIVES__.id=__ADDONCOMMENT__.aid where __ARCHIVES__.id=$id")->find();
         $this->assign('active', C('ZPSTYLE')[2]['value']);
         $this->assign('keywords', C('ZPSTYLE')[2]['key']);
@@ -100,6 +101,7 @@ class IndexAction extends BaseAction
     public function getoneperson($id)
     {
         $zpinfo = M('zpinfo');
+        $this->hotadd($zpinfo,$id);
         $list=  $zpinfo->join("__ADDONZPINFO__ ON __ZPINFO__.id=__ADDONZPINFO__.aid  ")->join("__MEMBER_BELONG__  on __ZPINFO__.belong=__MEMBER_BELONG__.id where __ZPINFO__.id=$id")->find();
      //   $sql = "select zp.*,bm.name as bname from __ZPINFO__ as   zp left join __MEMBER_BELONG__ as bm on zp.belong=bm.id where zp.id=$id";
        // $list = $zpinfo->query($sql);
@@ -108,38 +110,9 @@ class IndexAction extends BaseAction
         $this->assign('info', $list);
         $this->display();
     }
-
-
-    public function suggestadd()
-    {
-        if (!$_POST) {
-            $this->display();
-        } else {
-            $info = $_POST['info'];
-            $suggest = M('suggest');
-            $data = array(
-                'typeid' => '32',
-                'sortrank' => time(),
-                'channel' => '3',
-                'senddate' => time(),
-            );
-            $res = $suggest->add($data);
-            if ($res !== false) {
-                $addonsuggest = M('addonsuggest');
-                $data2 = array(
-                    'aid' => (int)$res,
-                    'typeid' => '32',
-                    'body' => urlencode($res)
-                );
-                $res2 = $addonsuggest->add($data2);
-            }
-            if ($res && $res2) {
-                $this->success('添加成功', U('Zp/Index/suggestadd'));
-            } else {
-                $this->error('添加成功', U('Zp/Index/suggestadd'));
-            }
-
-        }
+    private function hotadd($obj,$nid){
+        $condition["id"]=$nid;
+        $obj->where($condition)->setInc('click',1);
     }
 
     private function overridegetlist($type)

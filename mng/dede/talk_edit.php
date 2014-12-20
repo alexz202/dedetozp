@@ -199,7 +199,8 @@ else if($dopost=='save')
     shorttitle='$shorttitle',
     filename='$filename',
     dutyadmin='$adminid',
-    weight='$weight'
+    weight='$weight',
+    result='$result'
     WHERE id='$id'; ";
 
     if(!$dsql->ExecuteNoneQuery($query))
