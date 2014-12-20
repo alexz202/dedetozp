@@ -1,0 +1,37 @@
+#searchdiv{
+    margin-top: 5px;
+    width: 99%;
+}
+
+#logo{
+    width: 40%;
+}
+#search{
+    width: 59%;
+}
+#banner1{
+    clear: both;
+    margin: 0 auto;
+    width: 99%;
+    overflow: hidden;;
+}
+#banner1 img{
+    width: 100%;
+}
+
+#banner2{
+    clear: both;
+    margin: 0 auto;
+    width: 99%;
+    overflow: hidden;;
+
+}
+#banner2 img{
+    width: 100%;
+}
+#banner2left{
+    width: 50%;
+}
+#banner2right{
+    width: 50%;
+}

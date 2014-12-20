@@ -25,10 +25,23 @@ background-color: #808080;
 }
 
 .pagerbtn{
- margin: 10px;
-    width:80px;
+    position: absolute;
+    width: 95%;
+    text-align: right;
+    height: 28px;
+}
+.pagerbtn a{
+    width: 75px;
+    margin: 5px;
+    float: left;
+    display: block;
     text-align: center;
-    border: 1px solid #dcdcdc;
-    background-color: floralwhite;
-    float: right;
+    background-color:#ffffff;
+}
+#newscontent{
+    width:100%;
+    overflow: hidden;
+    text-align: justify;
+}
+#newscontent img{
 }

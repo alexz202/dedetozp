@@ -735,7 +735,7 @@ input[type="button"] {
 
 .table-view-cell {
   position: relative;
-  padding: 6px 65px 6px 15px;
+  padding: 6px 15px 6px 15px;
   overflow: hidden;
   border-bottom: 1px solid #ddd;
 }
@@ -746,7 +746,7 @@ input[type="button"] {
   position: relative;
   display: block;
   padding: inherit;
-  margin: -6px -65px -6px -15px;
+  margin: -6px -15px -6px -15px;
   overflow: hidden;
   color: inherit;
 }

@@ -180,6 +180,44 @@ else if($dopost=="listsuggest")
     header("location:{$gurl}?channelid={$channelid}&cid={$cid}");
     exit();
 }
+else if($dopost=="listzpinfo")
+{
+    if(!empty($gurl))
+    {
+        if(empty($arcrank))
+        {
+            $arcrank = '';
+        }
+        $gurl = str_replace('..','',$gurl);
+        header("location:{$gurl}?arcrank={$arcrank}&cid={$cid}");
+        exit();
+    }
+    if($cid>0)
+    {
+        $row = $dsql->GetOne("SELECT #@__arctype.typename,#@__channeltype.typename AS channelname,#@__channeltype.id,#@__channeltype.mancon FROM #@__arctype LEFT JOIN #@__channeltype on #@__channeltype.id=#@__arctype.channeltype WHERE #@__arctype.id='$cid'");
+        $gurl = $row["mancon"];
+        $channelid = $row["id"];
+        $typename = $row["typename"];
+        $channelname = $row["channelname"];
+        if($gurl=="")
+        {
+            ShowMsg("对不起，你指的栏目可能有误！","catalog_main.php");
+            exit();
+        }
+    }
+    else if($channelid>0)
+    {
+        $row = $dsql->GetOne("SELECT typename,id,mancon FROM #@__channeltype WHERE id='$channelid'");
+        $gurl = $row["mancon"];
+        $channelid = $row["id"];
+        $typename = "";
+        $channelname = $row["typename"];
+    }
+
+    if(empty($gurl)) $gurl = 'content_zpinfo_list.php';
+    header("location:{$gurl}?channelid={$channelid}&cid={$cid}");
+    exit();
+}
 
 /*--------------------------
 //浏览通用模板目录

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+    <meta charset="utf-8">
+    <title>{weixin:$keywords}</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="__ROOT__/{weixin::RES}/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/default.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/psindex.css" rel="stylesheet">
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/jquery.min.js"></script>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/ratchet.js"></script>
+</head>
+</head>
+<body>
+
+<include file="../head_one"/>
+<div class="content" style="background-color:white;">
+    <div class="content-padded">
+      <p>姓名:{weixin:$info.title}</p>
+        <p>电话:{weixin:$info.tel}</p>
+        <p>邮箱:{weixin:$info.email}</p>
+        <p>微信:{weixin:$info.weixin}</p>
+        <p>简介:{weixin:$info.body}</p>
+    </div>
+</div>
+
+</body>
+</html>

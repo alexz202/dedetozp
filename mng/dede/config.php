@@ -13,6 +13,9 @@ define('DEDEADMIN', str_replace("\\", '/', dirname(__FILE__) ) );
 define('MEETINGTYPEID',22);
 define('SUGGESTTYPEID',23);
 define('TALKTYPEID',24);
+define('ZPINFO',19);
+define('COMMENT',20);
+
 
 require_once(DEDEADMIN.'/../include/common.inc.php');
 require_once(DEDEINC.'/userlogin.class.php');

@@ -49,6 +49,12 @@ if($dopost=='editsuggest')
     header("location:{$gurl}?aid=$aid");
     exit();
 }
+if($dopost=='editzpinfo')
+{
+    $gurl='zpinfo_edit.php';
+    header("location:{$gurl}?aid=$aid");
+    exit();
+}
 /*--------------------------
 //浏览文档
 function viewArchives(){ }
