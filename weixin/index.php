@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR);
 header("Content-type: text/html; charset=utf-8");
 if (get_magic_quotes_gpc()) {
 	function stripslashes_deep($value){

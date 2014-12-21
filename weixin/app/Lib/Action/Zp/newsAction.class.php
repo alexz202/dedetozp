@@ -8,7 +8,8 @@ class newsAction extends BaseAction{
 
 	//关注回复
 	public function index(){
-        $this->assign('keywords',C('KEYWORDS')['index']);
+        $keywords=C('KEYWORDS');
+        $this->assign('keywords',$keywords['index']);
 		$this->display();
 	}
     public function getnewslist($type=WORKER)

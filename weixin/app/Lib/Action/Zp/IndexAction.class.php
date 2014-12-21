@@ -5,7 +5,8 @@ class IndexAction extends BaseAction
     //关注回复
     public function index()
     {
-        $this->assign('keywords', C('KEYWORDS')['index']);
+        $keywords=C('KEYWORDS');
+        $this->assign('keywords',$keywords['index']);
         $this->display();
     }
 
@@ -15,8 +16,9 @@ class IndexAction extends BaseAction
     public function report()
     {
         $this->overridegetlist(REPORTID);
-        $this->assign('active', C('ZPSTYLE')[0]['value']);
-        $this->assign('keywords', C('ZPSTYLE')[0]['key']);
+        $zpstyle=C('ZPSTYLE');
+        $this->assign('active', $zpstyle[0]['value']);
+        $this->assign('keywords', $zpstyle[0]['key']);
         $this->display();
     }
 
@@ -27,8 +29,9 @@ class IndexAction extends BaseAction
     public function deal()
     {
         $this->overridegetlist(DEALID);
-        $this->assign('active', C('ZPSTYLE')[2]['value']);
-        $this->assign('keywords', C('ZPSTYLE')[2]['key']);
+        $zpstyle=C('ZPSTYLE');
+        $this->assign('active', $zpstyle[2]['value']);
+        $this->assign('keywords', $zpstyle[2]['key']);
         $this->display();
     }
 
@@ -36,8 +39,9 @@ class IndexAction extends BaseAction
         $news = M('archives');
         $this->hotadd($news,$id);
         $list = $news->join("__ADDONCOMMENT__ ON __ARCHIVES__.id=__ADDONCOMMENT__.aid where __ARCHIVES__.id=$id")->find();
-        $this->assign('active', C('ZPSTYLE')[2]['value']);
-        $this->assign('keywords', C('ZPSTYLE')[2]['key']);
+        $zpstyle=C('ZPSTYLE');
+        $this->assign('active', $zpstyle[2]['value']);
+        $this->assign('keywords', $zpstyle[2]['key']);
         $this->assign('info',$list);
         $this->display();
     }
@@ -49,8 +53,9 @@ class IndexAction extends BaseAction
     public function dbzo()
     {
         $this->overridegetlist(DBZBID);
-        $this->assign('active', C('ZPSTYLE')[3]['value']);
-        $this->assign('keywords', C('ZPSTYLE')[3]['key']);
+        $zpstyle=C('ZPSTYLE');
+        $this->assign('active', $zpstyle[3]['value']);
+        $this->assign('keywords', $zpstyle[3]['key']);
         $this->display();
     }
 
@@ -60,8 +65,9 @@ class IndexAction extends BaseAction
      */
     public function zppsinfo()
     {
-        $this->assign('active', C('ZPSTYLE')[1]['value']);
-        $this->assign('keywords', C('ZPSTYLE')[1]['key']);
+        $zpstyle=C('ZPSTYLE');
+        $this->assign('active', $zpstyle[1]['value']);
+        $this->assign('keywords', $zpstyle[1]['key']);
         $member_belong = M('member_belong');
         $list = $member_belong->order('type asc')->select();
         $list_ = array();
@@ -93,8 +99,9 @@ class IndexAction extends BaseAction
         $this->assign('commentlist', $list);
         $this->assign('page', $show);
         $this->assign('count', $count_);
-        $this->assign('active', C('ZPSTYLE')[1]['value']);
-        $this->assign('keywords', C('ZPSTYLE')[1]['key']);
+        $zpstyle=C('ZPSTYLE');
+        $this->assign('active', $zpstyle[1]['value']);
+        $this->assign('keywords', $zpstyle[1]['key']);
         $this->display();
     }
 
@@ -105,7 +112,8 @@ class IndexAction extends BaseAction
         $list=  $zpinfo->join("__ADDONZPINFO__ ON __ZPINFO__.id=__ADDONZPINFO__.aid  ")->join("__MEMBER_BELONG__  on __ZPINFO__.belong=__MEMBER_BELONG__.id where __ZPINFO__.id=$id")->find();
      //   $sql = "select zp.*,bm.name as bname from __ZPINFO__ as   zp left join __MEMBER_BELONG__ as bm on zp.belong=bm.id where zp.id=$id";
        // $list = $zpinfo->query($sql);
-        $this->assign('active', C('ZPSTYLE')[1]['value']);
+        $zpstyle=C('ZPSTYLE');
+        $this->assign('active', $zpstyle[1]['value']);
         $this->assign('keywords',$list['name'].'-'.$list['title']);
         $this->assign('info', $list);
         $this->display();
