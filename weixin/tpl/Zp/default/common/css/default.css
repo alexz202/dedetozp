@@ -13,16 +13,18 @@ background-color: #808080;
 .fdivl{
     float: left;
 }
-
-.content{
-    margin-bottom: 52px;
+li{
+    list-sytle:none;
 }
-#content{
-    position: absolute;
-    -webkit-overflow-scrolling: touch;
+/*.content{*/
+    /*margin-bottom: 52px;*/
+/*}*/
+/*#content{*/
+    /*position: absolute;*/
+    /*-webkit-overflow-scrolling: touch;*/
  /*margin: 10px auto;*/
-    overflow: auto;
-}
+    /*overflow: auto;*/
+/*}*/
 .white{
     color: #ffffff;
 }
@@ -47,4 +49,7 @@ background-color: #808080;
     text-align: justify;
 }
 #newscontent img{
+}
+header.bar.bar-nav {
+    -webkit-transform: translateZ(0);
 }
