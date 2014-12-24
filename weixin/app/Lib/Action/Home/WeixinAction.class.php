@@ -8,7 +8,7 @@ class WeixinAction extends Action
     private $my = '小微';
     private $myapi = 'http://www.transmension.com.cn/weixinapp/';
     private $AppID = 'wxbc3c5ce6bc2d8c57';
-    private $Secret = 'f8534b0cdf8cb2929a7e24723fbaa273';
+    private $Secret = '0156e27421ab52ad83b87fd72066d376';
 
     public function index()
     {

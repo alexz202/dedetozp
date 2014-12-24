@@ -22,7 +22,7 @@ class WXUserAction extends Action
      * +----------------------------------------------------------
      */
     private $AppID = 'wxbc3c5ce6bc2d8c57';
-    private $Secret = 'f8534b0cdf8cb2929a7e24723fbaa273';
+    private $Secret = '0156e27421ab52ad83b87fd72066d376';
 
     protected function _initialize()
     {
