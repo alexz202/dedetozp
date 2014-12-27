@@ -1116,7 +1116,7 @@ else if($dopost=='showsignIn'){
  $aid=$_GET['aid'];
   $res=   $dsql->GetOne("SELECT attend FROM `#@__addoninfos` where aid=$aid ");
   $attendlist=parseATTEND($res['attend']);
-    $dsql->SetQuery("SELECT * FROM `#@__member_signIn` as ms join `#@__member` as m on m.sOpenId=ms.sOpenId  where ms.infosId=$aid ");
+    $dsql->SetQuery("SELECT * FROM `#@__member_sign` as ms join `#@__member` as m on m.sOpenId=ms.sOpenId  where ms.infosId=$aid ");
     $dsql->Execute();
     $takelist=array();
     $notakelist=array();
@@ -1138,7 +1138,7 @@ else if($dopost=='showonemembersignIn'){
     $res=   $dsql->GetOne("SELECT sOpenId FROM `#@__member` where mid=$mid ");
     $sOpenId=$res['sOpenId'];
     $nowtime=time();
-    $dsql->SetQuery("SELECT a.* FROM `#@__member_signIn` as ms right join `#@__addoninfos` as a on ms.infosId=a.aid  where ms.sOpenId='$sOpenId' and a.endtime <$nowtime");
+    $dsql->SetQuery("SELECT a.* FROM `#@__member_sign` as ms right join `#@__addoninfos` as a on ms.infosId=a.aid  where ms.sOpenId='$sOpenId' and a.endtime <$nowtime");
     $dsql->Execute();
     $attendlist=array();
     $attendidlist=array();

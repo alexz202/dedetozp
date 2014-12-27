@@ -66,7 +66,11 @@ function GetMenus($userrank,$topos='main')
                 $ischannel = trim($ctag2->GetAtt('ischannel'));
                 if($ctag2->GetName()=='item' && ($ctag2->GetAtt('rank')=='' || TestPurview($ctag2->GetAtt('rank')) ) )
                 {
-                    $link = "<a href='".$ctag2->GetAtt('link')."' target='".$ctag2->GetAtt('target')."'>".$ctag2->GetAtt('name')."</a>";
+                    if(!empty($ctag2->GetAtt('id')))
+                      $addid=" id='".$ctag2->GetAtt('id')."'";
+                    else
+                      $addid='';
+                    $link = "<a href='".$ctag2->GetAtt('link')."' target='".$ctag2->GetAtt('target')."'" .$addid.">".$ctag2->GetAtt('name')."</a>";
                     if($ischannel=='1')
                     {
                         if($ctag2->GetAtt('addalt')!='') {

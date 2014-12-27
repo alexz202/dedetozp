@@ -20,17 +20,17 @@
                     var phone= $('#phone').val();
                      var openid=$('#openid').val();
 //                     var email=$('#email').val();
-                     var birthday=$('#year').val()+$('#month').val()+$('#day').val();
-                     var year=parseInt($('#year').val());
-                     var month=parseInt($('#month').val());
-                     var day=parseInt($('#day').val());
+//                     var birthday=$('#year').val()+$('#month').val()+$('#day').val();
+//                     var year=parseInt($('#year').val());
+//                     var month=parseInt($('#month').val());
+//                     var day=parseInt($('#day').val());
                      var patrn1= /^([0-9]{3,4}-?[0-9]{11}|[0-9]{11})$/;//phone
                      var patrn2=/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;//moble
                      var patrn3=/^([0-9]{8})$/;
                      var patrn4=/^([0-9]{1,2})$/;//month,day
                      var patrn5=/^([0-9]{4})$/;
                     if(username.length==0){
-                        $('#mscontent').html('用户名不能为空！');
+                        $('#mscontent').html('姓名不能为空！');
                         show();
                         return false;
                     }
@@ -44,32 +44,32 @@
 //                        show();
 //                        return false;
 //                    }
-                    else if(!patrn5.test(year)){
-                        $('#mscontent').html('年错误，格式2014');
-                        show();
-                        return false;
-                    }
-                    else if(!patrn4.test(month)||month>12||month<1){
-                        $('#mscontent').html('月错误，1-12');
-                        show();
-                        return false;
-                    }
-                    else if(!patrn4.test(day)||day<1||day>31){
-                        $('#mscontent').html('日期错误，1-31');
-                        show();
-                        return false;
-                    }
-//                    else if(!patrn2.test(email)){
-//                        alert('error email');
+//                    else if(!patrn5.test(year)){
+//                        $('#mscontent').html('年错误，格式2014');
+//                        show();
 //                        return false;
 //                    }
-                    else{
-                        if(month<10)
-                            $('#month').val('0'+month);
-                        if(day<10)
-                            $('#day').val('0'+day);
-                       return true;
-                    }
+//                    else if(!patrn4.test(month)||month>12||month<1){
+//                        $('#mscontent').html('月错误，1-12');
+//                        show();
+//                        return false;
+//                    }
+//                    else if(!patrn4.test(day)||day<1||day>31){
+//                        $('#mscontent').html('日期错误，1-31');
+//                        show();
+//                        return false;
+//                    }
+////                    else if(!patrn2.test(email)){
+////                        alert('error email');
+////                        return false;
+////                    }
+//                    else{
+//                        if(month<10)
+//                            $('#month').val('0'+month);
+//                        if(day<10)
+//                            $('#day').val('0'+day);
+//                       return true;
+//                    }
                  });
 
             function show(){
@@ -88,7 +88,7 @@
     </script>
 </head>
 <body>
-<form role="form" method="post" action="__ROOT__/index.php?g=Home&m=WXUser&a=reg" id="form1">
+<form role="form" method="post" action="__ROOT__/index.php?g=Home&m=WXUser&a=regadd" id="form1">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -99,7 +99,8 @@
 
         <div class="form-group" style="width: 100%;">
             <label for="exampleInputPhone"><h5>姓名</h5></label>
-            <input type="hidden" name="openid" value="{weixin:$openid}" id="openid"/> <input type="hidden" name="sName" value="{weixin:$sName}" id="sName"/>
+            <input type="hidden" name="openid" value="{weixin:$openid}" id="openid"/>
+            <input type="hidden" name="sName" value="{weixin:$sName}" id="sName"/>
             <input type="text" class="form-control" id="username" name="username" />
             <!--<div class="input-group input-group-lg">-->
                 <!--<span class="input-group-addon">@</span>-->
@@ -108,7 +109,7 @@
 
         </div>
         <div class="form-group" style="width: 100%;">
-            <label for="exampleInputPhone"><h5>手机号码(短信验证)</h5></label>
+            <label for="exampleInputPhone"><h5>手机号码</h5></label>
             <input type="tel" class="form-control" id="phone" name="phone" >
             <!--<div class="input-group input-group-lg">-->
                 <!--<span class="input-group-addon">手机</span>-->
@@ -116,18 +117,28 @@
             <!--</div>-->
         </div>
         <div class="form-group" style="width: 100%;">
-            <label for="exampleInputEmail1"><h5>生日</h5></label>
-            <br/>
-            <input type="number" class="form-control" id="year" placeholder="年" name="year" style="width: 35%;display:inline;">&nbsp;
-            <input type="number" class="form-control" id="month" placeholder="月" name="month" style="width: 25%;display:inline;">&nbsp;
-            <input type="number" class="form-control" id="day" placeholder="日" name="day" style="width: 25%;display:inline;">
-        </div><input type="hidden" class="form-control" id="address" name="address" value="sh"/>
+            <label for="exampleInputPhone"><h5>工作单位</h5></label>
+            <input type="text" class="form-control" id="workaddress" name="workaddress" >
+            <!--<div class="input-group input-group-lg">-->
+            <!--<span class="input-group-addon">手机</span>-->
+            <!--<input type="text" class="form-control" id="phone" name="phone" placeholder="手机"/>-->
+            <!--</div>-->
+        </div>
+        <div class="form-group" style="width: 100%;">
+            <label for="exampleInputPhone"><h5>工作电话</h5></label>
+            <input type="tel" class="form-control" id="worktel" name="worktel" >
+            <!--<div class="input-group input-group-lg">-->
+            <!--<span class="input-group-addon">手机</span>-->
+            <!--<input type="text" class="form-control" id="phone" name="phone" placeholder="手机"/>-->
+            <!--</div>-->
+        </div>
+
         <!--<div class="form-group" style="width: 100%;">-->
             <!--<label for="exampleInputEmail1"><h5>地区</h5></label>-->
             <!--<input type="text" class="form-control" id="address" placeholder="xxx" name="address">-->
         <!--</div>-->
         <div class="form-group" style="width: 100%;">
-        <button type="submit" class="btn btn-primary" id="_submit">下一步</button>
+        <button type="submit" class="btn btn-primary" id="_submit">提交</button>
         </div>
     </div>
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">

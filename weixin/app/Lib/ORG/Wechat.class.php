@@ -10,8 +10,8 @@ class Wechat
             exit;
         } else {
             $xml = file_get_contents("php://input");
-           // $xml = new SimpleXMLElement($xml);
-            $xml= simplexml_load_string($xml);
+           $xml = new SimpleXMLElement($xml);
+           // $xml= simplexml_load_string($xml);
             $xml || exit;
 //            file_put_contents("log/".date('Ymd')."alllog2",date('Y-m-d H:i:s').json_encode($xml)."\n",FILE_APPEND);
            // $this->data= $this->xmltoarr($xml);

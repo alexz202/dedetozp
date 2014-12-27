@@ -5,6 +5,9 @@ class IndexAction extends BaseAction
     //关注回复
     public function index()
     {
+        $openid= $_SESSION['openid'];
+        $nickname= $_SESSION['nickname'];
+        file_put_contents('log/testindex',date('Y-m-d h:i:s').$openid.'|'.$nickname.'|'.$openid1.'|'.$nickname1."\r\n",FILE_APPEND);
         $keywords=C('KEYWORDS');
         $this->assign('keywords',$keywords['index']);
         $this->display();

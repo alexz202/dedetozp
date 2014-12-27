@@ -8,11 +8,9 @@
 
 // 本文档自动生成，仅供测试运行
 
-define('DINGCAN','dc');
-define('MEISHI','ms');
-define('CHAXUN','cx');
-define('MENDIAN','md');
-define('GETYHQ','yhq');
+define('INDEX','index');
+define('SUGGEST','suggest');
+define('SIGN','sign');
 
 class WXUserAction extends Action
 {
@@ -21,127 +19,62 @@ class WXUserAction extends Action
      * 默认操作
      * +----------------------------------------------------------
      */
-    private $AppID = 'wxbc3c5ce6bc2d8c57';
-    private $Secret = '0156e27421ab52ad83b87fd72066d376';
+    private $AppID = '';
+    private $Secret = '';
 
     protected function _initialize()
     {
+          $this->AppID=C('APPID');
+         $this->Secret=C('APPKEY');
         define('RES', THEME_PATH . 'common');
         define('STATICS', TMPL_PATH . 'static');
         $this->assign('action', $this->getActionName());
     }
     public function index()
     {
-        if(isset($_POST['sOpenid'])){
-            $sOpenid=$_POST['sOpenid'];
-            $username=$_POST['username'];
-            $phone=$_POST['phone'];
-            $birthday=join('-',array($_POST['year'],$_POST['month'],$_POST['day']));
-            $address=$_POST['address'];
-            $sInvCode=$_POST['sInvCode'];
-            $phone_o=$_POST['phone_o'];
-            $wxmember = M('wxmember');
-            $condition['sOpenid'] = $sOpenid;
-            $data=array(
-                'username'=>$username,
-                'birthday'=>$birthday,
-                'address'=>$address,
-            );
-            //todo phone remark
-            if(trim($phone_o)!=trim($phone)){
-                //TODO 验证
-                $url="http://180.168.179.50:8081/IFC/SMS/CheckSmsRD.ashx";
-                $_data=array('hl_mobile'=>$phone,'hl_rdCode'=>$sInvCode,'ostype'=>'','appVersion'=>'');
-                //echo  $_data=json_encode($_data);
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $url);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-//            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-//            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS,$_data);
-                $output = curl_exec($ch);
-                curl_close($ch);
-                $output= json_decode($output,true);
-                if($output['status']!==1){
-                    $msg= $output['statusText'];
-                    echo '<div style=\"margin: 0 auto;width: 100%;text-align: center;font-size:1.6em;\";><h1 style="margin: 180px auto;width: 80%;text-align: center;">验证码不正确</h1></div>';
-                    // header('Refresh:3;url='.__ROOT__.'/index.php?g=Home&m=WXUser&a=index&sOpenid='.$sOpenid);
-                    echo "<script>javascript:setTimeout(\"history.back()\",3000);</script>";
-                    die();
-                }
-                $data['phone']=$phone;
-            }
-           $res= $wxmember->where($condition)->save($data);
-          //  if($res)
-                echo '<div style=\"margin: 0 auto;width: 100%;text-align: center;font-size:1.6em;\";><h1 style="margin: 180px auto;width: 80%;text-align: center;">更新成功，自动返回</h1></div>';
-            header('Refresh:3;url='.__ROOT__.'/index.php?g=Home&m=WXUser&a=index&sOpenid='.$sOpenid);
 
-        }else{
-            if(isset($_GET['sOpenid'])){
-                $sOpenid=$_GET['sOpenid'];
-            }else
-                $sOpenid= $_SESSION['sOpenid'];
-            $wxmember = M('wxmember');
-            $condition['sOpenid'] = $sOpenid;
-            // $condition['sInvCode']=$sInvCode;
-            $wxmemberinfo = $wxmember->where($condition)->find();
-           list($year,$month,$day)=explode("-",$wxmemberinfo['birthday']);
-            $this->assign('year',$year);
-            $this->assign('month',$month);
-            $this->assign('day',$day);
-            $this->assign('info',$wxmemberinfo);
-            $this->display();
+    }
+
+    /*
+     * oauth 唯一接口
+     */
+    public function oauth2($noreg='reg')
+    {
+        if($noreg==='reg')
+           $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode/");
+        else{
+            $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_noreg/type/".$noreg);
         }
+        $scope = 'snsapi_userinfo';
+        //$scope = "snsapi_base";
+        //TODO oauth2
+        $oauth2url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$this->AppID&redirect_uri=$redirect_uri&response_type=code&scope=$scope&state=$scope#wechat_redirect";
+      // file_put_contents('log/testoauth2',date('Y-m-d h:i:s').$redirect_uri."\r\n",FILE_APPEND);
+        header('location:' . $oauth2url);
     }
 
     public function getCode()
     {
-//      $code=1;
         $code = $_GET['code'];
         $state = $_GET['state'];
         if (!empty($code)) {
-            $state = $_GET['state'];
-            $getCodeurl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$this->AppID&secret=$this->Secret&code=$code&grant_type=authorization_code";
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $getCodeurl);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-            $output = curl_exec($ch);
-            curl_close($ch);
-            $returnarr = json_decode($output, true);
-            //   file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $getCodeurl . '||' . $output . "\r\n", FILE_APPEND);
-            $openid = $returnarr['openid'];
-            $access_token = $returnarr['access_token'];
-            if ($state === 'snsapi_userinfo') {
-                //TODO GET USERINFO
-                $userinfourl = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $userinfourl);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-                $output = curl_exec($ch);
-                curl_close($ch);
-                $userinfo = json_decode($output, true);
-                file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $userinfourl . '||' . $output . "\r\n", FILE_APPEND);
+           $userinfo= $this->getoauthinfo();
+          //  $userinfo=array('openid'=>11,'nickname'=>11);
+            if($userinfo!==false){
+                $openid=$userinfo['openid'];
                 $sName=$userinfo['nickname'];
-            }
-            $checkout = $this->getwxmemberId($openid);
-            if ($checkout) {
-                $_SESSION['sOpenid'] = $openid;
-                $_SESSION['sInvCode'] = '1458432479';
-                $_SESSION['iMid'] = $checkout;
-                  $url="index.php?g=Home&m=WXUser&a=index";
-                header('location:'.$url);
-            } else {
-                $this->assign('openid', $openid);
-                $this->assign('sName', $sName);
-                $this->display();
+                 $checkout = $this->getwxmemberId($openid);
+                if ($checkout) {
+//                    $_SESSION['sOpenid'] = $openid;
+//                    $_SESSION['sInvCode'] = '1458432479';
+//                    $_SESSION['iMid'] = $checkout;
+//                  //  $url="index.php?g=Home&m=WXUser&a=index";
+//                   // header('location:'.$url);
+                } else {
+                    $this->assign('openid', $openid);
+                    $this->assign('sName', $sName);
+                    $this->display();
+                }
             }
         }
 //        $this->assign('openid','111');
@@ -149,64 +82,29 @@ class WXUserAction extends Action
         // header('location:'.$getCodeurl);
     }
 
+
     public function getCode_noreg($type)
     {
         $code = $_GET['code'];
         $state = $_GET['state'];
         if (!empty($code)) {
-            $state = $_GET['state'];
-            $getCodeurl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$this->AppID&secret=$this->Secret&code=$code&grant_type=authorization_code";
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $getCodeurl);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-            $output = curl_exec($ch);
-            curl_close($ch);
-            $returnarr = json_decode($output, true);
-            //   file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $getCodeurl . '||' . $output . "\r\n", FILE_APPEND);
-            $openid = $returnarr['openid'];
-            $access_token = $returnarr['access_token'];
-            if ($state === 'snsapi_userinfo') {
-                //TODO GET USERINFO
-                $userinfourl = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $userinfourl);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-                $output = curl_exec($ch);
-                curl_close($ch);
-                $userinfo = json_decode($output, true);
-                file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $userinfourl . '||' . $output . "\r\n", FILE_APPEND);
-                $sName=$userinfo['nickname'];
+         $userinfo= $this->getoauthinfo();
+         if(is_array($userinfo)){
+             $_SESSION['openid']=$userinfo['openid'];
+             $_SESSION['nickname']=$userinfo['nickname'];
+         }
+            if($type===INDEX){
+                $url='index.php?g=Zp&m=Index&a=index';
+            }elseif($type===SUGGEST){
+                $url='index.php?g=Zp&m=online&a=suggest';
             }
-            $_SESSION['sOpenid'] = $openid;
-            if($type==DINGCAN){
-                $url='http://180.168.179.50:8081/html5/jxwx/order.html?openid='.$openid;
-            }elseif($type==MEISHI){
-                //$url='http://180.168.179.50:8081/html5/jxwx/index.html?wx=promotion&openid='.$openid;
-                $url='http://180.168.179.50:8081/html5/jxwx/mycoupon.html?openid='.$openid;
-            }elseif($type==CHAXUN){
-               // $url='http://180.168.179.50:8081/html5/jxwx/index.html?wx=memberCenter&openid='.$openid;
-                $url='http://180.168.179.50:8081/html5/jxwx/myorder.html?openid='.$openid;
-            }elseif($type==MENDIAN){
-                $url=C('MAPPURL').'weixin/index.php?g=Store&m=store&a=index&openid='.$openid;
-            }
-            elseif($type==GETYHQ){
-                $url=C('MAPPURL').'weixin/index.php?g=jixiang&m=Index&a=activity1&openid='.$openid;
-            }
-            else{
-                $url=C('MAPPURL')."weixin/index.php?g=jixiang&m=Index&a=index";
-            }
+          //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
             header('location:'.$url);
         }
-//        $this->assign('openid','111');
-//        $this->display('Tpl/default/index/bindwxinfo.html');
-        // header('location:'.$getCodeurl);
     }
+
+
+
     public function regadd()
     {
         $openid = $_POST['openid'];
@@ -214,119 +112,69 @@ class WXUserAction extends Action
             $username=trim($_POST['username']);
             $phone = trim($_POST['phone']);
             $sName = trim($_POST['sName']);
-            $birthday = trim($_POST['birthday']);
-            $address = trim($_POST['address']);
-            $sInvCode=trim($_POST['sInvCode']);
-            $arr = array('sInvCode' => '1458432479',
-                'email' => '',
+            $address = trim($_POST['workaddress']);
+            $worktel = trim($_POST['worktel']);
+            $arr = array(
                 'phone' => $phone,
                 'sName' => $sName,
-                'birthday'=>$birthday,
                 'username'=>$username,
                 'address'=>$address,
-                'sInvCode'=>$sInvCode
+                'worktel'=>$worktel
             );
-            //TODO 验证
-           $url="http://180.168.179.50:8081/IFC/SMS/CheckSmsRD.ashx";
-            $_data=array('hl_mobile'=>$phone,'hl_rdCode'=>$sInvCode,'ostype'=>'','appVersion'=>'');
-         //echo  $_data=json_encode($_data);
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-//            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-//            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-           curl_setopt($ch, CURLOPT_POST, 1);
-           curl_setopt($ch, CURLOPT_POSTFIELDS,$_data);
-            $output = curl_exec($ch);
-            curl_close($ch);
-            $output= json_decode($output,true);
-            if($output['status']!==1){
-                      $msg= $output['statusText'];
-                echo '<div style=\"margin: 0 auto;width: 100%;text-align: center;font-size:1.6em;\";><h1 style="margin: 180px auto;width: 80%;text-align: center;">验证码不正确</h1></div>';
-               // header('Refresh:3;url='.__ROOT__.'/index.php?g=Home&m=WXUser&a=index&sOpenid='.$sOpenid);
-                echo "<script>javascript:setTimeout(\"history.back()\",3000);</script>";
-                die();
-            }
             $res = $this->bindOpenIDtoinVcode($openid, $arr);
             if ($res != false) {
-                $_SESSION['iMid'] = $res;
-                $_SESSION['sOpenid'] = $openid;
-                $_SESSION['sInvCode'] = '1458432479';
-                header('location:index.php?g=Home&m=WXUser&a=index1');
+                $_SESSION['openid']=$openid;
+                $_SESSION['nickname']=$sName;
+                $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign'."&sopenid=$openid";
+                header('location:'.$url);
             } else
                 die('bind error');
         } else
             die('error');
     }
 
-    public function reg()
-    {
-        $openid = $_POST['openid'];
-        if (!empty($openid)) {
+//    public function reg()
+//    {
+//        $openid = $_POST['openid'];
+//        if (!empty($openid)) {
+//
+////            $email = trim($_POST['email']);
+//            $username=trim($_POST['username']);
+//            $phone = trim($_POST['phone']);
+//            $sName = trim($_POST['sName']);
+//           // $birthday = trim($_POST['birthday']);
+//            $birthday=join('-',array($_POST['year'],$_POST['month'],$_POST['day']));
+//            $address = trim($_POST['address']);
+////            $url='http://180.168.179.50:8081/IFC/SMS/SmsSend.ashx?hl_mobile='.$phone;
+////            $ch = curl_init();
+////            curl_setopt($ch, CURLOPT_URL, $url);
+////            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+////            curl_setopt($ch, CURLOPT_HEADER, 0);
+////            $output = curl_exec($ch);
+////            var_dump($output);
+////            curl_close($ch);
+//           $this->assign('username',$username);
+//            $this->assign('openid',$openid);
+//            $this->assign('phone',$phone);
+//            $this->assign('sName',$sName);
+//            $this->assign('birthday',$birthday);
+//            $this->assign('address',$address);
+//        $this->display();
+//        } else
+//            die('error');
+//    }
 
-//            $email = trim($_POST['email']);
-            $username=trim($_POST['username']);
-            $phone = trim($_POST['phone']);
-            $sName = trim($_POST['sName']);
-           // $birthday = trim($_POST['birthday']);
-            $birthday=join('-',array($_POST['year'],$_POST['month'],$_POST['day']));
-            $address = trim($_POST['address']);
-//            $url='http://180.168.179.50:8081/IFC/SMS/SmsSend.ashx?hl_mobile='.$phone;
-//            $ch = curl_init();
-//            curl_setopt($ch, CURLOPT_URL, $url);
-//            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//            curl_setopt($ch, CURLOPT_HEADER, 0);
-//            $output = curl_exec($ch);
-//            var_dump($output);
-//            curl_close($ch);
-           $this->assign('username',$username);
-            $this->assign('openid',$openid);
-            $this->assign('phone',$phone);
-            $this->assign('sName',$sName);
-            $this->assign('birthday',$birthday);
-            $this->assign('address',$address);
-        $this->display();
-        } else
-            die('error');
-    }
 
-    public function oauth2($noreg=0)
-    {
-       if($noreg==1){
-           $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_noreg/type/md");
-       }
-       else if($noreg==2){
-           $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_noreg/type/dc");
-    }
-       else if($noreg==3){
-           $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_noreg/type/ms");
-       }
-       else if($noreg==4){
-           $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_noreg/type/cx");
-       }
-       else if($noreg==5){
-           $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_noreg/type/yhq");
-       }
-       else{
-           $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode");
-       }
-        $scope = 'snsapi_userinfo';
-        //$scope = "snsapi_base";
-        //TODO oauth2
-        $oauth2url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$this->AppID&redirect_uri=$redirect_uri&response_type=code&scope=$scope&state=$scope#wechat_redirect";
-        header('location:' . $oauth2url);
-    }
 
-    public function getcompanyone() {
-        $id=$_GET['id'];
-         $company=M('company');
-        $condition['id']=$id;
-        $res=$company->where($condition)->find();
-        $this->assign('info',$res);
-        $this->display();
-
-    }
+//    public function getcompanyone() {
+//        $id=$_GET['id'];
+//         $company=M('company');
+//        $condition['id']=$id;
+//        $res=$company->where($condition)->find();
+//        $this->assign('info',$res);
+//        $this->display();
+//
+//    }
 
     public function getwxapi()
     {
@@ -338,28 +186,28 @@ class WXUserAction extends Action
         }
     }
 
-    public function getdailyworker(){
-        $wxmember = M('wxmember');
-        $table=$wxmember->getTableName();
-        $sql="select * from  $table where date(brithday)=date(now())";
-        $res=$wxmember->query($sql);
-        $wsdl="http://system.tiici.com:8063/Wsforfood/WontonExchange.asmx?WSDL";
-        import("@.ORG.soap_cls");
-        $soapclient=new jxsoapClient($wsdl);
-        if($res){
-            foreach($res as $value){
-                $phone=$value['phone'];
-                if(!empty($phone)){
-//        $ss= $soapclient-> searchFromPhoneNo($phone);
-//         var_dump($ss);
-                    $ss=$soapclient->getExchangeUse($phone);
-               //    var_dump($ss->WontonExchangeUseResult);
-                }
-            }
-        }
-
-
-    }
+//    public function getdailyworker(){
+//        $wxmember = M('wxmember');
+//        $table=$wxmember->getTableName();
+//        $sql="select * from  $table where date(brithday)=date(now())";
+//        $res=$wxmember->query($sql);
+//        $wsdl="http://system.tiici.com:8063/Wsforfood/WontonExchange.asmx?WSDL";
+//        import("@.ORG.soap_cls");
+//        $soapclient=new jxsoapClient($wsdl);
+//        if($res){
+//            foreach($res as $value){
+//                $phone=$value['phone'];
+//                if(!empty($phone)){
+////        $ss= $soapclient-> searchFromPhoneNo($phone);
+////         var_dump($ss);
+//                    $ss=$soapclient->getExchangeUse($phone);
+//               //    var_dump($ss->WontonExchangeUseResult);
+//                }
+//            }
+//        }
+//
+//
+//    }
 
     public function bindOpenID()
     {
@@ -397,10 +245,44 @@ class WXUserAction extends Action
     }
 
 
+    private function getoauthinfo(){
+        $code = $_GET['code'];
+            $state = $_GET['state'];
+            $getCodeurl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$this->AppID&secret=$this->Secret&code=$code&grant_type=authorization_code";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $getCodeurl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+            $output = curl_exec($ch);
+            curl_close($ch);
+            $returnarr = json_decode($output, true);
+            //   file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $getCodeurl . '||' . $output . "\r\n", FILE_APPEND);
+            $openid = $returnarr['openid'];
+            $access_token = $returnarr['access_token'];
+            if ($state === 'snsapi_userinfo') {
+                //TODO GET USERINFO
+                $userinfourl = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $userinfourl);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+                $output = curl_exec($ch);
+                curl_close($ch);
+                $userinfo = json_decode($output, true);
+                file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $userinfourl . '||' . $output . "\r\n", FILE_APPEND);
+            }
+            return $userinfo;
+
+    }
+
     private function getwxmemberId($sOpenid)
     {
-        $wxmember = M('wxmember');
-        $condition['sOpenid'] = $sOpenid;
+        $wxmember = M('member');
+        $condition['sOpenId'] = $sOpenid;
         // $condition['sInvCode']=$sInvCode;
         $wxmemberinfo = $wxmember->where($condition)->find();
         if ($wxmemberinfo)
@@ -412,16 +294,18 @@ class WXUserAction extends Action
 
     private function bindOpenIDtoinVcode($sOpenid, $arr)
     {
-        $wxmember = M('wxmember');
-        $data['sOpenid'] = $sOpenid;
-        $data['sInvCode'] = $arr['sInvCode'];
+        $wxmember = M('member');
+        $data['sOpenId'] = $sOpenid;
         $data['phone'] = $arr['phone'];
-        $data['email'] = $arr['email'];
-        $data['sName'] = $arr['sName'];
-        $data['birthday']=$arr['birthday'];
+//        $data['email'] = $arr['email'];
+        $data['pwd'] = md5($sOpenid);
+        $data['userid'] = $arr['sName'];
         $data['username']=$arr['username'];
-        $data['address'] = $arr['address'];
-        $data['tCreate'] = date('Y-m-d H:i:s');
+        $data['workaddress'] = $arr['address'];
+        $data['worktel'] = $arr['worktel'];
+        $data['uptime'] = time();
+        $data['jointime'] = time();
+       // $data['rank'] = time();
         $res = $wxmember->add($data);
         if ($res) {
             return $wxmember->getLastInsID();
