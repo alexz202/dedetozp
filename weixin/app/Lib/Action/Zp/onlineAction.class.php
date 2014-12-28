@@ -85,6 +85,10 @@ class onlineAction extends BaseAction
         if (!$_POST) {
             $this->display();
         } else {
+            $openid = $_SESSION['openid'];
+            $nickname = $_SESSION['nickname'];
+//            $openid='11';
+//            $nickname='11';
             $info = $_POST['info'];
             $suggest = M('suggest');
             $data = array(
@@ -92,6 +96,8 @@ class onlineAction extends BaseAction
                 'sortrank' => time(),
                 'channel' => '3',
                 'senddate' => time(),
+                'writer'=>$nickname,
+                'source'=>$openid,
             );
             $res = $suggest->add($data);
             if ($res !== false) {
@@ -99,7 +105,7 @@ class onlineAction extends BaseAction
                 $data2 = array(
                     'aid' => (int)$res,
                     'typeid' => '32',
-                    'body' => urlencode($res)
+                    'body' => urlencode($info)
                 );
                 $res2 = $addonsuggest->add($data2);
             }

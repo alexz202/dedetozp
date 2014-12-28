@@ -33,6 +33,5 @@ return array(
 	'TMPL_R_DELIM'			=>'}',				//模板引擎普通标签结束标记
 
 	//'SHOW_PAGE_TRACE'		=>true,
-
 );
 ?>
