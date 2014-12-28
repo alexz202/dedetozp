@@ -92,7 +92,7 @@
   <td><input name="mid" type="checkbox" id="mid" value="{dede:field.mid/}" class="np" /></td>
   <td>{dede:field.mid/}</td>
     <td>{dede:field.sOpenId/}</td>
-  <td><a href="../member/index.php?uid={dede:field.userid/}" target='_blank'>
+  <td><a href="../member/index.php?uid={dede:field.uname/}" target='_blank'>
     <?php
 	  echo '<u>'.$fields['userid'].'</u>';
 	if($fields['spacesta']==-2) echo "<font color='red'>(禁言)</font>";
@@ -105,7 +105,7 @@
 	<td>
 	  {dede:field.email/}
 	  <br />
-	  昵称：{dede:field.uname/}
+	  昵称：{dede:field.userid/}
 	</td>
   <td>
   	{dede:field.sex /}
@@ -123,8 +123,8 @@
   </td>
   <td>
   	{dede:field.logintime function="MyDate('y-m-d H:i',@me)" /}
-  	<br />
-  	【{dede:field.loginip /}】
+  	<!--<br />-->
+  	<!--【{dede:field.loginip /}】-->
   </td>
   <td align="center">
     <a href="member_view.php?id={dede:field.mid/}">修改</a> | 
