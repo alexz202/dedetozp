@@ -1,8 +1,8 @@
 <?php 
 return array (
-  'site_name' => '微信平台',
-  'site_title' => '微信平台',
-  'site_url' => 'http://210.14.72.74',
+  'site_name' => '周浦人大微信平台',
+  'site_title' => '周浦人大微信平台',
+  'site_url' => 'http://118.126.11.231',
   'site_my' => '微信平台',
   'ischeckuser' => 'false',
   'ipc' => '',
@@ -12,5 +12,5 @@ return array (
   'keyword' => '微信平台',
   'content' => '微信平台',
   'counts' => '',
-  'copyright' => 'Copyright © 2012-2014  版权所有',
+  'copyright' => 'Copyright © 2012-2014 周浦人大 版权所有',
 );

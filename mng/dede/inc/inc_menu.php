@@ -148,8 +148,12 @@ $menusMain = "
   <m:item name='代表分类设置' link='member_belong_main.php' rank='member_Type' target='main'  id='memberbelong'/>
 </m:top>
 
-<m:top item='21_' name='资讯管理' display='none' rank='member_List,member_Type'>
-  <m:item name='资讯新闻' link='content_list.php?channelid=1' rank='member_List' target='main' id='newsm'/>
+<m:top item='21_' name='资讯管理' display='block' rank='member_List,member_Type'>
+  <m:item name='新闻内容' link='content_list.php?channelid=1' rank='member_List' target='main' id='newsm'/>
+</m:top>
+<m:top item='22_' name='代表风采' display='none' rank='member_List,member_Type'>
+   <m:item name='代表信息' link='content_zpinfo_list.php?channelid=17' rank='member_List' target='main' id='dbinfo'/>
+    <m:item name='意见办理' link='content_comment_list.php?channelid=18' rank='member_List' target='main' id='contenty'/>
 </m:top>
 
 <m:top item='23_' name='意见建议' display='none' rank='member_List,member_Type'>

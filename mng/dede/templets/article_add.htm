@@ -215,28 +215,28 @@ function delAlbPicOld(picfile, pid){
           </tr>
         </table></td>
     </tr>
-    <!--<tr>-->
-      <!--<td height="24" colspan="5" class="bline">-->
-      	<!--<table width="800" border="0" cellspacing="0" cellpadding="0">-->
-          <!--<tr>-->
-            <!--<td  width="90">&nbsp;自定义属性：</td>-->
-            <!--<td align="left">-->
-            	<!--<?php-->
-            	<!--$dsql->SetQuery("Select * From `#@__arcatt` order by sortid asc");-->
-            	<!--$dsql->Execute();-->
-            	<!--while($trow = $dsql->GetObject())-->
-            	<!--{-->
-            		<!--if($trow->att=='j')-->
-            		<!--echo "<input class='np' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}' onclick='ShowUrlTr()'>{$trow->attname}[{$trow->att}]";-->
-            		<!--else-->
-            		<!--echo "<input class='np' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}'>{$trow->attname}[{$trow->att}]";-->
-            	<!--}-->
-            	<!--?>-->
-            <!--</td>-->
-          <!--</tr>-->
-        <!--</table>-->
-       <!--</td>-->
-    <!--</tr>-->
+    <tr>
+      <td height="24" colspan="5" class="bline">
+      	<table width="800" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td  width="90">&nbsp;自定义属性：</td>
+            <td align="left">
+            	<?php
+            	$dsql->SetQuery("Select * From `#@__arcatt` order by sortid asc");
+            	$dsql->Execute();
+            	while($trow = $dsql->GetObject())
+            	{
+            		if($trow->att=='j')
+            		echo "<input class='np' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}' onclick='ShowUrlTr()'>{$trow->attname}[{$trow->att}]";
+            		else
+            		echo "<input class='np' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}'>{$trow->attname}[{$trow->att}]";
+            	}
+            	?>
+            </td>
+          </tr>
+        </table>
+       </td>
+    </tr>
     <tr>
       <td height="24" colspan="5" class="bline" id="redirecturltr" style="display:none">
 	   <table width="800" border="0" cellspacing="0" cellpadding="0">
@@ -276,7 +276,7 @@ function delAlbPicOld(picfile, pid){
                   <span class="litpic_span"><input name="litpic" type="file" id="litpic"  onChange="SeePicNew(this, 'divpicview', 'uplitpicfra', 165, 'article_add.php');" size="1" class='np coolbg'/></span>
                   <input type="button" name="Submit2" value="站内选择" style="margin-left:8px;" onClick="SelectImage('form1.picname','small');" class='np coolbg'/>
                   <input type="button" name="Submit2" value="裁剪" style="margin-left:8px;" onClick="imageCut('picname');" class='np coolbg'/>
-                  <input type='checkbox' class='np' name='ddisremote' value='1' id='ddisremote'/>远程
+                  <!--<input type='checkbox' class='np' name='ddisremote' value='1' id='ddisremote'/>远程-->
                   </td>
                 </tr>
               </table>

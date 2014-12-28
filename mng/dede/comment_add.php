@@ -262,9 +262,7 @@ else if($dopost=='save')
 
     //返回成功信息
     $msg = "    　　请选择你的后续操作：
-    <a href='article_add.php?cid=$typeid'><u>继续发布文章</u></a>
-    &nbsp;&nbsp;
-    <a href='$artUrl' target='_blank'><u>查看文章</u></a>
+    <a href='comment_add.php?cid=$typeid'><u>继续发布意见办理</u></a>
     &nbsp;&nbsp;
     <a href='archives_do.php?aid=".$arcID."&dopost=editArchives'><u>更改文章</u></a>
     &nbsp;&nbsp;
