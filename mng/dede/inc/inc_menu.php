@@ -58,10 +58,10 @@ $adminMenu2 = "<m:top item='7_' name='模板管理' display='none' rank='temp_On
 </m:top>
 
 <m:top item='10_' name='系统设置' display='none' rank='sys_User,sys_Group,sys_Edit,sys_Log,sys_Data'>
-  <m:item name='系统基本参数' link='sys_info.php' rank='sys_Edit' target='main' />
-  <m:item name='系统用户管理' link='sys_admin_user.php' rank='sys_User' target='main' />
-  <m:item name='用户组设定' link='sys_group.php' rank='sys_Group' target='main' />
-  <m:item name='图片水印设置' link='sys_info_mark.php' rank='sys_Edit' target='main' />
+  <m:item name='系统基本参数' link='sys_info.php' rank='sys_Edit' target='main' id='sysbase' />
+  <m:item name='系统用户管理' link='sys_admin_user.php' rank='sys_User' target='main' id='sysuser'/>
+  <m:item name='用户组设定' link='sys_group.php' rank='sys_Group' target='main' id='sysgroup'/>
+  <m:item name='图片水印设置' link='sys_info_mark.php' rank='sys_Edit' target='main' id='syspic'/>
   ".
 //  <m:item name='用户组设定' link='sys_group.php' rank='sys_Group' target='main' />
 //  <m:item name='服务器分布/远程' link='sys_multiserv.php' rank='sys_Group' target='main' />
@@ -94,11 +94,11 @@ $menusMain = "
 //  <m:item name='评论管理' link='feedback_main.php' rank='sys_Feedback' target='main' />
 //  <m:item name='内容回收站' link='recycling.php' ischannel='1' addalt='清空回收站' addico='images/gtk-del.png' linkadd='archives_do.php?dopost=clear&aid=no&recycle=1' rank='a_List,a_AccList,a_MyList' target='main' />
 //</m:top>
-"
-<m:top item='1_' name='内容管理' display='block'>
-  $addset".
-//  <m:item name='专题管理' ischannel='1' link='content_s_list.php' linkadd='spec_add.php' channelid='-1' rank='spec_New' target='main' />
-"</m:top>".
+//"
+//<m:top item='1_' name='内容管理' display='block'>
+//  $addset".
+////  <m:item name='专题管理' ischannel='1' link='content_s_list.php' linkadd='spec_add.php' channelid='-1' rank='spec_New' target='main' />
+//"</m:top>".
 
 //<m:top item='1_' name='附件管理' display='none' rank='sys_Upload,sys_MyUpload,plus_文件管理器'>
 //  <m:item name='上传新文件' link='media_add.php' rank='' target='main' />
@@ -106,16 +106,16 @@ $menusMain = "
 //  <m:item name='文件式管理器' link='media_main.php?dopost=filemanager' rank='plus_文件管理器' target='main' />
 //</m:top>.
    // $adminMenu1
-"
-
-<m:top item='3_' name='采集管理' display='none' rank='co_NewRule,co_ListNote,co_ViewNote,co_Switch,co_GetOut'>
-  <m:item name='采集节点管理' link='co_main.php' rank='co_ListNote' target='main' />
-  <m:item name='临时内容管理' link='co_url.php' rank='co_ViewNote' target='main' />
-  <m:item name='导入采集规则' link='co_get_corule.php' rank='co_GetOut' target='main'/>
-  <m:item name='监控采集模式' link='co_gather_start.php' rank='co_GetOut' target='main'/>
-  <m:item name='采集未下载内容' link='co_do.php?dopost=coall' rank='co_GetOut' target='main'/>
-</m:top>
-".
+//"
+//
+//<m:top item='3_' name='采集管理' display='none' rank='co_NewRule,co_ListNote,co_ViewNote,co_Switch,co_GetOut'>
+//  <m:item name='采集节点管理' link='co_main.php' rank='co_ListNote' target='main' />
+//  <m:item name='临时内容管理' link='co_url.php' rank='co_ViewNote' target='main' />
+//  <m:item name='导入采集规则' link='co_get_corule.php' rank='co_GetOut' target='main'/>
+//  <m:item name='监控采集模式' link='co_gather_start.php' rank='co_GetOut' target='main'/>
+//  <m:item name='采集未下载内容' link='co_do.php?dopost=coall' rank='co_GetOut' target='main'/>
+//</m:top>
+//".
 //<m:top item='1_3_3' name='批量维护' display='block'>
 //  <m:item name='更新系统缓存' link='sys_cache_up.php' rank='sys_ArcBatch' target='main' />
 //  <m:item name='文档批量维护' link='content_batch_up.php' rank='sys_ArcBatch' target='main' />
@@ -151,6 +151,7 @@ $menusMain = "
 <m:top item='21_' name='资讯管理' display='none' rank='member_List,member_Type'>
   <m:item name='资讯新闻' link='content_list.php?channelid=1' rank='member_List' target='main' id='newsm'/>
 </m:top>
+
 <m:top item='23_' name='意见建议' display='none' rank='member_List,member_Type'>
   <m:item name='建议管理' link='content_suggest_list.php' rank='member_List' target='main' id='suggestm'/>
   <m:item name='话题管理' link='content_talk_list.php' rank='member_Type' target='main' id='talkm'/>

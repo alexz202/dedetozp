@@ -107,12 +107,14 @@ function CheckOpenMenu()
 }
 
 var curitem = 1;
+var nowclick=null;
 function ShowMainMenu(n)
 {
 	var curLink = $DE('link'+curitem);
 	var targetLink = $DE('link'+n);
 	var curCt = $DE('ct'+curitem);
 	var targetCt = $DE('ct'+n);
+//    console.log(n);
 	if(curitem==n) return false;
 	if(targetCt.innerHTML!='')
 	{
@@ -133,8 +135,24 @@ function ShowMainMenu(n)
 			curLink.className = 'mm';
 			targetLink.className = 'mmac';
 			curitem = n;
+
 		}
 		DedeXHTTP = null;
 	}
 	// bindClick();
+    jQuery('ul.sitemu').children('li').children('a').bind('click',function(){
+        nowclick=jQuery(this);
+        jQuery(jQuery('ul.sitemu').children('li').children('a')).each(function(){
+//           console.log(jQuery(this).attr('id'));
+//            console.log(nowclick);
+            if(nowclick.attr('id')===jQuery(this).attr('id')){
+                console.log(1);
+                jQuery(nowclick).css('color','red');
+            }else{
+                console.log(2);
+                jQuery(this).css('color','black');
+            }
+        })
+    })
+
 }

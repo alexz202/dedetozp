@@ -9,6 +9,12 @@
 echo "<script language='javascript'>var curopenItem = '$openitem';</script>\r\n";
 ?>
 <script language="javascript" type="text/javascript" src="js/leftmenu.js"></script>
+    <script>
+function init1(){
+    jQuery('#newsm').css('color','red');
+}
+
+    </script>
 <style>
 div {
 	padding:0px;
@@ -116,11 +122,12 @@ a.mm:hover div {
 <link href="images/style<?php echo $cfg_admin_skin;?>/style.css" rel="stylesheet" type="text/css" />
 <base target="main" />
 </head>
-<body target="main" onLoad="CheckOpenMenu();">
+<body target="main" onLoad="CheckOpenMenu();init1();">
 <table width="180" align="left" border='0' cellspacing='0' cellpadding='0' style="text-align:left;">
   <tr>
-    <td valign='top' style='padding-top:10px' width='20'><a id='link1' class='mmac'>
-      <div onClick="ShowMainMenu(1)">核心</div>
+    <td valign='top' style='padding-top:10px' width='20'>
+        <a id='link1' class='mmac'>
+      <div onClick="ShowMainMenu(1)">资讯</div>
       </a> <a id='link100' class='mm'>
       <!--<div onClick="ShowMainMenu(100)">模块</div>-->
       <!--</a>-->
@@ -142,9 +149,9 @@ a.mm:hover div {
         <a id='link23' class='mm'>
             <div onClick="ShowMainMenu(23)">意见</div>
         </a>
-        <a id='link21' class='mm'>
-            <div onClick="ShowMainMenu(21)">资讯</div>
-        </a>
+        <!--<a id='link21' class='mm'>-->
+            <!--<div onClick="ShowMainMenu(21)">资讯</div>-->
+        <!--</a>-->
       <?php
   	if($cuserLogin->getUserType() >= 10) {
   	?>
@@ -171,7 +178,8 @@ GetMenus($cuserLogin->getUserRank(), 'main');
         <div id='ct10'></div>
       <div id='ct23'></div>
       <div id='ct24'></div>
-        <div id='ct21'></div></td>
+        <!--<div id='ct21'></div>-->
+    </td>
   </tr>
   <tr>
     <td width='26'></td>
@@ -189,10 +197,13 @@ if(!empty($openitem) && $openitem!=1)
 }
 ?>
 <script language="javascript">
-function myAlert()
+
+
+    function myAlert()
 {
 	alert('dede');	
 }
+
 </script>
 </body>
 </html>
