@@ -300,7 +300,7 @@ class WXUserAction extends Action
 //        $data['email'] = $arr['email'];
         $data['pwd'] = md5($sOpenid);
         $data['userid'] = $arr['sName'];
-        $data['username']=$arr['username'];
+        $data['uname']=$arr['username'];
         $data['workaddress'] = $arr['address'];
         $data['worktel'] = $arr['worktel'];
         $data['uptime'] = time();
