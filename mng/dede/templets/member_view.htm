@@ -9,18 +9,18 @@
 <script>
 function checkSubmit()
 {
-  if(document.form2.email.value=="")
-  {
-    document.form2.email.focus();
-    alert("Email不能为空！");
-    return false;
-  }
-  if(document.form2.uname.value=="")
-  {
-    document.form2.uname.focus();
-    alert("用户昵称不能为空！");
-    return false;
-  }
+//  if(document.form2.email.value=="")
+//  {
+//    document.form2.email.focus();
+//    alert("Email不能为空！");
+//    return false;
+//  }
+//  if(document.form2.uname.value=="")
+//  {
+//    document.form2.uname.focus();
+//    alert("用户昵称不能为空！");
+//    return false;
+//  }
 }
   $(function(){
       //大类改变
@@ -82,7 +82,7 @@ function checkSubmit()
             <td width="17%" align="right" class='bline'>姓名：</td>
             <td width="83%" class='bline' style="text-align:left;"> 
               <?php
-			  echo "<b>".$row['userid']."</b>";
+			  echo "<b>".$row['uname']."</b>";
               if($row['face']!='') {
 			     echo "<br /><img src='{$row['face']}' width='80'/>";
 			  }
@@ -154,12 +154,12 @@ function checkSubmit()
             <input name="email" type="text" id="email" value="<?php echo $row['email']?>" style="width:150px;" />
             </td>
           </tr>
-          <tr> 
-            <td align="right" class='bline'>昵　称：</td>
-            <td class='bline' style="text-align:left;">
-            <input name="uname" type="text" value="<?php echo $row['uname']?>" id="uname" size="20" style="width:150px;" />
-           </td>
-          </tr>
+          <!--<tr> -->
+            <!--<td align="right" class='bline'>昵　称：</td>-->
+            <!--<td class='bline' style="text-align:left;">-->
+            <!--<input name="uname" type="text" value="<?php echo $row['userid']?>" id="uname" size="20" style="width:150px;" />-->
+           <!--</td>-->
+          <!--</tr>-->
           <tr> 
             <td align="right" class='bline'>性　别：</td>
             <td class='bline' style="text-align:left;">
@@ -183,7 +183,7 @@ function checkSubmit()
              $MemberTypes = '';
              $dsql->SetQuery("Select rank,membername From `#@__arcrank` where rank>0");
              $dsql->Execute('n');
-             $MemberTypes[0] = "限制会员";
+            // $MemberTypes[0] = "限制会员";
              while($nrow = $dsql->GetObject('n')){
 	              $MemberTypes[$nrow->rank] = $nrow->membername;
              }

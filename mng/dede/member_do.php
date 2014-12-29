@@ -189,7 +189,7 @@ else if ($dopost=='edituser')
         ShowMsg("对不起，为安全起见，不支持直接把前台会员转为管理的操作！", "-1");
         exit();
     }
-     $query = "UPDATE `#@__member` SET
+      $query = "UPDATE `#@__member` SET
             email = '$email',
             uname = '$uname',
             sex = '$sex',
@@ -200,7 +200,7 @@ else if ($dopost=='edituser')
             spacesta='$spacesta',
             uptime='$uptime',
             exptime='$exptime',
-            belong=$belong,
+            belong='$belong',
             phone='$phone'
             $pwdsql
             WHERE mid='$id' AND matt<>10 ";
@@ -217,7 +217,7 @@ else if ($dopost=='edituser')
             spacesta='$spacesta',
             uptime='$uptime',
             exptime='$exptime',
-            belong=$belong,
+            belong='$belong',
             phone='$phone'
             $pwdsql
             WHERE mid='$id' ";
