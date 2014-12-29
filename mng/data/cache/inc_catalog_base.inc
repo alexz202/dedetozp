@@ -1,12 +1,11 @@
 <?php
 global $cfg_Cs;
 $cfg_Cs=array();
-$cfg_Cs[20]=array(17,1,1,'5oSP6KeB5Yqe55CG');
-$cfg_Cs[19]=array(17,1,1,'5Luj6KGo5L+h5oGv');
+$cfg_Cs[20]=array(17,18,1,'5oSP6KeB5Yqe55CG');
+$cfg_Cs[19]=array(17,17,1,'5Luj6KGo5L+h5oGv');
 $cfg_Cs[18]=array(17,1,1,'5bGl6IGM5oql6YGT');
 $cfg_Cs[17]=array(0,1,1,'5Luj6KGo6aOO6YeH');
-$cfg_Cs[16]=array(12,1,1,'5Lq65aSn5Yi25bqm');
-$cfg_Cs[15]=array(12,1,1,'5py65p6E6K6+572u');
+$cfg_Cs[16]=array(12,1,1,'5Lq65aSn5qaC6KeI');
 $cfg_Cs[14]=array(12,1,1,'5LuW5bGx5LmL55+z');
 $cfg_Cs[13]=array(12,1,1,'5bel5L2c6KaB6Ze7');
 $cfg_Cs[12]=array(0,1,1,'5Lq65aSn5LmL56qX');

@@ -139,21 +139,22 @@ class WeixinAction extends Action
     {
         $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign';
         $urlreg=C('MAPPURL').'weixin/index.php/Home/WXUser/oauth2/noreg/reg';
+        $img=C('MAPPURL').'weixin/tpl/Zp/default/common/images/logo.png';
         if ($result == 0) {
             //签到成功
-           $array=array('签到成功','','',$url."&sopenid=$sOpenid&meetid=$meetid");
+           $array=array('签到成功','',$img,$url."&sopenid=$sOpenid&meetid=$meetid");
 
         } elseif ($result == 1) {
             //已签到
-            $array=array('已签到','','',$url."&sopenid=$sOpenid&meetid=$meetid");
+            $array=array('已签到','',$img,$url."&sopenid=$sOpenid&meetid=$meetid");
 
         } elseif ($result == 2) {
             //预签到成功
-            $array=array('请先登记代表信息','','',$urlreg);
+            $array=array('请先登记代表信息','',$img,$urlreg);
 
         } elseif ($result == 3) {
             //预签到过
-            $array=array('已签到等待验证','','',$url."&sopenid=$sOpenid&meetid=$meetid");
+            $array=array('已签到等待验证','',$img,$url."&sopenid=$sOpenid&meetid=$meetid");
         }
         return array(array($array),'news');
     }

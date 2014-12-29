@@ -18,14 +18,24 @@
 <body>
 
 <include file="../head_one"/>
-<div class="content" style="background-color:white;">
-    <div class="content-padded">{weixin:$info.litpic}</div>
+<include file="../nav"/>
+<div class="content">
+    <div class="content-padded" style="width:45%;margin:0 auto;"><img src="{weixin:$info.litpic}" width="100%"></div>
     <div class="content-padded">
-      <p>姓名:{weixin:$info.title}</p>
-        <p>工作单位:{weixin:$info.address}</p>
-        <p>单位电话:{weixin:$info.tel}</p>
-        <p>微信:{weixin:$info.weixin}</p>
-        <p>简介:{weixin:$info.body}</p>
+        <ul class="table-view">
+            <li class="table-view-cell media">
+                <p>姓名:{weixin:$info.title}</p>
+            </li>
+            <li class="table-view-cell media">
+                <p>工作单位:{weixin:$info.address}</p>
+            </li>
+            <li class="table-view-cell media">
+                <p>单位电话:{weixin:$info.tel}</p>
+            </li>
+            <li class="table-view-cell media">
+                <p>微信:{weixin:$info.weixin}</p>
+            </li>
+        </ul>
     </div>
 </div>
 
