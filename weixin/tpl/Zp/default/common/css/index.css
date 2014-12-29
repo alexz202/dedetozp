@@ -13,7 +13,11 @@
     clear: both;
     margin: 0 auto;
     width: 99%;
-    overflow: hidden;;
+    overflow: hidden;
+    /*background:url(../images/bannertop.png) no-repeat;*/
+    /*background-size:100%;*/
+    /*padding-top:48%;*/
+    position:relative;
 }
 #banner1 img{
     width: 100%;
