@@ -163,7 +163,7 @@ class WeixinAction extends Action
     private function getmemberinfo($sOpenid)
     {
         $user = M('member');
-        $condition['rank'] = $this->rank;
+        $condition['rank'] = array('egt',$this->rank);
         $condition['sOpenId'] = $sOpenid;
         $res = $user->where($condition)->find();
         if ($res)

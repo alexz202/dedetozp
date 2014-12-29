@@ -1041,7 +1041,7 @@ else if($dopost=='getMemberLst')
     echo "    <div class='titLeft'>选择人员</div>\r\n";
     echo "    <div class='titRight'><img src='images/ico-close.gif' style='cursor:pointer;' onclick='HideObj(\"{$divname}\");ChangeFullDiv(\"hide\");' alt='关闭' title='关闭' /></div>\r\n";
     echo "</div>\r\n";
-    $sql  = "SELECT * FROM `#@__member` as m left join `#@__member_belong` as bm on m.belong=bm.id where m.rank=180 order by bm.type asc";
+    $sql  = "SELECT * FROM `#@__member` as m left join `#@__member_belong` as bm on m.belong=bm.id where m.rank>=180 order by bm.type asc";
     $dsql->SetQuery($sql);
     $dsql->Execute();
     $list=array();
