@@ -7,11 +7,15 @@ class IndexAction extends BaseAction
     {
         $openid = $_SESSION['openid'];
         $nickname = $_SESSION['nickname'];
+          //TODO get hot news
+       $top=$this->getHotOne();
         // file_put_contents('log/testindex',date('Y-m-d h:i:s').$openid.'|'.$nickname.'|'.$openid1.'|'.$nickname1."\r\n",FILE_APPEND);
         $keywords = C('KEYWORDS');
+        $this->assign('top',$top);
         $this->assign('keywords', $keywords['index']);
         $this->display();
     }
+
 
     public function search()
     {
@@ -19,15 +23,7 @@ class IndexAction extends BaseAction
         if (isset($keywords)) {
             $countall = 0;
             $tbarr = array('archives', 'zpinfo', 'talk');
-            $typeindex = array(
-                '13' => 'index.php?g=Zp&m=news&a=getone&nid=',
-                '14' => 'index.php?g=Zp&m=news&a=getone&nid=',
-                '16' => 'index.php?g=Zp&m=news&a=getone&nid=',
-                '18' => 'index.php?g=Zp&m=news&a=getone&nid=',
-                '19' => 'index.php?g=Zp&m=Index&a=getoneperson&id=',
-                '20' => 'index.php?g=Zp&m=Index&a=getcomment&id=',
-                '24' => 'index.php?g=Zp&m=online&a=suggestone&id='
-            );
+            $typeindex=$this->getTypeURL();
             foreach ($tbarr as $v) {
                 $$v = M($v);
                 $condition["title"] = array("like", "%" . $keywords . "%");
@@ -194,6 +190,29 @@ class IndexAction extends BaseAction
         $this->assign('commentlist', $list);
         $this->assign('page', $show);
         $this->assign('count', $count_);
+    }
+
+    private function getTypeURL(){
+        $typeindex = array(
+            '13' => 'index.php?g=Zp&m=news&a=getone&nid=',
+            '14' => 'index.php?g=Zp&m=news&a=getone&nid=',
+            '16' => 'index.php?g=Zp&m=news&a=getone&nid=',
+            '18' => 'index.php?g=Zp&m=news&a=getone&nid=',
+            '19' => 'index.php?g=Zp&m=Index&a=getoneperson&id=',
+            '20' => 'index.php?g=Zp&m=Index&a=getcomment&id=',
+            '24' => 'index.php?g=Zp&m=online&a=suggestone&id='
+        );
+        return $typeindex;
+    }
+
+    private function getHotOne(){
+        $new_=M('archives');
+//        select * from table where find_in_set('c',flag)
+        $condition['flag']=array("find_in_set", "h");
+        $sql="select * from tp_archives where find_in_set('h',flag) order by senddate desc limit 1";
+//        $res=$new_->where($condition)->order('senddate desc')->find();
+        $res=$new_->query($sql);
+        return $res[0];
     }
 
 }

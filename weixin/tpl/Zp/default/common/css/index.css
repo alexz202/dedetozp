@@ -9,6 +9,12 @@
 #search{
     width: 59%;
 }
+#edit{
+    color: #ffffff;
+}
+#edit a{
+    color: #ffffff;
+}
 #banner1{
     clear: both;
     margin: 0 auto;
@@ -21,6 +27,18 @@
 }
 #banner1 img{
     width: 100%;
+}
+#hot{
+    background-color:#808080;
+    opacity: 0.6;
+    width: 36%;
+    margin-top: -50px;
+    position:relative;
+    float: right;
+    font-size:0.1em;
+    text-align: left;
+    line-height:15px;
+    color: #ffffff;padding: 1px 5px;
 }
 
 #banner2{

@@ -18,23 +18,26 @@
 <!--<include file="head"/>-->
 <div class="content" style="background-color: white;">
     <div id="searchdiv">
-      <div id="logo" class="fdivl" style="text-align: center;"><img src="__ROOT__/{weixin::RES}/images/logo.png" width="30"/></div>
+      <div id="logo" class="fdivl" style="text-align: center;"><img src="__ROOT__/{weixin::RES}/images/logo.png"  width='90%'/></div>
         <div id="search" class="fdivl">
             <form method="post" action="__ROOT__/index.php?g=Zp&m=Index&a=search">
                 <div class="fdivl" style="width: 75%"> <input type="search" placeholder="Search" style="height: 28px; width: 98%" name="keywords"></div>
-                <div class="fdivl" style="text-align: right;width: 24%"><button class="btn btn-negative" style="width: 98%;">
-                    <span class="icon icon-search"></span>
-                    &nbsp;&nbsp;&nbsp;
-                </button></div>
+                <div class="fdivl" id="edit" style="text-align:left;width: 24%;background-color: #ff2f33;color: #ffffff;padding: 1px 0px;border-top-left-radius:0.5em;border-bottom-left-radius:0.5em;">
+                    <!--<button class="btn btn-negative" style="width: 98%;">-->
+                    <a href="__ROOT__/index.php?g=Zp&m=online&a=suggestadd" data-ignore="push" style="display:block;">&nbsp;&nbsp;<span class="icon icon-edit" ></span></a>
+                    <!--&nbsp;&nbsp;&nbsp;-->
+                <!--</button>-->
+                </div>
             </form>
         </div>
     </div>
     <div id="banner1"><a href="__ROOT__/index.php?g=Zp&m=news&a=getnewslist" data-ignore="push">
  <img src="__ROOT__/{weixin::RES}/images/bannertop.png"/></a>
+        <div id="hot">{weixin:$top.title}</div>
     </div>
     <div id="banner2">
  <div class="fdivl" id="banner2left"><a href="__ROOT__/index.php?g=Zp&m=Index&a=zppsinfo" data-ignore="push"><img src="__ROOT__/{weixin::RES}/images/banner1.png"/></a></div>
-        <div class="fdivl" id="banner2right" ><a href><img src="__ROOT__/{weixin::RES}/images/banner2.png"/></a></div>
+        <div class="fdivl" id="banner2right" ><a href="__ROOT__/index.php?g=Zp&m=online&a=suggest" data-ignore="push"><img src="__ROOT__/{weixin::RES}/images/banner2.png"/></a></div>
     </div>
 
 

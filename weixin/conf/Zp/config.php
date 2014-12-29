@@ -24,7 +24,7 @@ return array(
     'KEYWORDS'=>array(
         'index'=>'周浦人大'
     ),
-    'PAGERSIZE'=>2,
+    'PAGERSIZE'=>4,
     'NEWSLIST'=>array(array('value'=>'工作要闻','id'=>WORKER),
         array('value'=>'他山之石','id'=>STONE),
         array('value'=>'人大概览','id'=>RENDA),

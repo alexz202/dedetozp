@@ -1164,6 +1164,58 @@ else if($dopost=='showonemembersignIn'){
 }
 else if($dopost=='showbelongsignIn'){
  //TODO ??
+    //get all meeting
+    $res2=$dsql->SetQuery("SELECT aid,title FROM `#@__addoninfos` where endtime <$nowtime ");
+    $dsql->Execute();
+    $alllist=array();
+    $allidlist=array();
+    $nowtime=time();
+    while($trow = $dsql->GetObject())
+    {
+        $alllist["$trow->aid"]=array('aid'=>$trow->aid,'title'=>$trow->title);
+        $allidlist[]=$trow->aid;
+    }
+
+    $res=$dsql->SetQuery("SELECT m.sOpenId,m.uname,m.belong,mb.name FROM `#@__member` as m left join  `@__member_belong` as mb on m.belong=mb.id  where m.rank=180");
+    $dsql->Execute();
+    $memberarr=array();
+    //get member
+    while($trow = $dsql->GetObject())
+    {
+        $belong=$trow->belong;
+        if(empty($trow->belong))$belong="0";
+        $sOpenId= $trow->sOpenId;
+        $memberarr["$belong"]['memberinfo']=array('sOpenId'=>$trow->sOpenId,'uname'=>$trow->uname);
+//get meeting sign
+        $dsql->SetQuery("SELECT a.* FROM `#@__member_sign` as ms right join `#@__addoninfos` as a on ms.infosId=a.aid  where ms.sOpenId='$sOpenId' and a.endtime <$nowtime");
+        $dsql->Execute();
+        $attendlist=array();
+        $attendidlist=array();
+        while($trow = $dsql->GetObject())
+        {
+            $attendlist[]=array('aid'=>$trow->aid,'title'=>$trow->title);
+            $attendidlist[]=$trow->aid;
+        }
+        //diff
+        $notakemt=array_diff($allidlist,$attendidlist);
+        $memberarr["$belong"]['memberinfo']['meetinfo']['attendid']=$attendidlist;
+        $memberarr["$belong"]['memberinfo']['meetinfo']['notakemtid']=$notakemt;
+        foreach($allidlist as $value){
+            if(in_array($value,$attendidlist)){
+                $arr[]=1;
+            }else if(in_array($value,$notakemt)){
+                $arr[]=0;
+            }
+        }
+        $memberarr["$belong"]['memberinfo']['meetinfo']['show']=$arr;
+    }
+
+
+
+
+
+
+    include DedeInclude("templets/signIn_membershow.htm");
 }
 
 
