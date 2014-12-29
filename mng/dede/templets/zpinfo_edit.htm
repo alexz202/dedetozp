@@ -134,25 +134,23 @@ $(function(){
       <!--</table>-->
       <!--</td>-->
     <!--</tr>-->
-    <!--<tr id="pictable" style='<?php if($cInfos['needpic']==0) echo 'display:none'; ?>'>-->
-      <!--<td height="24" class="bline">-->
-      	<!--<table width="800" border="0" cellspacing="0" cellpadding="0">-->
-          <!--<tr>-->
-            <!--<td width="90" height="81">-->
-            	<!--&nbsp;缩 略 图：<br/>-->
-            	<!--&nbsp;           </td>-->
-            <!--<td width="500">-->
-             <!--<input name="picname" type="text" id="picname" style="width:300px" value="<?php echo $arcRow["litpic"]?>"><input type="button" name="Submit" value="浏览..." style="width:70px" onClick="SelectImage('form1.picname','');">-->
-             <!--<input type="button" name="Submit2" value="裁剪" style="margin-left:8px;" onClick="imageCut('picname');" class='np coolbg'/>-->
-             <!--<input type='checkbox' class='np' name='ddisremote' value='1'>-->
-             <!--远程-->
-             <!--</td>-->
-            <!--<td align="center">-->
-            <!--<img src="<?php if($arcRow["litpic"]!="") echo $arcRow["litpic"]; else echo "images/pview.gif";?>" width="150" height="100" id="picview" name="picview">-->
-            <!--</td>-->
-          <!--</tr>-->
-        <!--</table></td>-->
-    <!--</tr>-->
+    <tr id="pictable" style='<?php if($cInfos['needpic']==0) echo 'display:none'; ?>'>
+      <td height="24" class="bline">
+      	<table width="800" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="90" height="81">
+            	&nbsp;照片：<br/>
+            	&nbsp;           </td>
+            <td width="500">
+             <input name="picname" type="text" id="picname" style="width:300px" value="<?php echo $arcRow["litpic"]?>"><input type="button" name="Submit" value="浏览..." style="width:70px" onClick="SelectImage('form1.picname','');">
+             <input type="button" name="Submit2" value="裁剪" style="margin-left:8px;" onClick="imageCut('picname');" class='np coolbg'/>
+             </td>
+            <td align="center">
+            <img src="<?php if($arcRow["litpic"]!="") echo $arcRow["litpic"]; else echo "images/pview.gif";?>" width="150" height="100" id="picview" name="picview">
+            </td>
+          </tr>
+        </table></td>
+    </tr>
       <tr>
           <td width="90" class='bline'>用户类型：
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
