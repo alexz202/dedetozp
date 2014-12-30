@@ -83,7 +83,7 @@ else
     $CheckUserSend = "<input type='button' class='coolbg np' onClick=\"location='content_sg_list.php?cid={$cid}&channelid={$channelid}&dopost=listArchives&arcrank=-1';\" value='稿件审核' />";
 }
 
-$query = "SELECT arc.aid,arc.aid as id,arc.typeid,arc.arcrank,arc.flag,arc.senddate,arc.channel,arc.title,arc.mid,arc.click,tp.typename,ch.typename as channelname
+$query = "SELECT arc.aid,arc.aid as id,arc.typeid,arc.arcrank,arc.flag,arc.senddate,arc.starttime,arc.endtime,arc.channel,arc.title,arc.mid,arc.click,tp.typename,ch.typename as channelname
 FROM `$listtable` arc
 LEFT JOIN `#@__arctype` tp ON tp.id=arc.typeid
 LEFT JOIN `#@__channeltype` ch ON ch.id=arc.channel

@@ -16,36 +16,40 @@
 <tr bgcolor="#FFFFFF"><td height="4"></td></tr>
 </table>
 <table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#cfcfcf">
-<tr bgcolor="#E7E7E7">
-<td height="24" colspan="9" background="images/tbg.gif" style="padding-left:10px;">
-</td>
-</tr>
+<!--<tr bgcolor="#E7E7E7">-->
+<!--<td height="24" colspan="9" background="images/tbg.gif" style="padding-left:10px;">-->
+<!--</td>-->
+<!--</tr>-->
 <form name="form2">
 <tr align="center" bgcolor="#FBFCE2" height="25">
-    <td>&nbap;&nbap;</td>
+    <td>代表/会议</td>
  <?php foreach($alllist as $k=>$v){
-echo "<td>$v['title']</td>";
+echo "<td>".$v['title']."</td>";
     }
+    ?>
 </tr>
-<tr align='center' bgcolor="#FFFFFF"  onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+
     <?php
-   $acount= count($alllist)+1;
+  $acount= count($alllist)+1;
     foreach($memberarr as $k=>$v){
-    echo "<tr><td colspan=\"$acount\">$k[0]['bname']</td></tr>";
-    echo "<tr>";
+    $bname=$v[0]['bname'];
+    if(empty($bname))$bname='其他';
+    echo "<tr align=\"center\" bgcolor=\"#FBFCE2\" height=\"25\"><td colspan=\"$acount\">".$bname."</td></tr>";
+    echo "<tr align=\"center\" bgcolor=\"#fff\" height=\"25\">";
     foreach($v as $meminfo ){
-        echo "<td>$meminfo['uname']</td>";
+        echo "<td>".$meminfo['uname']."</td>";
            //get meeting info
          foreach($meminfo['show'] as $value){
             if($value===0)
-          echo "<td>未出席</td>";
-       else
-          echo "<td>出席</td>";
+               echo "<td>未出席</td>";
+            else
+               echo "<td>出席</td>";
          }
     }
     echo "</tr>";
     }
-</tr>
+    ?>
+
 </form>
 <tr align="right" bgcolor="#F9FCEF">
 <td height="20" colspan="9" align="center">
