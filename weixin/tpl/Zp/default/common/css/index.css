@@ -35,10 +35,40 @@
     margin-top: -50px;
     position:relative;
     float: right;
-    font-size:0.2em;
+    font-size:0.3em;
     text-align: left;
     line-height:15px;
     color: #ffffff;padding: 1px 5px;
+}
+#hot a{
+    color: #ffffff;
+}
+#hot2{
+    width: 90%;
+    margin-top: -50px;
+    position:relative;
+    float: left;
+    font-size:0.3em;
+    text-align: left;
+    line-height:15px;
+    color: black;padding: 1px 5px;
+}
+
+#hot2 a{
+    color: black;
+}
+#hot3{
+    width: 75%;
+    margin-top: -50px;
+    position:relative;
+    float: right;
+    font-size:0.3em;
+    text-align: left;
+    line-height:15px;
+    color: #ffffff;padding: 1px 5px;
+}
+#hot3 a{
+    color: #ffffff;
 }
 
 #banner2{

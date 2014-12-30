@@ -8,10 +8,14 @@ class IndexAction extends BaseAction
         $openid = $_SESSION['openid'];
         $nickname = $_SESSION['nickname'];
           //TODO get hot news
-       $top=$this->getHotOne();
+       $top=$this->getHotOne(1);
+        $top2=$this->getHotOne(2);
+        $top3=$this->getHotOne(3);
         // file_put_contents('log/testindex',date('Y-m-d h:i:s').$openid.'|'.$nickname.'|'.$openid1.'|'.$nickname1."\r\n",FILE_APPEND);
         $keywords = C('KEYWORDS');
         $this->assign('top',$top);
+        $this->assign('top2',$top2);
+        $this->assign('top3',$top3);
         $this->assign('keywords', $keywords['index']);
         $this->display();
     }
@@ -205,13 +209,20 @@ class IndexAction extends BaseAction
         return $typeindex;
     }
 
-    private function getHotOne(){
+    private function getHotOne($type=1){
         $new_=M('archives');
 //        select * from table where find_in_set('c',flag)
-        $condition['flag']=array("find_in_set", "h");
-        $sql="select * from tp_archives where find_in_set('h',flag) order by senddate desc limit 1";
-//        $res=$new_->where($condition)->order('senddate desc')->find();
+        if($type==1){
+            $sql="select * from tp_archives where find_in_set('h',flag) and  (typeid=13 or typeid=14 or typeid=16) order by senddate desc limit 1";
+        }elseif($type==2){
+            $sql="select * from tp_archives where find_in_set('h',flag) and  (typeid=18 or typeid=21 ) order by senddate desc limit 1";
+        }elseif($type==3){
+            $sql="select * from tp_talk where find_in_set('h',flag)  order by senddate desc limit 1";
+        }
         $res=$new_->query($sql);
+        $typeid= $res[0]['typeid'];
+        $urlarr= $this->getTypeURL();
+        $res[0]['url']=$urlarr[$typeid];
         return $res[0];
     }
 
