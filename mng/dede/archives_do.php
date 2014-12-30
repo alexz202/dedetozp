@@ -1130,8 +1130,26 @@ else if($dopost=='showsignIn'){
     //get no attend person list
     $notakelist= array_diff($attendlist,$takelist);
     $countnotake=count($notakelist);
-    include DedeInclude("templets/signIn_show.htm");
 
+    //get member name by mid
+    $dsql->SetQuery("SELECT * FROM `#@__member`   where rank>=180 ");
+    $dsql->Execute();
+    $memberlist=array();
+    while($trow = $dsql->GetObject())
+    {
+        $mid=$trow->mid;
+        $uname=$trow->uname;
+        $sOpenId=$trow->sOpenId;
+        $memberlist["$mid"]=array('uname'=>$uname,'sopenid'=>$sOpenId);
+    }
+    //get uname=name list
+       foreach($takelist as $v){
+           $takeunamelist[]=$memberlist["$v"]['uname'];
+       }
+    foreach($notakelist as $v){
+         $notakeunamelist[]=$memberlist["$v"]['uname'];
+    }
+    include DedeInclude("templets/signIn_show.htm");
 }
 else if($dopost=='showonemembersignIn'){
     $mid=$_GET['mid'];
@@ -1175,7 +1193,6 @@ else if($dopost=='showbelongsignIn'){
         $alllist["$trow->aid"]=array('aid'=>$trow->aid,'title'=>$trow->title);
         $allidlist[]=$trow->aid;
     }
-
     $res=$dsql->SetQuery("SELECT m.sOpenId,m.uname,m.belong,mb.name FROM `#@__member` as m left join  `@__member_belong` as mb on m.belong=mb.id  where m.rank=180");
     $dsql->Execute();
     $memberarr=array();
@@ -1185,7 +1202,7 @@ else if($dopost=='showbelongsignIn'){
         $belong=$trow->belong;
         if(empty($trow->belong))$belong="0";
         $sOpenId= $trow->sOpenId;
-        $memberarr["$belong"]['memberinfo']=array('sOpenId'=>$trow->sOpenId,'uname'=>$trow->uname);
+        $memberinfo=array('sOpenId'=>$trow->sOpenId,'uname'=>$trow->uname,'bname'=>$trow->name);
 //get meeting sign
         $dsql->SetQuery("SELECT a.* FROM `#@__member_sign` as ms right join `#@__addoninfos` as a on ms.infosId=a.aid  where ms.sOpenId='$sOpenId' and a.endtime <$nowtime");
         $dsql->Execute();
@@ -1198,8 +1215,10 @@ else if($dopost=='showbelongsignIn'){
         }
         //diff
         $notakemt=array_diff($allidlist,$attendidlist);
-        $memberarr["$belong"]['memberinfo']['meetinfo']['attendid']=$attendidlist;
-        $memberarr["$belong"]['memberinfo']['meetinfo']['notakemtid']=$notakemt;
+//        $memberarr["$belong"]['memberinfo']['meetinfo']['attendid']=$attendidlist;
+//        $memberarr["$belong"]['memberinfo']['meetinfo']['notakemtid']=$notakemt;
+        $memberinfo['attendid']=$attendidlist;
+        $memberinfo['notakemtid']=$notakemt;
         foreach($allidlist as $value){
             if(in_array($value,$attendidlist)){
                 $arr[]=1;
@@ -1207,15 +1226,11 @@ else if($dopost=='showbelongsignIn'){
                 $arr[]=0;
             }
         }
-        $memberarr["$belong"]['memberinfo']['meetinfo']['show']=$arr;
+          $memberinfo['show']=$arr;
+        $memberarr["$belong"][]=$memberinfo;
+       // $memberarr["$belong"]['memberinfo']['meetinfo']['show']=$arr;
     }
-
-
-
-
-
-
-    include DedeInclude("templets/signIn_membershow.htm");
+    include DedeInclude("templets/signIn_allshow.htm");
 }
 
 

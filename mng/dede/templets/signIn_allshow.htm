@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
-<title>文档管理</title>
+<title>统计</title>
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <script language="javascript" src="../include/js/dedeajax2.js"></script>
 <script language="javascript" src="js/ieemu.js"></script>
@@ -22,20 +22,29 @@
 </tr>
 <form name="form2">
 <tr align="center" bgcolor="#FBFCE2" height="25">
-<td width="26%">出席名单</td>
-<td width="26%">未出席名单</td>
- <td width="11%">出席人数</td>
- <td width="11%">未出席人数</td>
+    <td>&nbap;&nbap;</td>
+ <?php foreach($alllist as $k=>$v){
+echo "<td>$v['title']</td>";
+    }
 </tr>
 <tr align='center' bgcolor="#FFFFFF"  onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
-<td><?php echo join(',',$takeunamelist);?></td>
-<td><?php echo join(',',$notakeunamelist)?></td>
-<td><?php echo count($takelist)?>
-</td>
-<td><?php echo $countnotake?></td>
-<!--<td>{dede:field.typename/}</td>-->
-<!--<td>{dede:field.arcrank function="GetRankName(@me)"/}</td>-->
-<!--<td>{dede:field.click/}</td>-->
+    <?php
+   $acount= count($alllist)+1;
+    foreach($memberarr as $k=>$v){
+    echo "<tr><td colspan=\"$acount\">$k[0]['bname']</td></tr>";
+    echo "<tr>";
+    foreach($v as $meminfo ){
+        echo "<td>$meminfo['uname']</td>";
+           //get meeting info
+         foreach($meminfo['show'] as $value){
+            if($value===0)
+          echo "<td>未出席</td>";
+       else
+          echo "<td>出席</td>";
+         }
+    }
+    echo "</tr>";
+    }
 </tr>
 </form>
 <tr align="right" bgcolor="#F9FCEF">
