@@ -9,6 +9,7 @@ background-color: #808080;
 }
 .content{
     margin-top: 2px;
+    margin-bottom: 44px;
 }
 .fdivl{
     float: left;
@@ -17,7 +18,7 @@ li{
     list-sytle:none;
 }
 /*.content{*/
-    /*margin-bottom: 52px;*/
+    /*margin-bottom: 44px;*/
 /*}*/
 /*#content{*/
     /*position: absolute;*/
