@@ -92,9 +92,9 @@
   <td><input name="mid" type="checkbox" id="mid" value="{dede:field.mid/}" class="np" /></td>
   <td>{dede:field.mid/}</td>
     <td>{dede:field.sOpenId/}</td>
-  <td><a href="../member/index.php?uid={dede:field.uname/}" target='_blank'>
+  <td><a href="../member/index.php?uid={dede:field.userid/}" target='_blank'>
     <?php
-	  echo '<u>'.$fields['userid'].'</u>';
+	  echo '<u>'.$fields['uname'].'</u>';
 	if($fields['spacesta']==-2) echo "<font color='red'>(禁言)</font>";
 	if($fields['spacesta']==-1) echo "<font color='red'>(未审核)</font>";
 	  if(!empty($fields['face'])) {

@@ -191,7 +191,6 @@ else if ($dopost=='edituser')
     }
       $query = "UPDATE `#@__member` SET
             email = '$email',
-            uname = '$uname',
             sex = '$sex',
             matt = '$matt',
             money = '$money',
@@ -209,7 +208,6 @@ else if ($dopost=='edituser')
     {
        $query = "UPDATE `#@__member` SET
             email = '$email',
-            uname = '$uname',
             sex = '$sex',
             money = '$money',
             scores = '$scores',
