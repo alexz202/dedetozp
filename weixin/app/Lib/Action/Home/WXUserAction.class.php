@@ -112,14 +112,14 @@ class WXUserAction extends Action
             $username=trim($_POST['username']);
             $phone = trim($_POST['phone']);
             $sName = trim($_POST['sName']);
-            $address = trim($_POST['workaddress']);
-            $worktel = trim($_POST['worktel']);
+//            $address = trim($_POST['workaddress']);
+//            $worktel = trim($_POST['worktel']);
             $arr = array(
                 'phone' => $phone,
                 'sName' => $sName,
                 'username'=>$username,
-                'address'=>$address,
-                'worktel'=>$worktel
+//                'address'=>$address,
+//                'worktel'=>$worktel
             );
             $res = $this->bindOpenIDtoinVcode($openid, $arr);
             if ($res != false) {
@@ -301,8 +301,8 @@ class WXUserAction extends Action
         $data['pwd'] = md5($sOpenid);
         $data['userid'] = $arr['sName'];
         $data['uname']=$arr['username'];
-        $data['workaddress'] = $arr['address'];
-        $data['worktel'] = $arr['worktel'];
+//        $data['workaddress'] = $arr['address'];
+//        $data['worktel'] = $arr['worktel'];
         $data['uptime'] = time();
         $data['jointime'] = time();
        // $data['rank'] = time();
