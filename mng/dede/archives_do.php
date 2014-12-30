@@ -1046,12 +1046,12 @@ else if($dopost=='getMemberLst')
     $dsql->Execute();
     $list=array();
     $list_=array();
-    $arrbelongtype=array('村','社区','企业','其他');
+    $arrbelongtype=array('其他','村','社区','企业');
     while($trow = $dsql->GetObject()){
         if(!empty($trow->type))
         $list[$arrbelongtype[$trow->type]][$trow->name][]=array('mid'=>$trow->mid,'sOpenId'=>$trow->sOpenId,'belongname'=>$trow->name,'username'=>$trow->uname);
         else
-        $list_[$arrbelongtype[3]]['other'][]=array('mid'=>$trow->mid,'sOpenId'=>$trow->sOpenId,'belongname'=>'','username'=>$trow->uname);
+        $list_[$arrbelongtype[0]]['other'][]=array('mid'=>$trow->mid,'sOpenId'=>$trow->sOpenId,'belongname'=>'','username'=>$trow->uname);
     }
     $aid=$channelid;//aid
       $res= $dsql->GetOne("SELECT attend FROM `#@__addoninfos` where aid=$aid");
