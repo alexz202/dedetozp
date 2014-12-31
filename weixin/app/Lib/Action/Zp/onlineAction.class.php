@@ -11,8 +11,7 @@ class onlineAction extends BaseAction
 
     private $keywords = '在线互动';
     private $keywords_suggest = '意见建议';
-    private $keywords_sign = '代表/home/alexzhu/下载/未标题-1/banner1.png
-/home/alexzhu/下载/未标题-1/banner2.png签到';
+    private $keywords_sign = '代表签到';
 
     public function suggest()
     {
