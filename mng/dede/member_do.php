@@ -197,7 +197,6 @@ else if ($dopost=='edituser')
             scores = '$scores',
             rank = '$rank',
             spacesta='$spacesta',
-            uptime='$uptime',
             exptime='$exptime',
             belong='$belong',
             phone='$phone'
@@ -213,7 +212,6 @@ else if ($dopost=='edituser')
             scores = '$scores',
             rank = '$rank',
             spacesta='$spacesta',
-            uptime='$uptime',
             exptime='$exptime',
             belong='$belong',
             phone='$phone'
