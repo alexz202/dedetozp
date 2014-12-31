@@ -119,12 +119,23 @@ class WeixinAction extends Action
                 return 1;
             }
         } else {
+             $exsit= $this->getmemberexiset($sOpenid);
             $isSign = $this->IsignIn($sOpenid, $meetid);
-            if ($isSign === true) {
-                $this->addsignIN($sOpenid, $meetid, 1);
-                return 2;
-            } else {
-                return 3;
+            if(!$exsit){
+                if ($isSign === true) {
+                    $this->addsignIN($sOpenid, $meetid, 1);
+                    return 2;
+                } else {
+                    return 2;
+                }
+
+            }else{
+                if ($isSign === true) {
+                    $this->addsignIN($sOpenid, $meetid, 1);
+                    return 3;
+                } else {
+                    return 3;
+                }
             }
         }
     }
@@ -140,6 +151,8 @@ class WeixinAction extends Action
         $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign';
         $urlreg=C('MAPPURL').'weixin/index.php/Home/WXUser/oauth2/noreg/reg';
         $img=C('MAPPURL').'weixin/tpl/Zp/default/common/images/logo.png';
+        $meetinfo=$this->getmeet($meetid);
+        if(!empty($meetinfo['litpic']))$img="http://118.126.11.231/".$meetinfo['litpic'];
         if ($result == 0) {
             //签到成功
            $array=array('签到成功','',$img,$url."&sopenid=$sOpenid&meetid=$meetid");
@@ -172,6 +185,25 @@ class WeixinAction extends Action
             return false;
     }
 
+
+    private function getmemberexiset($sOpenid)
+    {
+        $user = M('member');
+      //  $condition['rank'] = array('egt',$this->rank);
+        $condition['sOpenId'] = $sOpenid;
+        $res = $user->where($condition)->find();
+        if ($res)
+            return true;
+        else
+            return false;
+    }
+
+    private function getmeet($meetid){
+        $meeting = M('addoninfos');
+        $condition['aid']=$meetid;
+        $res=$meeting->where($condition)->find();
+        return $res;
+    }
 
     private function IsignIn($sOpenid, $meetid)
     {

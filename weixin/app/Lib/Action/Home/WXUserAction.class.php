@@ -70,6 +70,7 @@ class WXUserAction extends Action
 //                    $_SESSION['iMid'] = $checkout;
 //                  //  $url="index.php?g=Home&m=WXUser&a=index";
 //                   // header('location:'.$url);
+                    die('has exist');
                 } else {
                     $this->assign('openid', $openid);
                     $this->assign('sName', $sName);
