@@ -69,8 +69,10 @@ class WXUserAction extends Action
 //                    $_SESSION['sInvCode'] = '1458432479';
 //                    $_SESSION['iMid'] = $checkout;
 //                  //  $url="index.php?g=Home&m=WXUser&a=index";
-//                   // header('location:'.$url);
-                    die('has exist');
+                    $_SESSION['openid']=$openid;
+                    $_SESSION['nickname']=$sName;
+                    $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign'."&sopenid=$openid";
+                    header('location:'.$url);
                 } else {
                     $this->assign('openid', $openid);
                     $this->assign('sName', $sName);
@@ -287,7 +289,7 @@ class WXUserAction extends Action
         // $condition['sInvCode']=$sInvCode;
         $wxmemberinfo = $wxmember->where($condition)->find();
         if ($wxmemberinfo)
-            return $wxmemberinfo['id'];
+            return $wxmemberinfo['mid'];
         else
             return false;
     }
