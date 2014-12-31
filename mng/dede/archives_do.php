@@ -1194,7 +1194,7 @@ else if($dopost=='showbelongsignIn'){
         $alllist["$trow->aid"]=array('aid'=>$trow->aid,'title'=>$trow->title);
         $allidlist[]=$trow->aid;
     }
-    $res=$dsql->SetQuery("SELECT m.sOpenId,m.uname,m.belong,mb.name FROM `#@__member` as m left join  `#@__member_belong` as mb on m.belong=mb.id  where m.rank=180");
+    $res=$dsql->SetQuery("SELECT m.sOpenId,m.uname,m.belong,mb.name FROM `#@__member` as m left join  `#@__member_belong` as mb on m.belong=mb.id  where m.rank>=180");
     $dsql->Execute();
     $memberarr=array();
     //get member

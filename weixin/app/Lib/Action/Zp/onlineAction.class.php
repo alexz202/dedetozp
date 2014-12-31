@@ -10,10 +10,13 @@ class onlineAction extends BaseAction
 {
 
     private $keywords = '在线互动';
+    private $keywords_suggest = '意见建议';
+    private $keywords_sign = '代表/home/alexzhu/下载/未标题-1/banner1.png
+/home/alexzhu/下载/未标题-1/banner2.png签到';
 
     public function suggest()
     {
-        $this->assign('keywords', $this->keywords);
+        $this->assign('keywords', $this->keywords_suggest);
         $this->assign('active', 'suggest');
         $this->overridegetlist();
         $this->display();
@@ -21,7 +24,7 @@ class onlineAction extends BaseAction
 
     public function suggestone($id)
     {
-        $this->assign('keywords', $this->keywords);
+        $this->assign('keywords', $this->keywords_suggest);
         $this->assign('active', 'suggest');
         $news = M('talk');
         $condition["id"] = $id;
@@ -66,7 +69,13 @@ class onlineAction extends BaseAction
         $this->assign('meetinfo',$info);
         $this->assign('memberinfo',$memberinfo);
         $this->assign('result',$result);
-        $this->assign('keywords', $this->keywords);
+        $this->assign('keywords', $this->keywords_sign);
+        $this->assign('active', 'sign');
+        $this->display();
+    }
+
+    public function signguide(){
+        $this->assign('keywords', $this->keywords_sign);
         $this->assign('active', 'sign');
         $this->display();
     }
@@ -80,7 +89,7 @@ class onlineAction extends BaseAction
 
     public function suggestadd()
     {
-        $this->assign('keywords', $this->keywords);
+        $this->assign('keywords', $this->keywords_suggest);
         $this->assign('active', 'suggest');
         if (!$_POST) {
             $this->display();
