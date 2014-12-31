@@ -83,10 +83,12 @@
     <td width="5%">性别</td>
     <td width="10%">会员属性</td>
       <td width="15%">所属(村、社区、企业)</td>
-    <td width="14%">最后登录</td>
+    <td width="14%">录入时间</td>
     <td>操作</td>
   </tr>
-{dede:datalist} 
+{dede:datalist}
+    <?php if($fields['mid']>1){?>
+
 <tr height="26" align="center" bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';"
   	 onMouseOut="javascript:this.bgColor='#FFFFFF';"> 
   <td><input name="mid" type="checkbox" id="mid" value="{dede:field.mid/}" class="np" /></td>
@@ -122,7 +124,7 @@
       ?>
   </td>
   <td>
-  	{dede:field.logintime function="MyDate('y-m-d H:i',@me)" /}
+  	{dede:field.jointime function="MyDate('y-m-d H:i',@me)" /}
   	<!--<br />-->
   	<!--【{dede:field.loginip /}】-->
   </td>
@@ -134,6 +136,7 @@
     <!--<a href="member_toadmin.php?id={dede:field.mid/}" target="_self">提升</a>-->
   </td>
 </tr>
+    <?php } ?>
 {/dede:datalist} 
 <tr bgcolor="#ffffff"> 
  <td height="36" colspan=10">
