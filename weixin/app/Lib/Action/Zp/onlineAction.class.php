@@ -118,12 +118,22 @@ class onlineAction extends BaseAction
                 $res2 = $addonsuggest->add($data2);
             }
             if ($res && $res2) {
-                $this->success('添加成功', U('Zp/online/suggestadd'));
+                $tag='发言已成功！感谢您的宝贵意见！';
+              header('location:'.__ROOT__.'/index.php?m=online&a=suggestaddresult&tag='.$tag);
+//                $this->success('添加成功', U('Zp/online/suggestadd'));
             } else {
-                $this->error('添加成功', U('Zp/online/suggestadd'));
+                //$this->error('添加成功', U('Zp/online/suggestadd'));
+                $tag='发言已成功！感谢您的宝贵意见！';
+                header('location:'.__ROOT__.'/index.php?m=online&a=suggestaddresult&tag='.$tag);
             }
 
         }
+    }
+    public function suggestaddresult($tag){
+        $this->assign('tag',$tag);
+            $this->assign('keywords', $this->keywords_suggest);
+        $this->assign('active', 'suggest');
+        $this->display();
     }
 
     private function overridegetlist()

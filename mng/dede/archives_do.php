@@ -1189,6 +1189,7 @@ else if($dopost=='showbelongsignIn'){
     $alllist=array();
     $allidlist=array();
     $nowtime=time();
+    $belongtotal=array();
     while($trow = $dsql->GetObject())
     {
         $alllist["$trow->aid"]=array('aid'=>$trow->aid,'title'=>$trow->title);
@@ -1202,6 +1203,7 @@ else if($dopost=='showbelongsignIn'){
     {
         $belong=$trow->belong;
         if(empty($trow->belong))$belong="0";
+      //  $belongtotal[$belong]['count']=0;
         $sOpenId= $trow->sOpenId;
         if(!empty($sOpenId)){
             $memberinfo=array('sOpenId'=>$trow->sOpenId,'uname'=>$trow->uname,'bname'=>$trow->name);
@@ -1214,6 +1216,11 @@ else if($dopost=='showbelongsignIn'){
             {
                 $attendlist[]=array('aid'=>$trow->aid,'title'=>$trow->title);
                 $attendidlist[]=$trow->aid;
+                //get belong tatol
+                if(!isset($belongtotal[$belong][$trow->aid]['count']))
+                    $belongtotal[$belong][$trow->aid]['count']=1;
+                else
+                    $belongtotal[$belong][$trow->aid]['count']=$belongtotal[$belong][$trow->aid]['count']+1;
             }
             //diff
             $notakemt=array_diff($allidlist,$attendidlist);
