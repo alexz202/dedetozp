@@ -186,7 +186,6 @@ else if($dopost=='save')
     ismake='$ismake',
     arcrank='$arcrank',
     money='$money',
-    title='$title',
     color='$color',
     writer='$writer',
     source='$source',
@@ -214,7 +213,7 @@ else if($dopost=='save')
     {
         $useip = GetIP();
         $templet = empty($templet) ? '' : $templet;
-        $iquery = "UPDATE `$addtable` SET typeid='$typeid',body='$body'{$inadd_f},redirecturl='$redirecturl',templet='$templet',userip='$useip' WHERE aid='$id'";
+        $iquery = "UPDATE `$addtable` SET typeid='$typeid',body='$body'{$inadd_f},redirecturl='$redirecturl',userip='$useip' WHERE aid='$id'";
         if(!$dsql->ExecuteNoneQuery($iquery))
         {
             ShowMsg("更新附加表 `$addtable`  时出错，请检查原因！","javascript:;");
@@ -245,21 +244,15 @@ else if($dopost=='save')
     //返回成功信息
     $msg = "
     　　请选择你的后续操作：
-    <a href='suggest_add.php?cid=$typeid'><u>发布新文章</u></a>
-    &nbsp;&nbsp;
-    <a href='archives_do.php?aid=".$id."&dopost=editArchives'><u>查看更改</u></a>
-    &nbsp;&nbsp;
-    <a href='$artUrl' target='_blank'><u>查看文章</u></a>
-    &nbsp;&nbsp;
     <a href='catalog_do.php?cid=$typeid&dopost=listsuggest'><u>管理意见建议</u></a>
     &nbsp;&nbsp;
     $backurl
     ";
 
-    $wintitle = "成功更改文章！";
-    $wecome_info = "文章管理::更改文章";
+    $wintitle = "成功更改！";
+    $wecome_info = "文章管理::更改";
     $win = new OxWindow();
-    $win->AddTitle("成功更改文章：");
+    $win->AddTitle("成功更改：");
     $win->AddMsgItem($msg);
     $winform = $win->GetWindow("hand","&nbsp;",false);
     $win->Display();

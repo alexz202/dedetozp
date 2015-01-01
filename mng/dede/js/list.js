@@ -75,6 +75,12 @@ function delArc(aid){
 	location="archives_do.php?qstr="+qstr+"&aid="+aid+"&dopost=delArchives";
 }
 
+function delsuggest(aid){
+	var qstr=getCheckboxItem();
+	if(aid==0) aid = getOneItem();
+	location="archives_do.php?qstr="+qstr+"&aid="+aid+"&dopost=delSuggest";
+}
+
 function QuickEdit(aid, e, obj)
 {
 	LoadQuickDiv(e, 'archives_do.php?dopost=quickEdit&aid='+aid+'&rnd='+Math.random(), 'quickEdit', '450px', '300px');

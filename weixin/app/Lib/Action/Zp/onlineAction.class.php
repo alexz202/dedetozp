@@ -91,6 +91,12 @@ class onlineAction extends BaseAction
         $this->assign('keywords', $this->keywords_suggest);
         $this->assign('active', 'suggest');
         if (!$_POST) {
+            if(isset($_GET['id'])){
+                $id=$_GET['id'];
+            }else{
+                $id=0;
+            }
+            $this->assign('id',$id);
             $this->display();
         } else {
             $openid = $_SESSION['openid'];
@@ -98,6 +104,7 @@ class onlineAction extends BaseAction
 //            $openid='11';
 //            $nickname='11';
             $info = $_POST['info'];
+            $id = $_POST['id'];
             $suggest = M('suggest');
             $data = array(
                 'typeid' => '32',
@@ -106,6 +113,7 @@ class onlineAction extends BaseAction
                 'senddate' => time(),
                 'writer'=>$nickname,
                 'source'=>$openid,
+                'talkid'=>$id,
             );
             $res = $suggest->add($data);
             if ($res !== false) {
@@ -119,12 +127,12 @@ class onlineAction extends BaseAction
             }
             if ($res && $res2) {
                 $tag='发言已成功！感谢您的宝贵意见！';
-              header('location:'.__ROOT__.'/index.php?m=online&a=suggestaddresult&tag='.$tag);
+              header('location:'.__ROOT__.'/index.php?g=Zp&m=online&a=suggestaddresult&tag='.$tag);
 //                $this->success('添加成功', U('Zp/online/suggestadd'));
             } else {
                 //$this->error('添加成功', U('Zp/online/suggestadd'));
                 $tag='发言已成功！感谢您的宝贵意见！';
-                header('location:'.__ROOT__.'/index.php?m=online&a=suggestaddresult&tag='.$tag);
+                header('location:'.__ROOT__.'/index.php?g=Zp&m=online&a=suggestaddresult&tag='.$tag);
             }
 
         }

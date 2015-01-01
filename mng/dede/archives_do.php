@@ -335,6 +335,63 @@ else if($dopost=="delArchives")
         $win->Display();
     }
 }
+
+/*--------------------------
+//删除文档
+function delArchives(){ }
+---------------------------*/
+else if($dopost=="delSuggest")
+{
+    CheckPurview('a_Del,a_AccDel,a_MyDel,sys_ArcBatch');
+    require_once(DEDEINC."/oxwindow.class.php");
+    if(empty($fmdo)) $fmdo = '';
+
+    if($fmdo=='yes')
+    {
+        if( !empty($aid) && empty($qstr) )
+        {
+            $qstr = $aid;
+        }
+        if($qstr=='')
+        {
+            ShowMsg("参数无效！",$ENV_GOBACK_URL);
+            exit();
+        }
+        $qstrs = explode("`",$qstr);
+        $okaids = Array();
+
+        foreach($qstrs as $aid)
+        {
+            if(!isset($okaids[$aid]))
+            {
+                //DelArc($aid);
+                $dsql->ExecuteNoneQuery("delete from `#@__suggest` WHERE id='$aid' ");
+                $dsql->ExecuteNoneQuery("delete from `#@__addonsuggest` WHERE aid='$aid' ");
+            }
+            else
+            {
+                $okaids[$aid] = 1;
+            }
+        }
+        ShowMsg("成功删除指定的文档！",$ENV_GOBACK_URL);
+        exit();
+    }
+
+    else
+    {
+        $wintitle = "文档管理-删除文档";
+        $wecome_info = "<a href='".$ENV_GOBACK_URL."'>文档管理</a>::删除文档";
+        $win = new OxWindow();
+        $win->Init("archives_do.php","js/blank.js","POST");
+        $win->AddHidden("fmdo","yes");
+        $win->AddHidden("dopost",$dopost);
+        $win->AddHidden("qstr",$qstr);
+        $win->AddHidden("aid",$aid);
+        $win->AddTitle("你确实要删除“ $qstr 和 $aid ”这些文档？");
+        $winform = $win->GetWindow("ok");
+        $win->Display();
+    }
+}
 /*-----------------------------
 function moveArchives(){ }
 ------------------------------*/

@@ -8,5 +8,12 @@
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
-$s_tmplets = "templets/content_suggest_list.htm";
-include(dirname(__FILE__) . "/content_msugeest_list.php");
+
+if(isset($_GET['talkid'])&&!empty($_GET['talkid'])){
+    $talkid=$_GET['talkid'];
+    $s_tmplets = "templets/content_suggest_list.htm";
+    include(dirname(__FILE__) . "/content_msugeesttalk_list.php");
+}else{
+    $s_tmplets = "templets/content_suggest_list.htm";
+    include(dirname(__FILE__) . "/content_msugeest_list.php");
+}
