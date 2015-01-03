@@ -1,3 +1,12 @@
+<!--<?php-->
+<!--if($_GET['output']==='excel'){-->
+<!--$make=new makeExcel();-->
+<!--$tagarr=array('应到人数','应到名单','实到人数','实到名单','未到人数','未到名单');-->
+<!--$valuearr=array(array(count($attendlist),join('、',$attenduname),$counttake,join('、',$takeunamelist),$countnotake,join('、',$notakeunamelist)));-->
+<!--$output=date('YmdHis').'signmeet';-->
+<!--$make->makeEXCEL($tagarr,$valuearr,$output);-->
+<!--}-->
+<!--?>-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,8 +44,8 @@ echo "<td>".$v['title']."</td>";
     $bname=$v[0]['bname'];
     if(empty($bname))$bname='其他';
     echo "<tr align=\"center\" bgcolor=\"#FBFCE2\" height=\"25\"><td colspan=\"$acount\">".$bname."</td></tr>";
-    echo "<tr align=\"center\" bgcolor=\"#fff\" height=\"25\">";
     foreach($v as $meminfo ){
+    echo "<tr align=\"center\" bgcolor=\"#fff\" height=\"25\">";
         echo "<td>".$meminfo['uname']."</td>";
            //get meeting info
          foreach($meminfo['show'] as $value){
@@ -45,8 +54,9 @@ echo "<td>".$v['title']."</td>";
             else
                echo "<td>出席</td>";
          }
-    }
     echo "</tr>";
+    }
+echo "</tr>";
     }
     ?>
 

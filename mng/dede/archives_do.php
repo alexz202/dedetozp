@@ -1214,7 +1214,13 @@ else if($dopost=='showonemembersignIn'){
     $mid=$_GET['mid'];
     $res=   $dsql->GetOne("SELECT sOpenId FROM `#@__member` where mid=$mid ");
     $sOpenId=$res['sOpenId'];
-    $nowtime=time();
+    //$nowtime=time();
+    if(isset($endtime)){
+        $nowtime=strtotime($endtime.' 23:59:59');
+    }else{
+        $nowtime=time();
+    }
+
     $dsql->SetQuery("SELECT a.* FROM `#@__member_sign` as ms right join `#@__addoninfos` as a on ms.infosId=a.aid  where ms.sOpenId='$sOpenId' and a.endtime <$nowtime");
     $dsql->Execute();
     $attendlist=array();
@@ -1241,9 +1247,15 @@ else if($dopost=='showonemembersignIn'){
 }
 else if($dopost=='showbelongsignIn'){
  //TODO ??
-    $nowtime=time();
+
+    //$nowtime=time();
+    if(isset($endtime)){
+        $nowtime=strtotime($endtime.' 23:59:59');
+    }else{
+        $nowtime=time();
+    }
     //get all meeting
-    $res2=$dsql->SetQuery("SELECT aid,title FROM `#@__addoninfos` where endtime <$nowtime ");
+    $res2=$dsql->SetQuery("SELECT aid,title,attendlist FROM `#@__addoninfos` where endtime <$nowtime ");
     $dsql->Execute();
     $alllist=array();
     $allidlist=array();
@@ -1251,21 +1263,21 @@ else if($dopost=='showbelongsignIn'){
     $belongtotal=array();
     while($trow = $dsql->GetObject())
     {
-        $alllist["$trow->aid"]=array('aid'=>$trow->aid,'title'=>$trow->title);
+        $alllist["$trow->aid"]=array('aid'=>$trow->aid,'title'=>$trow->title,'attend'=>$attendlist);
         $allidlist[]=$trow->aid;
     }
-    $res=$dsql->SetQuery("SELECT m.sOpenId,m.uname,m.belong,mb.name FROM `#@__member` as m left join  `#@__member_belong` as mb on m.belong=mb.id  where m.rank>=180");
+    //belong 用户
+    $res=$dsql->SetQuery("SELECT m.mid,m.sOpenId,m.uname,m.belong,mb.name FROM `#@__member` as m left join  `#@__member_belong` as mb on m.belong=mb.id  where m.rank>=180");
     $dsql->Execute();
     $memberarr=array();
     //get member
     while($trow = $dsql->GetObject())
     {
-        $belong=$trow->belong;
+       $belong=$trow->belong;
         if(empty($trow->belong))$belong="0";
-      //  $belongtotal[$belong]['count']=0;
         $sOpenId= $trow->sOpenId;
         if(!empty($sOpenId)){
-            $memberinfo=array('sOpenId'=>$trow->sOpenId,'uname'=>$trow->uname,'bname'=>$trow->name);
+            $memberinfo=array('mid'=>$trow->mid,'sOpenId'=>$trow->sOpenId,'uname'=>$trow->uname,'bname'=>$trow->name);
 //get meeting sign
             $dsql->SetQuery("SELECT a.aid FROM `#@__member_sign` as ms right join `#@__addoninfos` as a on ms.infosId=a.aid  where ms.sOpenId='$sOpenId' and a.endtime <$nowtime");
             $dsql->Execute('mm');
@@ -1275,11 +1287,6 @@ else if($dopost=='showbelongsignIn'){
             {
                 $attendlist[]=array('aid'=>$trow->aid,'title'=>$trow->title);
                 $attendidlist[]=$trow->aid;
-                //get belong tatol
-                if(!isset($belongtotal[$belong][$trow->aid]['count']))
-                    $belongtotal[$belong][$trow->aid]['count']=1;
-                else
-                    $belongtotal[$belong][$trow->aid]['count']=$belongtotal[$belong][$trow->aid]['count']+1;
             }
             //diff
             $notakemt=array_diff($allidlist,$attendidlist);
@@ -1299,6 +1306,37 @@ else if($dopost=='showbelongsignIn'){
             $memberarr["$belong"][]=$memberinfo;
         }
        // $memberarr["$belong"]['memberinfo']['meetinfo']['show']=$arr;
+    }
+//    var_dump($memberarr);
+    //get total belong
+$belongtotal=array();
+    foreach($memberarr as $belong=>$value){
+        $belongtotal["$belong"]=array();
+
+        foreach($value as $member){
+            $count=count($member['show']);
+            $i=0;
+            //get
+            $mid=$member['mid'];
+            foreach($member['show'] as $meetstatus){
+                //get member in meeting table
+                if(isset($alllist[$i]['attend'])){
+                    if(in_array($mid,$alllist[$i]['attend']))
+                    $belongtotal["$belong"][$i]['canaddcount']++;
+                }else{
+                    $belongtotal["$belong"][$i]['canaddcount']=0;
+                }
+
+                 if(!isset($belongtotal["$belong"][$i]['addcount']))
+                     $belongtotal["$belong"][$i]['addcount']=0;
+                     if($meetstatus===1){
+                         $belongtotal["$belong"][$i]['addcount']++;
+                     }else{
+                         $belongtotal["$belong"][$i]['notalkcount']++;
+                     }
+                $i++;
+            }
+        }
     }
     include DedeInclude("templets/signIn_allshow.htm");
 }

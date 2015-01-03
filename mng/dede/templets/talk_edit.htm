@@ -192,37 +192,37 @@ function delAlbPicOld(picfile, pid){
           </tr>
         </table></td>
     </tr>
-    <!--<tr>-->
-      <!--<td width="400%" height="24" colspan="2" class="bline"><table width="800" border="0" cellspacing="0" cellpadding="0">-->
-          <!--<tr>-->
-            <!--<td width="90">&nbsp;自定义属性：</td>-->
-            <!--<td><?php-->
-         <!--$dsql->SetQuery("SELECT * FROM `#@__arcatt` ORDER BY sortid ASC");-->
-         <!--$dsql->Execute();-->
-         <!--while($trow = $dsql->GetObject())-->
-         <!--{-->
-         	<!--if($trow->att=='j')-->
-         	<!--{-->
-         		<!--$jumpclick = " onclick='ShowUrlTr()'";-->
-         	<!--}-->
-         	<!--else-->
-         	<!--{-->
-         		<!--$jumpclick = '';-->
-         	<!--}-->
-         	<!--if(preg_match("#".$trow->att."#", $arcRow['flag']))-->
-         	<!--{-->
-         		<!--echo "<input class='np' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}' {$jumpclick} checked='checked' />{$trow->attname}[{$trow->att}]";-->
-         	<!--}-->
+    <tr>
+      <td width="400%" height="24" colspan="2" class="bline"><table width="800" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="90">&nbsp;自定义属性：</td>
+            <td><?php
+         $dsql->SetQuery("SELECT * FROM `#@__arcatt` ORDER BY sortid ASC");
+         $dsql->Execute();
+         while($trow = $dsql->GetObject())
+         {
+         	if($trow->att=='j')
+         	{
+         		$jumpclick = " onclick='ShowUrlTr()'";
+         	}
+         	else
+         	{
+         		$jumpclick = '';
+         	}
+         	if(preg_match("#".$trow->att."#", $arcRow['flag']))
+         	{
+         		echo "<input class='np' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}' {$jumpclick} checked='checked' />{$trow->attname}[{$trow->att}]";
+         	}
 
-         	<!--else-->
-         	<!--{-->
-         		<!--echo "<input class='np' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}'{$jumpclick} />{$trow->attname}[{$trow->att}]";-->
-         	<!--}-->
-         <!--}-->
-          <!--?></td>-->
-          <!--</tr>-->
-        <!--</table></td>-->
-    <!--</tr>-->
+         	else
+         	{
+         		echo "<input class='np' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}'{$jumpclick} />{$trow->attname}[{$trow->att}]";
+         	}
+         }
+          ?></td>
+          </tr>
+        </table></td>
+    </tr>
     <tr>
       <td height="24" colspan="2" class="bline" id="redirecturltr" style="display:<?php echo (empty($addRow['redirecturl']) ? 'none' : 'block');?>"><table width="800" border="0" cellspacing="0" cellpadding="0">
           <tr>

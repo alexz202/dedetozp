@@ -1,3 +1,25 @@
+<?php
+if($_GET['output']==='excel'){
+$make=new makeExcel();
+$tagarr=array('应到会议名','应到次数','实到会议名','实到次数','未到会议名','未到次数');
+foreach($alllist as $value){
+$alllistname[]=$value['title'];
+}
+foreach($attendlist as $value){
+$attendnamelist[]=$value['title'];
+}
+
+foreach($notakemt as $value){
+$notakemtname[]=$alllist[$value]['title'];
+}
+
+$valuearr=array(array(join('、',$alllistname),count($alllist),join('、',$attendnamelist),count($attendlist),join('、',$notakemtname),count($notakemt)));
+$output=date('YmdHis').'signmember';
+$make->makeEXCEL($tagarr,$valuearr,$output);
+}
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,7 +30,7 @@
 <script language="javascript" src="js/ieemu.js"></script>
 <script language="javascript" src="js/context_menu.js"></script>
 <script language="javascript" src="js/main.js"></script>
-
+    <script language="javascript" src="js/calendar/calendar.js"></script>
 </head>
 <body leftmargin="8" topmargin="8" background='images/allbg.gif' onLoad="ContextMenu.intializeContextMenu()">
 
@@ -20,36 +42,69 @@
 <td height="24" colspan="9" background="images/tbg.gif" style="padding-left:10px;">
 </td>
 </tr>
-<form name="form2">
+<form name="form2" action="archives_do.php" method="get">
+<tr align="center" bgcolor="#fff" height="25">
+    <td colspan="6">
+        <input name="endtime" id="endtime" />
+        <input type="hidden" name="dopost" value="showonemembersignIn"/>
+        <input type="hidden" name="mid" value="<?php echo $_GET['mid']?>"/>
+        <script language="javascript" type="text/javascript">
+            Calendar.setup({
+                inputField     :    "endtime",
+                ifFormat       :    "%Y-%m-%d",
+                showsTime      :    false,
+                timeFormat     :    "24"
+            });
+        </script>
+        <input type="submit"  value="查询"/>
+    </td>
+</tr>
+
 <tr align="center" bgcolor="#FBFCE2" height="25">
-<td width="26%">出席会议</td>
-<td width="26%">未出席会议</td>
- <td width="11%">出席次数</td>
- <td width="11%">未出席次数</td>
+    <td width="26%">应到会议名</td>
+    <td width="5%">应到次数</td>
+<td width="26%">实到会议名</td>
+<td width="5%">实到次数</td>
+ <td width="26%">未到会议名</td>
+ <td width="5%">未到次数</td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF"  onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
-<td><?php
+    <td>
+        <?php
+foreach($alllist as $value){
+//echo "<a href=''>".$value['aid']."</a>|";
+        echo $value['title'];
+        echo '<br>';
+        }
+        ?>
+    </td>
+    <td><?php echo count($alllist);?>
+    </td>
+    <td>
+    <?php
 foreach($attendlist as $value){
-echo "<a href=''>".$value['aid']."</a>|";
+//echo "<a href=''>".$value['aid']."</a>|";
 echo $value['title'];
 echo '<br>';
 }
 ?>
 </td>
+    <td><?php echo count($attendlist);?>
+    </td>
+
 <td>
     <?php
     if(empty($notakemt))
     echo '无';
     else
 foreach($notakemt as $value){
-echo "<a href=''>".$value."</a>|";
+//echo "<a href=''>".$value."</a>|";
     echo $alllist[$value]['title'];
     echo '<br>';
     }
     ?>
 </td>
-<td><?php echo count($attendlist);?>
-</td>
+
 <td><?php echo count($notakemt);?></td>
 <!--<td>{dede:field.typename/}</td>-->
 <!--<td>{dede:field.arcrank function="GetRankName(@me)"/}</td>-->

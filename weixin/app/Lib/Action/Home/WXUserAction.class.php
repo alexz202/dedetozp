@@ -10,6 +10,10 @@
 
 define('INDEX','index');
 define('SUGGEST','suggest');
+define('REPORT','report');
+define('ZPINFO','zppsinfo');
+define('DEAL','deal');
+define('DBZO','dbzo');
 define('SIGN','sign');
 
 class WXUserAction extends Action
@@ -99,7 +103,19 @@ class WXUserAction extends Action
             if($type===INDEX){
                 $url='index.php?g=Zp&m=Index&a=index';
             }elseif($type===SUGGEST){
-                $url='index.php?g=Zp&m=online&a=suggest';
+                $url='index.php?g=Zp&m=online&a='.SUGGEST;
+            }
+            elseif($type===REPORT){
+                $url='index.php?g=Zp&m=online&a='.REPORT;
+            }
+            elseif($type===ZPINFO){
+                $url='index.php?g=Zp&m=online&a='.ZPINFO;
+            }
+            elseif($type===DEAL){
+                $url='index.php?g=Zp&m=online&a='.DEAL;
+            }
+            elseif($type===DBZO){
+                $url='index.php?g=Zp&m=online&a='.DBZO;
             }
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
             header('location:'.$url);

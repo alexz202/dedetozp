@@ -79,10 +79,37 @@ class IndexAction extends BaseAction
      */
     public function deal()
     {
+        $openid = $_SESSION['openid'];
+        $nickname = $_SESSION['nickname'];
+        if(!isset($openid)||empty($openid)){
+            $tag='此栏目为工作信息。人大代表请等待后台验证后查看！';
+            header('location:'.__ROOT__.'/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag);
+            exit;
+
+        }
+        $member=M('member');
+        $condition['sOpenId']=$openid;
+        $condition['rank']=array('egt',180);
+       $res=$member->where($condition)->find();
+       $member->getLastSql();
+        if($res)
+        {
         $this->overridegetlist(DEALID);
         $zpstyle = C('ZPSTYLE');
         $this->assign('active', $zpstyle[2]['value']);
         $this->assign('keywords', $zpstyle[2]['key']);
+        $this->display();
+    }
+    else{
+        $tag='此栏目为工作信息。人大代表请等待后台验证后查看！';
+        header('location:'.__ROOT__.'/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag);
+    }
+    }
+
+
+    public function errorpage($tag){
+        $this->assign('tag',$tag);
+        $this->assign('keywords', '提示');
         $this->display();
     }
 
