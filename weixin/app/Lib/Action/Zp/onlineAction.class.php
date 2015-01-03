@@ -121,7 +121,7 @@ class onlineAction extends BaseAction
                 $data2 = array(
                     'aid' => (int)$res,
                     'typeid' => '32',
-                    'body' => urlencode($info)
+                    'body' => $info
                 );
                 $res2 = $addonsuggest->add($data2);
             }
