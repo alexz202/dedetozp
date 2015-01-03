@@ -108,7 +108,7 @@ class WXUserAction extends Action
             elseif($type===REPORT){
                 $url='index.php?g=Zp&m=Index&a='.REPORT;
             }
-            elseif($type===ZPINFO){
+            elseif($type===ZPPSINFO){
                 $url='index.php?g=Zp&m=Index&a='.ZPPSINFO;
             }
             elseif($type===DEAL){
