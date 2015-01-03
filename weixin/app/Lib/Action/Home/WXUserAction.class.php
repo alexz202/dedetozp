@@ -106,16 +106,16 @@ class WXUserAction extends Action
                 $url='index.php?g=Zp&m=online&a='.SUGGEST;
             }
             elseif($type===REPORT){
-                $url='index.php?g=Zp&m=online&a='.REPORT;
+                $url='index.php?g=Zp&m=Index&a='.REPORT;
             }
             elseif($type===ZPINFO){
-                $url='index.php?g=Zp&m=online&a='.ZPPSINFO;
+                $url='index.php?g=Zp&m=Index&a='.ZPPSINFO;
             }
             elseif($type===DEAL){
-                $url='index.php?g=Zp&m=online&a='.DEAL;
+                $url='index.php?g=Zp&m=Index&a='.DEAL;
             }
             elseif($type===DBZO){
-                $url='index.php?g=Zp&m=online&a='.DBZO;
+                $url='index.php?g=Zp&m=Index&a='.DBZO;
             }
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
             header('location:'.$url);
