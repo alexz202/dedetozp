@@ -13,6 +13,7 @@ require_once(DEDEADMIN.'/inc/inc_batchup.php');
 require_once(DEDEADMIN.'/inc/inc_archives_functions.php');
 require_once(DEDEINC.'/typelink.class.php');
 require_once(DEDEINC.'/arc.archives.class.php');
+require_once('makeexcel.php');
 $ENV_GOBACK_URL = (empty($_COOKIE['ENV_GOBACK_URL']) ? 'content_list.php' : $_COOKIE['ENV_GOBACK_URL']);
 
 if(empty($dopost))
@@ -1173,6 +1174,7 @@ else if($dopost=='showsignIn'){
  $aid=$_GET['aid'];
   $res=   $dsql->GetOne("SELECT attend FROM `#@__addoninfos` where aid=$aid ");
   $attendlist=parseATTEND($res['attend']);
+    $attenduname=getATTENDNAMELIST($dsql,$attendlist);
     $dsql->SetQuery("SELECT * FROM `#@__member_sign` as ms join `#@__member` as m on m.sOpenId=ms.sOpenId  where ms.infosId=$aid ");
     $dsql->Execute();
     $takelist=array();
@@ -1187,7 +1189,7 @@ else if($dopost=='showsignIn'){
     //get no attend person list
     $notakelist= array_diff($attendlist,$takelist);
     $countnotake=count($notakelist);
-
+    $counttake=count($takelist);
     //get member name by mid
     $dsql->SetQuery("SELECT * FROM `#@__member`   where rank>=180 ");
     $dsql->Execute();
@@ -1307,11 +1309,18 @@ function parseATTEND($Str){
   return   explode(',',$Str);
 }
 
+function getATTENDNAMELIST($dsql,$attendidlist){
+    $attendlist=array();
+    foreach($attendidlist as $id){
+        $res=$dsql->GetOne("SELECT uname FROM `#@__member` where mid=$id ");
+      $attendunamelist[]=$res['uname'];
+    }
+return $attendunamelist;
+}
+
 function addExcelFile($str){
     header("Content-type:application/vnd.ms-excel");
     header("Content-Disposition:filename=test.xls");
-
-    
 }
 
 ?>

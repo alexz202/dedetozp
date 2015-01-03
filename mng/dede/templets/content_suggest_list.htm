@@ -25,7 +25,7 @@
                         <!--{else}-->
                         <!--<input type='button' class="coolbg np" onClick="location='content_list.php?cid={dede:global.cid/}&mid=<?php echo $cuserLogin->getUserID(); ?>';" value='我的文档' />-->
                         <!--{/dede:if}-->
-                        {dede:global.CheckUserSend/}
+                        <!--{dede:global.CheckUserSend/}-->
                         <!--<input type='button' class="coolbg np" onClick="location='catalog_main.php';" value='栏目管理' />-->
                         <!--<input type='button' class="coolbg np" name='bb1' onClick="location='makehtml_list.php?cid={dede:global.cid/}';" value='更新列表' />-->
                         <!--<input type='button' class="coolbg np" name='bb2' onClick="location='makehtml_archives.php?cid={dede:global.cid/}';" value='更新文档' />-->
@@ -66,7 +66,7 @@
 		<span id="arc{dede:field.id/}">
 			<a href='archives_do.php?aid={dede:field.id/}&dopost=editsuggest'
                oncontextmenu="ShowMenu(event,this,{dede:field.id/},'{dede:field.title function="str_replace('\'', '', @me)" /}')">
-				<u>{dede:field.title/}</u>
+				<u>{dede:field.body/}</u>
             </a>
 		</span>
                 {dede:field.flag function='IsCommendArchives(@me)'/}
@@ -114,12 +114,14 @@
             <td background='images/wbg.gif' align='center'>
                 <table border='0' cellpadding='0' cellspacing='0' height="32">
                     <tr>
+                  <?php if(!isset($_GET['talkid'])){?>
                         <td width='160'>
                             <select name='cid' style='width:150px'>
                                 <option value='0'>选择栏目...</option>
                                 {dede:global.optionarr /}
                             </select>
                         </td >
+                        <?php }?>
                         <td nowrap>
                             关键字：
                         </td>
@@ -133,7 +135,7 @@
                                 <!--<option value='sortrank'>置顶权值</option>-->
                                 <option value='click'>点击量</option>
                                 <!--<option value='scores'>评论积分</option>-->
-                                <option value='lastpost'>最后评论</option>
+                                <!--<option value='lastpost'>最后评论</option>-->
                             </select>
                         </td>
                         <!--<td width='90'>-->

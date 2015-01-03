@@ -160,15 +160,11 @@ else if($dopost=='save')
     //返回成功信息
     $msg = "
     　　请选择你的后续操作：
-    <a href='archives_sg_add.php?cid=$typeid'><u>发布新文档</u></a>
+    <a href='archives_sg_add.php?cid=$typeid'><u>发布新会议</u></a>
     &nbsp;&nbsp;
     <a href='archives_do.php?aid=".$id."&dopost=editArchives'><u>查看更改</u></a>
     &nbsp;&nbsp;
-    <a href='$artUrl' target='_blank'><u>查看文档</u></a>
-    &nbsp;&nbsp;
-    <a href='catalog_do.php?cid=$typeid&channelid={$channelid}&dopost=listArchives'><u>管理文档</u></a>
-    &nbsp;&nbsp;
-    <a href='catalog_main.php'><u>网站栏目管理</u></a>
+    <a href='catalog_do.php?cid=$typeid&channelid={$channelid}&dopost=listArchives'><u>管理会议</u></a>
     ";
 
     $wintitle = "成功更改文档！";

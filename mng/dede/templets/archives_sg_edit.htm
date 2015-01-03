@@ -88,13 +88,13 @@ function checkSubmit()
       	<table width="800" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="90" height="81">
-            	&nbsp;缩 略 图：<br/>
+            	&nbsp;索引 图：<br/>
             	&nbsp;           </td>
             <td width="500">
              <input name="picname" type="text" id="picname" style="width:280px" value="<?php echo $addRow["litpic"]; ?>"><input type="button" name="Submit" value="浏览..." style="width:60px" onClick="SelectImage('form1.picname','');" />
              <input type="button" name="Submit2" value="裁剪" style="margin-left:8px;" onClick="imageCut('picname');" class='np coolbg'/>
-             <input type='checkbox' class='np' name='ddisremote' value='1' />
-             远程
+             <!--<input type='checkbox' class='np' name='ddisremote' value='1' />-->
+             <!--远程-->
              </td>
             <td align="center">
             <img src="<?php if( !empty($addRow["litpic"]) ) echo $addRow["litpic"]; else echo "images/pview.gif"; ?>" width="150" height="100" id="picview" name="picview" />

@@ -207,8 +207,8 @@ $orderby = empty($orderby) ? 'id' : preg_replace("#[^a-z0-9]#", "", $orderby);
 $orderbyField = 'arc.'.$orderby;
 
 $query = "SELECT arc.id,arc.typeid,arc.senddate,arc.flag,arc.ismake,
-arc.channel,arc.arcrank,arc.click,arc.title,arc.color,arc.litpic,arc.pubdate,arc.mid
-FROM `$maintable` arc
+arc.channel,arc.arcrank,arc.click,arc.title,arc.color,arc.litpic,arc.pubdate,arc.mid,ads.body
+FROM `$maintable` arc join `#@__addonsuggest` as ads on arc.id=ads.aid
 $whereSql and talkid=0
 ORDER BY $orderbyField DESC";
 
