@@ -12,60 +12,71 @@ $s_tmplets = "templets/content_suggest_total.htm";
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
-require_once(dirname(__FILE__).'/config.php');
-require_once(DEDEINC.'/typelink.class.php');
-require_once(DEDEINC.'/datalistcp.class.php');
-require_once(DEDEADMIN.'/inc/inc_list_functions.php');
+require_once(dirname(__FILE__) . '/config.php');
+require_once(DEDEINC . '/typelink.class.php');
+require_once(DEDEINC . '/datalistcp.class.php');
+require_once(DEDEADMIN . '/inc/inc_list_functions.php');
+require_once('makeexcel.php');
+require_once('commonselect.php');
+
+//get year quarter
+if (!isset($year)) $year = date('Y');
+if (!isset($quarter)) $quarter = 0;
+
+$arr = getQuarter($quarter);
+$startime = $year . '-' . $arr['starttime'];
+$endtime = $year . '-' . $arr['endtime'];
+$startime = strtotime($startime);
+$endtime = strtotime($endtime);
+
 
 $cid = isset($cid) ? intval($cid) : 0;
-if($cid==0)$cid=SUGGESTTYPEID;
+if ($cid == 0) $cid = SUGGESTTYPEID;
 $channelid = isset($channelid) ? intval($channelid) : 0;
 $mid = isset($mid) ? intval($mid) : 0;
 
-if(!isset($keyword)) $keyword = '';
-if(!isset($flag)) $flag = '';
-if(!isset($arcrank)) $arcrank = '';
-if(!isset($dopost)) $dopost = '';
+if (!isset($keyword)) $keyword = '';
+if (!isset($flag)) $flag = '';
+if (!isset($arcrank)) $arcrank = '';
+if (!isset($dopost)) $dopost = '';
 
 //检查权限许可，总权限
 CheckPurview('a_List,a_AccList,a_MyList');
 
 //栏目浏览许可
 $userCatalogSql = '';
-if(TestPurview('a_List'))
-{
+if (TestPurview('a_List')) {
     ;
-}
-else if(TestPurview('a_AccList'))
-{
-    if($cid==0 && $cfg_admin_channel == 'array')
-    {
+} else if (TestPurview('a_AccList')) {
+    if ($cid == 0 && $cfg_admin_channel == 'array') {
         $admin_catalog = join(',', $admin_catalogs);
         $userCatalogSql = " arc.typeid IN($admin_catalog) ";
-    }
-    else
-    {
+    } else {
         CheckCatalog($cid, '你无权浏览非指定栏目的内容！');
     }
-    if(TestPurview('a_MyList')) $mid =  $cuserLogin->getUserID();
+    if (TestPurview('a_MyList')) $mid = $cuserLogin->getUserID();
 
 }
 
 $adminid = $cuserLogin->getUserID();
 $maintable = '#@__suggest';
-setcookie('ENV_GOBACK_URL', $dedeNowurl, time()+3600, '/');
+setcookie('ENV_GOBACK_URL', $dedeNowurl, time() + 3600, '/');
 $tl = new TypeLink($cid);
 //var_dump($tl);
 
-$query="select * from tp_arctype where reid=23";
+$query = "select * from tp_arctype where reid=23";
 $dsql->SetQuery($query);
 $dsql->Execute();
-$list=array();
-while($trow = $dsql->GetObject()){
-    $res=   $dsql->GetOne("SELECT count(id) as count1 FROM `#@__suggest` where typeid=$trow->id ");
-    $list[]=array('count'=>$res['count1'],
-        'name'=>$trow->typename,
-        'id'=>$trow->id,
+$list = array();
+$allcount = 0;
+while ($trow = $dsql->GetObject()) {
+
+    $sql = "SELECT count(id) as count1 FROM `#@__suggest` where typeid=$trow->id  and (senddate>=$startime and senddate<$endtime )";
+    $res = $dsql->GetOne($sql);
+    $allcount = $allcount + $res['count1'];
+    $list[] = array('count' => $res['count1'],
+        'name' => $trow->typename,
+        'id' => $trow->id,
     );
 
 }

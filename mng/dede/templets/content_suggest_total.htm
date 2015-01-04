@@ -1,3 +1,18 @@
+<?php
+if($_GET['output']==='excel'){
+$make=new makeExcel();
+$tagarr=array('序号','分类','数量','占比（%）');
+$i=1;
+      foreach($list as $value){
+$valuearr[]=array($i,$value['name'],$value['count'],sprintf("%0.2f",(($value['count']/$allcount)*100)));
+$i++;
+      }
+$output=date('YmdHis').'suggesttotal';
+$make->makeEXCEL($tagarr,$valuearr,$output);
+}
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,6 +27,38 @@
 </head>
 <body leftmargin="8" topmargin="8" background='images/allbg.gif' onLoad="ContextMenu.intializeContextMenu()">
 
+<table align="center">
+    <tr><td>
+        <form action="content_suggest_total.php" method="get">
+        <select name="year">
+            <?php
+            foreach($yeararr as $v){
+            if($year==$v)
+             echo " <option value=\"$v\" selected>$v</option>";
+            else
+             echo " <option value=\"$v\" >$v</option>";
+            }
+
+            ?>
+        </select>
+        <select name="quarter">
+            <?php
+            foreach($quarterarr as $k=>$v){
+            if($_GET['quarter']==$k)
+             echo " <option value=\"$k\" selected>$v</option>";
+            else
+            echo " <option value=\"$k\" >$v</option>";
+            }
+
+            ?>
+        </select>
+
+        <input type="submit"  value="查询"/>
+        </form>
+    </td></tr>
+</table>
+
+
 <!--  内容列表   -->
     <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#CFCFCF" align="center" style="margin-top:8px">
         <tr bgcolor="#E7E7E7" >
@@ -20,14 +67,18 @@
             </td>
         </tr>
         <tr align="center" bgcolor="#FBFCE2" height="25">
+            <td width="2%">序号</td>
             <td width="28%">分类</td>
             <td width="10%">数量</td>
-            <td width="10%">操作</td>
+            <td width="10%">占比（%）</td>
         </tr>
       <?php
-
+$i=1;
       foreach($list as $value){?>
         <tr align='center' bgcolor="#FFFFFF" height="26" align="center" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
+            <td nowrap>
+                <?php echo $i?>
+            </td>
             <td nowrap>
              <?php echo $value['name']?>
             </td>
@@ -35,18 +86,28 @@
                 <?php echo $value['count']?>
             </td>
             <td nowrap>
-              <a href="content_suggest_list.php?dopost=listArchives&cid=32">查看详细</a>
+                <?php echo sprintf("%0.2f",(($value['count']/$allcount)*100))?>
             </td>
+            <!--<td nowrap>-->
+              <!--<a href="content_suggest_list.php?dopost=listArchives&cid=32">查看详细</a>-->
+            <!--</td>-->
         </tr>
-      <?php } ?>
-        <tr bgcolor="#ffffff">
-            <td height="36" colspan="10">
+      <?php
+      $i++;
+      } ?>
+        <tr bgcolor="#ffffff" >
+            <td height="36" colspan="10" align="center">
                 &nbsp;
-
+                <?php
+$ss= $_SERVER['REQUEST_URI'];
+echo "<a href='$ss&output=excel'>导出EXECL</a>"
+                ?>
             </td>
         </tr>
 
 </table>
+
+
 <!--  搜索表单  -->
 <!--<form name='form3' action='content_suggest_total.php' method='get'>-->
     <!--<input type='hidden' name='dopost' value='listtotal' />-->
