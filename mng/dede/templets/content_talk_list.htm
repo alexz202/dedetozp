@@ -25,11 +25,11 @@
                         <!--{else}-->
                         <!--<input type='button' class="coolbg np" onClick="location='content_list.php?cid={dede:global.cid/}&mid=<?php echo $cuserLogin->getUserID(); ?>';" value='我的文档' />-->
                         <!--{/dede:if}-->
-                        {dede:global.CheckUserSend/}
-                        <input type='button' class="coolbg np" onClick="location='catalog_main.php';" value='栏目管理' />
+                        <!--{dede:global.CheckUserSend/}-->
+                        <!--<input type='button' class="coolbg np" onClick="location='catalog_main.php';" value='栏目管理' />-->
                         <!--<input type='button' class="coolbg np" name='bb1' onClick="location='makehtml_list.php?cid={dede:global.cid/}';" value='更新列表' />-->
                         <!--<input type='button' class="coolbg np" name='bb2' onClick="location='makehtml_archives.php?cid={dede:global.cid/}';" value='更新文档' />-->
-                        <input type='button' class="coolbg np" name='bb1' onClick="location='recycling.php?cid={dede:global.cid/}';" value='文章回收站' />
+                        <!--<input type='button' class="coolbg np" name='bb1' onClick="location='recycling.php?cid={dede:global.cid/}';" value='文章回收站' />-->
                     </td>
                 </tr>
             </table>
@@ -52,6 +52,7 @@
             <td width="10%">更新时间</td>
             <td width="10%">类目</td>
             <td width="8%">点击</td>
+            <td width="8%">留言数量</td>
             <td width="8%">发布人</td>
             <td width="10%">操作</td>
         </tr>
@@ -75,7 +76,7 @@
             <td>{dede:field.senddate function='GetDateMk(@me)'/}</td>
             <td>话题</td>
             <td>{dede:field.click/}</td>
-            <!--<td>{dede:field.ismake function="IsHtmlArchives(@me)"/}</td>-->
+            <td>{dede:field.id function="getsuggestcount(@me)"/}</td>
             <!--<td>{dede:field.arcrank function="GetRankName(@me)"/}</td>-->
             <td>{dede:field.mid function=GetMemberName(@me)/}</td>
             <td>

@@ -48,7 +48,6 @@ if($dopost!='save')
     
     //获取文章最大id以确定当前权重
     $maxWright = $dsql->GetOne("SELECT COUNT(*) AS cc FROM #@__archives");
-    
     include DedeInclude("templets/suggest_add.htm");
     exit();
 }
@@ -125,13 +124,13 @@ else if($dopost=='save')
     $litpic = GetDDImage('none', $picname, $ddisremote);
 
     //生成文档ID
-    $arcID = GetIndexKey($arcrank,$typeid,$sortrank,$channelid,$senddate,$adminid);
+   // $arcID = GetIndexKey($arcrank,$typeid,$sortrank,$channelid,$senddate,$adminid);
     
-    if(empty($arcID))
-    {
-        ShowMsg("无法获得主键，因此无法进行后续操作！","-1");
-        exit();
-    }
+//    if(empty($arcID))
+//    {
+//        ShowMsg("无法获得主键，因此无法进行后续操作！","-1");
+//        exit();
+//    }
     if(trim($title) == '')
     {
         ShowMsg('标题不能为空', '-1');
@@ -187,84 +186,82 @@ else if($dopost=='save')
     if(preg_match("#j#", $flag)) $ismake = -1;
 
     //保存到主表
-    $query = "INSERT INTO `#@__suggest`(id,typeid,typeid2,sortrank,flag,ismake,channel,arcrank,click,money,title,shorttitle,
+    $query = "INSERT INTO `#@__suggest`(typeid,typeid2,sortrank,flag,ismake,channel,arcrank,click,money,title,shorttitle,
     color,writer,source,litpic,pubdate,senddate,mid,voteid,notpost,description,keywords,filename,dutyadmin,weight)
-    VALUES ('$arcID','$typeid','$typeid2','$sortrank','$flag','$ismake','$channelid','$arcrank','$click','$money',
+    VALUES ('$typeid','$typeid2','$sortrank','$flag','$ismake','$channelid','$arcrank','$click','$money',
     '$title','$shorttitle','$color','$writer','$source','$litpic','$pubdate','$senddate',
     '$adminid','$voteid','$notpost','$description','$keywords','$filename','$adminid','$weight');";
 
     if(!$dsql->ExecuteNoneQuery($query))
     {
         $gerr = $dsql->GetError();
-        $dsql->ExecuteNoneQuery("DELETE FROM `#@__arctiny` WHERE id='$arcID'");
+      //  $dsql->ExecuteNoneQuery("DELETE FROM `#@__arctiny` WHERE id='$arcID'");
         ShowMsg("把数据保存到数据库主表 `#@__archives` 时出错，请把相关信息提交给DedeCms官方。".str_replace('"','',$gerr),"javascript:;");
         exit();
     }
-
+     $addid=$dsql->GetLastID();
     //保存到附加表
     $cts = $dsql->GetOne("SELECT addtable FROM `#@__channeltype` WHERE id='$channelid' ");
     $addtable = trim($cts['addtable']);
     if(empty($addtable))
     {
-        $dsql->ExecuteNoneQuery("DELETE FROM `#@__archives` WHERE id='$arcID'");
-        $dsql->ExecuteNoneQuery("DELETE FROM `#@__arctiny` WHERE id='$arcID'");
+        //$dsql->ExecuteNoneQuery("DELETE FROM `#@__archives` WHERE id='$arcID'");
+        //$dsql->ExecuteNoneQuery("DELETE FROM `#@__arctiny` WHERE id='$arcID'");
         ShowMsg("没找到当前模型[{$channelid}]的主表信息，无法完成操作！。","javascript:;");
         exit();
     }
     $useip = GetIP();
     $templet = empty($templet) ? '' : $templet;
-    $query = "INSERT INTO `{$addtable}`(aid,typeid,redirecturl,templet,userip{$inadd_f}) Values('$arcID','$typeid','$redirecturl','$templet','$useip'{$inadd_v})";
+    $query = "INSERT INTO `{$addtable}`(aid,typeid,redirecturl,templet,userip{$inadd_f}) Values('$addid','$typeid','$redirecturl','$templet','$useip'{$inadd_v})";
     if(!$dsql->ExecuteNoneQuery($query))
     {
         $gerr = $dsql->GetError();
         $dsql->ExecuteNoneQuery("Delete From `#@__suggest` where id='$arcID'");
-        $dsql->ExecuteNoneQuery("Delete From `#@__arctiny` where id='$arcID'");
+      //  $dsql->ExecuteNoneQuery("Delete From `#@__arctiny` where id='$arcID'");
         ShowMsg("把数据保存到数据库附加表 `{$addtable}` 时出错，请把相关信息提交给DedeCms官方。".str_replace('"','',$gerr),"javascript:;");
         exit();
     }
-    //生成HTML
-    InsertTags($tags,$arcID);
-    if($cfg_remote_site=='Y' && $isremote=="1")
-    {    
-        if($serviterm!=""){
-            list($servurl,$servuser,$servpwd) = explode(',',$serviterm);
-            $config=array( 'hostname' => $servurl, 'username' => $servuser, 'password' => $servpwd,'debug' => 'TRUE');
-        }else{
-            $config=array();
-        }
-        if(!$ftp->connect($config)) exit('Error:None FTP Connection!');
-    }
-	$picTitle = false;
-	if(count($_SESSION['bigfile_info']) > 0)
-	{
-		foreach ($_SESSION['bigfile_info'] as $k => $v)
-		{
-			if(!empty($v))
-			{
-				$pictitle = ${'picinfook'.$k};
-				$titleSet = '';
-				if(!empty($pictitle))
-				{
-					$picTitle = TRUE;
-					$titleSet = ",title='{$pictitle}'";
-				}
-				$dsql->ExecuteNoneQuery("UPDATE `#@__uploads` SET arcid='{$arcID}'{$titleSet} WHERE url LIKE '{$v}'; ");
-			}
-		}
-	}
-    $artUrl = MakeArt($arcID,true,true,$isremote);
-    if($artUrl=='')
-    {
-        $artUrl = $cfg_phpurl."/view.php?aid=$arcID";
-    }
-    ClearMyAddon($arcID, $title);
+//    //生成HTML
+//    InsertTags($tags,$arcID);
+//    if($cfg_remote_site=='Y' && $isremote=="1")
+//    {
+//        if($serviterm!=""){
+//            list($servurl,$servuser,$servpwd) = explode(',',$serviterm);
+//            $config=array( 'hostname' => $servurl, 'username' => $servuser, 'password' => $servpwd,'debug' => 'TRUE');
+//        }else{
+//            $config=array();
+//        }
+//        if(!$ftp->connect($config)) exit('Error:None FTP Connection!');
+//    }
+//	$picTitle = false;
+//	if(count($_SESSION['bigfile_info']) > 0)
+//	{
+//		foreach ($_SESSION['bigfile_info'] as $k => $v)
+//		{
+//			if(!empty($v))
+//			{
+//				$pictitle = ${'picinfook'.$k};
+//				$titleSet = '';
+//				if(!empty($pictitle))
+//				{
+//					$picTitle = TRUE;
+//					$titleSet = ",title='{$pictitle}'";
+//				}
+//				$dsql->ExecuteNoneQuery("UPDATE `#@__uploads` SET arcid='{$arcID}'{$titleSet} WHERE url LIKE '{$v}'; ");
+//			}
+//		}
+//	}
+//    $artUrl = MakeArt($arcID,true,true,$isremote);
+//    if($artUrl=='')
+//    {
+//        $artUrl = $cfg_phpurl."/view.php?aid=$arcID";
+//    }
+//    ClearMyAddon($arcID, $title);
 
 
     //返回成功信息
     $msg = "    　　请选择你的后续操作：
     <a href='suggest_add.php?cid=$typeid'><u>继续发布文章</u></a>
-    &nbsp;&nbsp;
-    <a href='$artUrl' target='_blank'><u>查看文章</u></a>
     &nbsp;&nbsp;
     <a href='archives_do.php?aid=".$arcID."&dopost=editArchives'><u>更改文章</u></a>
     &nbsp;&nbsp;

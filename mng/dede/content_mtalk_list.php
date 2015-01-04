@@ -15,6 +15,16 @@ require_once(DEDEINC.'/typelink.class.php');
 require_once(DEDEINC.'/datalistcp.class.php');
 require_once(DEDEADMIN.'/inc/inc_list_functions.php');
 
+
+function getsuggestcount($talkid){
+    global $dsql;
+        $rs = $dsql->GetOne("SELECT count(*) as count FROM `#@__suggest` WHERE talkid=$talkid ");
+    if($rs)
+    return $rs['count'];
+    else
+    return 0;
+}
+
 $cid = isset($cid) ? intval($cid) : 0;
 if($cid==0)$cid=TALKTYPEID;
 $channelid = isset($channelid) ? intval($channelid) : 0;

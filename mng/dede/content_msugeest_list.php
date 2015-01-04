@@ -98,16 +98,16 @@ if(empty($totalresult) && empty($keyword) && empty($orderby) && empty($flag))
     {
         $tinyQuery = "WHERE ".join(' AND ',$tinyQuerys);
     }
-    // 缓存处理
-    $sql = "SELECT COUNT(*) AS dd FROM `#@__arctiny` $tinyQuery ";
-    $cachekey = md5($sql);
-    $arr = GetCache('listcache', $cachekey);
-    if (empty($arr))
-    {
-        $arr = $dsql->GetOne($sql);
-        SetCache('listcache', $cachekey, $arr);
-    }
-    $totalresult = $arr['dd'];
+//    // 缓存处理
+//    $sql = "SELECT COUNT(*) AS dd FROM `#@__arctiny` $tinyQuery ";
+//    $cachekey = md5($sql);
+//    $arr = GetCache('listcache', $cachekey);
+//    if (empty($arr))
+//    {
+//        $arr = $dsql->GetOne($sql);
+//        SetCache('listcache', $cachekey, $arr);
+//    }
+//    $totalresult = $arr['dd'];
 }
 
 if($cid==0)
@@ -206,7 +206,7 @@ else
 $orderby = empty($orderby) ? 'id' : preg_replace("#[^a-z0-9]#", "", $orderby);
 $orderbyField = 'arc.'.$orderby;
 
-$query = "SELECT arc.id,arc.typeid,arc.senddate,arc.flag,arc.ismake,
+ $query = "SELECT arc.id,arc.typeid,arc.senddate,arc.flag,arc.ismake,
 arc.channel,arc.arcrank,arc.click,arc.title,arc.color,arc.litpic,arc.pubdate,arc.mid,ads.body
 FROM `$maintable` arc join `#@__addonsuggest` as ads on arc.id=ads.aid
 $whereSql and talkid=0

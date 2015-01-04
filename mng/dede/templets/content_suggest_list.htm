@@ -19,7 +19,9 @@
             <table width="98%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td align="center">
-                        <!--<input type='button' class="coolbg np" onClick="location='catalog_do.php?channelid={dede:global.channelid/}&cid={dede:global.cid/}&dopost=addArchives';" value='添加意见建议' />-->
+                        <?php if(empty($_GET['talkid'])){?>
+                        <input type='button' class="coolbg np" onClick="location='catalog_do.php?channelid={dede:global.channelid/}&cid={dede:global.cid/}&dopost=addArchives';" value='添加意见建议' />
+                        <?php }?>
                         <!--{dede:if $adminid==$mid }-->
                         <!--<input type='button' class="coolbg np" onClick="location='content_list.php?cid={dede:global.cid/}&mid=0';" value='全部文档' />-->
                         <!--{else}-->
