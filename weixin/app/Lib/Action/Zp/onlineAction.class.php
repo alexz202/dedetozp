@@ -12,6 +12,7 @@ class onlineAction extends BaseAction
     private $keywords = '在线互动';
     private $keywords_suggest = '意见建议';
     private $keywords_sign = '代表签到';
+    private $keywords_meeting = '会议信息';
 
     public function suggest()
     {
@@ -69,7 +70,7 @@ class onlineAction extends BaseAction
         $this->assign('meetinfo',$info);
         $this->assign('memberinfo',$memberinfo);
         $this->assign('result',$result);
-        $this->assign('keywords', $this->keywords_sign);
+        $this->assign('keywords', $this->keywords_meeting);
         $this->assign('active', 'sign');
         $this->display();
     }

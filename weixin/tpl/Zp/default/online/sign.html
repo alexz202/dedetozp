@@ -3,7 +3,7 @@
 <head>
 <head>
     <meta charset="utf-8">
-    <title>{weixin:$info.title}</title>
+    <title>{weixin:$meetinfo.title}</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -18,10 +18,20 @@
 <body>
 <include file="../head"/>
 <!--<include file="../nav_online"/>-->
-<div class="content" style="background-color: #ffffff;">
-    <div style="margin: 8px auto;width: 90%;text-align: center;">
-        <p><img src="__ROOT__/{weixin::RES}/images/sign.png" width="80%"></p>
-        <p style="color:#56f02c;font-size:1.4em;font-weight:bold;">签到成功</p>
+<div class="content">
+    <div class="content-padded" style="width:45%;margin:0 auto;"><img src="{weixin:$meetinfo.litpic}" width="100%"></div>
+    <div class="content-padded">
+        <ul class="table-view">
+            <li class="table-view-cell media">
+                <p>{weixin:$meetinfo.body}</p>
+            </li>
+            <li class="table-view-cell media">
+                <p>开始时间:{weixin:$meetinfo.starttime|date="Y-m-d H:i:s",###}</p>
+            </li>
+            <li class="table-view-cell media">
+                <p>结束时间:{weixin:$meetinfo.endtime|date="Y-m-d H:i:s",###}</p>
+            </li>
+        </ul>
     </div>
 </div>
 <!--56f02c-->
