@@ -1215,13 +1215,23 @@ else if($dopost=='showonemembersignIn'){
     $res=   $dsql->GetOne("SELECT sOpenId FROM `#@__member` where mid=$mid ");
     $sOpenId=$res['sOpenId'];
     //$nowtime=time();
+    if(isset($starttime)){
+        $starttime=strtotime($starttime.' 00:00:01');
+    }else{
+        $starttime=strtotime('2015-01-01 00:00:01');
+    }
+//    echo date('Y-m-d',$starttime);
+
     if(isset($endtime)){
         $nowtime=strtotime($endtime.' 23:59:59');
+         $now=time();
+        if($nowtime>$now)
+            $nowtime=$now;
     }else{
         $nowtime=time();
     }
-
-    $dsql->SetQuery("SELECT a.* FROM `#@__member_sign` as ms right join `#@__addoninfos` as a on ms.infosId=a.aid  where ms.sOpenId='$sOpenId' and a.endtime <$nowtime");
+//    echo date('Y-m-d',$nowtime);
+    $dsql->SetQuery("SELECT a.* FROM `#@__member_sign` as ms right join `#@__addoninfos` as a on ms.infosId=a.aid  where ms.sOpenId='$sOpenId' and (a.starttime>$starttime and a.endtime <$nowtime)");
     $dsql->Execute();
     $attendlist=array();
     $attendidlist=array();
@@ -1232,7 +1242,7 @@ else if($dopost=='showonemembersignIn'){
     }
 
     //get all meeting
-    $res2=$dsql->SetQuery("SELECT aid,title FROM `#@__addoninfos` where endtime <$nowtime ");
+    $res2=$dsql->SetQuery("SELECT aid,title FROM `#@__addoninfos` where 1=1 and (starttime>$starttime and endtime <$nowtime) ");
     $dsql->Execute();
     $alllist=array();
     $allidlist=array();

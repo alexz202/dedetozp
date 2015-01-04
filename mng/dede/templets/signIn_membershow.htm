@@ -45,12 +45,19 @@ $make->makeEXCEL($tagarr,$valuearr,$output);
 <form name="form2" action="archives_do.php" method="get">
 <tr align="center" bgcolor="#fff" height="25">
     <td colspan="6">
-        <input name="endtime" id="endtime" />
+    开始时间：    <input name="starttime" id="starttime" />
+    结束时间：    <input name="endtime" id="endtime" />
         <input type="hidden" name="dopost" value="showonemembersignIn"/>
         <input type="hidden" name="mid" value="<?php echo $_GET['mid']?>"/>
         <script language="javascript" type="text/javascript">
             Calendar.setup({
                 inputField     :    "endtime",
+                ifFormat       :    "%Y-%m-%d",
+                showsTime      :    false,
+                timeFormat     :    "24"
+            });
+            Calendar.setup({
+                inputField     :    "starttime",
                 ifFormat       :    "%Y-%m-%d",
                 showsTime      :    false,
                 timeFormat     :    "24"
