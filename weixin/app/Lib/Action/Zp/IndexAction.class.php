@@ -7,15 +7,15 @@ class IndexAction extends BaseAction
     {
         $openid = $_SESSION['openid'];
         $nickname = $_SESSION['nickname'];
-          //TODO get hot news
-       $top=$this->getHotOne(1);
-        $top2=$this->getHotOne(2);
-        $top3=$this->getHotOne(3);
+        //TODO get hot news
+        $top = $this->getHotOne(1);
+        $top2 = $this->getHotOne(2);
+        $top3 = $this->getHotOne(3);
         // file_put_contents('log/testindex',date('Y-m-d h:i:s').$openid.'|'.$nickname.'|'.$openid1.'|'.$nickname1."\r\n",FILE_APPEND);
         $keywords = C('KEYWORDS');
-        $this->assign('top',$top);
-        $this->assign('top2',$top2);
-        $this->assign('top3',$top3);
+        $this->assign('top', $top);
+        $this->assign('top2', $top2);
+        $this->assign('top3', $top3);
         $this->assign('keywords', $keywords['index']);
         $this->display();
     }
@@ -27,7 +27,7 @@ class IndexAction extends BaseAction
         if (isset($keywords)) {
             $countall = 0;
             $tbarr = array('archives', 'zpinfo', 'talk');
-            $typeindex=$this->getTypeURL();
+            $typeindex = $this->getTypeURL();
             foreach ($tbarr as $v) {
                 $$v = M($v);
                 $condition["title"] = array("like", "%" . $keywords . "%");
@@ -81,34 +81,38 @@ class IndexAction extends BaseAction
     {
         $openid = $_SESSION['openid'];
         $nickname = $_SESSION['nickname'];
-        if(!isset($openid)||empty($openid)){
-            $tag='此栏目为工作信息。人大代表请等待后台验证后查看！';
-            header('location:'.__ROOT__.'/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag);
+        if (!isset($openid) || empty($openid)) {
+            $tag = '此栏目为工作信息。人大代表请等待后台验证后查看！';
+            header('location:' . __ROOT__ . '/index.php?g=Zp&m=Index&a=errorpage&tag=' . $tag);
             exit;
-
         }
-        $member=M('member');
-        $condition['sOpenId']=$openid;
-        $condition['rank']=array('egt',180);
-       $res=$member->where($condition)->find();
-       $member->getLastSql();
-        if($res)
-        {
-        $this->overridegetlist(DEALID);
-        $zpstyle = C('ZPSTYLE');
-        $this->assign('active', $zpstyle[2]['value']);
-        $this->assign('keywords', $zpstyle[2]['key']);
-        $this->display();
-    }
-    else{
-        $tag='此栏目为工作信息。人大代表请等待后台验证后查看！';
-        header('location:'.__ROOT__.'/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag);
-    }
+        $member = M('member');
+        $condition['sOpenId'] = $openid;
+        //    $condition['rank']=array('egt',180);
+        $res = $member->where($condition)->find();
+        // $member->getLastSql();
+        if ($res) {
+            $rank = $res['rank'];
+            if ($rank >= 180) {
+                $this->overridegetlist(DEALID);
+                $zpstyle = C('ZPSTYLE');
+                $this->assign('active', $zpstyle[2]['value']);
+                $this->assign('keywords', $zpstyle[2]['key']);
+                $this->display();
+            } else {
+                $tag = '此栏目为工作信息。人大代表请等待后台验证后查看！';
+                header('location:' . __ROOT__ . '/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag);
+            }
+        } else {
+            //  $tag='此栏目为工作信息。人大代表请等待后台验证后查看！';
+            header('location:' . __ROOT__ . '/index.php/Home/WXUser/oauth2/noreg/suggestenter');
+        }
     }
 
 
-    public function errorpage($tag){
-        $this->assign('tag',$tag);
+    public function errorpage($tag)
+    {
+        $this->assign('tag', $tag);
         $this->assign('keywords', '提示');
         $this->display();
     }
@@ -223,7 +227,8 @@ class IndexAction extends BaseAction
         $this->assign('count', $count_);
     }
 
-    private function getTypeURL(){
+    private function getTypeURL()
+    {
         $typeindex = array(
             '13' => 'index.php?g=Zp&m=news&a=getone&nid=',
             '14' => 'index.php?g=Zp&m=news&a=getone&nid=',
@@ -236,20 +241,21 @@ class IndexAction extends BaseAction
         return $typeindex;
     }
 
-    private function getHotOne($type=1){
-        $new_=M('archives');
+    private function getHotOne($type = 1)
+    {
+        $new_ = M('archives');
 //        select * from table where find_in_set('c',flag)
-        if($type==1){
-            $sql="select * from tp_archives where find_in_set('h',flag) and  (typeid=13 or typeid=14 or typeid=16) order by senddate desc limit 1";
-        }elseif($type==2){
-            $sql="select * from tp_archives where find_in_set('h',flag) and  (typeid=18 or typeid=21 ) order by senddate desc limit 1";
-        }elseif($type==3){
-            $sql="select * from tp_talk where find_in_set('h',flag)  order by senddate desc limit 1";
+        if ($type == 1) {
+            $sql = "select * from tp_archives where find_in_set('h',flag) and  (typeid=13 or typeid=14 or typeid=16) order by senddate desc limit 1";
+        } elseif ($type == 2) {
+            $sql = "select * from tp_archives where find_in_set('h',flag) and  (typeid=18 or typeid=21 ) order by senddate desc limit 1";
+        } elseif ($type == 3) {
+            $sql = "select * from tp_talk where find_in_set('h',flag)  order by senddate desc limit 1";
         }
-        $res=$new_->query($sql);
-        $typeid= $res[0]['typeid'];
-        $urlarr= $this->getTypeURL();
-        $res[0]['url']=$urlarr[$typeid];
+        $res = $new_->query($sql);
+        $typeid = $res[0]['typeid'];
+        $urlarr = $this->getTypeURL();
+        $res[0]['url'] = $urlarr[$typeid];
         return $res[0];
     }
 

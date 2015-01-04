@@ -31,6 +31,7 @@ class onlineAction extends BaseAction
 //        echo $news->getLastSql();
 //        var_dump($res);
         $this->hotadd($id);
+        $this->assign('id', $id);
         $this->assign('info', $res);
         $this->display();
     }

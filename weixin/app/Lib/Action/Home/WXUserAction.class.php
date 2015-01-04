@@ -46,6 +46,9 @@ class WXUserAction extends Action
     {
         if($noreg==='reg')
            $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode/");
+        elseif($noreg==='suggestenter'){
+            $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_suggest/");
+        }
         else{
             $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_noreg/type/".$noreg);
         }
@@ -76,6 +79,39 @@ class WXUserAction extends Action
                     $_SESSION['openid']=$openid;
                     $_SESSION['nickname']=$sName;
                     $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign'."&sopenid=$openid";
+                    header('location:'.$url);
+                } else {
+                    $this->assign('openid', $openid);
+                    $this->assign('sName', $sName);
+                    $this->display();
+                }
+            }
+        }
+//        $this->assign('openid','111');
+//       $this->display();
+        // header('location:'.$getCodeurl);
+    }
+
+    public function getCode_suggest()
+    {
+        $code = $_GET['code'];
+        $state = $_GET['state'];
+        if (!empty($code)) {
+            $userinfo= $this->getoauthinfo();
+            //  $userinfo=array('openid'=>11,'nickname'=>11);
+            if($userinfo!==false){
+                $openid=$userinfo['openid'];
+                $sName=$userinfo['nickname'];
+                $checkout = $this->getwxmemberId($openid);
+                if ($checkout) {
+//                    $_SESSION['sOpenid'] = $openid;
+//                    $_SESSION['sInvCode'] = '1458432479';
+//                    $_SESSION['iMid'] = $checkout;
+//                  //  $url="index.php?g=Home&m=WXUser&a=index";
+                    $_SESSION['openid']=$openid;
+                    $_SESSION['nickname']=$sName;
+                    $tag='人大代表请等待后台验证后查看！';
+                    $url=C('MAPPURL').'weixin/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag;
                     header('location:'.$url);
                 } else {
                     $this->assign('openid', $openid);
