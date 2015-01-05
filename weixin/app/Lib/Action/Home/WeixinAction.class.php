@@ -261,6 +261,58 @@ class WeixinAction extends Action
         fclose($fp2);
         return md5_file($filename);
     }
+    public function keyword($key)
+    {
+        $like['keyword'] = array('like', ('%' . $key) . '%');
+        $like['token'] = $this->token;
+        $data = M('keyword')->where($like)->order('id desc')->find();
+        if ($data != false) {
+            switch ($data['module']) {
+                case 'Img':
+                    $img_db = M($data['module']);
+                    $back = $img_db->field('id,text,pic,url,title')->limit(9)->order('id desc')->where($like)->select();
+                    $idsWhere = 'id in (';
+                    $comma = '';
+                    foreach ($back as $keya => $infot) {
+                        $idsWhere .= $comma . $infot['id'];
+                        $comma = ',';
+                        if ($infot['url'] != false) {
+                            if (!(strpos($infot['url'], 'http') === FALSE)) {
+                                $url = html_entity_decode($infot['url']);
+                            } else {
+                                $url = $this->getFuncLink($infot['url']);
+                            }
+                        } else {
+                           // $url = rtrim(C('site_url'), '/') . U('Wap/Index/content', array('token' => $this->token, 'id' => $infot['id'], 'wecha_id' => $this->data['FromUserName']));
+                        }
+                        $return[] = array($infot['title'], $infot['text'], $infot['pic'], $url);
+                    }
+                    $idsWhere .= ')';
+                    if ($back) {
+                        $img_db->where($idsWhere)->setInc('click');
+                    }
+                    return array($return, 'news');
+                    break;
+                case 'Text':
+                    $info = M($data['module'])->order('id desc')->find($data['pid']);
+                    return array(htmlspecialchars_decode(str_replace('{wechat_id}', $this->data['FromUserName'], $info['text'])), 'text');
+                    break;
+                default:
+                    $info = M($data['module'])->order('id desc')->find($data['pid']);
+                    return array(array($info['title'], $info['keyword'], $info['musicurl'], $info['hqmusicurl']), 'music');
+            }
+        }
+    }
+    public function getFuncLink($u)
+    {
+        $urlInfos = explode(' ', $u);
+        switch ($urlInfos[0]) {
+            default:
+                $url = str_replace('{wechat_id}', $this->data['FromUserName'], $urlInfos[0]);
+                break;
+        }
+        return $url;
+    }
 }
 
 ?>

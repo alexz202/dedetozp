@@ -36,7 +36,7 @@ class TextAction extends UserAction{
 		}
 	}
 	public function insert(){
-		//C('TOKEN_ON',false);
+		C('TOKEN_ON',false);
 		$this->all_insert();
 	}
 	public function upsave(){

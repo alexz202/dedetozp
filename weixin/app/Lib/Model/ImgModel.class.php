@@ -3,7 +3,7 @@ class ImgModel extends Model{
 
 	protected $_validate =array(
 		array('title','require','标题不能为空',1),
-		array('classid','require','分类必须选择',1),
+		//array('classid','require','分类必须选择',1),
 	);
 	
 	protected $_auto = array (
@@ -11,8 +11,8 @@ class ImgModel extends Model{
 		array('uname','getname',self::MODEL_INSERT,'callback'),
 		array('createtime','time',self::MODEL_INSERT,'function'),
 		array('uptatetime','time',self::MODEL_BOTH,'function'),
-		array('classid','getclassid',self::MODEL_BOTH,'callback'),
-		array('classname','getclassname',self::MODEL_BOTH,'callback'),
+	//	array('classid','getclassid',self::MODEL_BOTH,'callback'),
+	//	array('classname','getclassname',self::MODEL_BOTH,'callback'),
 		array('token','gettoken',self::MODEL_INSERT,'callback'),
 		array('click','0'),
 	);

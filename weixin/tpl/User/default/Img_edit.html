@@ -56,17 +56,17 @@ items : [
                   <TD><textarea  class="px" id="Hfcontent"     name="text" style="width:580px;  height:100px">{weixin:$info.text}</textarea><br />限制200字内
 </TD>
                 </TR>
-                <TR>
-                  <TH valign="top"><label for="classid">文章所属类别：</label></TH>
-                  <TD>
-                   <select name="classid"   > 
-                    <option  value="0">请选择</option>
-                      <volist name="res" id="vo">
-                     <option   value="{weixin:$vo.id},{weixin:$vo.name}" <if condition="$info['classid'] eq $vo['id']">selected</if>>{weixin:$vo.name}</option>
-                      </volist>      
-                    </select><a href="{weixin::U('Classify/add')}"  target="ddd" >添加分类</a>
-                  </TD>
-                </TR> 
+                <!--<TR>-->
+                  <!--<TH valign="top"><label for="classid">文章所属类别：</label></TH>-->
+                  <!--<TD>-->
+                   <!--<select name="classid"   > -->
+                    <!--<option  value="0">请选择</option>-->
+                      <!--<volist name="res" id="vo">-->
+                     <!--<option   value="{weixin:$vo.id},{weixin:$vo.name}" <if condition="$info['classid'] eq $vo['id']">selected</if>>{weixin:$vo.name}</option>-->
+                      <!--</volist>      -->
+                    <!--</select><a href="{weixin::U('Classify/add')}"  target="ddd" >添加分类</a>-->
+                  <!--</TD>-->
+                <!--</TR> -->
 				<TR>
                   <TH valign="top"><label for="pic">封面图片地址：</label></TH>
                   <TD><input class="px" id="pic"  name="pic" value="{weixin:$info.pic}" style="width:580px;"  />  <script src="/tpl/static/upyun.js"></script><a href="###" onclick="upyunPicUpload('pic',700,420,'{weixin:$token}')" class="a_upload">上传</a> <a href="###" onclick="viewImg('pic')">预览</a>

@@ -53,16 +53,16 @@ items : [
 
 </TD>
                 </TR>
-                <TR>
-                  <TH valign="top"><label for="classid">文章所属类别：</label></TH>
-                  <TD>
-                   <select name="classid">
-                      <volist name="info" id="vo">
-                     <option   value="{weixin:$vo.id},{weixin:$vo.name}">{weixin:$vo.name}</option>
-                      </volist>  
-                    </select><a href="{weixin::U('Classify/add')}"  target="ddd" >添加分类</a>
-                  </TD>
-                </TR>
+                <!--<TR>-->
+                  <!--<TH valign="top"><label for="classid">文章所属类别：</label></TH>-->
+                  <!--<TD>-->
+                   <!--<select name="classid">-->
+                      <!--<volist name="info" id="vo">-->
+                     <!--<option   value="{weixin:$vo.id},{weixin:$vo.name}">{weixin:$vo.name}</option>-->
+                      <!--</volist>  -->
+                    <!--</select><a href="{weixin::U('Classify/add')}"  target="ddd" >添加分类</a>-->
+                  <!--</TD>-->
+                <!--</TR>-->
                 <TR style="display:none">
                   <TH valign="top"><label for="picurl">封面图片：</label></TH>
                   <TD>（尺寸：宽720像素，高400像素） 小于500k;<div style="display:none"><input name="upfile" type="file"  class="text textMiddle inputQ" value="请选择图片" /></div></TD>
