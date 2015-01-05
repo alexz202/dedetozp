@@ -180,7 +180,12 @@ class WXUserAction extends Action
             if ($res != false) {
                 $_SESSION['openid']=$openid;
                 $_SESSION['nickname']=$sName;
-                $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign'."&sopenid=$openid";
+                if($_POST['act']=='suggest'){
+                    $tag='人大代表请等待后台验证后查看！';
+                    $url=C('MAPPURL').'weixin/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag;
+                }else{
+                    $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign'."&sopenid=$openid";
+                }
                 header('location:'.$url);
             } else
                 die('bind error');
