@@ -100,8 +100,8 @@ class WeixinAction extends Action
                 // return array('test1','Text');
             }
         }
-
-
+        $key = $data['Content'];
+        return $this->keyword($key);
     }
 
 
