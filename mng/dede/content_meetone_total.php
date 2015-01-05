@@ -33,31 +33,26 @@ $endtime = strtotime($endtime);
 
 
 $adminid = $cuserLogin->getUserID();
-
-
-$query = "select * from `#@__member_belong` order by typeid asc";
+ $query = "select *  from `#@__member_belong` order by type asc";
 $dsql->SetQuery($query);
 $dsql->Execute();
 $list = array();
 $list_attend = array();
 $allcount = 0;
 while ($trow = $dsql->GetObject()) {
-   $belongid=$trow->id;
+    $belongid=$trow->id;
     $belongname=$trow->name;
     $sql = "SELECT count(m.mid) as count from `#@__member_sign` as ms join `#@__member` as m on ms.sOpenId=m.sOpenId  where m.belong=$belongid and ms.infosId=$meetid";
-    $res=  $dsql->GetOne($query);
+    $res=  $dsql->GetOne($sql);
    $count= $res['count'];
     //get belong all member
-    $sql2="select count(m.mid) as count from `#@__member` where belong=$belongid";
-    $res2= $dsql->GetOne($query);
-    $allcount=$res2['count'];
+    $sql2="select count(mid) as count from `#@__member` where belong=$belongid";
+    $res2= $dsql->GetOne($sql2);
+   $allcount=$res2['count'];
     $list[$belongid]['allcount']=$allcount;
-    $list[$belongid]['count']=$count;
+     $list[$belongid]['count']=$count;
     $list[$belongid]['name']=$belongname;
-    $list_attend["$belongid"]=sprintf("%0.2f",($count/$allcount)*100);
+    $list_attend["$belongid"]=sprintf("%0.1f",($count/$allcount)*100);
 }
-
-$list_attend=array_flip(rsort(array_flip($list_attend)));
-
-//var_dump($list);
+arsort($list_attend);
 include DedeInclude($s_tmplets);

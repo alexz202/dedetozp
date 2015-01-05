@@ -3,11 +3,11 @@ if($_GET['output']==='excel'){
 $make=new makeExcel();
 $tagarr=array('序号','村、社区、企业','出席率');
 $i=1;
-      foreach($list_attend as $key=>$value){
-$valuearr[]=array($i,$list[$key]['name'],$value);
+      foreach($lista as $key=>$value){
+$valuearr[]=array($i,$list[$key]['name'],$value['tt']);
 $i++;
       }
-$output=date('YmdHis').'suggesttotal';
+$output=date('YmdHis').'allmeettotal';
 $make->makeEXCEL($tagarr,$valuearr,$output);
 }
 ?>
@@ -27,20 +27,20 @@ $make->makeEXCEL($tagarr,$valuearr,$output);
 </head>
 <body leftmargin="8" topmargin="8" background='images/allbg.gif' onLoad="ContextMenu.intializeContextMenu()">
 
-<!--<table align="center">-->
-    <!--<tr><td>-->
-        <!--<form action="content_suggest_total.php" method="get">-->
-        <!--<select name="year">-->
-            <!--<?php-->
-            <!--foreach($yeararr as $v){-->
-            <!--if($year==$v)-->
-             <!--echo " <option value=\"$v\" selected>$v</option>";-->
-            <!--else-->
-             <!--echo " <option value=\"$v\" >$v</option>";-->
-            <!--}-->
+<table align="center">
+    <tr><td>
+        <form action="content_meetall_total.php" method="get">
+        <select name="year">
+            <?php
+            foreach($yeararr as $v){
+            if($year==$v)
+             echo " <option value=\"$v\" selected>$v</option>";
+            else
+             echo " <option value=\"$v\" >$v</option>";
+            }
 
-            <!--?>-->
-        <!--</select>-->
+            ?>
+        </select>
         <!--<select name="quarter">-->
             <!--<?php-->
             <!--foreach($quarterarr as $k=>$v){-->
@@ -53,10 +53,10 @@ $make->makeEXCEL($tagarr,$valuearr,$output);
             <!--?>-->
         <!--</select>-->
 
-        <!--<input type="submit"  value="查询"/>-->
-        <!--</form>-->
-    <!--</td></tr>-->
-<!--</table>-->
+        <input type="submit"  value="查询"/>
+        </form>
+    </td></tr>
+</table>
 
 
 <!--  内容列表   -->
@@ -73,7 +73,7 @@ $make->makeEXCEL($tagarr,$valuearr,$output);
         </tr>
       <?php
 $i=1;
-      foreach($list_attend as $key=>$value){?>
+      foreach($lista as $key=>$value){?>
         <tr align='center' bgcolor="#FFFFFF" height="26" align="center" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
             <td nowrap>
                 <?php echo $i?>
@@ -82,7 +82,7 @@ $i=1;
              <?php echo $list[$key]['name']?>
             </td>
             <td nowrap>
-                <?php echo $value?>
+                <?php echo $value['tt']?>
             </td>
             <!--<td nowrap>-->
               <!--<a href="content_suggest_list.php?dopost=listArchives&cid=32">查看详细</a>-->

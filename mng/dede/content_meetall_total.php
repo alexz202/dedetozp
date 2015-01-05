@@ -32,19 +32,20 @@ $endtime = strtotime($endtime);
 
 $adminid = $cuserLogin->getUserID();
 //to get all meet
-$query = "select id from `#@__meeting`";
+$query = "select aid from `#@__addoninfos` where starttime>=$startime and endtime<$endtime";
 $dsql->SetQuery($query);
+$dsql->Execute();
 $meetinglist=array();
 while ($trow = $dsql->GetObject()) {
-    $meetinglist[]=array('meetid'=>$trow->id);
+    $meetinglist[]=array('meetid'=>$trow->aid);
 }
-
+$meetingcount=count($meetinglist);
 
 foreach($meetinglist as $value){
     $meetid=$value['meetid'];
 //get one meet total info
 
-    $query = "select * from `#@__member_belong` order by typeid asc";
+    $query = "select * from `#@__member_belong` order by type asc";
     $dsql->SetQuery($query);
     $dsql->Execute();
     $list = array();
@@ -54,22 +55,26 @@ foreach($meetinglist as $value){
         $belongid=$trow->id;
         $belongname=$trow->name;
         $sql = "SELECT count(m.mid) as count from `#@__member_sign` as ms join `#@__member` as m on ms.sOpenId=m.sOpenId  where m.belong=$belongid and ms.infosId=$meetid";
-        $res=  $dsql->GetOne($query);
+        $res=  $dsql->GetOne($sql);
         $count= $res['count'];
         //get belong all member
-        $sql2="select count(m.mid) as count from `#@__member` where belong=$belongid";
-        $res2= $dsql->GetOne($query);
+        $sql2="select count(mid) as count from `#@__member` where belong=$belongid";
+        $res2= $dsql->GetOne($sql2);
         $allcount=$res2['count'];
         $list[$belongid]['allcount']=$allcount;
         $list[$belongid]['count']=$count;
         $list[$belongid]['name']=$belongname;
-        $list_attend["$belongid"]=sprintf("%0.2f",($count/$allcount)*100);
+        $list_attend["$belongid"]=sprintf("%0.1f",($count/$allcount)*100);
+        $lista["$belongid"]['alltotal']=$lista["$belongid"]['alltotal']+$list_attend["$belongid"];
     }
-
-    $list_attend[$meetid][]=array_flip(rsort(array_flip($list_attend)));
+//$lista[$meetid][]=$list_attend;
+    //$list_attend[$meetid][]=array_flip(rsort(array_flip($list_attend)));
 
 }
 
+foreach($lista as $k=>$v){
+$lista[$k]['tt']=sprintf("%0.1f",($v['alltotal']/$meetingcount));
+}
+arsort($lista);
 
-//var_dump($list);
 include DedeInclude($s_tmplets);
