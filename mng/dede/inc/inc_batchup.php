@@ -104,7 +104,8 @@ function DelArc($aid, $type='ON', $onlyfile=FALSE,$recycle=0)
                 }
                 if($issystem != -1)
                 {
-                    $dsql->ExecuteNoneQuery("Delete From `#@__archives` where id='$aid' $whererecycle");
+                   // $dsql->ExecuteNoneQuery("Delete From `#@__archives` where id='$aid' $whererecycle");
+                     $dsql->ExecuteNoneQuery("Delete From `$maintable` where id='$aid' $whererecycle");
                 }
                 //删除相关附件
                 if($cfg_upload_switch == 'Y')

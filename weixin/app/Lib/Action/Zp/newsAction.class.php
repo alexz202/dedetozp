@@ -16,6 +16,7 @@ class newsAction extends BaseAction{
     {
         $news=M('archives');
         $condition['typeid']=$type;
+        $condition['arcrank']=0;
         $newslist=C('NEWSLIST');
         foreach($newslist as $k=>$value){
             if($type==$value['id']){

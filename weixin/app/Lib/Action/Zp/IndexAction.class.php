@@ -172,6 +172,7 @@ class IndexAction extends BaseAction
     {
         $zpinfo = M('zpinfo');
         $condition['belong'] = $bid;
+        $condition['arcrank'] = 0;
         $count_ = $zpinfo->where($condition)->count();
         import('ORG.Util.Page');
         $page = new Page($count_, C('PAGERSIZE'));
@@ -212,12 +213,13 @@ class IndexAction extends BaseAction
     {
         $news = M('archives');
         $condition['typeid'] = $type;
+        $condition['arcank'] = 0;
         $count_ = $list = $news->where($condition)->count();
         import('ORG.Util.Page');
         $page = new Page($count_, C('PAGERSIZE'));
         $page->setConfig('theme', "%upPage%   %downPage% ");
         if ($type == DEALID)
-            $list = $news->join("__ADDONCOMMENT__ ON __ARCHIVES__.id=__ADDONCOMMENT__.aid where __ARCHIVES__.typeid=$type")->order('id desc')->limit($page->firstRow . ',' . $page->listRows)->select();
+            $list = $news->join("__ADDONCOMMENT__ ON __ARCHIVES__.id=__ADDONCOMMENT__.aid where __ARCHIVES__.typeid=$type and __ARCHIVES__.arcrank=0 ")->order('id desc')->limit($page->firstRow . ',' . $page->listRows)->select();
         else
             $list = $news->where($condition)->order('id desc')->limit($page->firstRow . ',' . $page->listRows)->select();
         // var_dump($list);
@@ -246,11 +248,11 @@ class IndexAction extends BaseAction
         $new_ = M('archives');
 //        select * from table where find_in_set('c',flag)
         if ($type == 1) {
-            $sql = "select * from tp_archives where find_in_set('h',flag) and  (typeid=13 or typeid=14 or typeid=16) order by senddate desc limit 1";
+            $sql = "select * from tp_archives where find_in_set('h',flag) and  (typeid=13 or typeid=14 or typeid=16)  and arcrank=0 order by senddate desc limit 1";
         } elseif ($type == 2) {
-            $sql = "select * from tp_archives where find_in_set('h',flag) and  (typeid=18 or typeid=21 ) order by senddate desc limit 1";
+            $sql = "select * from tp_archives where find_in_set('h',flag) and  (typeid=18 or typeid=21 ) and arcrank=0 order by senddate desc limit 1";
         } elseif ($type == 3) {
-            $sql = "select * from tp_talk where find_in_set('h',flag)  order by senddate desc limit 1";
+            $sql = "select * from tp_talk where find_in_set('h',flag) and arcrank=0 order by senddate desc limit 1";
         }
         $res = $new_->query($sql);
         $typeid = $res[0]['typeid'];
