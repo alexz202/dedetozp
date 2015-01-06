@@ -3,7 +3,7 @@
 <head>
 <head>
     <meta charset="utf-8">
-    <title>{weixin:$keywords}</title>
+    <title>{weixin:$info.title}</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -21,7 +21,7 @@
 <div class="content" style="background-color:white;">
     <div style="width: 94%;margin: 5px auto;">
         <div id='newscontent content-padded' style="text-align: left"><h4>{weixin:$info.title}</h4></div>
-        <h7>{weixin:$info.senddate|date='Y-m-d',###}</h7>
+        <h7>{weixin:$info.senddate|date='Y-m-d',###} &nbsp;&nbsp;{weixin:$info.source}</h7>
         <p>{weixin:$info.body}</p>
     </div>
 </div>

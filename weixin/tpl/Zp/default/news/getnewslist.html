@@ -21,20 +21,34 @@
 <div class="content">
     <include file="../btnback"/>
     <ul class="table-view">
-        <volist name="commentlist" id="vo">
-            <li class="table-view-cell media">
-                <a class="" href="__ROOT__/index.php?g=Zp&m=news&a=getone&nid={weixin:$vo.id}" data-ignore="push">
-                    <empty name="vo['litpic']"><img class="media-object pull-left" src="http://placehold.it/42x42">
-                        <else/>
-                        <img class="media-object pull-left" src="{weixin:$vo.litpic}" style="width:45px">
-                    </empty>
-                    <div class="media-body" style="font-size:0.8em;line-height: 25px;">
-                        【{weixin:$vo.senddate|date='Y-m-d',###}】
-                        <p>{weixin:$vo.title}<span style="float: right">点击：{weixin:$vo.click}</span></p>
-                    </div>
-                </a>
-            </li>
-        </volist>
+<if condition="$type eq 16">
+    <volist name="commentlist" id="vo">
+        <li class="table-view-cell media">
+            <a class="" href="__ROOT__/index.php?g=Zp&m=news&a=getone&nid={weixin:$vo.id}" data-ignore="push">
+                <div class="media-body" style="font-size:0.8em;line-height: 25px;">
+                    【{weixin:$vo.senddate|date='Y-m-d',###}】
+                    <p>{weixin:$vo.title}<span style="float: right">点击：{weixin:$vo.click}</span></p>
+                </div>
+            </a>
+        </li>
+    </volist>
+    <else/>
+    <volist name="commentlist" id="vo">
+        <li class="table-view-cell media">
+            <a class="" href="__ROOT__/index.php?g=Zp&m=news&a=getone&nid={weixin:$vo.id}" data-ignore="push">
+                <empty name="vo['litpic']"><img class="media-object pull-left" src="http://placehold.it/42x42">
+                    <else/>
+                    <img class="media-object pull-left" src="{weixin:$vo.litpic}" style="width:45px">
+                </empty>
+                <div class="media-body" style="font-size:0.8em;line-height: 25px;">
+                    【{weixin:$vo.senddate|date='Y-m-d',###}】
+                    <p>{weixin:$vo.title}<span style="float: right">点击：{weixin:$vo.click}</span></p>
+                </div>
+            </a>
+        </li>
+    </volist>
+    </if>
+
     </ul>
     <div class="pagerbtn">
         <div style="float:right;">{weixin:$page}</div>

@@ -14,6 +14,7 @@ class newsAction extends BaseAction{
 	}
     public function getnewslist($type=WORKER)
     {
+
         $news=M('archives');
         $condition['typeid']=$type;
         $condition['arcrank']=0;
@@ -31,11 +32,13 @@ class newsAction extends BaseAction{
         $page=new Page($count_,C('PAGERSIZE'));
         $page->setConfig('theme',"%upPage%   %downPage% ");
         $list=$news->where($condition)->order('id desc')->limit($page->firstRow.','.$page->listRows)->select();
-       // var_dump($list);
+      //  var_dump($list);
+    //    die();
         $show=$page->show();
         $this->assign('commentlist',$list);
         $this->assign('page',$show);
         $this->assign('count',$count_);
+        $this->assign('type',$type);
         $this->display();
     }
     public function getone($nid){
