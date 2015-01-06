@@ -164,7 +164,7 @@ $menusMain = "
 
 <m:top item='24_' name='会议管理' display='none' rank='member_List,member_Type'>
   <m:item name='会议管理' link='content_sg_list.php?channelid=-8' rank='member_List' target='main'  id='meetingmanager'/>
-  <m:item name='会议统计' link='archives_do.php?dopost=showbelongsignIn' rank='member_Type' target='main' id='meetingtotal'/>
+  <m:item name='会议统计' link='content_meetall_total.php' rank='member_Type' target='main' id='meetingtotal'/>
 </m:top>
 
 $adminMenu2
