@@ -125,7 +125,7 @@ function shareWeibo() {
 
 
 
-        "url": lineLink,
+        "url": lineLink
 
 
 
@@ -139,62 +139,39 @@ function shareWeibo() {
 
 }
 
-
-
-// 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
-
-
-
-document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-
-
-
-    // 发送给好友
-
-
-
+function onBridgeReady(){
+  //  WeixinJSBridge.call('hideToolbar');
     WeixinJSBridge.on('menu:share:appmessage', function(argv){
-
-
-
         shareFriend();
-
-
-
     });
-
-
 
     // 分享到朋友圈
 
 
-
     WeixinJSBridge.on('menu:share:timeline', function(argv){
-
-
-
         shareTimeline();
 
-
-
     });
-
-
 
     // 分享到微博
 
 
-
     WeixinJSBridge.on('menu:share:weibo', function(argv){
-
-
-
         shareWeibo();
-
-
-
     });
 
 
+}
 
-}, false);
+// 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+
+if (typeof WeixinJSBridge == "undefined"){
+    if( document.addEventListener ){
+        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+    }else if (document.attachEvent){
+        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+    }
+}else{
+    onBridgeReady();
+}
