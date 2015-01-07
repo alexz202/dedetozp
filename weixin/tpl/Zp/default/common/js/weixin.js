@@ -17,7 +17,7 @@ var shareTitle = '周浦人大';
 
 
 
-var appid = '';
+var appid = 'wxab27ae668e90cb25';
 
 
 
