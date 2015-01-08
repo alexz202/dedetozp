@@ -53,7 +53,7 @@
             <td width="28%">意见内容</td>
             <td width="10%">时间</td>
             <td width="10%">分类</td>
-            <td width="8%">发布人</td>
+            <td width="8%">昵称</td>
             <td width="10%">操作</td>
         </tr>
         {dede:datalist}
@@ -77,7 +77,7 @@
             <td><a href='content_suggest_list.php?cid={dede:field.typeid/}'>{dede:field.typeid function='GetTypename(@me)'/}</td>
             <!--<td>{dede:field.ismake function="IsHtmlArchives(@me)"/}</td>-->
             <!--<td>{dede:field.arcrank function="GetRankName(@me)"/}</td>-->
-            <td>{dede:field.mid function=GetMemberName(@me)/}</td>
+            <td>{dede:field.writer/}</td>
             <td>
                 <!--<img src='images/trun.gif' title="编辑属性" alt="编辑属性" onClick="QuickEdit({dede:field.id/}, event, this);" style='cursor:pointer' border='0' width='16' height='16' />-->
                 <img src='images/gtk-edit.png' title="编辑" alt="编辑" onClick="editSuggest({dede:field.id/});" style='cursor:pointer' border='0' width='16' height='16' />
