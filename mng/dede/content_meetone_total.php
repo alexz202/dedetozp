@@ -30,8 +30,8 @@ $startime = $year . '-' . $arr['starttime'];
 $endtime = $year . '-' . $arr['endtime'];
 $startime = strtotime($startime);
 $endtime = strtotime($endtime);
-
-
+$res=   $dsql->GetOne("SELECT title,attend FROM `#@__addoninfos` where aid=$meetid ");
+$title=$res['title'];
 $adminid = $cuserLogin->getUserID();
  $query = "select *  from `#@__member_belong` order by type asc";
 $dsql->SetQuery($query);

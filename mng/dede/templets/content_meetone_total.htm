@@ -7,7 +7,7 @@ $i=1;
 $valuearr[]=array($i,$list[$key]['name'],$value);
 $i++;
       }
-$output=date('YmdHis').'suggesttotal';
+$output=date('YmdHis').$title;
 $make->makeEXCEL($tagarr,$valuearr,$output);
 }
 ?>
@@ -63,7 +63,7 @@ $make->makeEXCEL($tagarr,$valuearr,$output);
     <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#CFCFCF" align="center" style="margin-top:8px">
         <tr bgcolor="#E7E7E7" >
             <td height="28" colspan="10" background="images/tbg.gif" style="padding-left:10px;">
-                ◆ 会议统计》 &nbsp;
+                ◆ 会议统计》 &nbsp;<?php echo $title;?>
             </td>
         </tr>
         <tr align="center" bgcolor="#FBFCE2" height="25">

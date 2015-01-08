@@ -1172,7 +1172,8 @@ function showsignIn() {  }
 
 else if($dopost=='showsignIn'){
  $aid=$_GET['aid'];
-  $res=   $dsql->GetOne("SELECT attend FROM `#@__addoninfos` where aid=$aid ");
+  $res=   $dsql->GetOne("SELECT title,attend FROM `#@__addoninfos` where aid=$aid ");
+    $title=$res['title'];
   $attendlist=parseATTEND($res['attend']);
     $attenduname=getATTENDNAMELIST($dsql,$attendlist);
     $dsql->SetQuery("SELECT * FROM `#@__member_sign` as ms join `#@__member` as m on m.sOpenId=ms.sOpenId  where ms.infosId=$aid ");
