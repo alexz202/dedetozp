@@ -23,7 +23,7 @@ else $keyword = trim(FilterSearch($keyword));
 
 $mtypeform = empty($mtype) ? "<option value=''>类型</option>\r\n" : "<option value='$mtype'>$mtype</option>\r\n";
 $sexform = empty($sex) ? "<option value=''>性别</option>\r\n" : "<option value='$sex'>$sex</option>\r\n";
-$sortkey = empty($sortkey) ? 'm.rank' : preg_replace("#[^a-z]#i",'',$sortkey);
+$sortkey = empty($sortkey) ? 'rank' : preg_replace("#[^a-z]#i",'',$sortkey);
 
 $staArr = array(-2=>'限制用户(禁言)', -1=>'未通过审核', 0=>'审核通过，提示填写完整信息', 1=>'没填写详细资料', 2=>'正常使用状态');
 $staArrmatt = array(1=>'被推荐', 0=>'非普通 ' );
@@ -83,7 +83,7 @@ while($row = $dsql->GetArray())
 {
     $MemberModels[] = $row;
 }
-$sql  = "SELECT * FROM `#@__member` as m left join `#@__member_belong` as bm on m.belong=bm.id $whereSql ORDER BY $sortkey DESC ";
+$sql  = "SELECT m.* FROM `#@__member` as m left join `#@__member_belong` as bm on m.belong=bm.id $whereSql ORDER BY $sortkey DESC ";
 $dlist = new DataListCP();
 $dlist->SetParameter('sex',$sex);
 $dlist->SetParameter('spacesta',$spacesta);
