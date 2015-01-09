@@ -16,11 +16,7 @@ $ENV_GOBACK_URL = isset($_COOKIE['ENV_GOBACK_URL']) ? "member_main.php" : '';
 $id = preg_replace("#[^0-9]#", "", $id);
 $row = $dsql->GetOne("select  * from #@__member_belong where id='$id'");
 
-$staArr = array(
-    1=>'村',
-    2=>'社区',
-    3=>'企业',
-);
+$staArr =json_decode(BELONDTYPE,true);
 
 ////如果这个用户是管理员帐号，必须有足够权限的用户才能操作
 //if($row['matt']==10) CheckPurview('sys_User');

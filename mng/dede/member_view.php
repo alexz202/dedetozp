@@ -18,7 +18,9 @@ $row = $dsql->GetOne("select  * from #@__member where mid='$id'");
 
 $belong=$row['belong'];
 $row1 = $dsql->GetOne("select  * from #@__member_belong where id=$belong");
-$arrbelongtype=array('村','社区','企业');
+$arrbelongtype =json_decode(BELONDTYPE,true);
+//$arrbelongtype=array('村','社区','企业');
+$arrbelongtype=array_values($arrbelongtype);
 $pid=$row1['type'];
 $dsql->SetQuery("SELECT * FROM `#@__member_belong` WHERE type=$pid");
 $dsql->Execute();

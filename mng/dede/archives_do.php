@@ -1104,7 +1104,7 @@ else if($dopost=='getMemberLst')
     $dsql->Execute();
     $list=array();
     $list_=array();
-    $arrbelongtype=array('其他','村','社区','企业');
+    $arrbelongtype=array('未分配','村','社区','企业','其他');
     while($trow = $dsql->GetObject()){
         if(!empty($trow->type))
         $list[$arrbelongtype[$trow->type]][$trow->name][]=array('mid'=>$trow->mid,'sOpenId'=>$trow->sOpenId,'belongname'=>$trow->name,'username'=>$trow->uname);
