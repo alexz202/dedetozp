@@ -83,7 +83,7 @@ while($row = $dsql->GetArray())
 {
     $MemberModels[] = $row;
 }
-$sql  = "SELECT m.* FROM `#@__member` as m left join `#@__member_belong` as bm on m.belong=bm.id $whereSql ORDER BY $sortkey DESC ";
+$sql  = "SELECT m.*,bm.name FROM `#@__member` as m left join `#@__member_belong` as bm on m.belong=bm.id $whereSql ORDER BY $sortkey DESC ";
 $dlist = new DataListCP();
 $dlist->SetParameter('sex',$sex);
 $dlist->SetParameter('spacesta',$spacesta);
