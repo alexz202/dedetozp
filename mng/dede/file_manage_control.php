@@ -86,21 +86,36 @@ else if($fmdo=="edit")
 /*
 文件编辑，可视化模式
 function __saveEditView();
-else if($fmdo=="editview")
+else if($fmdo=="editview")  <tr>
+      <td height="28" colspan="2" bgcolor="#F9FCEF" class="bline2">
+      	<div style='float:left;line-height:28px;'>&nbsp;<strong>内容：</strong></div>
+
+      </td>
+    </tr>
 {
     $filename = str_replace("..","",$filename);
     $file = "$cfg_basedir$activepath/$filename";
     $str = eregi_replace('&quot;','\\"',$str);
     $str = stripslashes($str);
     $fp = fopen($file,"w");
-    fputs($fp,$str);
+    fputs($fp,$str);  <tr>
+      <td height="28" colspan="2" bgcolor="#F9FCEF" class="bline2">
+      	<div style='float:left;line-height:28px;'>&nbsp;<strong>内容：</strong></div>
+
+      </td>
+    </tr>
     fclose($fp);
     if(empty($backurl))
     {
         $backurl = "file_manage_main.php?activepath=$activepath";
     }
     ShowMsg("成功保存文件！",$backurl);
-    exit();
+    exit();  <tr>
+      <td height="28" colspan="2" bgcolor="#F9FCEF" class="bline2">
+      	<div style='float:left;line-height:28px;'>&nbsp;<strong>内容：</strong></div>
+
+      </td>
+    </tr>
 }
 */
 //文件上传

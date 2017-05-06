@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+    <meta charset="utf-8">
+    <title>{weixin:$keywords}</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="__ROOT__/{weixin::RES}/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/default.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/psindex.css" rel="stylesheet">
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/jquery.min.js"></script>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/ratchet.js"></script>
+</head>
+</head>
+<body>
+<include file="../head_index"/>
+<!--<include file="../nav_online"/>-->
+<div class="content">
+<ul class="table-view">
+<volist name="commentlist" id="vo">
+    <li class="table-view-cell media">
+        <if condition="$vo.result eq 0">
+                <div class="media-body" style="font-size:0.8em;">
+                    <span style="color: blue;">【已结束】</span>
+                    <p>{weixin:$vo.title}</p>
+                    <p><span style="float: right">点击：{weixin:$vo.click}</span></p>
+                </div>
+            <else/>
+            <a class="" href="__ROOT__/index.php?g=Zp&m=online&a=suggestone&id={weixin:$vo.id}" data-ignore="push">
+                <div class="media-body" style="font-size:0.8em;">
+                    <span style="color: red;">【进行中】</span>
+                    <p>{weixin:$vo.title}</p>
+                    <p><span style="float: right">点击：{weixin:$vo.click}</span></p>
+                </div>
+            </a>
+            </if>
+
+        <!--<a class="" href="__ROOT__/index.php?g=Zp&m=online&a=suggestone&id={weixin:$vo.id}" data-ignore="push">-->
+            <!--<div class="media-body" style="font-size:0.8em;">-->
+                <!--<if condition="$vo.result eq 0"><span style="color: blue;">【已结束】</span><else/><span style="color: red;">【进行中】</span></if>-->
+                <!--<p>{weixin:$vo.title}</p>-->
+                <!--<p><span style="float: right">点击：{weixin:$vo.click}</span></p>-->
+            <!--</div>-->
+        <!--</a>-->
+    </li>
+</volist>
+</ul>
+    <!--<div  class="pagerbtn"><div style="float:right;">{weixin:$page}</div></div>-->
+</div>
+
+</body>
+</html>

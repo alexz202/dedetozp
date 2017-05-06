@@ -16,6 +16,7 @@ define('TALKTYPEID',24);
 define('ZPINFO',19);
 define('COMMENT',20);
 define('BELONDTYPE','{"1":"村","2":"社区","3":"企业","4":"其他"}');
+define('GAS',33);
 
 
 require_once(DEDEADMIN.'/../include/common.inc.php');
@@ -278,6 +279,21 @@ function GetFtp($current='', $formname='')
         echo  $select."</select>";
     }
 }
+
+function uploadFIle($file,$filePath){
+    if(isset($file)){
+        $path=$filePath.$file['name'];
+        $res=  move_uploaded_file($file['tmp_name'],$path);
+        if($res){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+
 helper('cache');
 /**
  *  根据用户mid获取用户名称
@@ -299,3 +315,7 @@ if(!function_exists('GetMemberName')){
 		return $rs['uname'];
 	}
 }
+
+
+
+

@@ -154,6 +154,7 @@ $menusMain = "
 <m:top item='22_' name='代表风采' display='none' rank='member_List,member_Type'>
    <m:item name='代表信息' link='content_zpinfo_list.php?channelid=17' rank='member_List' target='main' id='dbinfo'/>
     <m:item name='意见办理' link='content_comment_list.php?channelid=18' rank='member_List' target='main' id='contenty'/>
+       <m:item name='代表加油站' link='content_gas_list.php?channelid=19' rank='member_List' target='main' id='contenty'/>
 </m:top>
 
 <m:top item='23_' name='意见建议' display='none' rank='member_List,member_Type'>
