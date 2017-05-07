@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+    <meta charset="utf-8">
+    <title>{weixin:$keywords}</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="__ROOT__/{weixin::RES}/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/default.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/psindex.css" rel="stylesheet">
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/jquery.min.js"></script>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/ratchet.js"></script>
+</head>
+</head>
+<body>
+<include file="../head_index"/>
+<!--<include file="../nav_msg"/>-->
+<div class="content" style="background-color:white;">
+    <div style="width: 94%;margin: 0 auto;font-size: 0.8em;height: auto;">
+        <p> {weixin:$info.msg}</p>
+        <if condition="$mtype eq 2">
+                <if condition="$needRemsg eq 1">
+                    <div style="float: right;">   <a href="__ROOT__/index.php?g=Zp&m=msg&a=reMsg&id={weixin:$info.id}" data-ignore="push">
+                        <button class="btn btn-positive">回复</button></a>
+                    </div>
+                    <else/>
+                    <div style="padding-left: 10px;color: red;">回复：{weixin:$info.remsg}</div>
+                </if>
+            <else/>
+                <if condition="$needRemsg eq 1">
+                    <div style="padding-left: 10px;color: red;">暂没有回复</div>
+                    <else/>
+                    <div style="padding-left: 10px;color: red;">回复：{weixin:$info.remsg}</div>
+                </if>
+
+        </if>
+    </div>
+</div>
+
+</body>
+</html>

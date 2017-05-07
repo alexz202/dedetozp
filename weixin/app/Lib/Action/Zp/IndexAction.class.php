@@ -261,4 +261,30 @@ class IndexAction extends BaseAction
         return $res[0];
     }
 
+//new
+
+	public function gasStation()
+	{
+		$this->overridegetlistByGas();
+		$zpstyle = C('GAS');
+		$this->assign('active', $zpstyle['value']);
+		$this->assign('keywords', $zpstyle['key']);
+		$this->display();
+	}
+
+	private function overridegetlistByGas()
+	{
+		$news = M('gas');
+		$condition['arcank'] = 0;
+		$count_ = $list = $news->where($condition)->count();
+		import('ORG.Util.Page');
+		$page = new Page($count_, C('PAGERSIZE'));
+		$page->setConfig('theme', "%upPage%   %downPage% ");
+			$list = $news->where($condition)->order('id desc')->limit($page->firstRow . ',' . $page->listRows)->select();
+		// var_dump($list);
+		$show = $page->show();
+		$this->assign('commentlist', $list);
+		$this->assign('page', $show);
+		$this->assign('count', $count_);
+	}
 }

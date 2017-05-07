@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{weixin:$keywords}</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="__ROOT__/{weixin::RES}/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/default.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/psindex.css" rel="stylesheet">
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/jquery.min.js"></script>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/ratchet.js"></script>
+</head>
+<body>
+<include file="../head"/>
+<!--<include file="../nav"/>-->
+
+<div id="content" class="content" style="">
+    <!--<include file="../btnback"/>-->
+    <div class="segmented-control">
+        <a class="control-item active" href="#item1mobile">
+            村
+        </a>
+        <a class="control-item " href="#item2mobile">
+            社区
+        </a>
+        <!--<a class="control-item" href="#item3mobile">-->
+            <!--企业-->
+        <!--</a>-->
+    </div>
+    <div id="divcontrol" class="card">
+        <span id="item1mobile" class="control-content active">
+            <ul class="table-view" style="font-size: 14px;">
+                <volist name="list[1]" id="vo">
+                    <li class="table-view-cell">
+                        <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpOneArea&bid={weixin:$vo.id}"
+                           data-ignore="push">
+                            {weixin:$vo.name}
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </span>
+        <span id="item2mobile" class="control-content">
+              <ul class="table-view" style="font-size: 14px;">
+                  <volist name="list[2]" id="vo">
+                      <li class="table-view-cell">
+                          <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpOneArea&bid={weixin:$vo.id}"
+                             data-ignore="push">
+                              {weixin:$vo.name}
+                          </a>
+                      </li>
+                  </volist>
+              </ul>
+        </span>
+        <!--<span id="item3mobile" class="control-content">-->
+              <!--<ul class="table-view" style="font-size: 14px;">-->
+                  <!--<volist name="list[3]" id="vo">-->
+                      <!--<li class="table-view-cell">-->
+                          <!--<a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"-->
+                             <!--data-ignore="push">-->
+                              <!--{weixin:$vo.name}-->
+                          <!--</a>-->
+                      <!--</li>-->
+                  <!--</volist>-->
+              <!--</ul>-->
+        <!--</span>-->
+    </div>
+</div>
+
+
+</body>
+</html>

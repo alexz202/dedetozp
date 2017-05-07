@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<head>
     <meta charset="utf-8">
     <title>{weixin:$keywords}</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
@@ -9,30 +8,25 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link href="__ROOT__/{weixin::RES}/ratchet/css/ratchet.css" rel="stylesheet">
     <link href="__ROOT__/{weixin::RES}/css/default.css" rel="stylesheet">
-    <link href="__ROOT__/{weixin::RES}/css/psindex.css" rel="stylesheet">
     <script src="__ROOT__/{weixin::RES}/ratchet/js/jquery.min.js"></script>
     <!-- Include the compiled Ratchet JS -->
     <script src="__ROOT__/{weixin::RES}/ratchet/js/ratchet.js"></script>
 </head>
-</head>
 <body>
-<include file="../head_index"/>
-<include file="../nav_msg"/>
+<include file="../head_one"/>
+<!--<include file="../nav_online"/>-->
 <div class="content">
-<ul class="table-view">
-    <volist name="list" id="vo">
-        <li class="table-view-cell media">
-            <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=Detail&id={weixin:$vo.id}&type=2" data-ignore="push">
-                <div class="media-body" style="font-size:0.8em;">
-                    <p>{weixin:$vo.msg}</p>
-                    <p><span style="float: right">详细</span></p>
-                </div>
-            </a>
-        </li>
-    </volist>
-</ul>
-    <!--<div  class="pagerbtn"><div style="float:right;">{weixin:$page}</div></div>-->
+    <div style="width: 96%;margin: 0 auto;">
+        <p>请发表您对{weixin:$toMsgObjInfo}的宝贵意见:</p>
+    <form method="post" action="__ROOT__/index.php?g=Zp&m=msg&a=addMsg">
+        <input type="hidden" name="type" value="{weixin:$type}"/>
+        <input type="hidden" name="toMid" value="{weixin:$toMid}"/>
+        <textarea rows="8" name="info"></textarea>
+        <button class="btn btn-positive btn-block">提交</button>
+    </form>
+    </div>
 </div>
+
 
 </body>
 </html>

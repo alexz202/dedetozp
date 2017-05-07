@@ -13,6 +13,16 @@ class onlineAction extends BaseAction
     private $keywords_suggest = '意见建议';
     private $keywords_sign = '代表签到';
     private $keywords_meeting = '会议信息';
+	/*
+	 * 在线互动首页
+	 */
+	public function  index(){
+		$openid = $_SESSION['openid'];
+		$nickname = $_SESSION['nickname'];
+		$this->assign('keywords', $this->keywords);
+		$this->display();
+	}
+
 
     public function suggest()
     {

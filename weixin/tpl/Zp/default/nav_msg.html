@@ -1,21 +1,21 @@
 <nav class="bar bar-tab" style="background-color:#c40000;color:#ffffff;font-size: 12pt; ">
 
-    <if condition="$active eq 'suggest'">
-        <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=online&a=suggest" data-ignore="push">
-            
+    <if condition="$active eq 'MyAddMsg'">
+        <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=msg&a=MyAddMsg" data-ignore="push">
+            我的建议
         </a>
         <else/>
-        <a class="tab-item" href="__ROOT__/index.php?g=Zp&m=online&a=suggest" data-ignore="push">
-            意见建议
+        <a class="tab-item" href="__ROOT__/index.php?g=Zp&m=msg&a=MyAddMsg" data-ignore="push">
+            我的建议
         </a>
     </if>
-    <if condition="$active eq 'sign'">
-        <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=online&a=sign" data-ignore="push">
-           代表签到
+    <if condition="$active eq 'toMyMsg'">
+        <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=msg&a=toMyMsg" data-ignore="push">
+           对我的建议
         </a>
         <else/>
-        <a class="tab-item" href="__ROOT__/index.php?g=Zp&m=online&a=sign" data-ignore="push">
-           代表签到
+        <a class="tab-item" href="__ROOT__/index.php?g=Zp&m=msg&a=toMyMsg" data-ignore="push">
+            对我的建议
         </a>
     </if>
 

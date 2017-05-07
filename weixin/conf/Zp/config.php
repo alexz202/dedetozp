@@ -34,4 +34,5 @@ return array(
         array('key'=>'意见办理','value'=>DEAL),
         array('key'=>'代表展播','value'=>DBZB),
     ),
+	'GAS'=>array('key'=>'人大代表加油站'),
 );

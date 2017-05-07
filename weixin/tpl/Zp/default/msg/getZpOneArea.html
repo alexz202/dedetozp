@@ -16,22 +16,25 @@
 </head>
 </head>
 <body>
-<include file="../head_index"/>
-<include file="../nav_msg"/>
+<!--<include file="../head"/>-->
+<!--<include file="../nav"/>-->
 <div class="content">
 <ul class="table-view">
-    <volist name="list" id="vo">
-        <li class="table-view-cell media">
-            <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=Detail&id={weixin:$vo.id}&type=2" data-ignore="push">
-                <div class="media-body" style="font-size:0.8em;">
-                    <p>{weixin:$vo.msg}</p>
-                    <p><span style="float: right">详细</span></p>
-                </div>
-            </a>
-        </li>
-    </volist>
+<volist name="commentlist" id="vo">
+    <li class="table-view-cell media">
+        <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getoneperson&id={weixin:$vo.id}" data-ignore="push">
+            <empty name="vo['litpic']"><img class="media-object pull-left" src="http://placehold.it/42x42">
+            <else/>
+            <img class="media-object pull-left" src="{weixin:$vo.litpic}" style="width:45px">
+            </empty>
+            <div class="media-body content-padded" style="font-size:0.8em;line-height: 25px;">
+                <p>{weixin:$vo.title}<span style="float: right">详细</span></p>
+            </div>
+        </a>
+    </li>
+</volist>
 </ul>
-    <!--<div  class="pagerbtn"><div style="float:right;">{weixin:$page}</div></div>-->
+<div  class="pagerbtn"><div style="float:right;">{weixin:$page}</div></div>
 </div>
 
 </body>

@@ -51,8 +51,26 @@ class newsAction extends BaseAction{
         $this->assign('info',$res);
         $this->display();
     }
-    private function hotadd($nid){
-        $news=M('archives');
+
+	public function getonegas($nid){
+		$news=M('gas');
+		$condition["id"]=$nid;
+		$res=$news->join("__ADDONGAS__ on __GAS__.id=__ADDONGAS__.aid")->where($condition)->find();
+		$path='/dedetozp/mng/uploads/files/';
+		$res['file']=$path.$res['filename'];
+//        echo $news->getLastSql();
+//        var_dump($res);
+		$this->hotadd($nid,1);
+		$this->assign('info',$res);
+		$this->display();
+	}
+
+    private function hotadd($nid,$type=0){
+		if($type==1){
+			$news=M('gas');
+		}else{
+			$news=M('archives');
+		}
         $condition["id"]=$nid;
         $news->where($condition)->setInc('click',1);
     }
