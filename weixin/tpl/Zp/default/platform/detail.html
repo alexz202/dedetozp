@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{weixin:$keywords}</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="__ROOT__/{weixin::RES}/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/default_1.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/index.css" rel="stylesheet">
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/jquery.min.js"></script>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/ratchet.js"></script>
+    <!--<script src="__ROOT__/{weixin::RES}/js/weixinapi.js"></script>-->
+</head>
+<body>
+<!--<include file="../head_index"/>-->
+<!--<include file="../nav_msg"/>-->
+<!--<header class="bar bar-nav">-->
+    <!--<h1 class="title" style="color:#000000">{weixin:$keywords}</h1>-->
+<!--</header>-->
+<div class="content">
+
+    <ul class="table-view" style="font-size:14px;">
+        <li class="table-view-cell media">
+            <div class="pull-left">
+                <!--{weixin:$info.content}-->
+               {weixin:$info.description}
+            </div>
+
+        </li>
+        <li class="table-view-divider"></li>
+        <li class="table-view-cell media">
+            <div class="pull-left">
+                <ul class="table-view">
+                    <volist name="list" id="vo">
+                        <li class="table-view-cell media">
+                            <a class="" href="__ROOT__/index.php?g=Zp&m=news&a=getone&nid={weixin:$vo.id}" data-ignore="push">
+                                <!--<empty name="vo['litpic']"><img class="media-object pull-left" src="http://placehold.it/42x42">-->
+                                <!--<else/>-->
+                                <img class="media-object pull-left" src="{weixin:$vo.litpic}" style="width:45px">
+                                <!--</empty>-->
+                                <div class="media-body" style="font-size:0.8em;line-height: 25px;">
+                                    【{weixin:$vo.senddate|date='Y-m-d',###}】
+                                    <p>{weixin:$vo.title}<span style="float: right">点击：{weixin:$vo.click}</span></p>
+                                </div>
+                            </a>
+                        </li>
+                    </volist>
+                 </ul>
+            </div>
+            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=news&a=getnewslist&type={weixin:$type}" data-ignore="push">更多</a></div>
+        </li>
+        <li class="table-view-divider"></li>
+
+    </ul>
+
+</div>
+</body>
+</html>

@@ -11,8 +11,8 @@ class msgAction extends BaseAction{
 	 */
 
 	private $typeStr_1='周浦镇人大代表之家';
-	private $typeStr_2 = '人大代表工作室';
-	private $typeStr_3 = '村/社区代表之家';
+	private $typeStr_2 = '村/社区代表之家';
+	private $typeStr_3 = '人大代表工作室代表';
 
 	function getZpAreaList(){
 		$member_belong = M('member_belong');
@@ -29,14 +29,14 @@ class msgAction extends BaseAction{
 	}
 
 	function getZpOneArea($bid){
-		$zpinfo = M('zpinfo');
-		$condition['belong'] = $bid;
-		$condition['arcrank'] = 0;
+		$zpinfo = M('member');
+		$condition['rank'] = array('in',[180,200]);
+		$condition['belong'] =$bid;
 		$count_ = $zpinfo->where($condition)->count();
 		import('ORG.Util.Page');
 		$page = new Page($count_, C('PAGERSIZE'));
 		$page->setConfig('theme', "%upPage%   %downPage% ");
-		$list = $zpinfo->where($condition)->order('id desc')->limit($page->firstRow . ',' . $page->listRows)->select();
+		$list = $zpinfo->where($condition)->order('mid desc')->limit($page->firstRow . ',' . $page->listRows)->select();
 		// var_dump($list);
 		$show = $page->show();
 		$this->assign('commentlist', $list);
@@ -56,12 +56,17 @@ class msgAction extends BaseAction{
 	function add(){
 		$type=$_GET['type'];
 		$obj='typeStr_'.$type;
+		$toMsgObjInfo=$this->$obj;
 		if($type==3){
 			$toMid=$_GET['toMid'];
+			$model=M('member');
+			$member=$model->where(array('mid'=>$toMid))->find();
+			$bid=$member['belong'];
+			$uname=$member['uname'];
+			$toMsgObjInfo.=':'.$uname;
 		}else{
 			$toMid=0;
 		}
-		$toMsgObjInfo=$this->$obj;
 		$this->assign('toMsgObjInfo',$toMsgObjInfo);
 		$this->assign('toMid',$toMid);
 		$this->assign('type',$type);
@@ -90,10 +95,22 @@ class msgAction extends BaseAction{
 				  'updateTime'=>time(),
 				  'toMid'=>$toMid,
 			  );
+
+			  if($type==3){
+				  $model=M('member');
+				  $member=$model->where(array('mid'=>$toMid))->find();
+				  $bid=$member['belong'];
+				  $uname=$member['uname'];
+				  if(!$member){
+					  die('异常');
+				  }
+				  $this->assign('uname',$uname);
+			  }
+
 			  $msgModel=new MsgModel();
 			  $res=$msgModel->addMsg($params);
 			  if($type==3){
-				  $url=__ROOT__.'/index.php?g=Zp&m=msg&a=getZpPersonList&tag=';
+				  $url=__ROOT__."/index.php?g=Zp&m=msg&a=getZpOneArea&bid={$bid}&tag=";
 			  }else{
 				  $url=__ROOT__.'/index.php?g=Zp&m=online&a=index&tag=';
 			  }

@@ -19,14 +19,19 @@ class newsAction extends BaseAction{
         $condition['typeid']=$type;
         $condition['arcrank']=0;
         $newslist=C('NEWSLIST');
+		$navlist=array();
         foreach($newslist as $k=>$value){
             if($type==$value['id']){
                 $keywords=$value['value'];
                 $this->assign('keywords',$keywords);
             }
+			if($value['nav']==1){
+				$navlist[$k]=$value;
+			}
+
         }
         $this->assign('hit',$type);
-        $this->assign('navlist',$newslist);
+        $this->assign('navlist',$navlist);
         $count_=$list=$news->where($condition)->count();
         import('ORG.Util.Page');
         $page=new Page($count_,C('PAGERSIZE'));
