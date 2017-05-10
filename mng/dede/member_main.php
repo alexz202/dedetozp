@@ -71,6 +71,8 @@ if($matt != 10)
     $wheres[] = " m.matt= '$matt' ";
 }
 
+$wheres[]=" m.init= 1 ";
+
 $whereSql = join(' AND ',$wheres);
 if($whereSql!='')
 {

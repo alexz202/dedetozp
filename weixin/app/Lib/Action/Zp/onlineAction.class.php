@@ -19,6 +19,7 @@ class onlineAction extends BaseAction
 	public function  index(){
 		$openid = $_SESSION['openid'];
 		$nickname = $_SESSION['nickname'];
+		$mid = $_SESSION['mid'];
 		$this->assign('keywords', $this->keywords);
 		$this->display();
 	}

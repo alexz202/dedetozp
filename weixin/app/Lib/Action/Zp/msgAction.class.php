@@ -83,7 +83,8 @@ class msgAction extends BaseAction{
        */
       function addMsg(){
 		  if($_POST){
-			  $mid=3;
+//			  $mid=3;
+			  $mid = $_SESSION['mid'];
 			  $type=$_POST['type'];
 			  $info=$_POST['info'];
 			  $toMid=$_POST['toMid'];
@@ -150,7 +151,8 @@ class msgAction extends BaseAction{
        * 我的消息 (人大代表)
        */
       function toMyMsg(){
-		$mid=3;
+		//$mid=3;
+		$mid = $_SESSION['mid'];
 		$msgModel=new MsgModel();
 		$list=$msgModel->getToMyMsg($mid);
 		$this->assign('list',$list);
@@ -163,7 +165,8 @@ class msgAction extends BaseAction{
      * 我提的消息
      */
      function MyAddMsg(){
-		$mid=3;
+//		$mid=3;
+		$mid = $_SESSION['mid'];
 		$msgModel=new MsgModel();
 		$list=$msgModel->getMyAddMsg($mid);
 		$this->assign('list',$list);

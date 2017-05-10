@@ -15,6 +15,9 @@ define('ZPPSINFO','zppsinfo');
 define('DEAL','deal');
 define('DBZO','dbzo');
 define('SIGN','sign');
+define('GAS','gas');
+define('ONLINE','online');
+define('PLATFORM','platform');
 
 class WXUserAction extends Action
 {
@@ -70,14 +73,15 @@ class WXUserAction extends Action
             if($userinfo!==false){
                 $openid=$userinfo['openid'];
                 $sName=$userinfo['nickname'];
-                 $checkout = $this->getwxmemberId($openid);
-                if ($checkout) {
+//                 $checkout = $this->getwxmemberId($openid);
+                if (intval($userinfo['init'])==1) {
 //                    $_SESSION['sOpenid'] = $openid;
 //                    $_SESSION['sInvCode'] = '1458432479';
 //                    $_SESSION['iMid'] = $checkout;
 //                  //  $url="index.php?g=Home&m=WXUser&a=index";
                     $_SESSION['openid']=$openid;
                     $_SESSION['nickname']=$sName;
+					$_SESSION['mid']=$userinfo['mid'];
                     $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign'."&sopenid=$openid";
                     header('location:'.$url);
                 } else {
@@ -103,13 +107,14 @@ class WXUserAction extends Action
                 $openid=$userinfo['openid'];
                 $sName=$userinfo['nickname'];
                 $checkout = $this->getwxmemberId($openid);
-                if ($checkout) {
+                if (intval($userinfo['init'])==1) {
 //                    $_SESSION['sOpenid'] = $openid;
 //                    $_SESSION['sInvCode'] = '1458432479';
 //                    $_SESSION['iMid'] = $checkout;
 //                  //  $url="index.php?g=Home&m=WXUser&a=index";
                     $_SESSION['openid']=$openid;
                     $_SESSION['nickname']=$sName;
+					$_SESSION['mid']=$userinfo['mid'];
                     $tag='人大代表请等待后台验证后查看！';
                     $url=C('MAPPURL').'weixin/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag;
                     header('location:'.$url);
@@ -132,9 +137,10 @@ class WXUserAction extends Action
         $state = $_GET['state'];
         if (!empty($code)) {
          $userinfo= $this->getoauthinfo();
-         if(is_array($userinfo)){
+         if($userinfo!=false&&is_array($userinfo)){
              $_SESSION['openid']=$userinfo['openid'];
              $_SESSION['nickname']=$userinfo['nickname'];
+			 $_SESSION['mid']=$userinfo['mid'];
          }
             if($type===INDEX){
                 $url='index.php?g=Zp&m=Index&a=index';
@@ -152,11 +158,24 @@ class WXUserAction extends Action
             }
             elseif($type===DBZO){
                 $url='index.php?g=Zp&m=Index&a='.DBZO;
-            }
+            }elseif($type===GAS){
+				$url='index.php?g=Zp&m=Index&a=gasStation';
+			}elseif($type===ONLINE){
+				$url='index.php?g=Zp&m=online&a=index';
+			}elseif($type===PLATFORM){
+				$url='index.php?g=Zp&m=platform&a=index';
+			}
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
             header('location:'.$url);
         }
     }
+
+	private function initUser($openid){
+		$checkout = $this->getwxmemberId($openid);
+		if(!$checkout){
+
+		}
+	}
 
 
 
@@ -180,6 +199,7 @@ class WXUserAction extends Action
             if ($res != false) {
                 $_SESSION['openid']=$openid;
                 $_SESSION['nickname']=$sName;
+				$_SESSION['mid']=$res;
                 if($_POST['act']=='suggest'){
                     $tag='人大代表请等待后台验证后查看！';
                     $url=C('MAPPURL').'weixin/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag;
@@ -334,6 +354,26 @@ class WXUserAction extends Action
                 curl_close($ch);
                 $userinfo = json_decode($output, true);
                 file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $userinfourl . '||' . $output . "\r\n", FILE_APPEND);
+				if(is_array($userinfo)){
+					$openid=$userinfo['openid'];
+					$sName=$userinfo['nickname'];
+					$member=$this->getwxmemberId($openid);
+					if(!$member){
+						$arr=array(
+							'sName'=>$sName
+						);
+						$res=$this->createUser($openid,$arr);
+						if($res){
+							$userinfo['mid']=$res;
+							$userinfo['init']=0;
+						}
+						else
+							return false;
+					}else{
+						$userinfo['mid']=$member['mid'];
+						$userinfo['init']=$member['init'];
+					}
+				}
             }
             return $userinfo;
 
@@ -343,10 +383,11 @@ class WXUserAction extends Action
     {
         $wxmember = M('member');
         $condition['sOpenId'] = $sOpenid;
+//		$condition['init']=1;
         // $condition['sInvCode']=$sInvCode;
         $wxmemberinfo = $wxmember->where($condition)->find();
         if ($wxmemberinfo)
-            return $wxmemberinfo['mid'];
+            return $wxmemberinfo;
         else
             return false;
     }
@@ -355,23 +396,63 @@ class WXUserAction extends Action
     private function bindOpenIDtoinVcode($sOpenid, $arr)
     {
         $wxmember = M('member');
-        $data['sOpenId'] = $sOpenid;
-        $data['phone'] = $arr['phone'];
+		$wxmemberinfo=$this->getwxmemberId($sOpenid);
+		if($wxmemberinfo){
+			//存在的话更新
+			$data['phone'] = $arr['phone'];
 //        $data['email'] = $arr['email'];
-        $data['pwd'] = md5($sOpenid);
-        $data['userid'] = $arr['sName'];
-        $data['uname']=$arr['username'];
+			$data['pwd'] = md5($sOpenid);
+			$data['userid'] = $arr['sName'];
+			$data['uname']=$arr['username'];
+//        $data['workaddress'] = $arr['address'];$userinfo
+//        $data['worktel'] = $arr['worktel'];
+			$data['uptime'] = time();
+//			$data['jointime'] = time();
+			$data['init'] = 1;
+			$condtion['sOpenId']=$sOpenid;
+			$res=$wxmember->where($condtion)->save($data);
+			if($res){
+				return $wxmemberinfo['mid'];
+			}else
+				return false;
+		}else{
+			// 如果不存在 添加$userinfo
+			$data['sOpenId'] = $sOpenid;
+			$data['phone'] = $arr['phone'];
+//        $data['email'] = $arr['email'];
+			$data['pwd'] = md5($sOpenid);
+			$data['userid'] = $arr['sName'];
+			$data['uname']=$arr['username'];
 //        $data['workaddress'] = $arr['address'];
 //        $data['worktel'] = $arr['worktel'];
-        $data['uptime'] = time();
-        $data['jointime'] = time();
-       // $data['rank'] = time();
-        $res = $wxmember->add($data);
-        if ($res) {
-            return $wxmember->getLastInsID();
-        }
-        return false;
+			$data['uptime'] = time();
+			$data['jointime'] = time();
+			$data['init'] = 1;
+			// $data['rank'] = time();
+			$res = $wxmember->add($data);
+			if ($res) {
+				return $wxmember->getLastInsID();
+			}
+			return false;
+		}
     }
+
+
+	private function createUser($sOpenid,$arr){
+		$wxmember = M('member');
+		$data['sOpenId'] = $sOpenid;
+		$data['pwd'] = md5($sOpenid);
+		$data['userid'] = $arr['sName'];
+		$data['uptime'] = time();
+		$data['jointime'] = time();
+		$data['init']=0;
+		// $data['rank'] = time();
+		$res = $wxmember->add($data);
+		if ($res) {
+			return $wxmember->getLastInsID();
+		}
+		return false;
+	}
 
     /*
      * get QRCODE
