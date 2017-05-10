@@ -30,7 +30,7 @@ class msgAction extends BaseAction{
 
 	function getZpOneArea($bid){
 		$zpinfo = M('member');
-		$condition['rank'] = array('in',[180,200]);
+		$condition['rank'] = array('in',array(180,200));
 		$condition['belong'] =$bid;
 		$count_ = $zpinfo->where($condition)->count();
 		import('ORG.Util.Page');
