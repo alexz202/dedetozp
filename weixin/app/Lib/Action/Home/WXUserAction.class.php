@@ -15,9 +15,9 @@ define('ZPPSINFO','zppsinfo');
 define('DEAL','deal');
 define('DBZO','dbzo');
 define('SIGN','sign');
-define('GAS','gas');
-define('ONLINE','online');
-define('PLATFORM','platform');
+define('TGAS','gas');
+define('TONLINE','online');
+define('TPLATFORM','platform');
 
 class WXUserAction extends Action
 {
@@ -158,11 +158,11 @@ class WXUserAction extends Action
             }
             elseif($type===DBZO){
                 $url='index.php?g=Zp&m=Index&a='.DBZO;
-            }elseif($type===GAS){
+            }elseif($type===TGAS){
 				$url='index.php?g=Zp&m=Index&a=gasStation';
-			}elseif($type===ONLINE){
+			}elseif($type===TONLINE){
 				$url='index.php?g=Zp&m=online&a=index';
-			}elseif($type===PLATFORM){
+			}elseif($type===TPLATFORM){
 				$url='index.php?g=Zp&m=platform&a=index';
 			}
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
