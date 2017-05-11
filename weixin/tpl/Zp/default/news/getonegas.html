@@ -22,8 +22,8 @@
 <div class="content" style="background-color:white;">
     <div style="width: 94%;margin: 5px auto;">
         <div id='newscontent content-padded' style="text-align: left"><h4>{weixin:$info.title}</h4></div>
-        <h7>{weixin:$info.senddate|date='Y-m-d',###} &nbsp;&nbsp;{weixin:$info.source}&nbsp;&nbsp;<a href="weixin://profile/gh_647e3f3936a6">关注</a></h7>
-        <p><a href="{weixin:$info.file}" download="{weixin:$info.file}">{weixin:$info.filename}</a></p>
+        <h7>{weixin:$info.senddate|date='Y-m-d',###} &nbsp;&nbsp;{weixin:$info.source}&nbsp;&nbsp;</h7>
+        <p><a href="{weixin:$info.file}" data-ignore="push">{weixin:$info.filename}</a></p>
     </div>
 </div>
 </body>
