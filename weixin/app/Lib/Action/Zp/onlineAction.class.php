@@ -20,6 +20,16 @@ class onlineAction extends BaseAction
 		$openid = $_SESSION['openid'];
 		$nickname = $_SESSION['nickname'];
 		$mid = $_SESSION['mid'];
+		$this->overridegetlist();
+		$this->assign('keywords', $this->keywords);
+		$this->display();
+	}
+
+
+	public function index2(){
+		$openid = $_SESSION['openid'];
+		$nickname = $_SESSION['nickname'];
+		$mid = $_SESSION['mid'];
 		$this->assign('keywords', $this->keywords);
 		$this->display();
 	}
@@ -150,6 +160,7 @@ class onlineAction extends BaseAction
 
         }
     }
+
     public function suggestaddresult($tag){
         $this->assign('tag',$tag);
             $this->assign('keywords', $this->keywords_suggest);

@@ -18,28 +18,42 @@
 <include file="../head_index"/>
 <include file="../nav_msg"/>
 <header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left"></a>
+    <a class="icon icon-compose pull-right" href="__ROOT__/index.php?g=Zp&m=online&a=index2" data-ignore="push"></a>
     <h1 class="title" style="color:#000000">{weixin:$keywords}</h1>
 </header>
+
 <div class="content">
-    <div class="card">
-        <ul class="table-view">
-            <li class="table-view-cell">
-                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=1" data-transition="slide-in" data-ignore="push">
-                    周浦镇人大代表之家
-                </a>
+    <ul class="table-view">
+        <volist name="commentlist" id="vo">
+            <li class="table-view-cell media">
+                <if condition="$vo.result eq 0">
+                    <div class="media-body" style="font-size:0.8em;">
+                        <span style="color: blue;">【已结束】</span>
+                        <p>{weixin:$vo.title}</p>
+                        <p><span style="float: right">点击：{weixin:$vo.click}</span></p>
+                    </div>
+                    <else/>
+                    <a class="" href="__ROOT__/index.php?g=Zp&m=online&a=suggestone&id={weixin:$vo.id}" data-ignore="push">
+                        <div class="media-body" style="font-size:0.8em;">
+                            <span style="color: red;">【进行中】</span>
+                            <p>{weixin:$vo.title}</p>
+                            <p><span style="float: right">点击：{weixin:$vo.click}</span></p>
+                        </div>
+                    </a>
+                </if>
+
+                <!--<a class="" href="__ROOT__/index.php?g=Zp&m=online&a=suggestone&id={weixin:$vo.id}" data-ignore="push">-->
+                <!--<div class="media-body" style="font-size:0.8em;">-->
+                <!--<if condition="$vo.result eq 0"><span style="color: blue;">【已结束】</span><else/><span style="color: red;">【进行中】</span></if>-->
+                <!--<p>{weixin:$vo.title}</p>-->
+                <!--<p><span style="float: right">点击：{weixin:$vo.click}</span></p>-->
+                <!--</div>-->
+                <!--</a>-->
             </li>
-            <li class="table-view-cell">
-                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=2" data-transition="slide-in" data-ignore="push">
-                   人大代表工作室
-                </a>
-            </li>
-            <li class="table-view-cell">
-                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpAreaList" data-transition="slide-in" data-ignore="push">
-                  村/社区代表之家
-                </a>
-            </li>
-        </ul>
-    </div>
+        </volist>
+    </ul>
+    <div  class="pagerbtn"><div style="float:right;">{weixin:$page}</div></div>
 </div>
 </body>
 </html>
