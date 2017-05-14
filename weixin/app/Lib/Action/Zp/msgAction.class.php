@@ -77,7 +77,7 @@ class msgAction extends BaseAction{
 		$id=$_GET['id'];
 		$pid=$_GET['pid'];
 		$mid = $_SESSION['mid'];
-		$mid=4;
+//		$mid=4;
 		$this->assign('mid',$mid);
 		$this->assign('id',$id);
 		$this->assign('pid',$pid);
@@ -92,7 +92,7 @@ class msgAction extends BaseAction{
 		  if($_POST){
 //			  $mid=3;
 			  $mid = $_SESSION['mid'];
-			  $mid=3;
+//			  $mid=3;
 			  $type=$_POST['type'];
 			  $info=$_POST['info'];
 			  $toMid=$_POST['toMid'];
