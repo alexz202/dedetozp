@@ -151,6 +151,7 @@ class msgAction extends BaseAction{
 			  $mid=$_POST['mid'];
 			  $remsg=$_POST['info'];
 			  $remsgModel=new ReMsgModel();
+
 			  $params=array(
 				 'msgId'=>$id,
 				  'pId'=>$pid,
@@ -159,6 +160,8 @@ class msgAction extends BaseAction{
 					'updateTime'=>time()
 			  );
 			  $res=$remsgModel->reMsg($params);
+			  $msgModel=new MsgModel();
+			  $res2=$msgModel->where(array('id'=>$id))->setInc('resCnt');
 			  $url=__ROOT__."/index.php?g=Zp&m=msg&a=Detail&id={$id}&tag=";
 			  $tag='发言已成功！感谢您的宝贵意见！';
 			  header('location:'.$url.$tag);
@@ -172,6 +175,7 @@ class msgAction extends BaseAction{
       function toMyMsg(){
 		//$mid=3;
 		$mid = $_SESSION['mid'];
+		  var_dump($mid);
 		$msgModel=new MsgModel();
 		$list=$msgModel->getToMyMsg($mid);
 		$this->assign('list',$list);
@@ -186,6 +190,7 @@ class msgAction extends BaseAction{
      function MyAddMsg(){
 //		$mid=3;
 		$mid = $_SESSION['mid'];
+		 var_dump($mid);
 		$msgModel=new MsgModel();
 		$list=$msgModel->getMyAddMsg($mid);
 		$this->assign('list',$list);
