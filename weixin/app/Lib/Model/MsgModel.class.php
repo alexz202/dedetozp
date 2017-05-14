@@ -20,18 +20,15 @@ class MsgModel extends Model{
   }
 
   public function getToMyMsg($mid){
-	  if($mid>0){
 		  $condition=array(
-			  'toMId'=>$mid,
+			  'toMid'=>$mid,
 		  );
 		  return $info= $this->where($condition)->order('updateTime desc')->select();
-	  }
-	  return false;
   }
 
   public function getMyAddMsg($mid){
       $condition=array(
-          'fMId'=>$mid,
+          'fMid'=>$mid,
       );
       return $info= $this->where($condition)->order('updateTime desc')->select();
 
