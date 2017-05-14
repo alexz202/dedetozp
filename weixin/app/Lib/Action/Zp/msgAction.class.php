@@ -74,6 +74,13 @@ class msgAction extends BaseAction{
 	}
 
 	function reMsgTb(){
+		$id=$_GET['id'];
+		$pid=$_GET['pid'];
+		$mid = $_SESSION['mid'];
+		$mid=4;
+		$this->assign('mid',$mid);
+		$this->assign('id',$id);
+		$this->assign('pid',$pid);
 		$this->display();
 	}
 
@@ -85,9 +92,11 @@ class msgAction extends BaseAction{
 		  if($_POST){
 //			  $mid=3;
 			  $mid = $_SESSION['mid'];
+			  $mid=3;
 			  $type=$_POST['type'];
 			  $info=$_POST['info'];
 			  $toMid=$_POST['toMid'];
+			  $title=$_POST['title'];
 			  $params=array(
 				  'fMid'=>$mid,
 				  'msg'=>$info,
@@ -95,6 +104,7 @@ class msgAction extends BaseAction{
 				  'createTime'=>time(),
 				  'updateTime'=>time(),
 				  'toMid'=>$toMid,
+				  'title'=>$title,
 			  );
 
 			  if($type==3){
@@ -137,10 +147,19 @@ class msgAction extends BaseAction{
       function reMsg(){
 		  if($_POST){
 			  $id=$_POST['id'];
+			  $pid=$_POST['pid'];
+			  $mid=$_POST['mid'];
 			  $remsg=$_POST['info'];
-			  $msgModel=new MsgModel();
-			  $res=$msgModel->reMsg($id,$remsg);
-			  $url=__ROOT__."/index.php?g=Zp&m=msg&a=detail&id={$id}&tag=";
+			  $remsgModel=new ReMsgModel();
+			  $params=array(
+				 'msgId'=>$id,
+				  'pId'=>$pid,
+				  'mid'=>$mid,
+				  'content'=>$remsg,
+					'updateTime'=>time()
+			  );
+			  $res=$remsgModel->reMsg($params);
+			  $url=__ROOT__."/index.php?g=Zp&m=msg&a=Detail&id={$id}&tag=";
 			  $tag='发言已成功！感谢您的宝贵意见！';
 			  header('location:'.$url.$tag);
 		  }
@@ -184,9 +203,32 @@ class msgAction extends BaseAction{
 		if(empty($info['remsg'])){
 			$needRemsg=1;
 		}
+		$remsgModel=new ReMsgModel();
+		$remsg_info=$remsgModel->getsByMsgId($id);
+
+		if($remsg_info){
+			$member_list=array();
+			$member_ids=array();
+			foreach($remsg_info as $v){
+				$member_ids[]=intval($v['mid']);
+			}
+			$member=M('member');
+			$condition=array('mid'=>array('in',$member_ids));
+			$member=$member->where($condition)->select();
+			if($member){
+				foreach($member as $v){
+					if(intval($v['rank'])>=180)
+						$member_list[$v['mid']]=array('uname'=>$v['uname']);
+					else
+						$member_list[$v['mid']]=array('uname'=>$v['userid']);
+				}
+			}
+		}
 		$this->assign('needRemsg',$needRemsg);
 		$this->assign('info',$info);
+		$this->assign('remsg_info',$remsg_info);
 		$this->assign('mtype',$type);
+		$this->assign('memberlist',$member_list);
 		$this->display();
 	}
 

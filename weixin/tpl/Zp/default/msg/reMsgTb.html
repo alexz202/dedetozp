@@ -20,7 +20,9 @@
         <p>回复:</p>
     <form method="post" action="__ROOT__/index.php?g=Zp&m=msg&a=reMsg">
         <input type="hidden" name="id" value="{weixin:$id}"/>
-        <textarea rows="8" name="info"></textarea>
+        <input type="hidden" name="pid" value="{weixin:$pid}"/>
+        <input type="hidden" name="mid" value="{weixin:$mid}"/>
+        <textarea rows="3" name="info"></textarea>
         <button class="btn btn-positive btn-block">提交</button>
     </form>
     </div>

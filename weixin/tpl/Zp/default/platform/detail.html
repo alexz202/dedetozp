@@ -21,19 +21,19 @@
     <!--<h1 class="title" style="color:#000000">{weixin:$keywords}</h1>-->
 <!--</header>-->
 <div class="content">
-
     <ul class="table-view" style="font-size:14px;">
         <li class="table-view-cell media">
-            <div class="pull-left">
+            <h4>介绍：</h4>
+            <div class="pull-left" style="width: 94%;margin: 5px auto;text-align: justify;">
                 <!--{weixin:$info.content}-->
-               {weixin:$info.description}
+               {weixin:$info.content}
             </div>
-
         </li>
         <li class="table-view-divider"></li>
         <li class="table-view-cell media">
+            最新发布
+            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=news&a=getnewslist&type={weixin:$type}" data-ignore="push">更多</a></div>
             <div class="pull-left">
-                <ul class="table-view">
                     <volist name="list" id="vo">
                         <li class="table-view-cell media">
                             <a class="" href="__ROOT__/index.php?g=Zp&m=news&a=getone&nid={weixin:$vo.id}" data-ignore="push">
@@ -48,9 +48,8 @@
                             </a>
                         </li>
                     </volist>
-                 </ul>
             </div>
-            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=news&a=getnewslist&type={weixin:$type}" data-ignore="push">更多</a></div>
+
         </li>
         <li class="table-view-divider"></li>
 

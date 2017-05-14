@@ -22,11 +22,13 @@
 <ul class="table-view">
     <volist name="list" id="vo">
         <li class="table-view-cell media">
-            <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=Detail&id={weixin:$vo.id}&type=2" data-ignore="push">
-                <div class="media-body" style="font-size:0.8em;">
-                    <p>{weixin:$vo.msg}</p>
-                    <p><span style="float: right">详细</span></p>
-                </div>
+            <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=Detail&id={weixin:$vo.id}&type=2" data-ignore="push" >
+                <span class="badge">{weixin:$vo.resCnt}</span>
+                {weixin:$vo.title}
+                <!--<div class="media-body" style="font-size:0.8em;">-->
+                    <!--<div style="width: 80%;float: left;word-wrap: break-word;">{weixin:$vo.title}</div>-->
+                    <!--<div style="width: 15%;float: left;text-align: center"><span style="float: right">详细</span></div>-->
+                <!--</div>-->
             </a>
         </li>
     </volist>

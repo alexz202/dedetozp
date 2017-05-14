@@ -19,25 +19,32 @@
 <include file="../head_index"/>
 <!--<include file="../nav_msg"/>-->
 <div class="content" style="background-color:white;">
-    <div style="width: 94%;margin: 0 auto;font-size: 0.8em;height: auto;">
-        <p> {weixin:$info.msg}</p>
-        <if condition="$mtype eq 2">
-                <if condition="$needRemsg eq 1">
-                    <div style="float: right;">   <a href="__ROOT__/index.php?g=Zp&m=msg&a=reMsg&id={weixin:$info.id}" data-ignore="push">
-                        <button class="btn btn-positive">回复</button></a>
-                    </div>
-                    <else/>
-                    <div style="padding-left: 10px;color: red;">回复：{weixin:$info.remsg}</div>
-                </if>
-            <else/>
-                <if condition="$needRemsg eq 1">
-                    <div style="padding-left: 10px;color: red;">暂没有回复</div>
-                    <else/>
-                    <div style="padding-left: 10px;color: red;">回复：{weixin:$info.remsg}</div>
-                </if>
+    <ul class="table-view">
+        <li class="table-view-cell">
+           <h4>{weixin:$info.title}</h4>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;{weixin:$info.msg}</p>
+            <a href="__ROOT__/index.php?g=Zp&m=msg&a=reMsgTb&id={weixin:$info.id}&pid=0" data-ignore="push" ><span class="icon icon-compose pull-right" ></span></a>
+        </li>
 
-        </if>
-    </div>
+  <empty name="remsg_info">
+      <li class="table-view-cell">
+          <h6>暂无回复</h6>
+          <a href="__ROOT__/index.php?g=Zp&m=msg&a=reMsgTb&id={weixin:$info.id}&pid=0" data-ignore="push" ><span class="icon icon-compose pull-right" ></span></a>
+      </li>
+    <else/>
+      <volist name="remsg_info" id="vo">
+          <li class="table-view-cell">
+              <h6>
+                  {weixin:$memberlist[$vo['mid']]['uname']}
+                  回复：{weixin:$vo.content}
+              </h6>
+              <a href="__ROOT__/index.php?g=Zp&m=msg&a=reMsgTb&id={weixin:$info.id}&pid={weixin:$vo.id}" data-ignore="push" ><span class="icon icon-compose pull-right" ></span></a>
+          </li>
+      </volist>
+
+  </empty>
+
+    </ul>
 </div>
 
 </body>

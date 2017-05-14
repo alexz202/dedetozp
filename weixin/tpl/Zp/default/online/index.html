@@ -24,32 +24,18 @@
 </header>
 
 <div class="content">
-    <ul class="table-view">
+    <ul class="table-view" style="font-size: 12px;">
+        <li class="table-view-cell media" style="text-align: center;"><div class="pull-left" style="width: 55%">标题</div>
+            <div class="pull-left" style="width: 25%">时间</div>
+            <div class="pull-left" style="width: 10%">回复</div></li>
+
         <volist name="commentlist" id="vo">
             <li class="table-view-cell media">
-                <if condition="$vo.result eq 0">
-                    <div class="media-body" style="font-size:0.8em;">
-                        <span style="color: blue;">【已结束】</span>
-                        <p>{weixin:$vo.title}</p>
-                        <p><span style="float: right">点击：{weixin:$vo.click}</span></p>
-                    </div>
-                    <else/>
-                    <a class="" href="__ROOT__/index.php?g=Zp&m=online&a=suggestone&id={weixin:$vo.id}" data-ignore="push">
-                        <div class="media-body" style="font-size:0.8em;">
-                            <span style="color: red;">【进行中】</span>
-                            <p>{weixin:$vo.title}</p>
-                            <p><span style="float: right">点击：{weixin:$vo.click}</span></p>
-                        </div>
-                    </a>
-                </if>
-
-                <!--<a class="" href="__ROOT__/index.php?g=Zp&m=online&a=suggestone&id={weixin:$vo.id}" data-ignore="push">-->
-                <!--<div class="media-body" style="font-size:0.8em;">-->
-                <!--<if condition="$vo.result eq 0"><span style="color: blue;">【已结束】</span><else/><span style="color: red;">【进行中】</span></if>-->
-                <!--<p>{weixin:$vo.title}</p>-->
-                <!--<p><span style="float: right">点击：{weixin:$vo.click}</span></p>-->
-                <!--</div>-->
-                <!--</a>-->
+                <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=Detail&id={weixin:$vo.id}" data-ignore="push">
+                    <div class="pull-left" style="width: 55%;overflow: hidden;word-wrap:break-word;">{weixin:$vo.title}</div>
+                    <div class="pull-left" style="width: 25%">{weixin:$vo.createTime|date='Y-m-d',###}</div>
+                    <div class="pull-left" style="width: 10%;text-align: center"><span class="badge">{weixin:$vo.resCnt}</span></div>
+                </a>
             </li>
         </volist>
     </ul>

@@ -170,12 +170,12 @@ class onlineAction extends BaseAction
 
     private function overridegetlist()
     {
-        $news = M('talk');
+        $news = M('msg');
         $count_ = $list = $news->count();
         import('ORG.Util.Page');
         $page = new Page($count_, C('PAGERSIZE'));
         $page->setConfig('theme', "%upPage%   %downPage% ");
-        $list = $news->join("__ADDONTALK__ ON __TALK__.id=__ADDONTALK__.aid ")->order('id desc')->limit($page->firstRow . ',' . $page->listRows)->select();
+        $list = $news->order('id desc')->limit($page->firstRow . ',' . $page->listRows)->select();
         // var_dump($list);
         $show = $page->show();
         $this->assign('commentlist', $list);

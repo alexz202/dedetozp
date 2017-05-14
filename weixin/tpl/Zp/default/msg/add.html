@@ -21,7 +21,8 @@
     <form method="post" action="__ROOT__/index.php?g=Zp&m=msg&a=addMsg">
         <input type="hidden" name="type" value="{weixin:$type}"/>
         <input type="hidden" name="toMid" value="{weixin:$toMid}"/>
-        <textarea rows="8" name="info"></textarea>
+        <input name="title" type="text" placeholder="标题"/>
+        <textarea rows="8" name="info" placeholder="内容"></textarea>
         <button class="btn btn-positive btn-block">提交</button>
     </form>
     </div>
