@@ -29,7 +29,7 @@
                 <br/>
                 <a href='__ROOT__/index.php?g=Zp&m=platform&a=detail&type=36' data-ignore="push">周浦镇三级人大代表活动室</a>
             </div>
-            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=platform&a=detail&type=37" data-ignore="push">职<br/>责</a></div>
+            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=platform&a=duty&type=37" data-ignore="push">职<br/>责</a></div>
         </li>
         <li class="table-view-divider"></li>
         <li class="table-view-cell media">
@@ -38,16 +38,45 @@
                 <br/>
                 <a href='__ROOT__/index.php?g=Zp&m=platform&a=detail&type=39' data-ignore="push">社区人大代表接待室</a>
             </div>
-            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=platform&a=detail&type=40" data-ignore="push">职<br/>责</a></div>
+            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=platform&a=duty&type=40" data-ignore="push">职<br/>责</a></div>
         </li>
         <li class="table-view-divider"></li>
         <li class="table-view-cell media">
             <div class="pull-left">
                 <a href="__ROOT__/index.php?g=Zp&m=platform&a=detail&type=41" data-ignore="push">人大代表工作室</a>
             </div>
-            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=platform&a=detail&type=42" data-ignore="push">职<br/>责</a></div>
+            <div class="pull-right"><a href="__ROOT__/index.php?g=Zp&m=platform&a=duty&type=42" data-ignore="push">职<br/>责</a></div>
         </li>
+
+        <li class="table-view-divider"></li>
+
+        <li class="table-view-cell media">
+            热门简讯
+            <div class="pull-right"></div>
+            <div class="pull-left">
+                <volist name="list" id="vo">
+                    <li class="table-view-cell media">
+                        <a class="" href="__ROOT__/index.php?g=Zp&m=news&a=getone&nid={weixin:$vo.id}" data-ignore="push">
+                            <!--<empty name="vo['litpic']"><img class="media-object pull-left" src="http://placehold.it/42x42">-->
+                            <!--<else/>-->
+                            <img class="media-object pull-left" src="{weixin:$vo.litpic}" style="width:45px">
+                            <!--</empty>-->
+                            <div class="media-body" style="font-size:0.8em;line-height: 25px;">
+                                【{weixin:$vo.senddate|date='Y-m-d',###}】
+                                <p>{weixin:$vo.title}<span style="float: right">点击：{weixin:$vo.click}</span></p>
+                            </div>
+                        </a>
+                    </li>
+                </volist>
+            </div>
+
+        </li>
+
+
+
     </ul>
+
+
 
 </div>
 </body>

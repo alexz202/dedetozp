@@ -20,19 +20,19 @@ class onlineAction extends BaseAction
 		$openid = $_SESSION['openid'];
 		$nickname = $_SESSION['nickname'];
 		$mid = $_SESSION['mid'];
-		$this->overridegetlist();
+//		$this->overridegetlist();
 		$this->assign('keywords', $this->keywords);
-		$this->display();
+		$this->display('index2');
 	}
 
 
-	public function index2(){
-		$openid = $_SESSION['openid'];
-		$nickname = $_SESSION['nickname'];
-		$mid = $_SESSION['mid'];
-		$this->assign('keywords', $this->keywords);
-		$this->display();
-	}
+//	public function index2(){
+//		$openid = $_SESSION['openid'];
+//		$nickname = $_SESSION['nickname'];
+//		$mid = $_SESSION['mid'];
+//		$this->assign('keywords', $this->keywords);
+//		$this->display();
+//	}
 
 
     public function suggest()

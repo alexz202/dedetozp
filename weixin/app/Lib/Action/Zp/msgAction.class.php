@@ -175,7 +175,6 @@ class msgAction extends BaseAction{
       function toMyMsg(){
 		//$mid=3;
 		$mid = $_SESSION['mid'];
-		  var_dump($mid);
 		$msgModel=new MsgModel();
 		$list=$msgModel->getToMyMsg($mid);
 		$this->assign('list',$list);
