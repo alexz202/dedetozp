@@ -58,13 +58,13 @@
                 <volist name="list" id="vo">
                     <li class="table-view-cell media">
                         <a class="" href="__ROOT__/index.php?g=Zp&m=news&a=getone&nid={weixin:$vo.id}" data-ignore="push">
-                            <!--<empty name="vo['litpic']"><img class="media-object pull-left" src="http://placehold.it/42x42">-->
-                            <!--<else/>-->
-                            <img class="media-object pull-left" src="{weixin:$vo.litpic}" style="width:45px;margin:5px 2px 0 0;"  onerror="this.src='images/timg.jpg'">
-                            <!--</empty>-->
-                            <div class="media-body" style="font-size:0.8em;line-height: 25px;">
+                            <empty name="vo['litpic']"><img class="media-object pull-left" src="images/timg.jpg" style="width:45px;height:45px;margin:5px 2px 0 0;">
+                            <else/>
+                            <img class="media-object pull-left" src="{weixin:$vo.litpic}" style="width:45px;height:40px;margin:5px 2px 0 0;"  onerror="this.src='images/timg.jpg'">
+                            </empty>
+                            <div class="media-body" style="font-size:0.8em;line-height: 18px;">
                                 【{weixin:$vo.senddate|date='Y-m-d',###}】
-                                <p>{weixin:$vo.title}<span style="float: right">点击：{weixin:$vo.click}</span></p>
+                                <p style="ext-overflow: ellipsis; ">{weixin:$vo.title}<span style="float: right">点击：{weixin:$vo.click}</span></p>
                             </div>
                         </a>
                     </li>
