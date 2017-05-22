@@ -14,7 +14,8 @@ class msgAction extends BaseAction{
 	private $typeStr_2 = '村/社区代表之家';
 	private $typeStr_3 = '人大代表工作室代表';
 
-	function getZpAreaList(){
+	function getZpAreaList($type){
+		$this->assign('type',$type);
 		$member_belong = M('member_belong');
 		$list = $member_belong->order('type asc')->select();
 		$list_ = array();

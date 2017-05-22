@@ -20,10 +20,11 @@
 <div id="content" class="content" style="">
     <!--<include file="../btnback"/>-->
     <div class="segmented-control">
-        <a class="control-item active" href="#item1mobile">
+        <if condition="$type eq 1"></if>
+        <a class='control-item  <if condition="$type eq 1">active</if> ' href="#item1mobile">
             村
         </a>
-        <a class="control-item " href="#item2mobile">
+        <a class='control-item <if condition="$type eq 2">active</if>' href="#item2mobile">
             社区
         </a>
         <!--<a class="control-item" href="#item3mobile">-->
@@ -31,7 +32,7 @@
         <!--</a>-->
     </div>
     <div id="divcontrol" class="card">
-        <span id="item1mobile" class="control-content active">
+        <span id="item1mobile" class='control-content <if condition="$type eq 1">active</if>'>
             <ul class="table-view" style="font-size: 14px;">
                 <volist name="list[1]" id="vo">
                     <li class="table-view-cell">
@@ -43,7 +44,7 @@
                 </volist>
             </ul>
         </span>
-        <span id="item2mobile" class="control-content">
+        <span id="item2mobile" class='control-content <if condition="$type eq 2">active</if>'>
               <ul class="table-view" style="font-size: 14px;">
                   <volist name="list[2]" id="vo">
                       <li class="table-view-cell">
