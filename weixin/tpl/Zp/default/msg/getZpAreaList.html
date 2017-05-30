@@ -20,19 +20,23 @@
 <div id="content" class="content" style="">
     <!--<include file="../btnback"/>-->
     <div class="segmented-control">
-        <if condition="$type eq 1"></if>
-        <a class='control-item  <if condition="$type eq 1">active</if> ' href="#item1mobile">
-            村
-        </a>
-        <a class='control-item <if condition="$type eq 2">active</if>' href="#item2mobile">
-            社区
-        </a>
+        <if condition="$type eq 1">
+            <a class='control-item  active ' href="#item1mobile">
+                村
+            </a>
+           <else/>
+            <a class='control-item active' href="#item1mobile">
+                社区
+            </a>
+        </if>
+
         <!--<a class="control-item" href="#item3mobile">-->
             <!--企业-->
         <!--</a>-->
     </div>
     <div id="divcontrol" class="card">
-        <span id="item1mobile" class='control-content <if condition="$type eq 1">active</if>'>
+        <if condition="$type eq 1">
+        <span id="item1mobile" class='control-content active'>
             <ul class="table-view" style="font-size: 14px;">
                 <volist name="list[1]" id="vo">
                     <li class="table-view-cell">
@@ -44,7 +48,8 @@
                 </volist>
             </ul>
         </span>
-        <span id="item2mobile" class='control-content <if condition="$type eq 2">active</if>'>
+            <else/>
+        <span id="item1mobile" class='control-content active'>
               <ul class="table-view" style="font-size: 14px;">
                   <volist name="list[2]" id="vo">
                       <li class="table-view-cell">
@@ -56,6 +61,7 @@
                   </volist>
               </ul>
         </span>
+        </if>
         <!--<span id="item3mobile" class="control-content">-->
               <!--<ul class="table-view" style="font-size: 14px;">-->
                   <!--<volist name="list[3]" id="vo">-->
