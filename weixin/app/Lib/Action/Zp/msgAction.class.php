@@ -30,19 +30,34 @@ class msgAction extends BaseAction{
 	}
 
 	function getZpOneArea($bid){
-		$zpinfo = M('member');
-		$condition['rank'] = array('in',array(180,200));
-		$condition['belong'] =$bid;
-		$count_ = $zpinfo->where($condition)->count();
-		import('ORG.Util.Page');
-		$page = new Page($count_, C('PAGERSIZE'));
-		$page->setConfig('theme', "%upPage%   %downPage% ");
-		$list = $zpinfo->where($condition)->order('mid desc')->limit($page->firstRow . ',' . $page->listRows)->select();
-		// var_dump($list);
-		$show = $page->show();
-		$this->assign('commentlist', $list);
-		$this->assign('page', $show);
-		$this->assign('count', $count_);
+//		$zpinfo = M('member');
+//		$condition['rank'] = array('in',array(180,200));
+//		$condition['belong'] =$bid;
+//		$count_ = $zpinfo->where($condition)->count();
+//		import('ORG.Util.Page');
+//		$page = new Page($count_, C('PAGERSIZE'));
+//		$page->setConfig('theme', "%upPage%   %downPage% ");
+//		$list = $zpinfo->where($condition)->order('mid desc')->limit($page->firstRow . ',' . $page->listRows)->select();
+//		// var_dump($list);
+//		$show = $page->show();
+
+		$zpinfo=M('zpshow_index');
+		$member=M('member');
+		$condition['zid']=$bid;
+		$info=$zpinfo->where($condition)->find();
+		if($info){
+			$mids=explode(',',$info['midList']);
+			$count_=count($mids);
+			import('ORG.Util.Page');
+			$page = new Page($count_, C('PAGERSIZE'));
+			$page->setConfig('theme', "%upPage%   %downPage% ");
+			$member_info=$member->where(array('mid'=>array('in',$mids)))->select();
+			$list=array_slice($member_info,$page->firstRow,$page->listRows);
+			$show = $page->show();
+			$this->assign('commentlist', $list);
+			$this->assign('page', $show);
+			$this->assign('count', $count_);
+		}
 		$zpstyle = C('ZPSTYLE');
 		$this->assign('active', $zpstyle[1]['value']);
 		$this->assign('keywords', $zpstyle[1]['key']);
