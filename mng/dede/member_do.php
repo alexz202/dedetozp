@@ -183,7 +183,8 @@ else if ($dopost=='edituser')
     $pwdsql = empty($pwd) ? '' : ",pwd='".md5($pwd)."'";
     if(empty($sex)) $sex = '男';
     $uptime=GetMkTime($uptime);
-    
+
+
     if($matt==10 && $oldmatt!=10)
     {
         ShowMsg("对不起，为安全起见，不支持直接把前台会员转为管理的操作！", "-1");
@@ -199,10 +200,12 @@ else if ($dopost=='edituser')
             spacesta='$spacesta',
             exptime='$exptime',
             belong='$belong',
-            phone='$phone'
+            phone='$phone',
+            uname='$uname'
             $pwdsql
             WHERE mid='$id' AND matt<>10 ";
     $rs = $dsql->ExecuteNoneQuery2($query);
+
     if($rs==0)
     {
        $query = "UPDATE `#@__member` SET
@@ -214,7 +217,8 @@ else if ($dopost=='edituser')
             spacesta='$spacesta',
             exptime='$exptime',
             belong='$belong',
-            phone='$phone'
+            phone='$phone',
+            uname='$uname'
             $pwdsql
             WHERE mid='$id' ";
             $rs = $dsql->ExecuteNoneQuery2($query);
