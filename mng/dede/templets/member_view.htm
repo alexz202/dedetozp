@@ -80,13 +80,15 @@ function checkSubmit()
             </tr>
           <tr> 
             <td width="17%" align="right" class='bline'>姓名：</td>
-            <td width="83%" class='bline' style="text-align:left;"> 
-              <?php
-			  echo "<b>".$row['uname']."</b>";
-              if($row['face']!='') {
-			     echo "<br /><img src='{$row['face']}' width='80'/>";
-			  }
-			  ?>
+            <td width="83%" class='bline' style="text-align:left;">
+                <input type="text" name="uname" value="<?php echo $row['uname']?>"/>
+
+              <!--<?php-->
+			  <!--echo "<b>".$row['uname']."</b>";-->
+              <!--if($row['face']!='') {-->
+			     <!--echo "<br /><img src='{$row['face']}' width='80'/>";-->
+			  <!--}-->
+			  <!--?>-->
              </td>
           </tr>
           <!--<tr> -->
