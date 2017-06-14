@@ -49,7 +49,7 @@ if ($dopost=='showad')
 $cururl = GetCurUrl();
 if(preg_match('/dede\/login/i',$cururl))
 {
-    $redmsg = '<div class=\'safe-tips\'>您的管理目录的名称中包含默认名称dede，建议在FTP里把它修改为其它名称，那样会更安全！</div>';
+    $redmsg = '<div class=\'safe-tips\'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本系统为非涉密系统，严禁存储处理涉密信息！</div>';
 }
 else
 {
