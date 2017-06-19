@@ -21,7 +21,7 @@ class MsgModel extends Model{
 
   public function getToMyMsg($mid){
 		  $condition=array(
-			  'toMid'=>$mid,
+			  'toMid'=>array('in',array(0,$mid)),
 		  );
 		  return $info= $this->where($condition)->order('updateTime desc')->select();
   }
