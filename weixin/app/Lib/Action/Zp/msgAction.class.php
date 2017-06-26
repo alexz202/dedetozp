@@ -11,8 +11,8 @@ class msgAction extends BaseAction{
 	 */
 
 	private $typeStr_1='周浦镇人大代表之家';
-	private $typeStr_2 = '村/社区代表之家';
-	private $typeStr_3 = '人大代表工作室代表';
+	private $typeStr_2 = '村人大代表之家';
+	private $typeStr_3 = '社区人大代表接待室';
 
 	function getZpAreaList($type){
 		$this->assign('type',$type);
@@ -61,7 +61,7 @@ class msgAction extends BaseAction{
 		$zpstyle = C('ZPSTYLE');
 		$this->assign('active', $zpstyle[1]['value']);
 		$this->assign('keywords', $zpstyle[1]['key']);
-
+		$this->assign('tag',$_GET['tag']);
 		$this->display();
 	}
 
@@ -71,7 +71,8 @@ class msgAction extends BaseAction{
 
 	function add(){
 		$type=$_GET['type'];
-		$obj='typeStr_'.$type;
+		$tag=isset($_GET['tag'])?$_GET['tag']:1;
+		$obj='typeStr_'.$tag;
 		$toMsgObjInfo=$this->$obj;
 		if($type==3){
 			$toMid=$_GET['toMid'];
@@ -205,7 +206,7 @@ class msgAction extends BaseAction{
      function MyAddMsg(){
 //		$mid=3;
 		$mid = $_SESSION['mid'];
-		 var_dump($mid);
+//		 var_dump($mid);
 		$msgModel=new MsgModel();
 		$list=$msgModel->getMyAddMsg($mid);
 		$this->assign('list',$list);

@@ -22,7 +22,7 @@
 <ul class="table-view">
 <volist name="commentlist" id="vo">
     <li class="table-view-cell media">
-        <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=3&toMid={weixin:$vo.mid}" data-ignore="push">
+        <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=3&toMid={weixin:$vo.mid}&tag={weixin:$tag}" data-ignore="push">
 
             <div class="media-body content-padded" style="font-size:0.8em;line-height: 25px;">
                 <p>{weixin:$vo.uname}<span style="float: right">建议</span></p>
