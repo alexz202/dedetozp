@@ -32,7 +32,7 @@ define('DBZB','dbzo');
 return array(
     //'TMPL_FILE_DEPR'=>'_',
     'DEFAULT_THEME'=>'default',
-    'MAPPURL'=>'http://www.transmension.com.cn/weixinapp/',
+    'MAPPURL'=>'http://118.126.11.231/dedetozp/',
     'KEYWORDS'=>array(
         'index'=>'周浦人大'
     ),
@@ -41,13 +41,13 @@ return array(
         array('value'=>'他山之石','id'=>STONE,'nav'=>1),
         array('value'=>'人大概览','id'=>RENDA,'nav'=>1),
 
-		array('value'=>'周浦人大代表之家','id'=>HOMERD,'nav'=>0),
+		array('value'=>'周浦镇人大代表之家','id'=>HOMERD,'nav'=>0),
 		array('value'=>'周浦人大代表活动室','id'=>HOMERDACTIVEROOM,'nav'=>0),
-		array('value'=>'周浦人大代表之家职责','id'=>HOMERDRSBS,'nav'=>0),
+		array('value'=>'周浦镇人大代表之家职责','id'=>HOMERDRSBS,'nav'=>0),
 
 		array('value'=>'村人大代表之家','id'=>HOMETUNE,'nav'=>0),
 		array('value'=>'社区人大代表接待室','id'=>HOMETUNEWATER,'nav'=>0),
-		array('value'=>'村社区人大代表职责','id'=>HOMETUNERSBS,'nav'=>0),
+		array('value'=>'村、社区人大代表之家（接待室）职责','id'=>HOMETUNERSBS,'nav'=>0),
 
 		array('value'=>'人大代表工作室','id'=>RDWORKROOM,'nav'=>0),
 		array('value'=>'人大代表工作室职责','id'=>RDWORKROOMRSBS,'nav'=>0),
