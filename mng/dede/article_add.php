@@ -92,7 +92,7 @@ else if($dopost=='save')
 
     //对保存的内容进行处理
     if(empty($writer))$writer=$cuserLogin->getUserName();
-    if(empty($source))$source='未知';
+    if(empty($source))$source='周浦人大';
     $pubdate = GetMkTime($pubdate);
     $senddate = time();
     $sortrank = AddDay($pubdate,$sortup);

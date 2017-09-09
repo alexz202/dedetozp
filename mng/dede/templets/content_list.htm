@@ -12,6 +12,53 @@
 </head>
 <body leftmargin="8" topmargin="8" background='images/allbg.gif' onLoad="ContextMenu.intializeContextMenu()">
 
+
+<!--  搜索表单  -->
+<form name='form3' action='content_list.php' method='get'>
+    <input type='hidden' name='dopost' value='listArchives' />
+    <table width='98%'  border='0' cellpadding='1' cellspacing='1' bgcolor='#cfcfcf' align="center" style="margin-top:8px">
+        <tr bgcolor='#EEF4EA'>
+            <td background='images/wbg.gif' align='center'>
+                <table border='0' cellpadding='0' cellspacing='0' height="32">
+                    <tr>
+                        <td width='160'>
+                            <select name='cid' style='width:150px'>
+                                <option value='0'>选择栏目...</option>
+                                {dede:global.optionarr /}
+                            </select>
+                        </td >
+                        <td nowrap>
+                            关键字：
+                        </td>
+                        <td width='130'>
+                            <input type='text' name='keyword' value='{dede:global.keyword/}' style='width:120px' />
+                        </td>
+                        <td width='90'>
+                            <select name='orderby' style='width:80px'>
+                                <option value='id'>排序...</option>
+                                <option value='pubdate'>更新时间</option>
+                                <!--<option value='sortrank'>置顶权值</option>-->
+                                <option value='click'>点击量</option>
+                                <!--<option value='scores'>评论积分</option>-->
+                                <option value='lastpost'>最后评论</option>
+                            </select>
+                        </td>
+                        <!--<td width='90'>-->
+                        <!--<select name='flag' style='width:80px'>-->
+                        <!--<option value=''>属性...</option>-->
+                        <!--{dede:global.flagsArr /}-->
+                        <!--</select>-->
+                        <!--</td>-->
+                        <td>
+                            <input name="imageField" type="image" src="images/button_search.gif" width="60" height="22" border="0" class="np" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+
 <!--  快速转换位置按钮  -->
 <table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#ccd9b9" align="center">
 <tr>
@@ -110,51 +157,7 @@
 </tr>
 </table>
 
-<!--  搜索表单  -->
-<form name='form3' action='content_list.php' method='get'>
-<input type='hidden' name='dopost' value='listArchives' />
-<table width='98%'  border='0' cellpadding='1' cellspacing='1' bgcolor='#cfcfcf' align="center" style="margin-top:8px">
-  <tr bgcolor='#EEF4EA'>
-    <td background='images/wbg.gif' align='center'>
-      <table border='0' cellpadding='0' cellspacing='0' height="32">
-        <tr>
-          <td width='160'>
-          <select name='cid' style='width:150px'>
-          <option value='0'>选择栏目...</option>
-          	{dede:global.optionarr /}
-          </select>
-        </td >
-        <td nowrap>
-          关键字：
-        </td>
-        <td width='130'>
-          	<input type='text' name='keyword' value='{dede:global.keyword/}' style='width:120px' />
-        </td>
-        <td width='90'>
-    		<select name='orderby' style='width:80px'>
-            <option value='id'>排序...</option>
-            <option value='pubdate'>更新时间</option>
-            <!--<option value='sortrank'>置顶权值</option>-->
-            <option value='click'>点击量</option>
-            <!--<option value='scores'>评论积分</option>-->
-            <option value='lastpost'>最后评论</option>
-      	</select>
-      </td>
-      <!--<td width='90'>-->
-    		<!--<select name='flag' style='width:80px'>-->
-            <!--<option value=''>属性...</option>-->
-            <!--{dede:global.flagsArr /}-->
-      	<!--</select>-->
-      <!--</td>-->
-       <td>
-          <input name="imageField" type="image" src="images/button_search.gif" width="60" height="22" border="0" class="np" />
-       </td>
-      </tr>
-     </table>
-   </td>
-  </tr>
-</table>
-</form>
+
 
 </body>
 </html>
