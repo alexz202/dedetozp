@@ -20,12 +20,12 @@ class UserAction extends BaseAction
         $this->assign('thisUser', $users);
         $this->assign('viptime', $users['viptime']);
         if (session('uid')) {
-            if ($users['viptime'] < time()) {
-                session(null);
-                session_destroy();
-                unset($_SESSION);
-                $this->error('您的帐号已经到期，请充值后再使用');
-            }
+//            if ($users['viptime'] < time()) {
+//                session(null);
+//                session_destroy();
+//                unset($_SESSION);
+//                $this->error('您的帐号已经到期，请充值后再使用');
+//            }
         }
         $wecha = M('Wxuser')->field('wxname,weixin,wxid,headerpic')->where(array(
             'token' => session('token'),

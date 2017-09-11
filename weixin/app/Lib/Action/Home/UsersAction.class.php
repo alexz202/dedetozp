@@ -10,9 +10,13 @@ class UsersAction extends BaseAction{
 		
 		// if($db->create()==false)
 			// $this->error($db->getError());
-		$pwd=$this->_post('password','trim,md5');
+	 $pwd=$this->_post('password','trim,md5');
+		var_dump($where);
+
 		$res=$db->where($where)->find();
-		if($res&&($pwd===$res['password'])){
+		var_dump($res);
+		die();
+		if($res){
 			
 			if($res['status']==0){
 				$this->error('请联系在线客户，为你人工审核帐号');exit;

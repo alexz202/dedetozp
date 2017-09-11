@@ -362,6 +362,7 @@ class DedeSql
         }
     }
 
+
     //执行一个不与任何表名有关的SQL语句,Create等
     function ExecuteSafeQuery($sql,$id="me")
     {

@@ -24,30 +24,30 @@ function checkSubmit()
 }
   $(function(){
       //大类改变
-      $('#type1').bind('change',function(){
-          var type1=$('#type1').val();
-          var str='';
-          if(type1!=''){
-              $.ajax({
-                  type:'post',
-                  url:'member_belong_do.php?dopost=ajaxgetbelong',
-                  data:'pid='+type1+'&tm='+new Date().getTime(),
-                  success:function(msg){
-                      console.log(msg);
-                      msg=eval('('+msg+')');
-                      $(msg).each(function(i,n){
-                              str=str+'<option value="'+n.id+'">'+n.name+'</option>';
-                      })
-                      $('#type2').html(str);
-                  },
-                  error:function(err){
-                      console.log(err);
-                  }
-              })
-          }else{
-              $('#type2').html(str);
-          }
-      });
+//      $('#type1').bind('change',function(){
+//          var type1=$('#type1').val();
+//          var str='';
+//          if(type1!=''){
+//              $.ajax({
+//                  type:'post',
+//                  url:'member_belong_do.php?dopost=ajaxgetbelong',
+//                  data:'pid='+type1+'&tm='+new Date().getTime(),
+//                  success:function(msg){
+//                      console.log(msg);
+//                      msg=eval('('+msg+')');
+//                      $(msg).each(function(i,n){
+//                              str=str+'<option value="'+n.id+'">'+n.name+'</option>';
+//                      })
+//                      $('#type2').html(str);
+//                  },
+//                  error:function(err){
+//                      console.log(err);
+//                  }
+//              })
+//          }else{
+//              $('#type2').html(str);
+//          }
+//      });
      // $('#type1').change();
   });
 
@@ -111,39 +111,39 @@ function checkSubmit()
 
              </td>
           </tr>
-          <tr> 
-            <td align="right" class='bline'>用户类型：</td>
-            <td class='bline'  style="text-align:left;">
-                <input type="hidden" id="belong_" value="<?php echo $row['belong']?>"/>
-      <select name="type1" id="type1">
-          <option value="0">请选</option>
+          <!--<tr> -->
+            <!--<td align="right" class='bline'>用户类型：</td>-->
+            <!--<td class='bline'  style="text-align:left;">-->
+                <!--<input type="hidden" id="belong_" value="<?php echo $row['belong']?>"/>-->
+      <!--<select name="type1" id="type1">-->
+          <!--<option value="0">请选</option>-->
 
-        <?php
-        $i=0;
-         foreach($arrbelongtype as $value){
-         $i++;
-        if($row1['type']==$i){
-              echo "<option value='$i' selected>$value</option>";
-        }else{
-               echo "<option value='$i'>$value</option>";
-         }
-          }
-?>
-      </select>
-                <select name="belong" id="type2">
-                 <?php
-                    foreach($list as $value){
-                     $id=$value['id'];
-                    $name=$value['name'];
-                    if($row['belong']==$id)
-                    echo "<option value=$id selected=\"selected\">$name</option>";
-                    else
-                    echo "<option value=$id >$name</option>";
-                    }
-?>
-                </select>
-            </td>
-          </tr>
+        <!--<?php-->
+        <!--$i=0;-->
+         <!--foreach($arrbelongtype as $value){-->
+         <!--$i++;-->
+        <!--if($row1['type']==$i){-->
+              <!--echo "<option value='$i' selected>$value</option>";-->
+        <!--}else{-->
+               <!--echo "<option value='$i'>$value</option>";-->
+         <!--}-->
+          <!--}-->
+<!--?>-->
+      <!--</select>-->
+                <!--<select name="belong" id="type2">-->
+                 <!--<?php-->
+                    <!--foreach($list as $value){-->
+                     <!--$id=$value['id'];-->
+                    <!--$name=$value['name'];-->
+                    <!--if($row['belong']==$id)-->
+                    <!--echo "<option value=$id selected=\"selected\">$name</option>";-->
+                    <!--else-->
+                    <!--echo "<option value=$id >$name</option>";-->
+                    <!--}-->
+<!--?>-->
+                <!--</select>-->
+            <!--</td>-->
+          <!--</tr>-->
            <tr>
                 <td align="right" class='bline'>手　机：</td>
                 <td class='bline' style="text-align:left;">

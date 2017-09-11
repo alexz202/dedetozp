@@ -1,0 +1,91 @@
+#searchdiv{
+    margin-top: 5px;
+    width: 99%;
+}
+
+#logo{
+    width: 40%;
+}
+#search{
+    width: 59%;
+}
+#edit{
+    color: #ffffff;
+}
+#edit a{
+    color: #ffffff;
+}
+#banner1{
+    clear: both;
+    margin: 0 auto;
+    width: 99%;
+    overflow: hidden;
+    /*background:url(../images/bannertop.png) no-repeat;*/
+    /*background-size:100%;*/
+    /*padding-top:48%;*/
+    position:relative;
+}
+#banner1 img{
+    width: 100%;
+}
+#hot{
+    background-color:#808080;
+    opacity: 0.6;
+    width: 36%;
+    margin-top: -55px;
+    position:relative;
+    float: right;
+    font-size:0.6em;
+    text-align: left;
+    line-height:15px;
+    color: #ffffff;padding: 1px 5px;
+}
+#hot a{
+    color: #ffffff;
+}
+#hot2{
+    width: 90%;
+    margin-top: -50px;
+    position:relative;
+    float: left;
+    font-size:0.6em;
+    text-align: left;
+    line-height:15px;
+    color: black;
+    padding: 1px 5px;
+}
+
+#hot2 a{
+    color: black;
+}
+#hot3{
+    width: 75%;
+    margin-top: -50px;
+    position:relative;
+    float: right;
+    font-size:0.6em;
+    text-align: left;
+    line-height:15px;
+    color: #ffffff;
+    padding: 1px 0px 0 20%;
+}
+#hot3 a{
+    color: #ffffff;
+}
+
+#banner2{
+    clear: both;
+    margin: 0 auto;
+    width: 99%;
+    overflow: hidden;;
+
+}
+#banner2 img{
+    width: 100%;
+}
+#banner2left{
+    width: 50%;
+}
+#banner2right{
+    width: 50%;
+}
