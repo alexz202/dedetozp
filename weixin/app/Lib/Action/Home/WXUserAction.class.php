@@ -297,12 +297,28 @@ class WXUserAction extends Action
 
     public function showqrcode(){
        $scene_id=$_GET['scene_id'];
-       $qrcodeinfo=$this->getQRCodeinfo($scene_id);
-        if(is_array($qrcodeinfo)){
-         $ticket=$qrcodeinfo['ticket'];
-           header("location:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket);
-        }else
-            die('get qrcode error');
+       $filename="qrcode/".$scene_id.'.jpg';
+       if(!file_exists($filename)){
+           $qrcodeinfo=$this->getQRCodeinfo($scene_id);
+           if(is_array($qrcodeinfo)){
+               $ticket=$qrcodeinfo['ticket'];
+               $url="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket;
+               $this->saveQrCode($url,$filename);
+               header("location:$filename");
+              // header("location:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket);
+           }else
+               die('get qrcode error');
+       }else{
+           header("location:$filename");
+       }
+
+    }
+    private function saveQrCode($url,$filename=null){
+        if($filename!=null){
+            $context=file_get_contents($url);
+          return  file_put_contents($filename,$context);
+        }
+        return true;
     }
 
     private function checkSignature()
