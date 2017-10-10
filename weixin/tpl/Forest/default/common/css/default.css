@@ -54,3 +54,12 @@ li{
 header.bar.bar-nav {
     -webkit-transform: translateZ(0);
 }
+/*FOREST ADD NEW*/
+.div_content{
+    width: 100%;!important;
+}
+.div_content_child{
+    width:45%;
+    margin:10px;
+    float: left;!important;
+}
