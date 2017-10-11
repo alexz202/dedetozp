@@ -55,11 +55,24 @@ header.bar.bar-nav {
     -webkit-transform: translateZ(0);
 }
 /*FOREST ADD NEW*/
+
+.all_white_color{
+    background-color: white;
+    text-align: center;
+}
+
 .div_content{
-    width: 100%;!important;
+    width: 80%;!important;
+    height: auto;
+    text-align: center;
+    margin: auto auto ;
 }
 .div_content_child{
-    width:45%;
-    margin:10px;
+    width:50%;
     float: left;!important;
+    text-align: center;
+}
+.div_content_child img{
+    width: 100%;
+    height: 100%;
 }
