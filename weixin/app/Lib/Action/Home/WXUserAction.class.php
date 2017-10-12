@@ -45,7 +45,7 @@ class WXUserAction extends Action
     /*
      * oauth 唯一接口
      */
-    public function oauth2($noreg='reg')
+    public function oauth2($noreg='reg',$state='')
     {
         if($noreg==='reg')
            $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode/");
@@ -58,7 +58,7 @@ class WXUserAction extends Action
         $scope = 'snsapi_userinfo';
         //$scope = "snsapi_base";
         //TODO oauth2
-        $oauth2url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$this->AppID&redirect_uri=$redirect_uri&response_type=code&scope=$scope&state=$scope#wechat_redirect";
+        $oauth2url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$this->AppID&redirect_uri=$redirect_uri&response_type=code&scope=$scope&state=$state#wechat_redirect";
       // file_put_contents('log/testoauth2',date('Y-m-d h:i:s').$redirect_uri."\r\n",FILE_APPEND);
         header('location:' . $oauth2url);
     }
@@ -178,83 +178,42 @@ class WXUserAction extends Action
 	}
 
 
-
-    public function regadd()
-    {
-        $openid = $_POST['openid'];
-        if (!empty($openid)) {
-            $username=trim($_POST['username']);
-            $phone = trim($_POST['phone']);
-            $sName = trim($_POST['sName']);
-//            $address = trim($_POST['workaddress']);
-//            $worktel = trim($_POST['worktel']);
-            $arr = array(
-                'phone' => $phone,
-                'sName' => $sName,
-                'username'=>$username,
-//                'address'=>$address,
-//                'worktel'=>$worktel
-            );
-            $res = $this->bindOpenIDtoinVcode($openid, $arr);
-            if ($res != false) {
-                $_SESSION['openid']=$openid;
-                $_SESSION['nickname']=$sName;
-				$_SESSION['mid']=$res;
-                if($_POST['act']=='suggest'){
-                    $tag='人大代表请等待后台验证后查看！';
-                    $url=C('MAPPURL').'weixin/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag;
-                }else{
-                    $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign'."&sopenid=$openid";
-                }
-                header('location:'.$url);
-            } else
-                die('bind error');
-        } else
-            die('error');
-    }
-
-//    public function reg()
+//???无用
+//    public function regadd()
 //    {
 //        $openid = $_POST['openid'];
 //        if (!empty($openid)) {
-//
-////            $email = trim($_POST['email']);
 //            $username=trim($_POST['username']);
 //            $phone = trim($_POST['phone']);
 //            $sName = trim($_POST['sName']);
-//           // $birthday = trim($_POST['birthday']);
-//            $birthday=join('-',array($_POST['year'],$_POST['month'],$_POST['day']));
-//            $address = trim($_POST['address']);
-////            $url='http://180.168.179.50:8081/IFC/SMS/SmsSend.ashx?hl_mobile='.$phone;
-////            $ch = curl_init();
-////            curl_setopt($ch, CURLOPT_URL, $url);
-////            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-////            curl_setopt($ch, CURLOPT_HEADER, 0);
-////            $output = curl_exec($ch);
-////            var_dump($output);
-////            curl_close($ch);
-//           $this->assign('username',$username);
-//            $this->assign('openid',$openid);
-//            $this->assign('phone',$phone);
-//            $this->assign('sName',$sName);
-//            $this->assign('birthday',$birthday);
-//            $this->assign('address',$address);
-//        $this->display();
+////            $address = trim($_POST['workaddress']);
+////            $worktel = trim($_POST['worktel']);
+//            $arr = array(
+//                'phone' => $phone,
+//                'sName' => $sName,
+//                'username'=>$username,
+////                'address'=>$address,
+////                'worktel'=>$worktel
+//            );
+//            $res = $this->bindOpenIDtoinVcode($openid, $arr);
+//            if ($res != false) {
+//                $_SESSION['openid']=$openid;
+//                $_SESSION['nickname']=$sName;
+//				$_SESSION['mid']=$res;
+//                if($_POST['act']=='suggest'){
+//                    $tag='人大代表请等待后台验证后查看！';
+//                    $url=C('MAPPURL').'weixin/index.php?g=Zp&m=Index&a=errorpage&tag='.$tag;
+//                }else{
+//                    $url=C('MAPPURL').'weixin/index.php?g=Zp&m=online&a=sign'."&sopenid=$openid";
+//                }
+//                header('location:'.$url);
+//            } else
+//                die('bind error');
 //        } else
 //            die('error');
 //    }
 
 
-
-//    public function getcompanyone() {
-//        $id=$_GET['id'];
-//         $company=M('company');
-//        $condition['id']=$id;
-//        $res=$company->where($condition)->find();
-//        $this->assign('info',$res);
-//        $this->display();
-//
-//    }
 
     public function getwxapi()
     {
@@ -266,28 +225,6 @@ class WXUserAction extends Action
         }
     }
 
-//    public function getdailyworker(){
-//        $wxmember = M('wxmember');
-//        $table=$wxmember->getTableName();
-//        $sql="select * from  $table where date(brithday)=date(now())";
-//        $res=$wxmember->query($sql);
-//        $wsdl="http://system.tiici.com:8063/Wsforfood/WontonExchange.asmx?WSDL";
-//        import("@.ORG.soap_cls");
-//        $soapclient=new jxsoapClient($wsdl);
-//        if($res){
-//            foreach($res as $value){
-//                $phone=$value['phone'];
-//                if(!empty($phone)){
-////        $ss= $soapclient-> searchFromPhoneNo($phone);
-////         var_dump($ss);
-//                    $ss=$soapclient->getExchangeUse($phone);
-//               //    var_dump($ss->WontonExchangeUseResult);
-//                }
-//            }
-//        }
-//
-//
-//    }
 
     public function bindOpenID()
     {
