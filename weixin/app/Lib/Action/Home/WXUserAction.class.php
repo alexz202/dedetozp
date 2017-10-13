@@ -9,15 +9,19 @@
 // 本文档自动生成，仅供测试运行
 
 define('INDEX','index');
-define('SUGGEST','suggest');
-define('REPORT','report');
-define('ZPPSINFO','zppsinfo');
-define('DEAL','deal');
-define('DBZO','dbzo');
-define('SIGN','sign');
-define('TGAS','gas');
-define('TONLINE','online');
-define('TPLATFORM','platform');
+define('HOTREPO','hotrepo'); //43
+define('HISTORYREPO','historyrepo'); //44
+define('PARKSEINFO','parkinfo'); //47
+define('TREEINFO','treeinfo');//48
+define('FORESTINFO','forestinfo');//49
+define('WETLANDINFO','wetlandinfo');//50
+define('ANIMALPROTECT','animalprotect');//51
+define('PREVENTION','prevention');//52
+define('ZHIWUKEPU','zhiwukepu');//53
+define('ENROLL','enroll');//54
+define('ACTIVEREVIEW','activereview');//55
+define('SHOWQRDETAIL','showqrdetail');//二维码文章访问
+define('SERVICE','service');//二维码文章访问
 
 class WXUserAction extends Action
 {
@@ -136,35 +140,45 @@ class WXUserAction extends Action
         $code = $_GET['code'];
         $state = $_GET['state'];
         if (!empty($code)) {
-         $userinfo= $this->getoauthinfo();
-         if($userinfo!=false&&is_array($userinfo)){
-             $_SESSION['openid']=$userinfo['openid'];
-             $_SESSION['nickname']=$userinfo['nickname'];
-			 $_SESSION['mid']=$userinfo['mid'];
-         }
+             $userinfo= $this->getoauthinfo();
+             if($userinfo!=false&&is_array($userinfo)){
+                 $_SESSION['openid']=$userinfo['openid'];
+                 $_SESSION['nickname']=$userinfo['nickname'];
+                 $_SESSION['mid']=$userinfo['mid'];
+             }
             if($type===INDEX){
-                $url='index.php?g=Zp&m=Index&a=index';
-            }elseif($type===SUGGEST){
-                $url='index.php?g=Zp&m=online&a='.SUGGEST;
+                $url='index.php?g=Forest&m=Index&a=index';
+            }elseif($type===HOTREPO){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=43';
             }
-            elseif($type===REPORT){
-                $url='index.php?g=Zp&m=Index&a='.REPORT;
+            elseif($type===HISTORYREPO){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=44';
             }
-            elseif($type===ZPPSINFO){
-                $url='index.php?g=Zp&m=Index&a='.ZPPSINFO;
+            elseif($type===PARKSEINFO){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=47';
             }
-            elseif($type===DEAL){
-                $url='index.php?g=Zp&m=Index&a='.DEAL;
+            elseif($type===TREEINFO){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=48';
             }
-            elseif($type===DBZO){
-                $url='index.php?g=Zp&m=Index&a='.DBZO;
-            }elseif($type===TGAS){
-				$url='index.php?g=Zp&m=Index&a=gasStation';
-			}elseif($type===TONLINE){
-				$url='index.php?g=Zp&m=online&a=index';
-			}elseif($type===TPLATFORM){
-				$url='index.php?g=Zp&m=platform&a=index';
-			}
+            elseif($type===FORESTINFO){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=49';
+            }elseif($type===WETLANDINFO){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=50';
+            }elseif($type===ANIMALPROTECT){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=51';
+            }elseif($type===PREVENTION){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=52';
+            }elseif($type===ZHIWUKEPU){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=53';
+            }elseif($type===ENROLL){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=54';
+            }elseif($type===ACTIVEREVIEW){
+                $url='index.php?g=Forest&m=news&a=getnewslist&type=55';
+            }elseif($type===SHOWQRDETAIL){
+                $url='index.php?g=Forest&m=news&a=getone&nid='.intval($state);
+            }elseif($type===SERVICE){
+                $url='index.php?g=Forest&m=news&a=getone&nid='.intval($state);
+            }
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
             header('location:'.$url);
         }
@@ -329,7 +343,6 @@ class WXUserAction extends Action
 				}
             }
             return $userinfo;
-
     }
 
     private function getwxmemberId($sOpenid)
