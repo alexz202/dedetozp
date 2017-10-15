@@ -565,7 +565,7 @@ input[type="button"] {
 }
 .bar-tab .tab-item.active {
   color: #ffffff;
-    background:-webkit-linear-gradient(top, #ff2f33,#c40000);
+    background:-webkit-linear-gradient(top, #428bca, #58aeda);
 }
 .bar-tab .tab-item:active {
     color: #ffffff;

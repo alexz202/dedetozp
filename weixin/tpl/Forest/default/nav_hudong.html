@@ -1,11 +1,11 @@
 <nav class="bar bar-tab" style="background-color:#428bca;color:#ffffff;font-size: 12pt;">
     <volist name="navlist" id="vo">
         <if condition="$vo['id'] eq $hit">
-            <a class="tab-item active" href="__ROOT__/index.php?g=Forest&m=news&a=getnewslist&type={weixin:$vo.id}" data-ignore="push">
+            <a class="tab-item active" href="__ROOT__/index.php?g=Forest&m=news&a=gethudonglist&type={weixin:$vo.id}" data-ignore="push">
                 {weixin:$vo.value}
             </a>
             <else/>
-            <a class="tab-item " href="__ROOT__/index.php?g=Forest&m=news&a=getnewslist&type={weixin:$vo.id}" data-ignore="push">
+            <a class="tab-item " href="__ROOT__/index.php?g=Forest&m=news&a=gethudonglist&type={weixin:$vo.id}" data-ignore="push">
                 {weixin:$vo.value}
             </a>
         </if>
