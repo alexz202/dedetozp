@@ -175,9 +175,12 @@ class WXUserAction extends Action
             }elseif($type===ACTIVEREVIEW){
                 $url='index.php?g=Forest&m=news&a=getnewslist&type=55';
             }elseif($type===SHOWQRDETAIL){
-                $url='index.php?g=Forest&m=news&a=getone&nid='.intval($state);
+				//state=tag_47_455
+				list($tag,$typeId,$aid)=explode('_',$state);
+                $url='index.php?g=Forest&m=news&a=getone&nid='.intval($aid);
             }elseif($type===SERVICE){
-                $url='index.php?g=Forest&m=news&a=getone&nid='.intval($state);
+				list($tag,$typeId,$aid)=explode('_',$state);
+                $url='index.php?g=Forest&m=news&a=getone&nid='.intval($aid);
             }
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
             header('location:'.$url);

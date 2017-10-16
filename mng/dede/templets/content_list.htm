@@ -130,7 +130,8 @@
 	<td>
 		<!--<img src='images/trun.gif' title="编辑属性" alt="编辑属性" onClick="QuickEdit({dede:field.id/}, event, this);" style='cursor:pointer' border='0' width='16' height='16' />-->
 		<img src='images/gtk-edit.png' title="编辑" alt="编辑" onClick="editArc({dede:field.id/});" style='cursor:pointer' border='0' width='16' height='16' />
-		<!--<img src='images/part-list.gif' title="预览" alt="预览" onClick="viewArc({dede:field.id/});" style='cursor:pointer' border='0' width='16' height='16' />-->
+        &nbsp; &nbsp;
+		<a href="/dedetozp/weixin/index.php?g=Home&m=Qrcode&a=make&scene_id=qr_{dede:field.typeid/}_{dede:field.id/}"><img src='images/jpg.gif' title="生成二维码" alt="生成二维码" style='cursor:pointer' border='0' width='16' height='16' /></a>
 	</td>
 </tr>
 {/dede:datalist}
