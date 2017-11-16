@@ -12,6 +12,8 @@ class IndexAction extends BaseAction
 	public function treeBanner(){
 		$openid = $_SESSION['openid'];
 		$nickname = $_SESSION['nickname'];
+		$keyword="浦东林业绿化";
+		$this->assign('keywords',$keyword);
 		$this->display();
 	}
 

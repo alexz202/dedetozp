@@ -59,20 +59,28 @@ header.bar.bar-nav {
 .all_white_color{
     background-color: white;
     text-align: center;
+    height: 98%;
+    color: #000000;
 }
 
 .div_content{
     width: 80%;!important;
-    height: auto;
+    height:auto;
     text-align: center;
     margin: auto auto ;
 }
 .div_content_child{
-    width:50%;
+    width:45%;
     float: left;!important;
     text-align: center;
 }
 .div_content_child img{
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    height: 75%;
 }
+.treespan{
+    text-align: center;
+    font-size: 1em;
+    color: #000000;!important;
+}
+

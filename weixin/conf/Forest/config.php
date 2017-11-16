@@ -36,7 +36,7 @@ return array(
     'DEFAULT_THEME'=>'default',
     'MAPPURL'=>'http://www.transmension.com.cn/weixinapp/',
     'KEYWORDS'=>array(
-        'index'=>'浦东林业'
+        'index'=>'浦东林业绿化'
     ),
     'PAGERSIZE'=>4,
     'NEWSLIST'=>array(
