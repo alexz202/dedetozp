@@ -59,7 +59,7 @@ header.bar.bar-nav {
 .all_white_color{
     background-color: white;
     text-align: center;
-    height: 98%;
+    height: 100%;
     color: #000000;
 }
 
@@ -75,7 +75,7 @@ header.bar.bar-nav {
     text-align: center;
 }
 .treeimg{
-    width: 85%;
+    width: 80%;
     text-align: center;
     /*height: 75%;*/
 }
