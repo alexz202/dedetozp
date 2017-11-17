@@ -150,10 +150,6 @@ $menusMain = "
 <m:top item='21_' name='资讯管理' display='block' rank='member_List,member_Type'>
   <m:item name='新闻内容' link='content_list.php?channelid=1' rank='member_List' target='main' id='newsm'/>
 </m:top>
-
-
-
-
 $adminMenu2
 ".
 //    <m:item name='积分头衔设置' link='member_scores.php' rank='member_Type' target='main' />
