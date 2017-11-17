@@ -74,10 +74,15 @@ header.bar.bar-nav {
     float: left;!important;
     text-align: center;
 }
-.div_content_child img{
-    width: 90%;
+.treeimg{
+    width: 85%;
+    text-align: center;
     /*height: 75%;*/
 }
+.treeimg img{
+    width: 100%;
+}
+
 .treespan{
     text-align: left;
     font-size: 1em;
