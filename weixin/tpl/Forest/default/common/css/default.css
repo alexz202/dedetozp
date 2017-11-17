@@ -67,20 +67,21 @@ header.bar.bar-nav {
     width: 80%;!important;
     height:auto;
     text-align: center;
-    margin: auto auto ;
+    margin: 20px auto ;
 }
 .div_content_child{
-    width:45%;
+    width:50%;
     float: left;!important;
     text-align: center;
 }
 .div_content_child img{
-    width: 75%;
-    height: 75%;
+    width: 90%;
+    /*height: 75%;*/
 }
 .treespan{
-    text-align: center;
+    text-align: left;
     font-size: 1em;
     color: #000000;!important;
+    padding-left: 15px;
 }
 
