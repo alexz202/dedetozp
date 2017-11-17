@@ -75,12 +75,13 @@ header.bar.bar-nav {
     text-align: center;
 }
 .treeimg{
-    width: 80%;
+    width: 100%;
     text-align: center;
     /*height: 75%;*/
 }
 .treeimg img{
-    width: 100%;
+    width: 80%;
+    text-align: center;
 }
 
 .treespan{
