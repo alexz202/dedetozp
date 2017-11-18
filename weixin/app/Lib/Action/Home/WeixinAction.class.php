@@ -80,28 +80,28 @@ class WeixinAction extends Action
 //        }
 
 
-        if ('SCAN' == $data['Event']) {
-            $key = $data['EventKey'];
-            $ticket = $data['Ticket'];
-            $username = $data['FromUserName'];
-            //TODO 签到
-            $result = $this->signIN($username, $key);
-//            return array($result,'text');
-         return    $this->getSIGNRESULT($result,$username,$key);
-        } elseif ('subscribe' == $data['Event']) {
-            if (isset($data['EventKey']) && (strpos($data['EventKey'], 'qrscene') !== false)) {
-                $ticket = $data['Ticket'];
-                $key = str_replace('qrscene_', "", $data['EventKey']);
-                $username = $data['FromUserName'];
-                //TODO 签到
-                $result = $this->signIN($username, $key);
-          return   $this->getSIGNRESULT($result,$username,$key);
-            } else {
-                // return array('test1','Text');
-            }
-        }
+//        if ('SCAN' == $data['Event']) {
+//            $key = $data['EventKey'];
+//            $ticket = $data['Ticket'];
+//            $username = $data['FromUserName'];
+//            //TODO 签到
+//            $result = $this->signIN($username, $key);
+////            return array($result,'text');
+//         return    $this->getSIGNRESULT($result,$username,$key);
+//        } elseif ('subscribe' == $data['Event']) {
+//            if (isset($data['EventKey']) && (strpos($data['EventKey'], 'qrscene') !== false)) {
+//                $ticket = $data['Ticket'];
+//                $key = str_replace('qrscene_', "", $data['EventKey']);
+//                $username = $data['FromUserName'];
+//                //TODO 签到
+//                $result = $this->signIN($username, $key);
+//          return   $this->getSIGNRESULT($result,$username,$key);
+//            } else {
+//                // return array('test1','Text');
+//            }
+//        }
         $key = $data['Content'];
-        $defaultreply="感谢您关注周浦人大微说，您有任何意见、建议都可直接在下方文本输入框告诉我。想要了解更多资讯、服务，请经常点击底部菜单栏。";
+        $defaultreply="感谢您关注浦东林业绿化，您有任何意见、建议都可直接在下方文本输入框告诉我。想要了解更多资讯、服务，请经常点击底部菜单栏。";
         return array($defaultreply, 'text');
         return $this->keyword($key);
     }

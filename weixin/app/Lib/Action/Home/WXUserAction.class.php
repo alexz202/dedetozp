@@ -173,7 +173,7 @@ class WXUserAction extends Action
             }elseif($type===ENROLL){
                 $url='index.php?g=Forest&m=news&a=getnewslist&type=54';
             }elseif($type===ACTIVEREVIEW){
-                $url='index.php?g=Forest&m=news&a=getnewslist&type=55';
+                $url='index.php?g=Forest&m=news&a=gethudonglist&type=55';
             }elseif($type===SHOWQRDETAIL){
 				//state=tag_47_455
 				list($tag,$typeId,$aid)=explode('_',$state);

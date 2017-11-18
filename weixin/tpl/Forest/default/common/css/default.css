@@ -80,12 +80,12 @@ header.bar.bar-nav {
     /*height: 75%;*/
 }
 .treeimg img{
-    width: 80%;
+    width: 70%;
     text-align: center;
 }
 
 .treespan{
-    text-align: left;
+    text-align: center;
     font-size: 1em;
     color: #000000;!important;
     padding-left: 15px;

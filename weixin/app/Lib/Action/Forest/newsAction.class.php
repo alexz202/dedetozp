@@ -65,7 +65,7 @@ class newsAction extends BaseAction{
 //        echo $news->getLastSql();
 //        var_dump($res);
         $this->hotadd($nid);
-		echo $keyword=$this->getKeywordsByTypeId($res['typeid']);
+		$keyword=$this->getKeywordsByTypeId($res['typeid']);
 		$this->assign('keywords',$keyword);
 
         $this->assign('info',$res);
