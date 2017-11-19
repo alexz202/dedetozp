@@ -57,7 +57,7 @@ class WXUserAction extends Action
             $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_suggest/");
         }
         else{
-            $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_noreg/type/".$noreg);
+            $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php?g=Home&m=WXUser&a=getCode_noreg&type=".$noreg);
         }
         $scope = 'snsapi_userinfo';
         //$scope = "snsapi_base";
@@ -147,7 +147,7 @@ class WXUserAction extends Action
                  $_SESSION['mid']=$userinfo['mid'];
              }
             if($type===INDEX){
-                $url='index.php?g=Forest&m=Index&a=index';
+                $url='index.php?g=Forest&m=Index&a=treeBanner';
             }elseif($type===HOTREPO){
                 $url='index.php?g=Forest&m=news&a=getnewslist&type=43';
             }
@@ -311,7 +311,8 @@ class WXUserAction extends Action
             //   file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $getCodeurl . '||' . $output . "\r\n", FILE_APPEND);
             $openid = $returnarr['openid'];
             $access_token = $returnarr['access_token'];
-            if ($state === 'snsapi_userinfo') {
+            $scope=$returnarr['scope'];
+            if ($scope === 'snsapi_userinfo') {
                 //TODO GET USERINFO
                 $userinfourl = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
                 $ch = curl_init();
