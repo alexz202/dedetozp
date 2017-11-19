@@ -336,7 +336,7 @@ class WXUserAction extends Action
 						$res=$this->createUser($openid,$arr);
 						if($res){
 							$userinfo['mid']=$res;
-							$userinfo['init']=0;
+							$userinfo['init']=1;
 						}
 						else
 							return false;
@@ -413,9 +413,10 @@ class WXUserAction extends Action
 		$data['sOpenId'] = $sOpenid;
 		$data['pwd'] = md5($sOpenid);
 		$data['userid'] = $arr['sName'];
+        $data['uname'] = $arr['sName'];
 		$data['uptime'] = time();
 		$data['jointime'] = time();
-		$data['init']=0;
+		$data['init']=1;
 		// $data['rank'] = time();
 		$res = $wxmember->add($data);
 		if ($res) {
