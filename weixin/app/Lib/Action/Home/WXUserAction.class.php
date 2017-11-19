@@ -57,7 +57,7 @@ class WXUserAction extends Action
             $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php/Home/WXUser/getCode_suggest/");
         }
         else{
-            $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php?g=Home&m=WXUser&a=getCode_noreg&type=".$noreg);
+            $redirect_uri = urlencode(C('MAPPURL')."weixin/index.php?g=Home&m=WXUser&a=getCode_noreg&type=".$state);
         }
         $scope = 'snsapi_userinfo';
         //$scope = "snsapi_base";
