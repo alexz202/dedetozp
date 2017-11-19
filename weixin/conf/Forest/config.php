@@ -34,7 +34,7 @@ define('ACTIVEREVIEW','activereview');//55
 return array(
     //'TMPL_FILE_DEPR'=>'_',
     'DEFAULT_THEME'=>'default',
-    'MAPPURL'=>'http://www.transmension.com.cn/weixinapp/',
+    'MAPPURL'=>'http://www.pudongyanghua.com/weixin/',
     'KEYWORDS'=>array(
         'index'=>'浦东林业绿化'
     ),
