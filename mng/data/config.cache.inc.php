@@ -1,13 +1,13 @@
 <?php
 $cfg_disable_funs = 'phpinfo,eval,exec,passthru,shell_exec,system,proc_open,popen,curl_exec,curl_multi_exec,parse_ini_file,show_source,file_put_contents';
 $cfg_disable_tags = 'php';
-$cfg_basehost = 'http://118.126.11.231/';
-$cfg_cmspath = '/dedetozp/mng';
+$cfg_basehost = 'http://www.pudongyanghua.com/';
+$cfg_cmspath = '/mng';
 $cfg_cookie_encode = '926f7iS8gSSptdQAXsoXEoiE44bnlS';
-$cfg_indexurl = '/dedetozp/mng';
+$cfg_indexurl = '/mng';
 $cfg_backup_dir = 'backupdata';
 $cfg_indexname = '主页';
-$cfg_webname = 'dedecms';
+$cfg_webname = '浦东绿化林业';
 $cfg_adminemail = 'admin@dedecms.com';
 $cfg_html_editor = 'ckeditor';
 $cfg_arcdir = '/a';
@@ -28,7 +28,7 @@ $cfg_fck_xhtml = 'N';
 $cfg_df_style = 'default';
 $cfg_multi_site = 'N';
 $cfg_dede_log = 'N';
-$cfg_powerby = 'Copyright &copy; 2002-2011 DEDECMS. 浦东林业 版权所有';
+$cfg_powerby = 'Copyright &copy; 2002-2011 DEDECMS. 浦东绿化林业 版权所有';
 $cfg_arcsptitle = 'N';
 $cfg_arcautosp = 'N';
 $cfg_arcautosp_size = 5;
