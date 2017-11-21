@@ -36,7 +36,7 @@ return array(
     'DEFAULT_THEME'=>'default',
     'MAPPURL'=>'http://www.pudongyanghua.com/weixin/',
     'KEYWORDS'=>array(
-        'index'=>'浦东林业绿化'
+        'index'=>'浦东绿化林业'
     ),
     'PAGERSIZE'=>4,
     'NEWSLIST'=>array(
@@ -49,7 +49,7 @@ return array(
         array('value'=>'林业资源','id'=>FORESTINFO_I,'nav'=>1),
         array('value'=>'湿地资源','id'=>WETLANDINFO_I,'nav'=>1),
 		array('value'=>'野生动物保护','id'=>ANIMALPROTECT_I,'nav'=>1),
-		array('value'=>'病虫害预防','id'=>PREVENTION_I,'nav'=>1),
+		array('value'=>'病虫害预警','id'=>PREVENTION_I,'nav'=>1),
 		array('value'=>'常见植物科普','id'=>ZHIWUKEPU_I,'nav'=>1),
     ),
 	'HUDONG'=>array(
