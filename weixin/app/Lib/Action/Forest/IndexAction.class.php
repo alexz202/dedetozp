@@ -12,7 +12,7 @@ class IndexAction extends BaseAction
 	public function treeBanner(){
 		$openid = $_SESSION['openid'];
 		$nickname = $_SESSION['nickname'];
-		$keyword="浦东林业绿化";
+		$keyword="浦东绿化林业";
 		$this->assign('keywords',$keyword);
 		$this->display();
 	}
