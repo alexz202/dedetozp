@@ -10,17 +10,18 @@ class msgAction extends BaseAction{
 	 *
 	 */
 
-	private $typeStr_1='周浦镇人大代表之家';
-	private $typeStr_2 = '村人大代表之家';
+	private $typeStr_1='人大代表之家';
+	private $typeStr_2 = '村居联络站';
 	private $typeStr_3 = '社区人大代表接待室';
 
 	function getZpAreaList($type){
 		$this->assign('type',$type);
 		$member_belong = M('member_belong');
-		$list = $member_belong->order('type asc')->select();
+		$condition['parent_id']=$_GET['parent_id'];
+		$list = $member_belong->where($condition)->order('type asc')->select();
 		$list_ = array();
 		foreach ($list as $k => $v) {
-			$list_[$v['type']][] = array('id' => $v['id'],
+			$list_[] = array('id' => $v['id'],
 				'name' => $v['name'],
 				'type' => $v['type']
 			);
@@ -82,12 +83,21 @@ class msgAction extends BaseAction{
 			$uname=$member['uname'];
 			$toMsgObjInfo.=':'.$uname;
 		}else{
-			$toMid=0;
+			$toMid=$_GET['toMid'];
+			$info=$this->getOneBelong($toMid);
+			$toMsgObjInfo=$info['name'].$toMsgObjInfo;
 		}
 		$this->assign('toMsgObjInfo',$toMsgObjInfo);
 		$this->assign('toMid',$toMid);
 		$this->assign('type',$type);
 		$this->display();
+	}
+
+
+	private function getOneBelong($id){
+		$belong=M('member_belong');
+		$condition['id']=$id;
+		return $info=$belong->where($condition)->find();
 	}
 
 	function reMsgTb(){
@@ -139,7 +149,10 @@ class msgAction extends BaseAction{
 			  $res=$msgModel->addMsg($params);
 			  if($type==3){
 				  $url=__ROOT__."/index.php?g=Zp&m=msg&a=getZpOneArea&bid={$bid}&tag=";
-			  }else{
+			  }elseif($type==1){
+				  $url=__ROOT__."/index.php?g=Zp&m=online&a=getzeng&id={$toMid}";
+			  }else
+			  {
 				  $url=__ROOT__.'/index.php?g=Zp&m=online&a=index&tag=';
 			  }
 			  $tag='发言已成功！感谢您的宝贵意见！';

@@ -34,7 +34,7 @@ return array(
     'DEFAULT_THEME'=>'default',
     'MAPPURL'=>'http://www.transmension.com.cn/weixinapp/',
     'KEYWORDS'=>array(
-        'index'=>'周浦人大'
+        'index'=>'南汇人大'
     ),
     'PAGERSIZE'=>4,
     'NEWSLIST'=>array(array('value'=>'工作要闻','id'=>WORKER,'nav'=>1),

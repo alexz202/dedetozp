@@ -20,25 +20,18 @@
 <div id="content" class="content" style="">
     <!--<include file="../btnback"/>-->
     <div class="segmented-control">
-        <if condition="$type eq 1">
-            <a class='control-item  active ' href="#item1mobile">
-                村
-            </a>
-           <else/>
-            <a class='control-item active' href="#item1mobile">
-                社区
-            </a>
-        </if>
+        <a class='control-item  active ' href="#item1mobile">
+            村居联络站
+        </a>
 
         <!--<a class="control-item" href="#item3mobile">-->
             <!--企业-->
         <!--</a>-->
     </div>
     <div id="divcontrol" class="card">
-        <if condition="$type eq 1">
-        <span id="item1mobile" class='control-content active'>
+         <span id="item1mobile" class='control-content active'>
             <ul class="table-view" style="font-size: 14px;">
-                <volist name="list[1]" id="vo">
+                <volist name="list" id="vo">
                     <li class="table-view-cell">
                         <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpOneArea&bid={weixin:$vo.id}&tag=2"
                            data-ignore="push">
@@ -48,20 +41,6 @@
                 </volist>
             </ul>
         </span>
-            <else/>
-        <span id="item1mobile" class='control-content active'>
-              <ul class="table-view" style="font-size: 14px;">
-                  <volist name="list[2]" id="vo">
-                      <li class="table-view-cell">
-                          <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpOneArea&bid={weixin:$vo.id}&tag=3"
-                             data-ignore="push">
-                              {weixin:$vo.name}
-                          </a>
-                      </li>
-                  </volist>
-              </ul>
-        </span>
-        </if>
         <!--<span id="item3mobile" class="control-content">-->
               <!--<ul class="table-view" style="font-size: 14px;">-->
                   <!--<volist name="list[3]" id="vo">-->

@@ -153,12 +153,25 @@ class IndexAction extends BaseAction
         $this->assign('keywords', $zpstyle[1]['key']);
         $member_belong = M('member_belong');
         $list = $member_belong->order('type asc')->select();
-        $list_ = array();
+        $list_ = array(
+			'1'=>array(),
+			'2'=>array(),
+		);
         foreach ($list as $k => $v) {
-            $list_[$v['type']][] = array('id' => $v['id'],
-                'name' => $v['name'],
-                'type' => $v['type']
-            );
+			if($v['name']!='泥城'){
+				$parent_id=intval($v['parent_id']);
+				if($parent_id==0){
+					$list_[0][]= array('id' => $v['id'],
+						'name' => $v['name'],
+						'type' => $v['type']
+					);
+				}else{
+					$list_[1][]= array('id' => $v['id'],
+						'name' => $v['name'],
+						'type' => $v['type']
+					);
+				}
+			}
         }
         $this->assign('list', $list_);
         $this->display();

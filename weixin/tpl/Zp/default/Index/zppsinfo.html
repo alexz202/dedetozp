@@ -21,10 +21,10 @@
     <include file="../btnback"/>
     <div class="segmented-control">
         <a class="control-item active" href="#item1mobile">
-            村
+            镇代表联络站
         </a>
         <a class="control-item " href="#item2mobile">
-            社区
+            村居联络站
         </a>
         <!--<a class="control-item" href="#item3mobile">-->
             <!--企业-->
@@ -33,7 +33,7 @@
     <div id="divcontrol" class="card">
         <span id="item1mobile" class="control-content active">
             <ul class="table-view" style="font-size: 14px;">
-                <volist name="list[1]" id="vo">
+                <volist name="list[0]" id="vo">
                     <li class="table-view-cell">
                         <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"
                            data-ignore="push">
@@ -45,7 +45,7 @@
         </span>
         <span id="item2mobile" class="control-content">
               <ul class="table-view" style="font-size: 14px;">
-                  <volist name="list[2]" id="vo">
+                  <volist name="list[1]" id="vo">
                       <li class="table-view-cell">
                           <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"
                              data-ignore="push">
