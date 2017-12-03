@@ -1,7 +1,7 @@
 <?php
 //数据库连接信息
 $cfg_dbhost = 'localhost';
-$cfg_dbname = 'dedetozp';
+$cfg_dbname = 'dedetonh';
 $cfg_dbuser = 'root';
 $cfg_dbpwd = 'carman123';
 $cfg_dbprefix = 'tp_';

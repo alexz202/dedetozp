@@ -19,8 +19,9 @@ $ENV_GOBACK_URL = isset($_COOKIE['ENV_GOBACK_URL']) ? 'member_belong_main.php' :
 
 if($dopost=='insert'){
     $params=array(
-        'name'=>$name,
-        'type'=>$type
+        'name'=>trim($name),
+        'type'=>$type,
+		'parent_id'=>intval($parent_id)
     );
     $condition['table']='`#@__member_belong`';
  $sql=add($params,$condition);
@@ -35,8 +36,9 @@ if($dopost=='insert'){
 }
 elseif($dopost=='update'){
     $params=array(
-        'name'=>$name,
-        'type'=>$type
+        'name'=>trim($name),
+        'type'=>$type,
+		'parent_id'=>intval($parent_id)
     );
     $condition['table']='`#@__member_belong`';
     $condition['id']=$id;

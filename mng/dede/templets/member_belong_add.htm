@@ -44,6 +44,18 @@
            </select>
             </td>
           </tr>
+            <tr>
+                <td align="right" class='bline'>所属：</td>
+                <td class='bline'  style="text-align:left;">
+                    <select name="parent_id">
+                        <?php
+               foreach($parent_list as $v){
+                        echo "<option value='".$v['id']."'>".$v['name']."</option>";
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
           <tr> 
             <td height="67" align="right" >&nbsp;</td>
             <td height="67" align="left">

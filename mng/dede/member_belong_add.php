@@ -15,7 +15,17 @@ CheckPurview('member_Edit');
 $ENV_GOBACK_URL = isset($_COOKIE['ENV_GOBACK_URL']) ? "member_main.php" : '';
 $id = preg_replace("#[^0-9]#", "", $id);
 $row = $dsql->GetOne("select  * from #@__member where mid='$id'");
+
 $staArr =json_decode(BELONDTYPE,true);
+
+$dsql->SetQuery("SELECT * FROM `#@__member_belong` WHERE parent_id=0");
+$dsql->Execute();
+$parent_list=array();
+$parent_list[]=array('name'=>'最高','id'=>0);
+while($trow = $dsql->GetObject())
+{
+	$parent_list[]=array('name'=>$trow->name,'id'=>$trow->id);
+}
 
 //如果这个用户是管理员帐号，必须有足够权限的用户才能操作
 if($row['matt']==10) CheckPurview('sys_User');

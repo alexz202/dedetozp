@@ -18,6 +18,13 @@ $row = $dsql->GetOne("select  * from #@__member_belong where id='$id'");
 
 $staArr =json_decode(BELONDTYPE,true);
 
+$parent_list=array();
+$parent_list[]=array('name'=>'最高','id'=>0);
+while($trow = $dsql->GetObject())
+{
+	$parent_list[]=array('name'=>$trow->name,'id'=>$trow->id);
+}
+
 ////如果这个用户是管理员帐号，必须有足够权限的用户才能操作
 //if($row['matt']==10) CheckPurview('sys_User');
 //

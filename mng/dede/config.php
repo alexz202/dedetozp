@@ -15,7 +15,7 @@ define('SUGGESTTYPEID',23);
 define('TALKTYPEID',24);
 define('ZPINFO',19);
 define('COMMENT',20);
-define('BELONDTYPE','{"1":"村","2":"社区","3":"企业","4":"其他"}');
+define('BELONDTYPE','{"1":"镇","2":"村","3":"社区","4":"其他"}');
 define('GAS',33);
 
 
