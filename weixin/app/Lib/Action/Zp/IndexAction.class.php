@@ -152,7 +152,7 @@ class IndexAction extends BaseAction
         $this->assign('active', $zpstyle[1]['value']);
         $this->assign('keywords', $zpstyle[1]['key']);
         $member_belong = M('member_belong');
-        $list = $member_belong->order('type asc')->select();
+        $list = $member_belong->order('type desc')->select();
         $list_ = array(
 			'1'=>array(),
 			'2'=>array(),
@@ -166,10 +166,10 @@ class IndexAction extends BaseAction
 						'type' => $v['type']
 					);
 				}else{
-					$list_[1][]= array('id' => $v['id'],
-						'name' => $v['name'],
-						'type' => $v['type']
-					);
+//					$list_[1][]= array('id' => $v['id'],
+//						'name' => $v['name'],
+//						'type' => $v['type']
+//					);
 				}
 			}
         }
@@ -177,6 +177,25 @@ class IndexAction extends BaseAction
         $this->display();
 //        var_dump($list_);
     }
+
+
+	function getZpAreaList(){
+		$zpstyle = C('ZPSTYLE');
+		$this->assign('active', $zpstyle[1]['value']);
+		$this->assign('keywords', $zpstyle[1]['key']);
+		$member_belong = M('member_belong');
+		$condition['parent_id']=$_GET['parent_id'];
+		$list = $member_belong->where($condition)->order('type asc')->select();
+		$list_ = array();
+		foreach ($list as $k => $v) {
+			$list_[] = array('id' => $v['id'],
+				'name' => $v['name'],
+				'type' => $v['type']
+			);
+		}
+		$this->assign('list', $list_);
+		$this->display();
+	}
 
     /**
      * 获取某个belong

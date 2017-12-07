@@ -150,7 +150,7 @@ class msgAction extends BaseAction{
 			  if($type==3){
 				  $url=__ROOT__."/index.php?g=Zp&m=msg&a=getZpOneArea&bid={$bid}&tag=";
 			  }elseif($type==1){
-				  $url=__ROOT__."/index.php?g=Zp&m=online&a=getzeng&id={$toMid}";
+				  $url=__ROOT__."/index.php?g=Zp&m=online&a=getzeng&type=1";
 			  }else
 			  {
 				  $url=__ROOT__.'/index.php?g=Zp&m=online&a=index&tag=';

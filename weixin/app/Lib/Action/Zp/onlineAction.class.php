@@ -22,22 +22,18 @@ class onlineAction extends BaseAction
 		$mid = $_SESSION['mid'];
 //		$this->overridegetlist();
 		$this->assign('keywords', $this->keywords);
-		$this->display('index3');
+		$this->display('index4');
 	}
 
 
 
 
-	public function getzeng(){
+	public function getzeng($type=1){
 		$openid = $_SESSION['openid'];
 		$nickname = $_SESSION['nickname'];
 		$mid = $_SESSION['mid'];
 		$this->assign('keywords', $this->keywords);
-		$id=$_GET['id'];
-		$belong=M('member_belong');
-		$condition['id']=$id;
-		$info=$belong->where($condition)->find();
-		$this->assign('info',$info);
+		$this->assign('type', $type);
 		$this->display();
 	}
 

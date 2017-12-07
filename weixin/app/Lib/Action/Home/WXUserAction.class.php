@@ -295,15 +295,32 @@ class WXUserAction extends Action
     }
 
 
-    public function showqrcode(){
-       $scene_id=$_GET['scene_id'];
-       $qrcodeinfo=$this->getQRCodeinfo($scene_id);
-        if(is_array($qrcodeinfo)){
-         $ticket=$qrcodeinfo['ticket'];
-           header("location:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket);
-        }else
-            die('get qrcode error');
-    }
+	public function showqrcode(){
+		$scene_id=$_GET['scene_id'];
+		$filename="qrcode/".$scene_id.'.jpg';
+		if(!file_exists($filename)){
+			$qrcodeinfo=$this->getQRCodeinfo($scene_id);
+			if(is_array($qrcodeinfo)){
+				$ticket=$qrcodeinfo['ticket'];
+				$url="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket;
+				$this->saveQrCode($url,$filename);
+				header("location:$filename");
+				// header("location:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket);
+			}else
+				die('get qrcode error');
+		}else{
+			header("location:$filename");
+		}
+
+	}
+	private function saveQrCode($url,$filename=null){
+		if($filename!=null){
+			$context=file_get_contents($url);
+			return  file_put_contents($filename,$context);
+		}
+		return true;
+	}
+
 
     private function checkSignature()
     {
@@ -454,29 +471,29 @@ class WXUserAction extends Action
 		return false;
 	}
 
-    /*
-     * get QRCODE
-     */
-    private  function getQRCodeinfo($scene_id){
-        $Token= $this->getToken();
-        $urlQRCode = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=$Token";
-        $scenearr=array(
-            'scene_id'=>$scene_id
-        );
-        $_data=array(
-           'action_name'=>'QR_LIMIT_SCENE',
-            'action_info'=>array(
-                'scene'=>$scenearr
-            ),
-        );
-      $jsonstr=  json_encode($_data);
-       $output= $this->curlpost($urlQRCode,$jsonstr);
-       $returnarr=json_decode($output,true);
-        $ticket=$returnarr['ticket'];
-        $url=$returnarr['url'];
-      // $showqrcodeurl="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket;
-      return array('ticket'=>$ticket,'url'=>$url);
-    }
+	/*
+	 * get QRCODE
+	 */
+	private  function getQRCodeinfo($scene_id){
+		$Token= $this->getToken();
+		$urlQRCode = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=$Token";
+		$scenearr=array(
+			'scene_id'=>$scene_id
+		);
+		$_data=array(
+			'action_name'=>'QR_LIMIT_SCENE',
+			'action_info'=>array(
+				'scene'=>$scenearr
+			),
+		);
+		$jsonstr=  json_encode($_data);
+		$output= $this->curlpost($urlQRCode,$jsonstr);
+		$returnarr=json_decode($output,true);
+		$ticket=$returnarr['ticket'];
+		$url=$returnarr['url'];
+		// $showqrcodeurl="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket;
+		return array('ticket'=>$ticket,'url'=>$url);
+	}
 
 
     /**get token

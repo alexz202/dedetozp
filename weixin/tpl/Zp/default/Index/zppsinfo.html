@@ -45,9 +45,9 @@
         </span>
         <span id="item2mobile" class="control-content">
               <ul class="table-view" style="font-size: 14px;">
-                  <volist name="list[1]" id="vo">
+                  <volist name="list[0]" id="vo">
                       <li class="table-view-cell">
-                          <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"
+                          <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getZpAreaList&parent_id={weixin:$vo.id}"
                              data-ignore="push">
                               {weixin:$vo.name}
                           </a>

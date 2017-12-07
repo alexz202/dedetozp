@@ -27,27 +27,47 @@
                 在线互动栏目，您可以在这里向代表提出意见和建议，我们会尽快回复你的建议！
             </li>
         </ul>
-
-
-    <div class="card">
+    <if condition="$type eq 1">
         <ul class="table-view">
-            <li class="table-view-cell btn-primary block_size2">
-                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=1&toMid={weixin:$info['id']}" data-transition="slide-in" data-ignore="push">
-                    {weixin:$info['name']}人大代表之家
+
+            <li class="table-view-cell btn-negative block_size2" style="background-color: #c40000;">
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=1&toMid=4" data-transition="slide-in" data-ignore="push">
+                    南汇新城镇人大代表之家
                 </a>
             </li>
             <li class="table-view-cell btn-positive block_size2" >
-                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpAreaList&type=1&parent_id={weixin:$info['id']}" data-transition="slide-in" data-ignore="push">
-                    村居联络站
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=1&toMid=3" data-transition="slide-in" data-ignore="push">
+                    万祥镇人大代表之家
                 </a>
             </li>
-            <!--<li class="table-view-cell btn-negative block_size2" style="background-color: #c40000;">-->
-                <!--<a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpAreaList&type=2" data-transition="slide-in" data-ignore="push">-->
-                  <!--社区人大代表接待室-->
-                <!--</a>-->
-            <!--</li>-->
+            <li class="table-view-cell btn-primary block_size2">
+            <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=1&toMid=1" data-transition="slide-in" data-ignore="push">
+                书院镇人大代表之家
+            </a>
+            </li>
         </ul>
-    </div>
+        <else/>
+        <ul class="table-view">
+            <li class="table-view-cell btn-negative block_size2" style="background-color: #c40000;">
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpAreaList&type=1&parent_id=4" data-transition="slide-in" data-ignore="push">
+                    南汇新城镇人大代表之家
+                </a>
+            </li>
+
+            <li class="table-view-cell btn-positive block_size2" >
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpAreaList&type=1&parent_id=3" data-transition="slide-in" data-ignore="push">
+                    万祥镇人大代表之家
+                </a>
+            </li>
+
+            <li class="table-view-cell btn-primary block_size2">
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpAreaList&type=1&parent_id=1" data-transition="slide-in" data-ignore="push">
+                    书院镇人大代表之家
+                </a>
+            </li>
+
+        </ul>
+        </if>
 </div>
 </body>
 </html>

@@ -54,8 +54,8 @@ return array(
     ),
     'ZPSTYLE'=>array(array('key'=>'履职报道','value'=>REPORT),
         array('key'=>'代表信息','value'=>INFO),
-        array('key'=>'意见办理','value'=>DEAL),
-        array('key'=>'代表展播','value'=>DBZB),
+        array('key'=>'代表提案','value'=>DEAL),
+        array('key'=>'优秀代表','value'=>DBZB),
     ),
 	'GAS'=>array('key'=>'代表加油站'),
 );
