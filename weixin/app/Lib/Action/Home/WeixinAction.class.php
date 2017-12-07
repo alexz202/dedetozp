@@ -101,7 +101,7 @@ class WeixinAction extends Action
             }
         }
         $key = $data['Content'];
-        $defaultreply="感谢您关注周浦人大微说，您有任何意见、建议都可直接在下方文本输入框告诉我。想要了解更多资讯、服务，请经常点击底部菜单栏。";
+        $defaultreply="感谢您关注南汇人大微说，您有任何意见、建议都可直接在下方文本输入框告诉我。想要了解更多资讯、服务，请经常点击底部菜单栏。";
         return array($defaultreply, 'text');
         return $this->keyword($key);
     }
@@ -154,7 +154,7 @@ class WeixinAction extends Action
         $urlreg=C('MAPPURL').'weixin/index.php/Home/WXUser/oauth2/noreg/reg';
         $img=C('MAPPURL').'weixin/tpl/Zp/default/common/images/logo.png';
         $meetinfo=$this->getmeet($meetid);
-        if(!empty($meetinfo['litpic']))$img="http://118.126.11.231/".$meetinfo['litpic'];
+        if(!empty($meetinfo['litpic']))$img="http://www.lgrenda.com/".$meetinfo['litpic'];
         if ($result == 0) {
             //签到成功
            $array=array('签到成功','',$img,$url."&sopenid=$sOpenid&meetid=$meetid");
