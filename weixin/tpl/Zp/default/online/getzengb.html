@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{weixin:$keywords}</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="__ROOT__/{weixin::RES}/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/default_1.css" rel="stylesheet">
+    <link href="__ROOT__/{weixin::RES}/css/index.css" rel="stylesheet">
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/jquery.min.js"></script>
+    <!-- Include the compiled Ratchet JS -->
+    <script src="__ROOT__/{weixin::RES}/ratchet/js/ratchet.js"></script>
+    <!--<script src="__ROOT__/{weixin::RES}/js/weixinapi.js"></script>-->
+</head>
+<body>
+<include file="../head_index"/>
+<include file="../nav_msg"/>
+<!--<header class="bar bar-nav">-->
+    <!--<h1 class="title" style="color:#000000">{weixin:$keywords}</h1>-->
+<!--</header>-->
+<div class="content">
+
+    <ul class="table-view">
+            <li class="table-view-cell block_size3">
+                在线互动栏目，您可以在这里向代表提出意见和建议，我们会尽快回复你的建议！
+            </li>
+        </ul>
+    <if condition="type eq 1">
+        <ul class="table-view">
+            <li class="table-view-cell btn-primary block_size2">
+            <li class="table-view-cell btn-negative block_size2" style="background-color: #c40000;">
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=online&a=getzeng&id=4" data-transition="slide-in" data-ignore="push">
+                    南汇新城镇人大代表之家
+                </a>
+            </li>
+            <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=online&a=getzeng&id=1" data-transition="slide-in" data-ignore="push">
+                书院镇人大代表之家
+            </a>
+            </li>
+            <li class="table-view-cell btn-positive block_size2" >
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=online&a=getzeng&id=3" data-transition="slide-in" data-ignore="push">
+                    万祥镇人大代表之家
+                </a>
+            </li>
+
+        </ul>
+        <else/>
+        <ul class="table-view">
+            <li class="table-view-cell btn-primary block_size2">
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=online&a=getzeng&id=1" data-transition="slide-in" data-ignore="push">
+                    书院镇人大代表之家
+                </a>
+            </li>
+            <li class="table-view-cell btn-positive block_size2" >
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=online&a=getzeng&id=3" data-transition="slide-in" data-ignore="push">
+                    万祥镇人大代表之家
+                </a>
+            </li>
+            <li class="table-view-cell btn-negative block_size2" style="background-color: #c40000;">
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=online&a=getzeng&id=4" data-transition="slide-in" data-ignore="push">
+                    南汇新城镇人大代表之家
+                </a>
+            </li>
+        </ul>
+        <if/>
+
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell btn-primary block_size2">
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=add&type=1&toMid={weixin:$info['id']}" data-transition="slide-in" data-ignore="push">
+                    {weixin:$info['name']}人大代表之家
+                </a>
+            </li>
+            <li class="table-view-cell btn-positive block_size2" >
+                <a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpAreaList&type=1&parent_id={weixin:$info['id']}" data-transition="slide-in" data-ignore="push">
+                    村居联络站
+                </a>
+            </li>
+            <!--<li class="table-view-cell btn-negative block_size2" style="background-color: #c40000;">-->
+                <!--<a class="navigate-right" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpAreaList&type=2" data-transition="slide-in" data-ignore="push">-->
+                  <!--社区人大代表接待室-->
+                <!--</a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</div>
+</body>
+</html>
