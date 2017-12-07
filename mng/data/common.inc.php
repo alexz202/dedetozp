@@ -3,7 +3,7 @@
 $cfg_dbhost = 'localhost';
 $cfg_dbname = 'dedetonh';
 $cfg_dbuser = 'root';
-$cfg_dbpwd = 'carman123';
+$cfg_dbpwd = 'nh123321!@#';
 $cfg_dbprefix = 'tp_';
 $cfg_db_language = 'utf8';
 

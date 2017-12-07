@@ -2,7 +2,7 @@
 return array(
 	'TMPL_FILE_DEPR'=>'_',
 	'DEFAULT_THEME'=>'default',
-    'MAPPURL'=>'http://118.126.11.231/dedetozp/',
-     'APPID'=>'wxab27ae668e90cb25',
-    'APPKEY'=>'0156e27421ab52ad83b87fd72066d376',   
+    'MAPPURL'=>'http://www.lgrenda.com/',
+     'APPID'=>'wx7c559e82aca1dd9f',
+    'APPKEY'=>'df1ac88852f34baf9f05614d20153c13',   
 );
