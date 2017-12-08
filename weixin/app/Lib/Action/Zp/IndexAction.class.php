@@ -158,19 +158,17 @@ class IndexAction extends BaseAction
 			'2'=>array(),
 		);
         foreach ($list as $k => $v) {
-			if($v['name']!='泥城'){
-				$parent_id=intval($v['parent_id']);
-				if($parent_id==0){
-					$list_[0][]= array('id' => $v['id'],
-						'name' => $v['name'],
-						'type' => $v['type']
-					);
-				}else{
+			$parent_id=intval($v['parent_id']);
+			if($parent_id==0){
+				$list_[0][]= array('id' => $v['id'],
+					'name' => $v['name'],
+					'type' => $v['type']
+				);
+			}else{
 //					$list_[1][]= array('id' => $v['id'],
 //						'name' => $v['name'],
 //						'type' => $v['type']
 //					);
-				}
 			}
         }
         $this->assign('list', $list_);

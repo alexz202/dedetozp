@@ -34,12 +34,14 @@
         <span id="item1mobile" class="control-content active">
             <ul class="table-view" style="font-size: 14px;">
                 <volist name="list[0]" id="vo">
-                    <li class="table-view-cell">
-                        <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"
-                           data-ignore="push">
-                            {weixin:$vo.name}
-                        </a>
-                    </li>
+                    <if condition="$vo['name'] neq '泥城'">
+                        <li class="table-view-cell">
+                            <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"
+                               data-ignore="push">
+                                {weixin:$vo.name}
+                            </a>
+                        </li>
+                    </if>
                 </volist>
             </ul>
         </span>

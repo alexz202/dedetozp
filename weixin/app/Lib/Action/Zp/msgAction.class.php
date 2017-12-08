@@ -61,7 +61,7 @@ class msgAction extends BaseAction{
 		}
 		$zpstyle = C('ZPSTYLE');
 		$this->assign('active', $zpstyle[1]['value']);
-		$this->assign('keywords', $zpstyle[1]['key']);
+		$this->assign('keywords', '意见建议');
 		$this->assign('tag',$_GET['tag']);
 		$this->display();
 	}
