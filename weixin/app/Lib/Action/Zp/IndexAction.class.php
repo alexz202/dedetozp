@@ -152,7 +152,7 @@ class IndexAction extends BaseAction
         $this->assign('active', $zpstyle[1]['value']);
         $this->assign('keywords', $zpstyle[1]['key']);
         $member_belong = M('member_belong');
-        $list = $member_belong->order('type desc')->select();
+        $list = $member_belong->order('type desc,id desc')->select();
         $list_ = array(
 			'1'=>array(),
 			'2'=>array(),
