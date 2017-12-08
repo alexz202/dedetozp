@@ -1,14 +1,4 @@
 <nav class="bar bar-tab" style="background-color:#c40000;color:#ffffff;font-size: 12pt;">
-
-    <if condition="$active eq 'report'">
-        <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=Index&a=report" data-ignore="push">
-            履职<br/>报道
-        </a>
-        <else/>
-        <a class="tab-item" href="__ROOT__/index.php?g=Zp&m=Index&a=report" data-ignore="push">
-            履职<br/>报道
-        </a>
-    </if>
     <if condition="$active eq 'info'">
         <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=Index&a=zppsinfo" data-ignore="push">
             代表<br/>信息
@@ -18,22 +8,23 @@
             代表<br/>信息
         </a>
     </if>
-    <if condition="$active eq 'deal'">
-        <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=Index&a=deal" data-ignore="push">
-            意见<br/>办理
-        </a>
-        <else/>
-        <a class="tab-item" href="__ROOT__/index.php?g=Zp&m=Index&a=deal" data-ignore="push">
-            意见<br/>办理
-        </a>
-    </if>
+
     <if condition="$active eq 'dbzo'">
         <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=Index&a=dbzo" data-ignore="push">
-            代表<br/>展播
+            优秀<br/>代表
         </a>
         <else/>
         <a class="tab-item" href="__ROOT__/index.php?g=Zp&m=Index&a=dbzo" data-ignore="push">
-            代表<br/>展播
+            优秀<br/>代表
+        </a>
+    </if>
+    <if condition="$active eq 'deal'">
+        <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=Index&a=deal" data-ignore="push">
+            代表<br/>提案
+        </a>
+        <else/>
+        <a class="tab-item" href="__ROOT__/index.php?g=Zp&m=Index&a=deal" data-ignore="push">
+            代表<br/>提案
         </a>
     </if>
 </nav>
