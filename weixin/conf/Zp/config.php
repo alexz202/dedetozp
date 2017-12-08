@@ -32,7 +32,7 @@ define('DBZB','dbzo');
 return array(
     //'TMPL_FILE_DEPR'=>'_',
     'DEFAULT_THEME'=>'default',
-    'MAPPURL'=>'http://www.transmension.com.cn/weixinapp/',
+    'MAPPURL'=>'http://www.lgrenda.com/weixin/',
     'KEYWORDS'=>array(
         'index'=>'南汇人大'
     ),
@@ -52,7 +52,8 @@ return array(
 		array('value'=>'人大代表工作室','id'=>RDWORKROOM,'nav'=>0),
 		array('value'=>'人大代表工作室职责','id'=>RDWORKROOMRSBS,'nav'=>0),
     ),
-    'ZPSTYLE'=>array(array('key'=>'履职报道','value'=>REPORT),
+    'ZPSTYLE'=>
+	array(
         array('key'=>'代表信息','value'=>INFO),
         array('key'=>'代表提案','value'=>DEAL),
         array('key'=>'优秀代表','value'=>DBZB),
