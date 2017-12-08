@@ -54,6 +54,7 @@ return array(
     ),
     'ZPSTYLE'=>
 	array(
+        array('key'=>'履职报道','value'=>REPORT),
         array('key'=>'代表信息','value'=>INFO),
         array('key'=>'代表提案','value'=>DEAL),
         array('key'=>'优秀代表','value'=>DBZB),
