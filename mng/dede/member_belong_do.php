@@ -13,7 +13,7 @@ require_once(dirname(__FILE__)."/curd_common.php");
 require_once(DEDEINC."/oxwindow.class.php");
 if(empty($dopost)) $dopost = '';
 if(empty($fmdo)) $fmdo = '';
-$ENV_GOBACK_URL = isset($_COOKIE['ENV_GOBACK_URL']) ? 'member_belong_main.php' : '';
+ $ENV_GOBACK_URL = isset($_COOKIE['ENV_GOBACK_URL']) ? 'member_belong_main.php' : '';
 
 /*function add*/
 
