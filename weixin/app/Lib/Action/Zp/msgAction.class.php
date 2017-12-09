@@ -17,7 +17,10 @@ class msgAction extends BaseAction{
 	function getZpAreaList($type){
 		$this->assign('type',$type);
 		$member_belong = M('member_belong');
-		$condition['parent_id']=$_GET['parent_id'];
+		$parent_id=$_GET['parent_id'];
+		$condition_one['id']=$parent_id;
+		$info=$member_belong->where($condition_one)->find();
+		$condition['parent_id']=$parent_id;
 		$list = $member_belong->where($condition)->order('type asc')->select();
 		$list_ = array();
 		foreach ($list as $k => $v) {
@@ -27,6 +30,7 @@ class msgAction extends BaseAction{
 			);
 		}
 		$this->assign('list', $list_);
+		$this->assign('info', $info);
 		$this->display();
 	}
 

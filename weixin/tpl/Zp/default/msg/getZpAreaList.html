@@ -21,7 +21,7 @@
     <!--<include file="../btnback"/>-->
     <div class="segmented-control">
         <a class='control-item  active ' href="#item1mobile">
-            村居联络站
+            {weixin:$info.name}
         </a>
 
         <!--<a class="control-item" href="#item3mobile">-->
@@ -31,6 +31,13 @@
     <div id="divcontrol" class="card">
          <span id="item1mobile" class='control-content active'>
             <ul class="table-view" style="font-size: 14px;">
+                <li class="table-view-cell">
+                    <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpOneArea&bid={weixin:$info.id}&tag=2"
+                       data-ignore="push">
+                        镇代表联络站
+                    </a>
+                </li>
+
                 <volist name="list" id="vo">
                     <li class="table-view-cell">
                         <a class="" href="__ROOT__/index.php?g=Zp&m=msg&a=getZpOneArea&bid={weixin:$vo.id}&tag=2"
