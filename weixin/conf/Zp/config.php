@@ -34,7 +34,7 @@ return array(
     'DEFAULT_THEME'=>'default',
     'MAPPURL'=>'http://www.lgrenda.com/weixin/',
     'KEYWORDS'=>array(
-        'index'=>'南汇人大'
+        'index'=>'临港四镇'
     ),
     'PAGERSIZE'=>4,
     'NEWSLIST'=>array(array('value'=>'工作要闻','id'=>WORKER,'nav'=>1),
