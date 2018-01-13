@@ -27,6 +27,84 @@ $aid = isset($aid) ? preg_replace("#[^0-9]#", '', $aid) : '';
 //编辑文档
 function editArchives(){ }
 ---------------------------*/
+if($dopost=='copyArchives')
+{
+	$arcQuery = "SELECT ch.typename as channelname,ar.membername as rankname,arc.*
+    FROM `#@__archives` arc
+    LEFT JOIN `#@__channeltype` ch ON ch.id=arc.channel
+    LEFT JOIN `#@__arcrank` ar ON ar.rank=arc.arcrank WHERE arc.id='$aid'
+    ";
+
+	$arcRow = $dsql->GetOne($arcQuery);
+
+//	var_dump($arcRow);
+
+	$arcrank=intval($arcRow['arcrank']);
+	$typeid=intval($arcRow['typeid']);
+//	$sortrank=intval($arcRow['sortrank']);
+	$sortrank=time();
+	$senddate=$sortrank;
+	$adminid=1;
+	$channelid=intval($arcRow['channel']);
+
+
+	$flag=$arcRow['flag'];
+	$ismake=$arcRow['ismake'];
+	$click=$arcRow['click'];
+	$money=$arcRow['money'];
+	$title=$arcRow['title'];
+	$shorttitle=$arcRow['shorttitle'];
+	$color=$arcRow['color'];
+	$writer=$arcRow['writer'];
+	$source='周浦人大';
+	$litpic=$arcRow['litpic'];
+	$pubdate=$arcRow['pubdate'];
+	$senddate=$arcRow['senddate'];
+	$mid=$arcRow['mid'];
+	$voteid=$arcRow['voteid'];
+	$notpost=$arcRow['notpost'];
+	$description=$arcRow['description'];
+	$keywords=$arcRow['keywords'];
+	$filename=$arcRow['filename'];
+	$dutyadmin=$arcRow['dutyadmin'];
+	$weight=$arcRow['weight'];
+
+	$pubdate=time();
+	$senddate=time();
+	//保存到附加表
+	$cts = $dsql->GetOne("SELECT addtable FROM `#@__channeltype` WHERE id='$channelid' ");
+	$addtable = trim($cts['addtable']);
+
+	$addtable_info = $dsql->GetOne("SELECT * FROM `{$addtable}` WHERE aid='$aid' ");
+//	var_dump($arcID);
+//	var_dump($addtable_info);
+//	die();
+
+	$redirecturl=$addtable_info['redirecturl'];
+	$useip=$addtable_info['userip'];
+	$body=$addtable_info['body'];
+
+	//生成文档ID
+	$arcID = GetIndexKey($arcrank,$typeid,$sortrank,$channelid,$senddate,$adminid);
+
+	$query1 = "INSERT INTO `#@__archives`(id,typeid,typeid2,sortrank,flag,ismake,channel,arcrank,click,money,title,shorttitle,
+color,writer,source,litpic,pubdate,senddate,mid,voteid,notpost,description,keywords,filename,dutyadmin,weight)
+    VALUES ('$arcID','$typeid','$typeid2','$sortrank','$flag','$ismake','$channelid','$arcrank','$click','$money','$title','$shorttitle',
+    '$color','$writer','$source','$litpic','$pubdate','$senddate','$adminid','$voteid','$notpost','$description','$keywords','$filename','$adminid','$weight');";
+
+   $query2 = "INSERT INTO `{$addtable}`(aid,typeid,redirecturl,userip,body) Values('$arcID','$typeid','$redirecturl','$useip','$body')";
+
+	$dsql->ExecuteNoneQuery($query1);
+	$dsql->ExecuteNoneQuery($query2);
+
+	//echo "<script>javascript:history.back();</script>";
+	header("location:content_list.php?channelid=1");
+}
+
+/*--------------------------
+//编辑文档
+function editArchives(){ }
+---------------------------*/
 if($dopost=='editArchives')
 {
     $query = "SELECT arc.id,arc.typeid,ch.maintable,ch.editcon
