@@ -209,6 +209,30 @@ function delAlbPicOld(picfile, pid){
           </tr>
         </table></td>
     </tr>
+
+
+      <tr>
+          <td height="75" class="bline"><table width="800" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                  <td width="110">&nbsp;发布时间：</td>
+                  <td width="250"><?php
+          $senddate=$arcRow['senddate'];
+                  $nowtime = GetDateTimeMk($senddate);
+          echo "<input name=\"senddate\" value=\"$nowtime\" type=\"text\" id=\"senddate\" style=\"width:120px;\">";
+                      ?>
+                      <script language="javascript" type="text/javascript">
+                          Calendar.setup({
+                              inputField     :    "senddate",
+                              ifFormat       :    "%Y-%m-%d %H:%M:%S",
+                              showsTime      :    true,
+                              timeFormat     :    "24"
+                          });
+                      </script></td>
+                  <td width="92"></td>
+                  <td width="368"></td>
+              </tr>
+          </table></td>
+      </tr>
     <tr>
       <td width="400%" height="24" colspan="2" class="bline"><table width="800" border="0" cellspacing="0" cellpadding="0">
           <tr>

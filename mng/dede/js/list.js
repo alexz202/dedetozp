@@ -18,6 +18,11 @@ function kwArc(aid){
 	}
 	location="archives_do.php?aid="+aid+"&dopost=makekw&qstr="+qstr;
 }
+
+function copyArc(aid){
+	if(aid==0) aid = getOneItem();
+	location="archives_do.php?aid="+aid+"&dopost=copyArchives";
+}
 function editArc(aid){
 	if(aid==0) aid = getOneItem();
 	location="archives_do.php?aid="+aid+"&dopost=editArchives";
