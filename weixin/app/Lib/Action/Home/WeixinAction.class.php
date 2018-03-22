@@ -101,7 +101,7 @@ class WeixinAction extends Action
             }
         }
         $key = $data['Content'];
-        $defaultreply="感谢您关注南汇人大微说，您有任何意见、建议都可直接在下方文本输入框告诉我。想要了解更多资讯、服务，请经常点击底部菜单栏。";
+        $defaultreply="感谢您关注临港四镇，您有任何意见、建议都可直接在下方文本输入框告诉我。想要了解更多资讯、服务，请经常点击底部菜单栏。";
         return array($defaultreply, 'text');
         return $this->keyword($key);
     }
