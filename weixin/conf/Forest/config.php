@@ -42,7 +42,7 @@ return array(
     'DEFAULT_THEME'=>'default',
     'MAPPURL'=>'http://www.pudongyanghua.com/weixin/',
     'KEYWORDS'=>array(
-        'index'=>'浦东绿化林业'
+        'index'=>'浦东环境'
     ),
     'PAGERSIZE'=>4,
     'NEWSLIST'=>array(
