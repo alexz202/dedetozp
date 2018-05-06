@@ -90,3 +90,10 @@ header.bar.bar-nav {
     color: #000000;!important;
 }
 
+.bg_botten_sg{
+    background-image:url('../images/bgbanner.png');
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center bottom;
+    background-size:100% 50%;
+}
