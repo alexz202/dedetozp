@@ -141,7 +141,27 @@ class IndexAction extends BaseAction
         $this->assign('keywords', $zpstyle[3]['key']);
         $this->display();
     }
-
+    /*
+     * 代表信息
+     */
+    public function zppsinfo1()
+    {
+        $zpstyle = C('ZPSTYLE');
+        $this->assign('active', $zpstyle[1]['value']);
+        $this->assign('keywords', $zpstyle[1]['key']);
+        $member_belong = M('member_belong');
+        $list = $member_belong->order('type asc')->select();
+        $list_ = array();
+        foreach ($list as $k => $v) {
+            $list_[$v['type']][] = array('id' => $v['id'],
+                'name' => $v['name'],
+                'type' => $v['type']
+            );
+        }
+        $this->assign('list', $list_);
+        $this->display();
+//        var_dump($list_);
+    }
 
     /*
      * 代表信息
