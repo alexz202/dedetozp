@@ -12,6 +12,7 @@ define('INDEX','index');
 define('SUGGEST','suggest');
 define('REPORT','report');
 define('ZPPSINFO','zppsinfo');
+define('ZPPSINFO1','zppsinfo1');
 define('DEAL','deal');
 define('DBZO','dbzo');
 define('SIGN','sign');
@@ -152,6 +153,8 @@ class WXUserAction extends Action
             }
             elseif($type===ZPPSINFO){
                 $url='index.php?g=Zp&m=Index&a='.ZPPSINFO;
+            }elseif($type===ZPPSINFO1){
+                $url='index.php?g=Zp&m=Index&a='.ZPPSINFO1;
             }
             elseif($type===DEAL){
                 $url='index.php?g=Zp&m=Index&a='.DEAL;
