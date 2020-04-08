@@ -6,6 +6,17 @@
  * Time: 下午11:10
  */
 class platformAction extends BaseAction{
+
+    public function indexnew(){
+        $newsModel=M('archives');
+        $condtion_news=array(
+            'typeid'=>array('in',array(35,36,38,39,41,43))
+        );
+        $list=$newsModel->where($condtion_news)->order('id desc')->limit(4)->select();
+        $this->assign('list',$list);
+        $this->display();
+    }
+
 	public function index(){
 		$newsModel=M('archives');
 		$condtion_news=array(

@@ -17,6 +17,8 @@ define('HOMETUNEWATER',39);
 define('HOMETUNERSBS',40);
 define('RDWORKROOM',41);
 define('RDWORKROOMRSBS',42);
+define('RDCOMPANYROOM',43);
+define('RDCOMPANYROOMRSBS',44);
 
 
 define('REPORT','report');
@@ -32,7 +34,7 @@ define('DBZB','dbzo');
 return array(
     //'TMPL_FILE_DEPR'=>'_',
     'DEFAULT_THEME'=>'default',
-    'MAPPURL'=>'http://118.126.11.231/dedetozp/',
+    'MAPPURL'=>'http://www.zprenda.com/dedetozp/',
     'KEYWORDS'=>array(
         'index'=>'周浦人大'
     ),
@@ -51,6 +53,9 @@ return array(
 
 		array('value'=>'人大代表工作室','id'=>RDWORKROOM,'nav'=>0),
 		array('value'=>'人大代表工作室职责','id'=>RDWORKROOMRSBS,'nav'=>0),
+
+        array('value'=>'企业代表联络站','id'=>RDCOMPANYROOM,'nav'=>0),
+        array('value'=>'企业代表联络站职责','id'=>RDCOMPANYROOMRSBS,'nav'=>0),
     ),
     'ZPSTYLE'=>array(array('key'=>'履职报道','value'=>REPORT),
         array('key'=>'代表信息','value'=>INFO),
