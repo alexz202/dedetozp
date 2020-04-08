@@ -58,9 +58,10 @@ class WXUserAction extends Action
         $scope = 'snsapi_userinfo';
         //$scope = "snsapi_base";
         //TODO oauth2
-        $oauth2url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$this->AppID&redirect_uri=$redirect_uri&response_type=code&scope=$scope&state=$scope#wechat_redirect";
+        $oauth2url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$this->AppID&redirect_uri=$redirect_uri&response_type=code&scope=$scope&state=$scope&connect_redirect=1#wechat_redirect";
       // file_put_contents('log/testoauth2',date('Y-m-d h:i:s').$redirect_uri."\r\n",FILE_APPEND);
-        header('location:' . $oauth2url);
+      		  header('HTTP/1.1 301 Moved Permanently');
+	  header('location:' . $oauth2url);
     }
 
     public function getCode()
@@ -166,7 +167,8 @@ class WXUserAction extends Action
 				$url='index.php?g=Zp&m=platform&a=index';
 			}
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
-            header('location:'.$url);
+            header('HTTP/1.1 301 Moved Permanently');
+		  header('location:'.$url);
         }
     }
 
@@ -297,12 +299,37 @@ class WXUserAction extends Action
 
     public function showqrcode(){
        $scene_id=$_GET['scene_id'];
-       $qrcodeinfo=$this->getQRCodeinfo($scene_id);
+       $filename="qrcode/".$scene_id.'.jpg';
+       if(!file_exists($filename)){
+           $qrcodeinfo=$this->getQRCodeinfo($scene_id);
+           if(is_array($qrcodeinfo)){
+               $ticket=$qrcodeinfo['ticket'];
+               $url="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket;
+               $this->saveQrCode($url,$filename);
+	       header("location:$filename");
+              // header("location:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket);
+           }else
+               die('get qrcode error');
+       }else{
+           header("location:$filename");
+       }
+	
+       /*$qrcodeinfo=$this->getQRCodeinfo($scene_id);
         if(is_array($qrcodeinfo)){
          $ticket=$qrcodeinfo['ticket'];
            header("location:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket);
         }else
             die('get qrcode error');
+	*/
+    }
+
+
+    private function saveQrCode($url,$filename=null){
+        if($filename!=null){
+            $context=file_get_contents($url);
+          return   file_put_contents($filename,$context);
+        }
+        return true;
     }
 
     private function checkSignature()
@@ -326,9 +353,9 @@ class WXUserAction extends Action
 
 
     private function getoauthinfo(){
-        $code = $_GET['code'];
+            $code = $_GET['code'];
             $state = $_GET['state'];
-            $getCodeurl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$this->AppID&secret=$this->Secret&code=$code&grant_type=authorization_code";
+            $getCodeurl = "https://sh.api.weixin.qq.com/sns/oauth2/access_token?appid=$this->AppID&secret=$this->Secret&code=$code&grant_type=authorization_code";
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $getCodeurl);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -341,9 +368,14 @@ class WXUserAction extends Action
             //   file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $getCodeurl . '||' . $output . "\r\n", FILE_APPEND);
             $openid = $returnarr['openid'];
             $access_token = $returnarr['access_token'];
+		if(empty($access_token)){
+			file_put_contents('log/get_access_token_miss.txt', date('Y-m-d H:i:s'). $code."||". $output . "\r\n", FILE_APPEND);
+			return false;
+		}
+				
             if ($state === 'snsapi_userinfo') {
                 //TODO GET USERINFO
-                $userinfourl = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
+                $userinfourl = "https://sh.api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $userinfourl);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -353,10 +385,20 @@ class WXUserAction extends Action
                 $output = curl_exec($ch);
                 curl_close($ch);
                 $userinfo = json_decode($output, true);
-                file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $userinfourl . '||' . $output . "\r\n", FILE_APPEND);
+		  if(!$userinfo||count($userinfo)==0){
+                        file_put_contents('log/get_user_info_miss.txt', date('Y-m-d H:i:s') . $output . "\r\n", FILE_APPEND);
+                        return false;
+                }  
+
+             //   file_put_contents('log/textgetcode.txt', date('Y-m-d H:i:s') . $userinfourl . '||' . $output . "\r\n", FILE_APPEND);
 				if(is_array($userinfo)){
 					$openid=$userinfo['openid'];
 					$sName=$userinfo['nickname'];
+					if(!$openid){
+						  file_put_contents('log/getopenid-err.txt', date('Y-m-d H:i:s') .json_encode($userinfo) . "\r\n", FILE_APPEND);
+						return false;
+					}	
+							
 					$member=$this->getwxmemberId($openid);
 					if(!$member){
 						$arr=array(
