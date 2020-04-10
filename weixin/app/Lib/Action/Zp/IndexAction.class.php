@@ -144,7 +144,7 @@ class IndexAction extends BaseAction
     /*
      * 代表信息
      */
-    public function zppsinfo1()
+    public function zppsinfo()
     {
         $zpstyle = C('ZPSTYLE');
         $this->assign('active', $zpstyle[1]['value']);
@@ -170,7 +170,7 @@ class IndexAction extends BaseAction
     /*
      * 代表信息
      */
-    public function zppsinfo()
+    public function zppsinfo1()
     {
         $zpstyle = C('ZPSTYLE');
         $this->assign('active', $zpstyle[1]['value']);

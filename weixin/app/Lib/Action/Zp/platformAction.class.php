@@ -7,7 +7,7 @@
  */
 class platformAction extends BaseAction{
 
-    public function indexnew(){
+    public function index(){
         $newsModel=M('archives');
         $condtion_news=array(
             'typeid'=>array('in',array(35,36,38,39,41,43))
@@ -17,15 +17,15 @@ class platformAction extends BaseAction{
         $this->display();
     }
 
-	public function index(){
-		$newsModel=M('archives');
-		$condtion_news=array(
-			'typeid'=>array('in',array(35,36,38,39,41))
-		);
-		$list=$newsModel->where($condtion_news)->order('id desc')->limit(4)->select();
-		$this->assign('list',$list);
-		$this->display();
-	}
+//	public function index(){
+//		$newsModel=M('archives');
+//		$condtion_news=array(
+//			'typeid'=>array('in',array(35,36,38,39,41))
+//		);
+//		$list=$newsModel->where($condtion_news)->order('id desc')->limit(4)->select();
+//		$this->assign('list',$list);
+//		$this->display();
+//	}
 
 	public function detail($type){
 		$model=M('arctype');

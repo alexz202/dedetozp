@@ -21,32 +21,52 @@
     <include file="../btnback"/>
     <div class="segmented-control">
         <a class="control-item active" href="#item1mobile">
-            区
+            村
         </a>
-        <a class="control-item " href="__ROOT__/index.php?g=Zp&m=Index&a=zppsinfo">
-            镇
+        <a class="control-item " href="#item2mobile">
+            社区
         </a>
         <!--<a class="control-item" href="#item3mobile">-->
             <!--企业-->
         <!--</a>-->
     </div>
     <div id="divcontrol" class="card">
-        <ul class="table-view">
-            <volist name="commentlist" id="vo">
-                <li class="table-view-cell media">
-                    <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getoneperson&id={weixin:$vo.id}" data-ignore="push">
-                        <empty name="vo['litpic']"><img class="media-object pull-left" src="http://placehold.it/42x42">
-                            <else/>
-                            <img class="media-object pull-left" src="{weixin:$vo.litpic}" style="width:45px">
-                        </empty>
-                        <div class="media-body content-padded" style="font-size:0.8em;line-height: 25px;">
-                            <p>{weixin:$vo.title}<span style="float: right">详细</span></p>
-                        </div>
-                    </a>
-                </li>
-            </volist>
-        </ul>
-        <div  class="pagerbtn"><div style="float:right;">{weixin:$page}</div></div>
+        <span id="item1mobile" class="control-content active">
+            <ul class="table-view" style="font-size: 14px;">
+                <volist name="list[1]" id="vo">
+                    <li class="table-view-cell">
+                        <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"
+                           data-ignore="push">
+                            {weixin:$vo.name}
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </span>
+        <span id="item2mobile" class="control-content">
+              <ul class="table-view" style="font-size: 14px;">
+                  <volist name="list[2]" id="vo">
+                      <li class="table-view-cell">
+                          <a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"
+                             data-ignore="push">
+                              {weixin:$vo.name}
+                          </a>
+                      </li>
+                  </volist>
+              </ul>
+        </span>
+        <!--<span id="item3mobile" class="control-content">-->
+              <!--<ul class="table-view" style="font-size: 14px;">-->
+                  <!--<volist name="list[3]" id="vo">-->
+                      <!--<li class="table-view-cell">-->
+                          <!--<a class="" href="__ROOT__/index.php?g=Zp&m=Index&a=getonebelong&bid={weixin:$vo.id}"-->
+                             <!--data-ignore="push">-->
+                              <!--{weixin:$vo.name}-->
+                          <!--</a>-->
+                      <!--</li>-->
+                  <!--</volist>-->
+              <!--</ul>-->
+        <!--</span>-->
     </div>
 </div>
 

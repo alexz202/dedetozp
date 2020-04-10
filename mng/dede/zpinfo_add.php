@@ -8,7 +8,9 @@ if(file_exists(DEDEDATA.'/template.rand.php'))
     require_once(DEDEDATA.'/template.rand.php');
 }
 if(empty($dopost)) $dopost = '';
+
 $typeid=ZPINFO;
+
 if($dopost!='save')
 {
 //    $row = $dsql->GetOne("select  * from #@__member where mid='$id'");
@@ -83,7 +85,11 @@ else if($dopost=='save')
     if(!isset($dellink)) $dellink = 0;
     if(!isset($autolitpic)) $autolitpic = 0;
     if(empty($click)) $click = ($cfg_arc_click=='-1' ? mt_rand(50, 200) : $cfg_arc_click);
-    
+
+    if(empty($typeid)){
+        $typeid=ZPINFO;
+    }
+
     if(empty($typeid))
     {
         ShowMsg("请指定文档的栏目！","-1");
