@@ -19,6 +19,10 @@ define('RDWORKROOM',41);
 define('RDWORKROOMRSBS',42);
 
 
+define('LFZHIDU',44);
+define('LFNEWREPORT',45);
+define('LFJIANYI',46);
+
 define('REPORT','report');
 define('INFO','info');
 define('DEAL','deal');
@@ -60,4 +64,9 @@ return array(
         array('key'=>'优秀代表','value'=>DBZB),
     ),
 	'GAS'=>array('key'=>'代表加油站'),
+    'LIFA'=>array(
+        array('value'=>'联系制度','id'=>LFZHIDU,'nav'=>1),
+        array('value'=>'最新安排','id'=>LFNEWREPORT,'nav'=>1),
+        array('value'=>'立法建议','id'=>LFJIANYI,'nav'=>1),
+    ),
 );

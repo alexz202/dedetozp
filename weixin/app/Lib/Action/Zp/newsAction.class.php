@@ -12,6 +12,43 @@ class newsAction extends BaseAction{
         $this->assign('keywords',$keywords['index']);
 		$this->display();
 	}
+
+	//立法
+    public function getlifalist($type=LFZHIDU)
+    {
+
+        $news=M('archives');
+        $condition['typeid']=$type;
+        $condition['arcrank']=0;
+        $newslist=C('LIFA');
+        $navlist=array();
+        foreach($newslist as $k=>$value){
+            if($type==$value['id']){
+                $keywords=$value['value'];
+                $this->assign('keywords',$keywords);
+            }
+            if($value['nav']==1){
+                $navlist[$k]=$value;
+            }
+
+        }
+        $this->assign('hit',$type);
+        $this->assign('navlist',$navlist);
+        $count_=$list=$news->where($condition)->count();
+        import('ORG.Util.Page');
+        $page=new Page($count_,C('PAGERSIZE'));
+        $page->setConfig('theme',"%upPage%   %downPage% ");
+        $list=$news->where($condition)->order('id desc')->limit($page->firstRow.','.$page->listRows)->select();
+        //  var_dump($list);
+        //    die();
+        $show=$page->show();
+        $this->assign('commentlist',$list);
+        $this->assign('page',$show);
+        $this->assign('count',$count_);
+        $this->assign('type',$type);
+        $this->display();
+    }
+
     public function getnewslist($type=WORKER)
     {
 

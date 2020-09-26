@@ -1,0 +1,13 @@
+<nav class="bar bar-tab" style="background-color:#c40000;color:#ffffff;font-size: 12pt;">
+    <volist name="navlist" id="vo">
+        <if condition="$vo['id'] eq $hit">
+            <a class="tab-item active" href="__ROOT__/index.php?g=Zp&m=news&a=getlifalist&type={weixin:$vo.id}" data-ignore="push">
+                {weixin:$vo.value}
+            </a>
+            <else/>
+            <a class="tab-item " href="__ROOT__/index.php?g=Zp&m=news&a=getnewslifa&type={weixin:$vo.id}" data-ignore="push">
+                {weixin:$vo.value}
+            </a>
+        </if>
+    </volist>
+</nav>a
