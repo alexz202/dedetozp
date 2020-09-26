@@ -36,7 +36,7 @@ define('DBZB','dbzo');
 return array(
     //'TMPL_FILE_DEPR'=>'_',
     'DEFAULT_THEME'=>'default',
-    'MAPPURL'=>'http://www.lgrenda.com/weixin/',
+    'MAPPURL'=>'http://www.lgrenda.cn/weixin/',
     'KEYWORDS'=>array(
         'index'=>'临港四镇'
     ),
