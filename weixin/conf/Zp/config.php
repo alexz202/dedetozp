@@ -27,6 +27,7 @@ define('REPORT','report');
 define('INFO','info');
 define('DEAL','deal');
 define('DBZB','dbzo');
+define('LIFA','lifa');
 /**
  * Created by PhpStorm.
  * User: alexzhu
