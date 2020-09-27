@@ -102,6 +102,7 @@ else if($dopost=='save')
 
     //对保存的内容进行处理
     $pubdate = GetMkTime($pubdate);
+    $senddate=GetMkTime($senddate);
     $sortrank = AddDay($pubdate,$sortup);
     $ismake = $ishtml==0 ? -1 : 0;
     $autokey = 1;
@@ -192,6 +193,7 @@ else if($dopost=='save')
     source='$source',
     litpic='$litpic',
     pubdate='$pubdate',
+    senddate='$senddate',
     voteid='$voteid',
     notpost='$notpost',
     description='$description',
