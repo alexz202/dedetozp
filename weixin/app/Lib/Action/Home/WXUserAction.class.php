@@ -18,6 +18,7 @@ define('SIGN','sign');
 define('TGAS','gas');
 define('TONLINE','online');
 define('TPLATFORM','platform');
+define('TLIFA','lifa');
 
 class WXUserAction extends Action
 {
@@ -164,7 +165,7 @@ class WXUserAction extends Action
 				$url='index.php?g=Zp&m=online&a=index';
 			}elseif($type===TPLATFORM){
 				$url='index.php?g=Zp&m=platform&a=index';
-			}elseif($type===LIFA){
+			}elseif($type===TLIFA){
                 $url='index.php?g=Zp&m=news&a=getlifalist&type='.LFZHIDU;
             }
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
