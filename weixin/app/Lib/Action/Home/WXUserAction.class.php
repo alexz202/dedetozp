@@ -166,7 +166,7 @@ class WXUserAction extends Action
 			}elseif($type===TPLATFORM){
 				$url='index.php?g=Zp&m=platform&a=index';
 			}elseif($type===TLIFA){
-                $url='index.php?g=Zp&m=news&a=getlifalist&type='.LFZHIDU;
+                $url='index.php?g=Zp&m=news&a=getlifalist&type=44';
             }
           //  file_put_contents('log/testnoreg',date('Y-m-d h:i:s').$url."\r\n",FILE_APPEND);
             header('location:'.$url);
