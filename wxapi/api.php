@@ -86,7 +86,7 @@ if($type==1){
         echo "get menu error";
     }
 }elseif ($type==2){
-    $result->createMenu($menu);
+    $result=$wxClass->createMenu($menu);
     if($result){
         echo "operation completed";
     }else{
