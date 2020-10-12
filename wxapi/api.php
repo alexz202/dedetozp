@@ -12,22 +12,17 @@ $config=array(
 );
 $menu = [
     'button'=>[
-        ['name'=>'人大之窗',
+        ['name'=>'人大要闻',
             'sub_button' => [
                 [
-                    'name'=>'工作要闻',
+                    'name'=>'工作动态',
                     'type'=>'view',
-                    'url' => 'http:///www.lgrenda.cn/weixin/index.php?g=Zp\&m=news\&a=getnewslist'
+                    'url' => 'http:///www.lgrenda.cn/weixin/index.php?g=Zp&m=news&a=getnewslist'
                 ],
                 [
-                    'name'=>'他山之石',
+                    'name'=>'立法联系',
                     'type'=>'view',
-                    'url' => 'http:///www.lgrenda.cn/weixin/index.php?g=Zp\&m=news\&a=getnewslist\&type=14'
-                ],
-                [
-                    'name'=>'人大概览',
-                    'type'=>'view',
-                    'url' => 'http:///www.lgrenda.cn/weixin/index.php?g=Zp\&m=news\&a=getnewslist\&type=16'
+                    'url' => 'http://www.lgrenda.cn/weixin/index.php/Home/WXUser/oauth2/noreg/lifa'
                 ],
             ]
         ],
@@ -50,28 +45,23 @@ $menu = [
                 ]
             ]
         ],
-        ['name'=>'人大工作',
+        ['name'=>'人大之窗',
             'sub_button' => [
                 [
-                    'name'=>'立法联系',
+                    'name'=>'人大概览',
                     'type'=>'view',
-                    'url' => 'http://www.lgrenda.cn/weixin/index.php/Home/WXUser/oauth2/noreg/lifa'
+                    'url' => 'http:///www.lgrenda.cn/weixin/index.php?g=Zp&m=news&a=getnewslist&type=16'
                 ],
                 [
-                    'name'=>'代表加油站',
+                    'name'=>'他山之石',
                     'type'=>'view',
-                    'url' => 'http://www.lgrenda.cn/weixin/index.php/Home/WXUser/oauth2/noreg/gas'
+                    'url' => 'http:///www.lgrenda.cn/weixin/index.php?g=Zp&m=news&a=getnewslist&type=14'
                 ],
                 [
                     'name'=>'在线互动',
                     'type'=>'view',
                     'url' => 'http://www.lgrenda.cn/weixin/index.php/Home/WXUser/oauth2/noreg/online'
                 ],
-                [
-                    'name'=>'代表签到',
-                    'type'=>'view',
-                    'url' => 'http://www.lgrenda.cn/weixin/index.php?g=Zp\&m=online\&a=signguide'
-                ]
             ]
         ],
     ]
