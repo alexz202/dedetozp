@@ -81,7 +81,7 @@ $wxClass=new \config\Wechat($config);
 if($type==1){
     $result=$wxClass->getMenu();
     if($result){
-        echo $result;
+        var_dump($result);
     }else{
         echo "get menu error";
     }

@@ -1,6 +1,7 @@
 <?php
 namespace config;
-
+//use lib\db\RedisDB as Redis;
+//use lib\Log;
 /**
  *	微信公众平台PHP-SDK, 官方API部分
  *  @author  dodge <dodgepudding@gmail.com>
@@ -1123,8 +1124,9 @@ class Wechat
      * @return boolean
      */
     protected function setCache($cachename,$value,$expired){
-        $redis = Redis::getInstance('user')->getRedis();
-        return $redis->set($cachename,$value,$expired);
+//        $redis = Redis::getInstance('user')->getRedis();
+//        return $redis->set($cachename,$value,$expired);
+        return true;
     }
     /**
      * 获取缓存，按需重载
@@ -1133,8 +1135,9 @@ class Wechat
      */
     protected function getCache($cachename){
         //TODO: get cache implementation
-        $redis = Redis::getInstance('user')->getRedis();
-        return $redis->get($cachename);
+//        $redis = Redis::getInstance('user')->getRedis();
+//        return $redis->get($cachename);
+        return false;
     }
     /**
      * 清除缓存，按需重载
@@ -1142,9 +1145,10 @@ class Wechat
      * @return boolean
      */
     protected function removeCache($cachename){
+        return true;
         //TODO: remove cache implementation
-        $redis = Redis::getInstance('user')->getRedis();
-        return $redis->del($cachename);
+//        $redis = Redis::getInstance('user')->getRedis();
+//        return $redis->del($cachename);
     }
     /**
      * 获取access_token
