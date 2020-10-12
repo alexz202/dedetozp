@@ -42,7 +42,7 @@ return array(
         'index'=>'临港四镇'
     ),
     'PAGERSIZE'=>4,
-    'NEWSLIST'=>array(array('value'=>'工作要闻','id'=>WORKER,'nav'=>1),
+    'NEWSLIST'=>array(array('value'=>'工作动态','id'=>WORKER,'nav'=>1),
         array('value'=>'他山之石','id'=>STONE,'nav'=>1),
         array('value'=>'人大概览','id'=>RENDA,'nav'=>1),
 
